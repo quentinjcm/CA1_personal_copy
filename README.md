@@ -1,6 +1,6 @@
 #Computing For Animation 1 Assignment
 
-this repo is for you to submit your computing for animation assignment. 
+this repo is for you to submit your computing for animation assignment. There will also be a myBU submission space for the video of the project working.
 
 Use this file for the project documentation and report. You can learn about markdown syntax [here]( https://help.github.com/articles/github-flavored-markdown/)
 
@@ -22,6 +22,6 @@ git add .
 git commit -am "added files"
 git push origin master
 ```
-The commit message should make sence in the context of what you are doing such as modify certain files etc.
+The commit message should make sense in the context of what you are doing such as modify certain files etc.
 
 
