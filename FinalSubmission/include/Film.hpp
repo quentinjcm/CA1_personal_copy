@@ -16,17 +16,16 @@ public:
   void setDiffusePixel(int _x, int _y, SDL_Color _colour);
   int getFilmWidth(){ return m_filmWidth; }
   int getFilmHeight(){ return m_filmHeight; }
-  void show();
+  std::vector<SDL_Color>* getDiffuseArr(){ return &m_diffuse; }
+  std::vector<SDL_Color>* getNormalArr(){ return &m_normals; }
+  std::vector<SDL_Color>* getDepthArr(){ return &m_depth; }
 
 private:
   int m_filmWidth;
   int m_filmHeight;
-  SDL_Renderer *m_renderer;
   std::vector<SDL_Color> m_normals;
   std::vector<SDL_Color> m_depth;
   std::vector<SDL_Color> m_diffuse;
-  void init();
-  void drawPixels();
   Uint8 clipColour(int n);
 };
 

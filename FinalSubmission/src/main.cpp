@@ -18,10 +18,13 @@
 #include "Renderer.hpp"
 #include "BBox.hpp"
 #include "Material.hpp"
+#include "SDLWindow.hpp"
+
 int main()
 {
 
   Film film(401, 401);
+  SDLWindow renderWindow(&film);
 
   ngl::Vec3 pos(0, 0, 0);
   ngl::Vec3 lookAt(0, 0, 100);
@@ -56,6 +59,7 @@ int main()
   new_renderer.renderImage();
   //task.join();
 
-  film.show();
+  //film.show();
+  renderWindow.run();
   return EXIT_SUCCESS;
 }
