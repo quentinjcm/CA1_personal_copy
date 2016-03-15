@@ -23,6 +23,9 @@ public:
   /// @param [in] _direction is a vector indicating the direction of the ray
   Ray(ngl::Vec3 _origin, ngl::Vec3 _direction);
 
+  /// @brief sets the inverse direction, 1/m_direction{x, y, z}, to be used in ray/bbox intersections
+  void setInvDirection();
+
   /// @brief origin of the ray
   ngl::Vec3 m_origin;
 

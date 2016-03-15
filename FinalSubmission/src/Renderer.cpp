@@ -4,11 +4,12 @@
 #include "Camera.hpp"
 #include "Film.hpp"
 #include "IsectData.hpp"
+#include "Primative.hpp"
 
-Renderer::Renderer(Camera *_cam, Film *_film, std::shared_ptr<TriangleMesh> _mesh):
+Renderer::Renderer(Camera *_cam, Film *_film, std::shared_ptr<Primative> _scene):
   m_film(_film),
   m_cam(_cam),
-  m_mesh(_mesh)
+  m_scene(_scene)
 {
   std::cout << "Renderer created" << std::endl;
 }
@@ -25,14 +26,15 @@ void Renderer::renderImage()
       m_cam->generateRay(x, y, &newRay);
 
       //intersect ray with scene
-      if (m_mesh->intersect(newRay, &intersection)){
-        m_film->setPixle(x, y, intersection.m_n[0]*255,
-                               intersection.m_n[1]*255,
-                               intersection.m_n[2]*255,
-                               255);
+      if (m_scene->intersect(newRay, &intersection)){
+        m_film->setNormalPixle(x, y, intersection.m_n);
+        m_film->setDepthPixel(x, y, intersection.m_t);
+        m_film->setDiffusePixel(x, y, intersection.m_material->m_diffuseColour);
       }
       else{
-        m_film->setPixle(x, y, 255, 255, 255, 255);
+        m_film->setNormalPixle(x, y, ngl::Vec3(0, 0, 0));
+        m_film->setDepthPixel(x, y, 0);
+        m_film->setDiffusePixel(x, y, SDL_Color{0, 0, 0, 1});
       }
     }
   }

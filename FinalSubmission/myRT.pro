@@ -17,7 +17,8 @@ SOURCES+=$$PWD/src/main.cpp \
          $$PWD/src/Primative.cpp \
          $$PWD/src/GeometricPrim.cpp \
          $$PWD/src/Meshes.cpp \
-         $$PWD/src/Renderer.cpp
+         $$PWD/src/Renderer.cpp \
+         $$PWD/src/Material.cpp
 
 HEADERS+=$$PWD/include/Triangle.hpp \
          $$PWD/include/TriangleMesh.hpp \
@@ -30,7 +31,8 @@ HEADERS+=$$PWD/include/Triangle.hpp \
          $$PWD/include/Primative.hpp \
          $$PWD/include/GeometricPrim.hpp \
          $$PWD/include/Meshes.hpp \
-         $$PWD/include/Renderer.hpp
+         $$PWD/include/Renderer.hpp \
+         $$PWD/include/Material.hpp
 
 include($(HOME)/NGL/UseNGL.pri)
 

@@ -86,4 +86,5 @@ void Camera::generateRay(int _x, int _y, Ray *_ray)
   //pass origin and direction to the ray
   _ray->m_direction = directionOut;
   _ray->m_origin = originOut;
+  _ray->setInvDirection();
 }

@@ -2,34 +2,41 @@
 
 #include <SDL2/SDL.h>
 
+#include <ngl/Vec3.h>
+
 #include "Film.hpp"
 
 Film::Film(int _w, int _h):
   m_filmWidth(_w),
   m_filmHeight(_h),
-  m_pixelArr(_w * _h, SDL_Color{255, 255, 255, 255})
+  m_depth(_w * _h, SDL_Color{255, 255, 255, 255}),
+  m_normals(_w * _h, SDL_Color{255, 255, 255, 255}),
+  m_diffuse(_w * _h, SDL_Color{255, 255, 255, 255})
 {
   std::cout << "film created: " << _w << ", " << _h << std::endl;
   init();
 }
 
-void Film::setPixle(int _x, int _y, int _r, int _g, int _b, int _a)
+void Film::setNormalPixle(int _x, int _y, ngl::Vec3 _normal)
 {
-  SDL_Color temp{clipColour(_r),
-                 clipColour(_g),
-                 clipColour(_b),
-                 clipColour(_a)};
-  m_pixelArr[_x + m_filmWidth * _y] = temp;
+  SDL_Color temp{clipColour(_normal[0] * 255),
+                 clipColour(_normal[1] * 255),
+                 clipColour(_normal[2] * 255),
+                 255};
+  m_normals[_x + m_filmWidth * _y] = temp;
 }
 
-void Film::getPixel(int _x, int _y)
+void Film::setDepthPixel(int _x, int _y, float _depth)
 {
-  Uint8 r = m_pixelArr[_x + m_filmWidth * _y].r;
-  Uint8 g = m_pixelArr[_x + m_filmWidth * _y].g;
-  Uint8 b = m_pixelArr[_x + m_filmWidth * _y].b;
-  Uint8 a = m_pixelArr[_x + m_filmWidth * _y].a;
+  SDL_Color temp{clipColour(_depth),
+                 clipColour(_depth),
+                 clipColour(_depth),
+                 255};
+  m_depth[_x + m_filmWidth * _y] = temp;
+}
 
-  std::cout << "colour is " << unsigned(r) << " " << unsigned(g) << " " << unsigned(b) << " " << unsigned(a) << std::endl;
+void Film::setDiffusePixel(int _x, int _y, SDL_Color _colour){
+  m_diffuse[_x + m_filmWidth * _y] = _colour;
 }
 
 void Film::show()
@@ -70,10 +77,10 @@ void Film::drawPixels()
   for (int x = 0; x < m_filmWidth; x++){
     for (int y = 0; y < m_filmHeight; y++){
       SDL_SetRenderDrawColor(m_renderer,
-                             m_pixelArr[x + m_filmWidth * y].r,
-                             m_pixelArr[x + m_filmWidth * y].g,
-                             m_pixelArr[x + m_filmWidth * y].b,
-                             m_pixelArr[x + m_filmWidth * y].a);
+                             m_normals[x + m_filmWidth * y].r,
+                             m_normals[x + m_filmWidth * y].g,
+                             m_normals[x + m_filmWidth * y].b,
+                             m_normals[x + m_filmWidth * y].a);
       SDL_RenderDrawPoint(m_renderer, x, y);
     }
   }

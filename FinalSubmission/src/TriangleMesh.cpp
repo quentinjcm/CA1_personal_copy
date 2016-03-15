@@ -2,6 +2,7 @@
 #include <vector>
 
 #include <ngl/Vec3.h>
+#include <ngl/NGLStream.h>
 
 #include "TriangleMesh.hpp"
 #include "Triangle.hpp"
@@ -21,7 +22,7 @@ bool TriangleMesh::intersect(const Ray &_ray, IsectData *_intersection)
 
 bool TriangleMesh::intersectBBox(const Ray &_ray)
 {
-  return true;
+  return m_meshBound.intersect(_ray);
 }
 
 bool TriangleMesh::intersectMesh(const Ray &_ray, IsectData *_intersection)
