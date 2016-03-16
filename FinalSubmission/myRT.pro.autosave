@@ -46,6 +46,8 @@ HEADERS+=$$PWD/include/Triangle.hpp \
          $$PWD/include/Light.hpp \
          $$PWD/include/BRDF.hpp
 
+
+
 include($(HOME)/NGL/UseNGL.pri)
 
 INCLUDEPATH+=./include

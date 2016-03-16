@@ -7,6 +7,17 @@
 
 #include "Ray.hpp"
 
+/// @file BBox.hpp
+/// @brief File contaiing the BBox class which are bounding boxes for the triangle meshes
+/// @author Quentin Corker-Marin
+/// @version 1.0
+/// @date 12/03/2016
+/// @class BBox
+/// @brief The BBox class holds the data for bounding boxes that contain triangle meshes. They
+/// also implement the ray/bounding box intersection algorithm to speed up intersection checks
+/// for rays. If a ray doesnt intersect the bbox, then it is not checked for intersections with
+/// the contained triangles
+
 class BBox
 {
 public:

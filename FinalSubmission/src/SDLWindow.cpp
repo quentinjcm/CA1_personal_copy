@@ -11,13 +11,6 @@ SDLWindow::SDLWindow(Film *_film):
   m_pixelsToDraw(m_film->getDiffuseArr())
 {
   init();
-  m_window = SDL_CreateWindow("Film",
-                              SDL_WINDOWPOS_CENTERED,
-                              SDL_WINDOWPOS_CENTERED,
-                              m_windowWidth,
-                              m_windowHeight,
-                              SDL_WINDOW_SHOWN);
-  m_renderer = SDL_CreateRenderer(m_window, -1, SDL_RENDERER_ACCELERATED);
 }
 
 void SDLWindow::init()
@@ -29,6 +22,13 @@ void SDLWindow::init()
 
 void SDLWindow::run()
 {
+  m_window = SDL_CreateWindow("Film",
+                              SDL_WINDOWPOS_CENTERED,
+                              SDL_WINDOWPOS_CENTERED,
+                              m_windowWidth,
+                              m_windowHeight,
+                              SDL_WINDOW_SHOWN);
+  m_renderer = SDL_CreateRenderer(m_window, -1, SDL_RENDERER_ACCELERATED);
   bool go = true;
   while(go){
     SDL_SetRenderDrawColor(m_renderer, 100, 100, 100, 255);

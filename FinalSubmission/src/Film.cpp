@@ -1,4 +1,5 @@
 #include <iostream>
+#include <algorithm>
 
 #include <SDL2/SDL.h>
 
@@ -17,9 +18,10 @@ Film::Film(int _w, int _h):
 
 void Film::setNormalPixle(int _x, int _y, ngl::Vec3 _normal)
 {
+  _normal.normalize();
   SDL_Color temp{clipColour(_normal[0] * 255),
                  clipColour(_normal[1] * 255),
-                 clipColour(_normal[2] * 255),
+                 clipColour(_normal[2] * -255),
                  255};
   m_normals[_x + m_filmWidth * _y] = temp;
 }
