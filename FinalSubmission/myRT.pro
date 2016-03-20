@@ -1,6 +1,6 @@
 TARGET=myRT
 
-CONFIG+=c++14
+CONFIG+=c++11
 CONFIG+=-pthread
 
 OBJECTS_DIR=obj
@@ -20,11 +20,11 @@ SOURCES+=$$PWD/src/main.cpp \
          $$PWD/src/Renderer.cpp \
          $$PWD/src/Material.cpp \
          $$PWD/src/SDLWindow.cpp \
-         $$PWD/src/RenderTask.cpp \
          $$PWD/src/Scene.cpp \
-         $$PWD/src/AggregatePrim.cpp \
          $$PWD/src/Light.cpp \
-         $$PWD/src/BRDF.cpp
+         $$PWD/src/BRDF.cpp \
+         $$PWD/src/TextureFile.cpp \
+         $$PWD/src/RenderTask.cpp
 
 HEADERS+=$$PWD/include/Triangle.hpp \
          $$PWD/include/TriangleMesh.hpp \
@@ -40,11 +40,12 @@ HEADERS+=$$PWD/include/Triangle.hpp \
          $$PWD/include/Renderer.hpp \
          $$PWD/include/Material.hpp \
          $$PWD/include/SDLWindow.hpp \
-         $$PWD/include/RenderTask.hpp \
          $$PWD/include/Scene.hpp \
-         $$PWD/include/AggregatePrim.hpp \
          $$PWD/include/Light.hpp \
-         $$PWD/include/BRDF.hpp
+         $$PWD/include/BRDF.hpp \
+         $$PWD/include/TextureFile.hpp \
+         $$PWD/include/RenderTask.hpp
+
 
 include($(HOME)/NGL/UseNGL.pri)
 
@@ -52,6 +53,10 @@ INCLUDEPATH+=./include
 
 QMAKE_CXXFLAGS+=$$system(sdl2-config --cflags)
 
+
 LIBS+=$$system(sdl2-config --libs)
+
+
+
 
 OTHER_FILES+=todo.txt

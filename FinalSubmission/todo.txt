@@ -1,10 +1,5 @@
-split renderer into renderer and render tasks
-
 comment fully functional classes
 
 add light class
   now writing brdf class
-
-get rid of aggregate primative
-
 

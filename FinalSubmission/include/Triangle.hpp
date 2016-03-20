@@ -2,10 +2,12 @@
 #define __TRIANGLE_HPP__
 
 #include <ngl/Vec3.h>
+#include <ngl/Vec2.h>
 #include <ngl/Util.h>
 
 #include "Ray.hpp"
 #include "IsectData.hpp"
+#include "BBox.hpp"
 
 /// @file Triangle.hpp
 /// @brief File contaiing the Triangle class
@@ -19,6 +21,10 @@
 class Triangle
 {
 public:
+  Triangle(ngl::Vec3 _v0, ngl::Vec3 _v1, ngl::Vec3 _v2,
+           ngl::Vec3 _n0, ngl::Vec3 _n1, ngl::Vec3 _n2,
+           ngl::Vec2 _uv0,ngl::Vec2 _uv1,ngl::Vec2 _uv2);
+
   /// @brief ctor for triangle class that takes in positions and normals
   /// @param [in] _v0 first point in the triangle
   /// @param [in] _v1 second point in the triangle
@@ -40,6 +46,8 @@ public:
   /// @param [in] *_intersection a data structure th store information about the point of intersection if there is one
   /// @param [out] a boolean that indicates wehter the intersection was successfull
   bool intersect(const Ray &_ray, IsectData *_intersection);
+
+  bool intersectBBox(const Ray &_ray);
 
   /// @brief a method for printing the information contained within the triangle
   /// can probably be taken out as it was only needed for debuging early on
@@ -63,7 +71,14 @@ public:
   /// @brief Normal associated with vertex 3
   const ngl::Vec3 m_n2;
 
+  const ngl::Vec2 m_uv0;
+
+  const ngl::Vec2 m_uv1;
+
+  const ngl::Vec2 m_uv2;
+
   private:
+
   /// @brief Normal to the plane formed from the 3 verticies, calculated at construction
   ngl::Vec3 m_n;
 

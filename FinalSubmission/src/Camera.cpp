@@ -70,21 +70,20 @@ void Camera::generateRay(int _x, int _y, Ray *_ray)
                       yScreen,
                       1,
                       1);
-
+  //std::cout << std::endl << direction << std::endl;
   //transform origin and direction into world space
   origin = m_camToWorld * origin;
   direction = m_rotate * direction;
-
-  direction.normalize();
-
+  //direction.normalize();
   //convert from ngl::Vec4 to ngl::Vec3
   ngl::Vec3 originOut;
   ngl::Vec3 directionOut;
   originOut.set(origin);
   directionOut.set(direction);
-
   //pass origin and direction to the ray
+
   _ray->m_direction = directionOut;
   _ray->m_origin = originOut;
   _ray->setInvDirection();
+
 }

@@ -1,6 +1,8 @@
 #include <iostream>
+#include <thread>
 
 #include "Renderer.hpp"
+#include "RenderTask.hpp"
 #include "Camera.hpp"
 #include "Film.hpp"
 #include "IsectData.hpp"
@@ -17,25 +19,30 @@ Renderer::Renderer(Camera *_cam, Film *_film, std::shared_ptr<Primative> _scene)
 
 void Renderer::renderImage()
 {
-  for (int x = 0; x < m_film->getFilmWidth(); x++){
-    for (int y = 0; y < m_film->getFilmHeight(); y++){
-      //generate ray
-      //std::cout << " rendering pixel " << x << ", " << y << std::endl;
-      Ray newRay;
-      IsectData intersection;
-      m_cam->generateRay(x, y, &newRay);
-
-      //intersect ray with scene
-      if (m_scene->intersect(newRay, &intersection)){
-        m_film->setNormalPixle(x, y, intersection.m_n);
-        m_film->setDepthPixel(x, y, intersection.m_t);
-        m_film->setDiffusePixel(x, y, intersection.m_material->m_diffuseColour);
+  for (int x = 0; x < m_film->getFilmWidth(); x += 32){
+    for (int y = 0; y < m_film->getFilmHeight(); y += 32){
+      int xInc = 32;
+      int yInc = 32;
+      if (x + 32 >= m_film->getFilmWidth()){
+        xInc = m_film->getFilmWidth() - x - 1;
       }
-      else{
-        m_film->setNormalPixle(x, y, ngl::Vec3(0, 0, 0));
-        m_film->setDepthPixel(x, y, 0);
-        m_film->setDiffusePixel(x, y, SDL_Color{0, 0, 0, 1});
+      if (y + 32 >= m_film->getFilmHeight()){
+        yInc = m_film->getFilmHeight() - y - 1;
       }
+      std::cout << "creating rendertask" << x << "," << y << "," << x + xInc << "," << y + yInc << "," << std::endl;
+      m_tasks.push_back(RenderTask(m_cam,
+                                   m_film,
+                                   m_scene,
+                                   x, y,
+                                   x+xInc, y+yInc));
     }
+  }
+  std::vector<std::thread> threads;
+  for (RenderTask &task: m_tasks){
+    threads.push_back(std::thread(&RenderTask::render, &task));
+    //task.render();
+  }
+  for (std::thread &task: threads){
+    task.join();
   }
 }

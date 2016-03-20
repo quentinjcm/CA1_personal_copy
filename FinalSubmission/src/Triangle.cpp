@@ -3,12 +3,25 @@
 
 #include <ngl/Vec3.h>
 #include <ngl/NGLStream.h>
+#include <ngl/Vec2.h>
 
 #include "Triangle.hpp"
 #include "Ray.hpp"
 
 ///@file Triangle.cpp
 ///@brief Implementation file for the Triangle class
+
+Triangle::Triangle(ngl::Vec3 _v0, ngl::Vec3 _v1, ngl::Vec3 _v2,
+                   ngl::Vec3 _n0, ngl::Vec3 _n1, ngl::Vec3 _n2,
+                   ngl::Vec2 _uv0,ngl::Vec2 _uv1,ngl::Vec2 _uv2):
+  m_v0(_v0), m_v1(_v1), m_v2(_v2),
+  m_n0(_n0), m_n1(_n1), m_n2(_n2),
+  m_uv0(_uv0), m_uv1(_uv1), m_uv2(_uv2)
+{
+  calcN();
+  calcD();
+  calcDominantAxis();
+}
 
 Triangle::Triangle(ngl::Vec3 _v0, ngl::Vec3 _v1, ngl::Vec3 _v2,
                    ngl::Vec3 _n0, ngl::Vec3 _n1, ngl::Vec3 _n2):
@@ -96,9 +109,12 @@ bool Triangle::intersect(const Ray &_ray, IsectData *_intersection)
     if (alpha >= 0 & beta >= 0 and (alpha + beta) <=1){
       //filling the intersction data structure with data about the intersection point
       ngl::Vec3 interpolatedNormal = m_n0 * (1 - (alpha + beta)) + m_n1 * alpha + m_n2 * beta;
+      ngl::Vec2 interpolatedUV(m_uv0[0] * (1 - (alpha + beta)) + m_uv1[0] * alpha + m_uv2[0] * beta,
+                               m_uv0[1] * (1 - (alpha + beta)) + m_uv1[1] * alpha + m_uv2[1] * beta);
       _intersection->m_t = t;
       _intersection->m_pos = p;
       _intersection->m_n = interpolatedNormal;
+      _intersection->m_uv = interpolatedUV;
       return true;
     }
     else{

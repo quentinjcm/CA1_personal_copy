@@ -4,6 +4,7 @@
 #include <memory>
 
 #include <ngl/Vec3.h>
+#include <ngl/Vec2.h>
 
 #include "Material.hpp"
 
@@ -14,6 +15,7 @@ public:
   float m_t;
   ngl::Vec3 m_pos;
   ngl::Vec3 m_n;
+  ngl::Vec2 m_uv;
   std::shared_ptr<Material> m_material;
 
 };

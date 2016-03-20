@@ -1,0 +1,27 @@
+std::shared_ptr<TriangleMesh> Meshes::scene1()
+{
+	auto meshOut = std::make_shared<TriangleMesh>();
+	ngl::Vec3 t1v0(-50.000000,-0.000000,50.000000);
+	ngl::Vec3 t1v1(50.000000,-0.000000,50.000000);
+	ngl::Vec3 t1v2(-50.000000,0.000000,-50.000000);
+	ngl::Vec3 t1n0(0.000000,1.000000,0.000000);
+	ngl::Vec3 t1n1(0.000000,1.000000,0.000000);
+	ngl::Vec3 t1n2(0.000000,1.000000,0.000000);
+	ngl::Vec2 t1uv0(0.000000,0.000000);
+	ngl::Vec2 t1uv1(1.000000,0.000000);
+	ngl::Vec2 t1uv2(0.000000,1.000000);
+	Triangle t1(t1v0, t1v1, t1v2, t1n0, t1n1, t1n2, t1uv0, t1uv1, t1uv2);
+	meshOut->addTri(t1);
+	ngl::Vec3 t2v0(-50.000000,0.000000,-50.000000);
+	ngl::Vec3 t2v1(50.000000,-0.000000,50.000000);
+	ngl::Vec3 t2v2(50.000000,0.000000,-50.000000);
+	ngl::Vec3 t2n0(0.000000,1.000000,0.000000);
+	ngl::Vec3 t2n1(0.000000,1.000000,0.000000);
+	ngl::Vec3 t2n2(0.000000,1.000000,0.000000);
+	ngl::Vec2 t2uv0(0.000000,1.000000);
+	ngl::Vec2 t2uv1(1.000000,0.000000);
+	ngl::Vec2 t2uv2(1.000000,1.000000);
+	Triangle t2(t2v0, t2v1, t2v2, t2n0, t2n1, t2n2, t2uv0, t2uv1, t2uv2);
+	meshOut->addTri(t2);
+	return meshOut;
+}
