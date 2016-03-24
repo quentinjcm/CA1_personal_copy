@@ -122,5 +122,5 @@ class rtParse:
 		self.file_out.write("\treturn meshOut;\n}")
 
 
-a = rtParse("bot.obj", "bot.txt")
+a = rtParse("sphere3.obj", "sphere3.txt")
 a.runParser()

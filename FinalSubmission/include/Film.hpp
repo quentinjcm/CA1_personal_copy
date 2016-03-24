@@ -5,6 +5,7 @@
 #include <memory>
 
 #include <ngl/Vec3.h>
+#include <ngl/Colour.h>
 
 #include <SDL2/SDL.h>
 
@@ -14,21 +15,21 @@ class Film
 {
 public:
   Film(int _w, int _h);
-  void setNormalPixle(int _x, int _y, SDL_Color _c);
-  void setDepthPixel(int _x, int _y, SDL_Color _c);
-  void setDiffusePixel(int _x, int _y, SDL_Color _c);
+  void setNormalPixle(int _x, int _y, ngl::Colour _c);
+  void setDepthPixel(int _x, int _y, ngl::Colour _c);
+  void setDiffusePixel(int _x, int _y, ngl::Colour _c);
   int getFilmWidth(){ return m_filmWidth; }
   int getFilmHeight(){ return m_filmHeight; }
-  std::vector<SDL_Color>* getDiffuseArr(){ return &m_diffuse; }
-  std::vector<SDL_Color>* getNormalArr(){ return &m_normals; }
-  std::vector<SDL_Color>* getDepthArr(){ return &m_depth; }
+  std::vector<ngl::Colour>* getDiffuseArr(){ return &m_diffuse; }
+  std::vector<ngl::Colour>* getNormalArr(){ return &m_normals; }
+  std::vector<ngl::Colour>* getDepthArr(){ return &m_depth; }
 
 private:
   int m_filmWidth;
   int m_filmHeight;
-  std::vector<SDL_Color> m_normals;
-  std::vector<SDL_Color> m_depth;
-  std::vector<SDL_Color> m_diffuse;
+  std::vector<ngl::Colour> m_normals;
+  std::vector<ngl::Colour> m_depth;
+  std::vector<ngl::Colour> m_diffuse;
   Uint8 clipColour(int n);
 };
 

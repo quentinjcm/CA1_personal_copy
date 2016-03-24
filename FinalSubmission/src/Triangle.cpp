@@ -6,6 +6,7 @@
 #include <ngl/Vec2.h>
 
 #include "Triangle.hpp"
+#include "TriangleData.hpp"
 #include "Ray.hpp"
 
 ///@file Triangle.cpp
@@ -14,29 +15,9 @@
 Triangle::Triangle(ngl::Vec3 _v0, ngl::Vec3 _v1, ngl::Vec3 _v2,
                    ngl::Vec3 _n0, ngl::Vec3 _n1, ngl::Vec3 _n2,
                    ngl::Vec2 _uv0,ngl::Vec2 _uv1,ngl::Vec2 _uv2):
-  m_v0(_v0), m_v1(_v1), m_v2(_v2),
-  m_n0(_n0), m_n1(_n1), m_n2(_n2),
-  m_uv0(_uv0), m_uv1(_uv1), m_uv2(_uv2)
+  m_v0(_v0), m_v1(_v1), m_v2(_v2)
 {
-  calcN();
-  calcD();
-  calcDominantAxis();
-}
-
-Triangle::Triangle(ngl::Vec3 _v0, ngl::Vec3 _v1, ngl::Vec3 _v2,
-                   ngl::Vec3 _n0, ngl::Vec3 _n1, ngl::Vec3 _n2):
-  m_v0(_v0), m_v1(_v1), m_v2(_v2),
-  m_n0(_n0), m_n1(_n1), m_n2(_n2)
-{
-  calcN();
-  calcD();
-  calcDominantAxis();
-}
-
-Triangle::Triangle(ngl::Vec3 _v2, ngl::Vec3 _v1, ngl::Vec3 _v0):
-  m_v0(_v0),     m_v1(_v1),     m_v2(_v2),
-  m_n0(0, 0, 0), m_n1(0, 0, 0), m_n2(0, 0, 0)
-{
+  m_data = std::make_shared<TriangleData>(_n0, _n1, _n2, _uv0, _uv1, _uv2);
   calcN();
   calcD();
   calcDominantAxis();
@@ -106,15 +87,16 @@ bool Triangle::intersect(const Ray &_ray, IsectData *_intersection)
       }
     }
 
-    if (alpha >= 0 & beta >= 0 and (alpha + beta) <=1){
+    if (alpha >= 0 & beta >= 0 & (alpha + beta) <=1){
       //filling the intersction data structure with data about the intersection point
-      ngl::Vec3 interpolatedNormal = m_n0 * (1 - (alpha + beta)) + m_n1 * alpha + m_n2 * beta;
-      ngl::Vec2 interpolatedUV(m_uv0[0] * (1 - (alpha + beta)) + m_uv1[0] * alpha + m_uv2[0] * beta,
-                               m_uv0[1] * (1 - (alpha + beta)) + m_uv1[1] * alpha + m_uv2[1] * beta);
+      ngl::Vec3 interpolatedNormal = m_data->m_n0 * (1 - (alpha + beta)) + m_data->m_n1 * alpha + m_data->m_n2 * beta;
+      ngl::Vec2 interpolatedUV(m_data->m_uv0[0] * (1 - (alpha + beta)) + m_data->m_uv1[0] * alpha + m_data->m_uv2[0] * beta,
+                               m_data->m_uv0[1] * (1 - (alpha + beta)) + m_data->m_uv1[1] * alpha + m_data->m_uv2[1] * beta);
       _intersection->m_t = t;
       _intersection->m_pos = p;
       _intersection->m_n = interpolatedNormal;
       _intersection->m_uv = interpolatedUV;
+      _intersection->m_eyeDir = _ray.m_direction;
       return true;
     }
     else{
@@ -135,7 +117,7 @@ void Triangle::printData()
   std::cout << m_v0 << "\n" << m_v1 << "\n" << m_v2 << std::endl;
 
   std::cout << "normals:\n";
-  std::cout << m_n0 << "\n" << m_n1 << "\n" << m_n2 << std::endl;
+  std::cout << m_data->m_n0 << "\n" << m_data->m_n1 << "\n" << m_data->m_n2 << std::endl;
 
   std::cout << "n: " << m_n << std::endl;
 

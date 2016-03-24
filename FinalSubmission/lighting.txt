@@ -1,0 +1,4 @@
+renderColourPixel(intersection)
+  specColour = 0, 0, 0, 1;
+  if intersection->depth < m_maxDepth
+

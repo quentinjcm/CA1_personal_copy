@@ -6,15 +6,17 @@
 
 #include <SDL2/SDL.h>
 
+#include <ngl/Colour.h>
+
 
 class TextureFile
 {
 public:
   TextureFile(std::string _fileName);
   void loadImage();
-  SDL_Color getPixel(float _u, float _v);
+  ngl::Colour getPixel(float _u, float _v);
   std::string m_fileName;
-  std::vector<SDL_Color> m_pixels;
+  std::vector<ngl::Colour> m_pixels;
   bool m_isLoaded;
   int m_imgWidth;
   int m_imgHeight;

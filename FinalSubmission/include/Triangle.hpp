@@ -4,7 +4,9 @@
 #include <ngl/Vec3.h>
 #include <ngl/Vec2.h>
 #include <ngl/Util.h>
+#include <ngl/VAOPrimitives.h>
 
+#include "TriangleData.hpp"
 #include "Ray.hpp"
 #include "IsectData.hpp"
 #include "BBox.hpp"
@@ -35,11 +37,15 @@ public:
   Triangle(ngl::Vec3 _v0, ngl::Vec3 _v1, ngl::Vec3 _v2,
            ngl::Vec3 _n0, ngl::Vec3 _n1, ngl::Vec3 _n2);
 
-  /// @brief a second ctor for triangle class that only needs vertex positions
+  /// @brief ctor for triangle class that only needs vertex positions
   /// @param [in] _v0 first point in the triangle
   /// @param [in] _v1 second point in the triangle
   /// @param [in] _v2 third point in the triangle
   Triangle(ngl::Vec3 _v2, ngl::Vec3 _v1, ngl::Vec3 _v0);
+
+  /// @brief ctor for triangle class that takes in an ngl vertData struct
+  /// @param [in] _data ngl structure that contains position, normal and uv data
+  Triangle(ngl::vertData _data);
 
   /// @brief the intersect method for the triangle class
   /// @param [in] &_ray the ray that is being tested for intersections with the triangle
@@ -62,20 +68,7 @@ public:
   /// @brief Vertex 2 of the triangle
   const ngl::Vec3 m_v2;
 
-  /// @brief Normal associated with vertex 0
-  const ngl::Vec3 m_n0;
-
-  /// @brief Normal associated with vertex 1
-  const ngl::Vec3 m_n1;
-
-  /// @brief Normal associated with vertex 3
-  const ngl::Vec3 m_n2;
-
-  const ngl::Vec2 m_uv0;
-
-  const ngl::Vec2 m_uv1;
-
-  const ngl::Vec2 m_uv2;
+  std::shared_ptr<TriangleData> m_data;
 
   private:
 

@@ -5,6 +5,8 @@
 
 #include <SDL2/SDL.h>
 
+#include <ngl/Colour.h>
+
 #include "Film.hpp"
 
 class SDLWindow
@@ -22,7 +24,7 @@ private:
   Film *m_film;
   SDL_Renderer *m_renderer;
   SDL_Window *m_window;
-  std::vector<SDL_Color> *m_pixelsToDraw;
+  std::vector<ngl::Colour> *m_pixelsToDraw;
 
 };
 

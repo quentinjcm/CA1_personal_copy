@@ -8,10 +8,11 @@
 #include "IsectData.hpp"
 #include "Primative.hpp"
 
-Renderer::Renderer(Camera *_cam, Film *_film, std::shared_ptr<Primative> _scene):
+Renderer::Renderer(Camera *_cam, Film *_film, std::shared_ptr<Scene> _scene, int _aa):
   m_film(_film),
   m_cam(_cam),
-  m_scene(_scene)
+  m_scene(_scene),
+  m_aa(_aa)
 {
   std::cout << "Renderer created" << std::endl;
 }
@@ -29,20 +30,30 @@ void Renderer::renderImage()
       if (y + 32 >= m_film->getFilmHeight()){
         yInc = m_film->getFilmHeight() - y - 1;
       }
-      std::cout << "creating rendertask" << x << "," << y << "," << x + xInc << "," << y + yInc << "," << std::endl;
+      //std::cout << "creating rendertask" << x << "," << y << "," << x + xInc << "," << y + yInc << "," << std::endl;
+      std::cout << m_aa << std::endl;
       m_tasks.push_back(RenderTask(m_cam,
                                    m_film,
                                    m_scene,
                                    x, y,
-                                   x+xInc, y+yInc));
+                                   x+xInc, y+yInc,
+                                   m_aa));
     }
   }
   std::vector<std::thread> threads;
-  for (RenderTask &task: m_tasks){
-    threads.push_back(std::thread(&RenderTask::render, &task));
-    //task.render();
+  bool multiThread = true;
+  if (multiThread){
+    for (RenderTask &task: m_tasks){
+      threads.push_back(std::thread(&RenderTask::render, &task));
+      //task.render();
+    }
+    for (std::thread &task: threads){
+      task.join();
+    }
   }
-  for (std::thread &task: threads){
-    task.join();
+  else{
+    for (RenderTask &task: m_tasks){
+      task.render();
+    }
   }
 }

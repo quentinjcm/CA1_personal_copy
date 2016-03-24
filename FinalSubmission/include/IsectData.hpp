@@ -13,9 +13,11 @@ class IsectData
 public:
   IsectData();
   float m_t;
+  int m_depth;
   ngl::Vec3 m_pos;
   ngl::Vec3 m_n;
   ngl::Vec2 m_uv;
+  ngl::Vec3 m_eyeDir;
   std::shared_ptr<Material> m_material;
 
 };

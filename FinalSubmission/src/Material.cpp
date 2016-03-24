@@ -3,6 +3,8 @@
 
 #include <SDL2/SDL.h>
 
+#include <ngl/Colour.h>
+
 #include "Material.hpp"
 #include "TextureFile.hpp"
 
@@ -21,7 +23,7 @@ Material::Material(std::string _texFileName):
   }
 }
 
-SDL_Color Material::getDiffuseColour(float _u, float _v)
+ngl::Colour Material::getDiffuseColour(float _u, float _v)
 {
   if(m_hasTexture){
     return m_diffuseTex->getPixel(_u, _v);
@@ -30,3 +32,5 @@ SDL_Color Material::getDiffuseColour(float _u, float _v)
     return m_diffuseColour;
   }
 }
+
+

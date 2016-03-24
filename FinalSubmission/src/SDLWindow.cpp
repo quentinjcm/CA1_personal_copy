@@ -48,12 +48,12 @@ void SDLWindow::drawPixels()
 {
   for (int x = 0; x < m_windowWidth ; x++){
     for (int y = 0; y < m_windowHeight; y++){
-      SDL_Color colour = (*m_pixelsToDraw)[x + m_windowWidth * y];
+      ngl::Colour colour = (*m_pixelsToDraw)[x + m_windowWidth * y];
       SDL_SetRenderDrawColor(m_renderer,
-                             colour.r,
-                             colour.g,
-                             colour.b,
-                             colour.a);
+                            (Uint8)(colour.m_r*255),
+                            (Uint8)(colour.m_g*255),
+                            (Uint8)(colour.m_b*255),
+                            (Uint8)(colour.m_a*255));
       SDL_RenderDrawPoint(m_renderer, x, y);
     }
   }

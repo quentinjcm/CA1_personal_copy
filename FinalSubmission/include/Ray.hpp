@@ -16,7 +16,7 @@ class Ray
 {
 public:
   /// @brief default ctor so that rays can be created with no values and filled up later
-  Ray() = default;
+  Ray();
 
   /// @brief ctor that initialises origin and direction values and normalises the direction
   /// @param [in] _origin is a point that represents the origin of the ray
@@ -34,6 +34,7 @@ public:
 
   /// @brief 1/direction of the ray
   ngl::Vec3 m_invDirection;
+
 };
 
 #endif//__RAY_HPP__

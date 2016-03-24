@@ -1,5 +1,23 @@
 comment fully functional classes
 
-add light class
-  now writing brdf class
+why does it take so long to close? look at how it is being deawn to the screen
 
+add light class
+  need to start writing brdf class
+  what does this involve?
+
+
+ESENTIAL:
+  implement phong shading
+  implement parser
+
+EXTRA:
+  ui
+  aa
+  viewport
+  secondary triangle intersection that stops as soon as it hits a barrier
+
+BUGS:
+  takes a long time to close, is it being written to the screen properly?
+  procedural sphere not working?
+  swap dummp for nullptr not workin gin shadow ray
