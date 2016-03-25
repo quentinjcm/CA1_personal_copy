@@ -2,6 +2,7 @@
 #define __RENDERTASK_HPP__
 
 #include <memory>
+#include <random>
 
 #include <SDL2/SDL.h>
 
@@ -23,8 +24,8 @@ public:
              int _xMax, int _yMax,
              int _aa);
   void render();
-  void renderPixel(int _x, int _y);
-  void renderPixelAA(int _x, int _y);
+  void renderPixel(float _x, float _y);
+  void renderPixelAA(float _x, float _y);
   ngl::Colour normalPixel(ngl::Vec3 _normal);
   ngl::Colour depthPixel(float _depth);
   ngl::Colour colourPixel(IsectData *_intersection);
@@ -38,6 +39,8 @@ private:
   Camera *m_cam;
   Film *m_film;
   std::shared_ptr<Scene> m_scene;
+  std::default_random_engine m_generator;
+  std::uniform_real_distribution<float> m_distribution;
   int m_xMin;
   int m_yMin;
   int m_xMax;

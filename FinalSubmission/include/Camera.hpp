@@ -40,7 +40,7 @@ public:
   /// @param [in] _x is the x pixel of the final image
   /// @param [in] _y is the y pixel of the final image
   /// @param [in] *_ray is the ray to be filled up with data
-  void generateRay(int _x, int _y, Ray *_ray);
+  void generateRay(float _x, float _y, Ray *_ray);
 
 private:
   /// @brief width of the output image

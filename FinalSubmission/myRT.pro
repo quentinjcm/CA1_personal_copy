@@ -1,5 +1,7 @@
 TARGET=myRT
 
+QT+=gui
+
 CONFIG+=c++11
 CONFIG+=-pthread
 

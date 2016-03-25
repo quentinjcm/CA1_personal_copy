@@ -31,7 +31,7 @@ void Renderer::renderImage()
         yInc = m_film->getFilmHeight() - y - 1;
       }
       //std::cout << "creating rendertask" << x << "," << y << "," << x + xInc << "," << y + yInc << "," << std::endl;
-      std::cout << m_aa << std::endl;
+      //std::cout << m_aa << std::endl;
       m_tasks.push_back(RenderTask(m_cam,
                                    m_film,
                                    m_scene,

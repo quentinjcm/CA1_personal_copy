@@ -2,6 +2,7 @@
 #include <iostream>
 
 #include <QImage>
+#include <QImageReader>
 
 #include <SDL2/SDL.h>
 
@@ -35,6 +36,9 @@ void TextureFile::loadImage()
         m_pixels[x + m_imgWidth * y] = c;
       }
     }
+  }
+  else{
+    std::cout << "image failed to load" << std::endl;
   }
 }
 

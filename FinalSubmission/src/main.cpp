@@ -4,6 +4,8 @@
 #include <thread>
 
 #include <QTime>
+#include <qimage.h>
+#include <QImageReader>
 
 #include <ngl/Vec3.h>
 #include <ngl/Vec4.h>
@@ -44,12 +46,12 @@ int main()
   std::shared_ptr<Scene> scene = std::make_shared<Scene>();
 
   //a single light
-  Light l1(ngl::Vec3(20, 50, 0),
+  Light l1(ngl::Vec3(20, 50, 30),
            ngl::Colour(1.f, 0.7f, 0.7f, 1.0f),
            4);
   scene->addLight(l1);
 
-  Light l2(ngl::Vec3(-20, 50, 0),
+  Light l2(ngl::Vec3(-20, 50, -30),
            ngl::Colour(0.7f, 1.0f, 0.7f, 1.0f),
            4);
   scene->addLight(l2);
@@ -57,7 +59,7 @@ int main()
 
   //groundPlane
   auto planeMesh = Meshes::Plane();
-  auto planeMat = std::make_shared<Material>("textures/grid1k.jpg"); //
+  auto planeMat = std::make_shared<Material>("textures/texture.png"); //
   planeMat->m_diffuseColour = ngl::Colour(0, 0.5, 0.5, 1.0);
   planeMat->m_smoothness = 20;
   planeMat->m_f0 = 1;
@@ -74,13 +76,19 @@ int main()
   QTime startTime;
   startTime.start();
 
-  Renderer new_renderer(&cam, &film, scene, 0);
+  Renderer new_renderer(&cam, &film, scene, 6);
 
   new_renderer.renderImage();
 
   std::cout << std::endl << "rendered in: " << startTime.elapsed()/1000.0 << " seconds" << std::endl;
 
   renderWindow.run();
+
+  /*
+  QList<QByteArray> formats = QImageReader::supportedImageFormats();
+    for ( QList<QByteArray>::Iterator f = formats.begin(); f != formats.end(); ++ f )
+      printf("%s , ", f->constData() );
+  */
 
   return EXIT_SUCCESS;
 }

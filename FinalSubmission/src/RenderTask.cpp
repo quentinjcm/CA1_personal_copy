@@ -35,14 +35,15 @@ RenderTask::RenderTask(Camera *_cam,
 
 void RenderTask::render()
 {
+  m_distribution = std::uniform_real_distribution<float>(-0.5, 0.5);
   for (int x = m_xMin; x < m_xMax; x++){
     for (int y = m_yMin; y < m_yMax; y++){
       //std::cout << m_aa << std::endl;
       if (m_aa){
-        renderPixelAA(x, y);
+        renderPixelAA((float)x, (float)y);
       }
       else{
-        renderPixel(x, y);
+        renderPixel((float)x, (float)y);
       }
     }
   }
@@ -50,7 +51,7 @@ void RenderTask::render()
 
 
 
-void RenderTask::renderPixel(int _x, int _y)
+void RenderTask::renderPixel(float _x, float _y)
 {
   Ray newRay;
   IsectData intersection;
@@ -68,8 +69,29 @@ void RenderTask::renderPixel(int _x, int _y)
   }
 }
 
-void RenderTask::renderPixelAA(int _x, int _y){
-
+void RenderTask::renderPixelAA(float _x, float _y){
+  ngl::Colour depthPixelSum(0, 0, 0, 1);
+  ngl::Colour colourPixelSum(0, 0, 0, 1);
+  ngl::Colour normalPixelSum(0, 0, 0, 1);
+  for (int i = 0; i < m_aa; i++){
+    Ray newRay;
+    IsectData intersection;
+    intersection.m_depth = 1;
+    m_cam->generateRay(_x + m_distribution(m_generator),
+                       _y + m_distribution(m_generator),
+                       &newRay);
+    if (m_scene->intersect(newRay, &intersection)){
+      depthPixelSum += depthPixel(intersection.m_t);
+      normalPixelSum += normalPixel(intersection.m_n);
+      colourPixelSum += colourPixel(&intersection);
+    }
+  }
+  depthPixelSum *= 1.0/(float)m_aa;
+  colourPixelSum *= 1.0/(float)m_aa;
+  normalPixelSum *= 1.0/(float)m_aa;
+  m_film->setDepthPixel(_x, _y, depthPixelSum);
+  m_film->setNormalPixle(_x, _y, normalPixelSum);
+  m_film->setDiffusePixel(_x, _y, colourPixelSum);
 }
 
 ngl::Colour RenderTask::normalPixel(ngl::Vec3 _normal)

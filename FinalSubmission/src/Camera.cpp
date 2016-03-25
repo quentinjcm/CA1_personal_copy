@@ -52,14 +52,14 @@ Camera::Camera(ngl::Vec3 _pos,
   m_camToWorld = translate * rotate ;
 }
 
-void Camera::generateRay(int _x, int _y, Ray *_ray)
+void Camera::generateRay(float _x, float _y, Ray *_ray)
 {
   //init originposition
   ngl::Vec4 origin(0, 0, 0, 1);
 
   //convert pixel values to normalised device coordinates
-  float xNDC = ((float)_x + 0.5) / m_screenWidth;
-  float yNDC = ((float)_y + 0.5) / m_screenHeight;
+  float xNDC = (_x + 0.5) / m_screenWidth;
+  float yNDC = (_y + 0.5) / m_screenHeight;
 
   //convert from NDC to screen space
   float xScreen = -((xNDC * 2) - 1) * m_aspectRatio * m_fovMult;
@@ -85,5 +85,4 @@ void Camera::generateRay(int _x, int _y, Ray *_ray)
   _ray->m_direction = directionOut;
   _ray->m_origin = originOut;
   _ray->setInvDirection();
-
 }
