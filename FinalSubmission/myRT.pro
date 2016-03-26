@@ -20,7 +20,7 @@ SOURCES+=$$PWD/src/main.cpp \
          $$PWD/src/Camera.cpp \
          $$PWD/src/Primative.cpp \
          $$PWD/src/GeometricPrim.cpp \
-         $$PWD/src/Meshes.cpp \
+         $$PWD/src/ProceduralMeshes.cpp \
          $$PWD/src/Renderer.cpp \
          $$PWD/src/Material.cpp \
          $$PWD/src/SDLWindow.cpp \
@@ -40,7 +40,7 @@ HEADERS+=$$PWD/include/Triangle.hpp \
          $$PWD/include/Camera.hpp \
          $$PWD/include/Primative.hpp \
          $$PWD/include/GeometricPrim.hpp \
-         $$PWD/include/Meshes.hpp \
+         $$PWD/include/ProceduralMeshes.hpp \
          $$PWD/include/Renderer.hpp \
          $$PWD/include/Material.hpp \
          $$PWD/include/SDLWindow.hpp \

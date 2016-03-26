@@ -1,9 +1,6 @@
 #include <memory>
 
 #include "GeometricPrim.hpp"
-#include "TriangleMesh.hpp"
-#include "Ray.hpp"
-#include "IsectData.hpp"
 
 GeometricPrim::GeometricPrim(std::shared_ptr<TriangleMesh> _mesh, std::shared_ptr<Material> _material):
   m_mesh(_mesh),

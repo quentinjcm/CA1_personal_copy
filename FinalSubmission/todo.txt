@@ -7,6 +7,8 @@ EXTRA:
   viewport
   secondary triangle intersection that stops as soon as it hits a barrier
 
+  create a geometry sub class so that the geo prim can contain a pointer to any type of geometry
+
   get rid of my bbox and have one which inherits from his instead and adds the intersection routine
   or
   have give each mesh an array of bboxes, which are checked for intersections, if one is found, then the contained triangle is also checked

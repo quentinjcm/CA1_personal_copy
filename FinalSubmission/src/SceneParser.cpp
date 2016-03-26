@@ -27,7 +27,7 @@ private:
 
 #include "SceneParser.hpp"
 #include "Scene.hpp"
-#include "Meshes.hpp"
+#include "ProceduralMeshes.hpp"
 #include "GeometricPrim.hpp"
 #include "Light.hpp"
 
@@ -60,7 +60,7 @@ void SceneParser::parseSphere(const char *_begin)
 
   spt::parse(_begin, sphere, spt::space_p);
   std::cout << "creating prim " << radius << ", " << divisions << std::endl;
-  auto prim = std::make_shared<GeometricPrim>(Meshes::pSphere(radius, divisions), m_currentMat);
+  auto prim = std::make_shared<GeometricPrim>(ProceduralMeshes::pSphere(radius, divisions), m_currentMat);
   m_scene->addPrim(prim);
 }
 
@@ -78,7 +78,7 @@ void SceneParser::parsePlane(const char *_begin)
                 spt::real_p[spt::assign_a(height)];
 
   spt::parse(_begin, plane, spt::space_p);
-  auto prim = std::make_shared<GeometricPrim>(Meshes::pPlane(width, height), m_currentMat);
+  auto prim = std::make_shared<GeometricPrim>(ProceduralMeshes::pPlane(width, height), m_currentMat);
   m_scene->addPrim(prim);
 }
 

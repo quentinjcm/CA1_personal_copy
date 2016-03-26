@@ -17,7 +17,6 @@
 #include "Film.hpp"
 #include "Camera.hpp"
 #include "GeometricPrim.hpp"
-#include "Meshes.hpp"
 #include "Renderer.hpp"
 #include "BBox.hpp"
 #include "Material.hpp"
