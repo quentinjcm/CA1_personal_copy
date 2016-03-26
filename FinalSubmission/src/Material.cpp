@@ -13,6 +13,18 @@ Material::Material():
 {
 }
 
+Material::Material(ngl::Colour _colour, int _smoothness, float _IOR, std::string _texFileName):
+  m_hasTexture(false),
+  m_smoothness(_smoothness),
+  m_f0(_IOR)
+{
+  m_diffuseTex = std::make_shared<TextureFile>(_texFileName);
+  m_diffuseTex->loadImage();
+  if (m_diffuseTex->m_isLoaded){
+    m_hasTexture = true;
+  }
+}
+
 Material::Material(std::string _texFileName):
   m_hasTexture(false)
 {

@@ -1,23 +1,15 @@
-comment fully functional classes
-
-why does it take so long to close? look at how it is being deawn to the screen
-
-add light class
-  need to start writing brdf class
-  what does this involve?
-
-
 ESENTIAL:
-  implement phong shading
-  implement parser
+  implement phong shading // still need to do reflections
+  implement parser // add obj support
 
 EXTRA:
   ui
-  aa
   viewport
   secondary triangle intersection that stops as soon as it hits a barrier
 
+  get rid of my bbox and have one which inherits from his instead and adds the intersection routine
+  or
+  have give each mesh an array of bboxes, which are checked for intersections, if one is found, then the contained triangle is also checked
+
 BUGS:
-  takes a long time to close, is it being written to the screen properly?
-  procedural sphere not working?
-  swap dummp for nullptr not workin gin shadow ray
+  swap dummp for nullptr not working in shadow ray

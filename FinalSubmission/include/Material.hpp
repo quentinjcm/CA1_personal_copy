@@ -15,7 +15,9 @@ class Material
 {
 public:
   Material();
+  Material(ngl::Colour _colour, int _smoothness, float _IOR, std::string _texFile);
   Material(std::string _texFileName);
+
   ngl::Colour getDiffuseColour(float _u, float _v);
   ngl::Colour m_diffuseColour;
   bool m_hasTexture;

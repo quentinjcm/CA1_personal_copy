@@ -17,6 +17,7 @@ public:
   void run();
   void keyPress(SDL_Event *_event);
   void drawPixels();
+  void updateSurface();
 
 private:
   int m_windowWidth;
@@ -25,6 +26,7 @@ private:
   SDL_Renderer *m_renderer;
   SDL_Window *m_window;
   std::vector<ngl::Colour> *m_pixelsToDraw;
+  SDL_Surface *m_surface;
 
 };
 

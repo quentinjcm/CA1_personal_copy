@@ -3,19 +3,17 @@
 
 #include <memory>
 
+#include <ngl/Vec3.h>
+
 #include "TriangleMesh.hpp"
 
 class Meshes
 {
 public:
-  static std::shared_ptr<TriangleMesh> Sphere(int _precision, float _radius);
-  static std::shared_ptr<TriangleMesh> Sphere2(int _stacks, int _slices, float _radius);
-  static std::shared_ptr<TriangleMesh> Plane();
-  static std::shared_ptr<TriangleMesh> Sphere3();
-
+  static std::shared_ptr<TriangleMesh> pPlane(float _width, float _height);
+  static std::shared_ptr<TriangleMesh> pSphere(float _r, int _sd);
 private:
-  static std::shared_ptr<TriangleMesh> getMeshFromVD(std::vector<ngl::vertData> _source);
-  static void setLimits( ngl::vertData *_data);
+  static ngl::Vec3 circularToCartesian(float _theta, float _phi);
 };
 
 #endif//__MESHES_HPP__

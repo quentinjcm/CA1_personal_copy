@@ -28,35 +28,22 @@ void SDLWindow::run()
                               m_windowWidth,
                               m_windowHeight,
                               SDL_WINDOW_SHOWN);
-  m_renderer = SDL_CreateRenderer(m_window, -1, SDL_RENDERER_ACCELERATED);
+  m_surface = SDL_GetWindowSurface(m_window);
   bool go = true;
+  updateSurface();
   while(go){
-    SDL_SetRenderDrawColor(m_renderer, 100, 100, 100, 255);
-    SDL_RenderClear(m_renderer);
     SDL_Event event;
     SDL_WaitEvent(&event);
     switch(event.type){
       case SDL_QUIT: go = false; break;
       case SDL_KEYDOWN: keyPress(&event); break;
     }
-    drawPixels();
-    SDL_RenderPresent(m_renderer);
+    SDL_UpdateWindowSurface( m_window );
   }
-}
-
-void SDLWindow::drawPixels()
-{
-  for (int x = 0; x < m_windowWidth ; x++){
-    for (int y = 0; y < m_windowHeight; y++){
-      ngl::Colour colour = (*m_pixelsToDraw)[x + m_windowWidth * y];
-      SDL_SetRenderDrawColor(m_renderer,
-                            (Uint8)(colour.m_r*255),
-                            (Uint8)(colour.m_g*255),
-                            (Uint8)(colour.m_b*255),
-                            (Uint8)(colour.m_a*255));
-      SDL_RenderDrawPoint(m_renderer, x, y);
-    }
-  }
+  SDL_FreeSurface(m_surface);
+  SDL_DestroyRenderer(m_renderer);
+  SDL_DestroyWindow(m_window);
+  SDL_Quit();
 }
 
 void SDLWindow::keyPress(SDL_Event *_event)
@@ -67,5 +54,22 @@ void SDLWindow::keyPress(SDL_Event *_event)
     case SDLK_1: m_pixelsToDraw = m_film->getDiffuseArr(); break;
     case SDLK_2: m_pixelsToDraw = m_film->getNormalArr(); break;
     case SDLK_3: m_pixelsToDraw = m_film->getDepthArr(); break;
+  }
+  updateSurface();
+}
+
+void SDLWindow::updateSurface()
+{
+  for (int x = 0; x < m_windowWidth; x++){
+    for (int y = 0; y < m_windowHeight; y++){
+      ngl::Colour c = (*m_pixelsToDraw)[x + m_windowWidth * y];
+      Uint32 out = SDL_MapRGBA(m_surface->format,
+                               (Uint8)(c.m_r*255),
+                               (Uint8)(c.m_g*255),
+                               (Uint8)(c.m_b*255),
+                               (Uint8)(c.m_a*255));
+      Uint32 *pixels = (Uint32 *)m_surface->pixels;
+      pixels[x + m_windowWidth * y] = out;
+    }
   }
 }

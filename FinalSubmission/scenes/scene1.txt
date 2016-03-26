@@ -1,0 +1,14 @@
+MAT: 1 0 0 30 0.5 textures/grid1k.jpg
+
+
+
+SPHERE: 0 0 0 40 20
+
+
+
+PLANE: 0 0 0 100 100
+
+LIGHT: 0 50 0 1 1 1 10
+
+#OBJ: python/block.obj
+
