@@ -1,16 +1,3 @@
-/*
-public:
-  SceneParser(std::string _fileName);
-  void parseScene();
-  void parseSphere(const char *_begin);
-  void parsePlane(const char *_begin);
-  void parseObj(const char *_begin);
-  void parseMat(const char *_begin);
-private:
-  std::shared_ptr<Scene> m_scene;
-  std::string m_fileName;
-*/
-
 #include <string>
 #include <memory>
 #include <iostream>
@@ -30,6 +17,7 @@ private:
 #include "ProceduralMeshes.hpp"
 #include "GeometricPrim.hpp"
 #include "Light.hpp"
+#include "Triangle.hpp"
 
 //borrowed from jon
 namespace spt = boost::spirit::classic;
@@ -91,13 +79,39 @@ void SceneParser::parseObj(const char *_begin)
                +spt::alnum_p >> ".obj")[spt::assign_a(fileName)];
 
   spt::parse(_begin, obj, spt::space_p);
+  std::cout << "opening obj " << fileName.c_str() << std::endl;
+  ngl::Obj objMesh;
+  objMesh.load(fileName, false);
+  std::cout << "opened obj" << std::endl;
+  if (objMesh.isTriangular()){
+    auto meshOut = std::make_shared<TriangleMesh>();
+    std::vector<ngl::Vec3> verts = objMesh.getVertexList();
+    std::vector<ngl::Vec3> normals = objMesh.getNormalList();
+    std::vector<ngl::Vec3> uvs = objMesh.getTextureCordList();
+    std::vector<ngl::Face> faces = objMesh.getFaceList();
+    for (ngl::Face f: faces){
+      if (true){
+        //converting uv cords from vec3 to vec2
+        ngl::Vec2 uv0(uvs[f.m_tex[0]][0], uvs[f.m_tex[0]][1]);
+        ngl::Vec2 uv1(uvs[f.m_tex[1]][0], uvs[f.m_tex[1]][1]);
+        ngl::Vec2 uv2(uvs[f.m_tex[2]][0], uvs[f.m_tex[2]][1]);
+        Triangle t(verts[f.m_vert[0]],
+                   verts[f.m_vert[1]],
+                   verts[f.m_vert[2]],
+                   normals[f.m_norm[0]],
+                   normals[f.m_norm[1]],
+                   normals[f.m_norm[2]],
+                   uv0,
+                   uv1,
+                   uv2);
+        t.printData();
+        meshOut->addTri(t);
+      }
+    }
+    auto prim = std::make_shared<GeometricPrim>(meshOut, m_currentMat);
+    m_scene->addPrim(prim);
+  }
 
-  ngl::Obj objMesh(fileName);
-
-
-
-
-  std::cout << "obj created from file " << fileName << std::endl;
 }
 
 void SceneParser::parseMat(const char *_begin)

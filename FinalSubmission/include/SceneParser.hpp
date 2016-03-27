@@ -11,7 +11,6 @@
 
 class SceneParser
 {
-  friend class ngl::Obj;
 public:
   SceneParser(std::string _fileName, std::shared_ptr<Scene> _scene);
   void parseScene();
