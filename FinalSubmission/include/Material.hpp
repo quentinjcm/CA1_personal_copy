@@ -15,7 +15,7 @@ class Material
 {
 public:
   Material();
-  Material(ngl::Colour _colour, int _smoothness, float _IOR, std::string _texFile);
+  Material(ngl::Colour _colour, int _smoothness, float _IOR, bool _isTransparent, bool _isReflective, std::string _texFile);
   Material(std::string _texFileName);
 
   ngl::Colour getDiffuseColour(float _u, float _v);
@@ -24,7 +24,8 @@ public:
   std::shared_ptr<TextureFile> m_diffuseTex;
   int m_smoothness;
   float m_f0;
-  float reflectivity;//0 to 1
+  bool m_isTransparent;
+  bool m_isReflective;
 };
 
 #endif//__MATERIAL_HPP__

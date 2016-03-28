@@ -49,6 +49,10 @@ void RenderTask::render()
 
 void RenderTask::renderPixel(float _x, float _y)
 {
+  std::vector<ngl::Vec2> samples;
+  samples.push_back(ngl::Vec2(_x, _y));
+  m_film->setDiffusePixel(_x, _y, renderPixel(samples));
+  /*
   Ray newRay;
   IsectData intersection;
   intersection.m_depth = 1;
@@ -63,6 +67,7 @@ void RenderTask::renderPixel(float _x, float _y)
     m_film->setNormalPixle(_x, _y, ngl::Colour(0, 0, 0, 1.0));
     m_film->setDiffusePixel(_x, _y, ngl::Colour(0, 0, 0, 1.0));
   }
+  */
 }
 
 void RenderTask::renderPixelAA(float _x, float _y){
@@ -124,7 +129,7 @@ ngl::Colour RenderTask::colourPixel(IsectData *_intersection)
     if(isVisible(_intersection->m_pos, l.m_pos)){
       ngl::Vec3 normal(_intersection->m_n);
       ngl::Vec3 lightDir(l.m_pos - _intersection->m_pos);
-      ngl::Vec3 eyeDir(_intersection->m_eyeDir * -1);
+      ngl::Vec3 eyeDir(_intersection->m_eyeDir);
       ngl::Vec3 reflectDir(normal * 2 * (normal.dot(eyeDir)) - eyeDir);
       ngl::Vec3 halfVec(lightDir + eyeDir);
 
@@ -135,13 +140,7 @@ ngl::Colour RenderTask::colourPixel(IsectData *_intersection)
 
       float NdotH = std::max(0.0f, (float)normal.dot(halfVec));
       float NdotL = std::max(0.0f, (float)normal.dot(lightDir));
-      float reflectionIntensity = fSchlick(_intersection->m_material->m_f0, eyeDir, normal);
 
-
-      ngl::Colour reflectionCol(.2, .2, .2, 1);
-
-
-      //outColour += reflectionCol * reflectionIntensity;
       outColour += l.m_colour * std::pow(NdotH, _intersection->m_material->m_smoothness); //specular
       outColour += l.m_colour * NdotL * matColour; //diffuse
     }
@@ -179,30 +178,114 @@ ngl::Colour RenderTask::renderPixel(std::vector<ngl::Vec2> _pixelSample)
   ngl::Colour outCol;
   for (auto p: _pixelSample){
     Ray newRay;
-    IsectData intersection;
-    intersection.m_depth = 1;
     m_cam->generateRay(p[0], p[1], &newRay);
-    outCol = outCol + traceRay(newRay, &intersection);
+    outCol = outCol + traceRay(newRay);
   }
   outCol *= (1/_pixelSample.size());
   return outCol;
 }
 
-ngl::Colour RenderTask::traceRay(const Ray &_ray, IsectData *intersection)
+ngl::Colour RenderTask::traceRay(const Ray &_ray)
 {
-  ngl::Colour outCol;
-  if (m_scene->intersect(_ray, intersection)){
-    auto mat = intersection->m_material;
-    if (mat->reflectivity){
-    //reflectiv calculations
+  ngl::Colour outCol(0, 0, 0, 1);
+  IsectData isect;
+  if (m_scene->intersect(_ray, &isect)){
+
+    ngl::Colour reflectedCol(0, 0, 0, 1);
+    ngl::Colour refractedCol(0, 0, 0, 1);
+
+
+    float n1 = 1;
+    float n2 = 1;
+
+    //air -> geometry boundary
+    if (isect.m_eyeDir.dot(isect.m_n) < 0){
+      //std::cout << "b" << std::endl;
+      n2 = isect.m_material->m_f0;
     }
+    //geometry -> air boundary
+    else{
+      //std::cout << "a" << std::endl;
+      n1 = isect.m_material->m_f0;
+      isect.m_n = -isect.m_n;
+    }
+
+    float reflectedAmount = rShclick(isect.m_n, isect.m_eyeDir, n1, n2);
+
+    if (_ray.m_depth < 4){
+      if (isect.m_material->m_isReflective){
+        ngl::Vec3 reflectedDir(reflect(isect.m_n, isect.m_eyeDir));
+        Ray reflectedRay(isect.m_pos + 0.0001 * reflectedDir, reflectedDir, _ray.m_depth + 1);
+        reflectedCol = traceRay(reflectedRay);
+      }
+      else reflectedAmount = 0;
+      //std::cout << reflectedCol.m_r << std::endl;
+      if (isect.m_material->m_isTransparent){
+        ngl::Vec3 refractedDir(refract(isect.m_n, isect.m_eyeDir, n1, n2));
+        //check for tir
+        //refractedDir.normalize();
+        if (refractedDir != ngl::Vec3(0, 0, 0)){
+          Ray refractedRay(isect.m_pos + 0.0001 * refractedDir, refractedDir, _ray.m_depth + 1);
+          refractedCol = traceRay(refractedRay);
+        }
+        //std::cout << refractedCol.m_r << std::endl;
+      }
+      else{
+        refractedCol = colourPixel(&isect);
+      }
+    }
+    else{
+      refractedCol = colourPixel(&isect);
+    }
+
     //refractive calculations
+
+    outCol = refractedCol * (1 - reflectedAmount) + reflectedCol * reflectedAmount;
 
   }
   return outCol;
 }
 
+ngl::Vec3 RenderTask::reflect(const ngl::Vec3 _n, const ngl::Vec3 _i)
+{
+  //http://graphics.stanford.edu/courses/cs148-10-summer/docs/2006--degreve--reflection_refraction.pdf
+  float cosI = -_n.dot(_i);
+  return _i + _n * 2 * cosI;
+}
 
+ngl::Vec3 RenderTask::refract(const ngl::Vec3 _n, const ngl::Vec3 _i, float _n1, float _n2)
+{
+  //http://graphics.stanford.edu/courses/cs148-10-summer/docs/2006--degreve--reflection_refraction.pdf
+  float n = _n1/_n2;
+  float cosI = -_n.dot(_i);
+  float sinT2 = n * n * (1.0 - cosI * cosI);
+  if (sinT2 > 1.0){
+    return ngl::Vec3(0, 0, 0); // total internal reflection
+  }
+  float cosT = sqrt(1.0 - sinT2);
+  return n * _i + (n * cosI - cosT) * _n;
+  //std::cout << out << std::endl;
+  //return out;
+}
+
+float RenderTask::rShclick(const ngl::Vec3 _n, const ngl::Vec3 _i, float _n1, float _n2)
+{
+  float r0 = (_n1 - _n2) / (_n1 + _n2);
+  r0 *= r0;
+  float cosI = -_n.dot(_i);
+  if (_n1 > _n2){
+    double n = _n1 / _n2;
+    double sinT2 = n * n * (1.0 - cosI * cosI);
+    if (sinT2 > 1.0){
+      return 1.0; // TIR
+    }
+    cosI = sqrt(1.0 - sinT2);
+  }
+  float x = 1.0 - cosI;
+  float schlick =  r0 + (1.0 - r0) * x * x * x * x * x;
+  if (schlick > .999) return 1;
+  return schlick;
+}
 
 
 

@@ -69,7 +69,7 @@ std::shared_ptr<TriangleMesh> ProceduralMeshes::pPlane(float _width, float _heig
   return meshOut;
 }
 
-std::shared_ptr<TriangleMesh> ProceduralMeshes::pSphere(float _r, int _sd)
+std::shared_ptr<TriangleMesh> ProceduralMeshes::pSphere(ngl::Vec3 _pos, float _r, int _sd)
 {
   auto meshOut = std::make_shared<TriangleMesh>();
 
@@ -99,10 +99,10 @@ std::shared_ptr<TriangleMesh> ProceduralMeshes::pSphere(float _r, int _sd)
       ngl::Vec3 n1 = circularToCartesian(theta1, phi2);
       ngl::Vec3 n2 = circularToCartesian(theta2, phi2);
       ngl::Vec3 n3 = circularToCartesian(theta2, phi1);
-      ngl::Vec3 v0 = n0 * _r;
-      ngl::Vec3 v1 = n1 * _r;
-      ngl::Vec3 v2 = n2 * _r;
-      ngl::Vec3 v3 = n3 * _r;
+      ngl::Vec3 v0 = n0 * _r + _pos;
+      ngl::Vec3 v1 = n1 * _r + _pos;
+      ngl::Vec3 v2 = n2 * _r + _pos;
+      ngl::Vec3 v3 = n3 * _r + _pos;
 
       //uv cordinates use the stack and slice values. This is an easy way
       // to uv a sphere but it does create pinching around the poles

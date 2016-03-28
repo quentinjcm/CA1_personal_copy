@@ -31,7 +31,7 @@ SceneParser::SceneParser(std::string _fileName, std::shared_ptr<Scene> _scene):
   m_fileName(_fileName)
 {
   //building a default material
-  m_currentMat = std::make_shared<Material>(ngl::Colour(.3, .3, .3), 10, 0.3, "textures/grid1k.jpg");
+  m_currentMat = std::make_shared<Material>(ngl::Colour(.3, .3, .3), 10, 3, 0, 1, "textures/grid1k.jpg");
   //m_currentMat->m_diffuseColour = ngl::Colour(0.5, 0.5, 0.5);
   //m_currentMat->m_smoothness = 20;
   //m_currentMat->m_f0 = 0.3;
@@ -52,7 +52,7 @@ void SceneParser::parseSphere(const char *_begin)
 
   spt::parse(_begin, sphere, spt::space_p);
   std::cout << "creating prim " << radius << ", " << divisions << std::endl;
-  auto prim = std::make_shared<GeometricPrim>(ProceduralMeshes::pSphere(radius, divisions), m_currentMat);
+  auto prim = std::make_shared<GeometricPrim>(ProceduralMeshes::pSphere(pos, radius, divisions), m_currentMat);
   m_scene->addPrim(prim);
 }
 
@@ -122,19 +122,25 @@ void SceneParser::parseMat(const char *_begin)
   ngl::Colour colour(0, 0, 0, 1);
   int smoothness = 0;
   //float reflectivity = 0;
-  float IOR = 0;
-  std::string texFile;
+  float IOR = 1;
+  bool isTransparent = false;
+  bool isReflective = false;
+  std::string texFile = "";
   srule mat = "MAT:" >>
               spt::real_p[spt::assign_a(colour.m_r)] >>
               spt::real_p[spt::assign_a(colour.m_g)] >>
               spt::real_p[spt::assign_a(colour.m_b)] >>
               spt::int_p[spt::assign_a(smoothness)] >>
               spt::real_p[spt::assign_a(IOR)] >>
+              spt::int_p[spt::assign_a(isTransparent)] >>
+              spt::int_p[spt::assign_a(isReflective)] >>
               (*(+spt::alnum_p >> "/") >>
               +spt::alnum_p >> "." >> +spt::alnum_p)[spt::assign_a(texFile)];
 
+
   spt::parse(_begin, mat, spt::space_p);
-  m_currentMat = std::make_shared<Material>(colour, smoothness, IOR, texFile);
+  std::cout << isTransparent << std::endl;
+  m_currentMat = std::make_shared<Material>(colour, smoothness, IOR, isTransparent, isReflective, texFile);
 }
 
 void SceneParser::parseLight(const char *_begin)

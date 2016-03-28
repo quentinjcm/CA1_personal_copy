@@ -13,10 +13,13 @@ Material::Material():
 {
 }
 
-Material::Material(ngl::Colour _colour, int _smoothness, float _IOR, std::string _texFileName):
+Material::Material(ngl::Colour _colour, int _smoothness, float _IOR, bool _isTransparent, bool _isReflective, std::string _texFileName):
+  m_diffuseColour(_colour),
   m_hasTexture(false),
   m_smoothness(_smoothness),
-  m_f0(_IOR)
+  m_f0(_IOR),
+  m_isTransparent(_isTransparent),
+  m_isReflective(_isReflective)
 {
   m_diffuseTex = std::make_shared<TextureFile>(_texFileName);
   m_diffuseTex->loadImage();

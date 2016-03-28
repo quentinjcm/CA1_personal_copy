@@ -39,6 +39,7 @@ void TextureFile::loadImage()
   }
   else{
     std::cout << "image failed to load" << std::endl;
+    m_isLoaded = false;
   }
 }
 

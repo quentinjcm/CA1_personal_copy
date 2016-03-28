@@ -1,12 +1,23 @@
 
 
-SPHERE: 0 0 0 40 2
 
-PLANE: 0 0 0 10 10
+#plane px py pz width height
+PLANE: 0 0 0 40 40
 
-LIGHT: 5 2 2 1 1 1 20
+#mat cr cg cb smoothness ior isTransparent isReflective (textureFile)
+MAT: 0.3 0 0.3 5 1.5 1 1
 
-MAT: 1 0 0 50 0.5 textures/texture.png
+SPHERE: 0 2 0 40 2
+
+MAT: 0 1 0 5 5 0 1
+
+#SPHERE: 0 2 -5 40 2
+
+LIGHT: 5 5 5 1 1 1 20
+
+LIGHT: 0 5 -5 1 0 0 20
+
+
 
 #LIGHT: 0.1  0.1 0.5 0.75 1 10
 

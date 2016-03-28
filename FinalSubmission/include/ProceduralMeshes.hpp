@@ -28,7 +28,7 @@ public:
   /// @param [in] _r is the radius of the sphere
   /// @param [in] _sd is the number of subdivision of the sphere
   /// @param [out] a shared pointer to the triangle mesh that has been created
-  static std::shared_ptr<TriangleMesh> pSphere(float _r, int _sd);
+  static std::shared_ptr<TriangleMesh> pSphere(ngl::Vec3 _pos, float _r, int _sd);
 
 private:
   /// @brief converts a psoition in spherical coordinates to cartesian

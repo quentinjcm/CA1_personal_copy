@@ -42,7 +42,10 @@ public:
   bool isVisible(ngl::Vec3 _origin, ngl::Vec3 _lightPos);
   float fSchlick(float f0, ngl::Vec3 _l, ngl::Vec3 _n);
   ngl::Colour renderPixel(std::vector<ngl::Vec2> pixelSample);
-  ngl::Colour traceRay(const Ray &_ray, IsectData *intersection);
+  ngl::Colour traceRay(const Ray &_ray);
+  ngl::Vec3 reflect(const ngl::Vec3 _n, const ngl::Vec3 _i);
+  ngl::Vec3 refract(const ngl::Vec3 _n, const ngl::Vec3 _i, float _n1, float _n2);
+  float rShclick(const ngl::Vec3 _n, const ngl::Vec3 _i, float _n1, float _n2);
 
 private:
   Camera *m_cam;

@@ -97,6 +97,7 @@ bool Triangle::intersect(const Ray &_ray, IsectData *_intersection)
       _intersection->m_n = interpolatedNormal;
       _intersection->m_uv = interpolatedUV;
       _intersection->m_eyeDir = _ray.m_direction;
+      _intersection->m_eyeDir.normalize();
       return true;
     }
     else{

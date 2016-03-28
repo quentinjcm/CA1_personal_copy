@@ -21,7 +21,7 @@ public:
   /// @brief ctor that initialises origin and direction values and normalises the direction
   /// @param [in] _origin is a point that represents the origin of the ray
   /// @param [in] _direction is a vector indicating the direction of the ray
-  Ray(ngl::Vec3 _origin, ngl::Vec3 _direction);
+  Ray(ngl::Vec3 _origin, ngl::Vec3 _direction, int _depth = 0);
 
   /// @brief sets the inverse direction, 1/m_direction{x, y, z}, to be used in ray/bbox intersections
   void setInvDirection();
@@ -34,6 +34,9 @@ public:
 
   /// @brief 1/direction of the ray
   ngl::Vec3 m_invDirection;
+
+  /// @brief recursive depth of the ray
+  int m_depth;
 
 };
 
