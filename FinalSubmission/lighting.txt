@@ -1,4 +1,28 @@
-renderColourPixel(intersection)
-  specColour = 0, 0, 0, 1;
-  if intersection->depth < m_maxDepth
+Material:
+    Colour
+    IOR
+    smoothness
+    isTransparent
 
+
+init lightOut
+init reflectedCol
+init refractedCol
+
+calculate reflected amount
+
+reflected light:
+    if ray depth < 3
+        calculate reflection direction
+        reflected colour = trace new ray in reflection direction
+
+refracted light:
+    if isTransparnt & ray deoth < 3
+        calulate refraction direction
+        refracted colour = trace new ray in refraction direction
+    else
+        refracted colour = blinn shading for the point
+
+clamp refracred and reflectd light
+
+lightOut = reflection amount * reflected colour + (1 - reflection amount) * refracted colour

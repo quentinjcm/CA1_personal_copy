@@ -1,6 +1,5 @@
 ESENTIAL:
   implement phong shading // still need to do reflections
-  implement parser // add obj support
 
 EXTRA:
   ui
@@ -15,3 +14,12 @@ EXTRA:
 
 BUGS:
   swap dummp for nullptr not working in shadow ray
+
+
+TODAY:
+    finish shading
+        can the different render layers be split up fully?
+        ambient/diffuse/specular/reflection
+    add transformations to primatives
+    remove prim ids
+    UI

@@ -1,16 +1,14 @@
-MAT: 1 0 0 30 0.5 textures/grid1k.jpg
 
 
+SPHERE: 0 0 0 40 2
 
-#SPHERE: 0 0 0 40 20
+PLANE: 0 0 0 10 10
 
+LIGHT: 5 2 2 1 1 1 20
 
+MAT: 1 0 0 50 0.5 textures/texture.png
 
-PLANE: 0 0 0 100 100
+#LIGHT: 0.1  0.1 0.5 0.75 1 10
 
-LIGHT: 0 50 0 1 1 1 20
-
-#LIGHT: 30 30 30 0.5 0.75 1 10
-
-OBJ: python/t4.obj
+#OBJ: python/bot.obj
 

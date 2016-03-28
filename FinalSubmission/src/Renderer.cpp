@@ -14,7 +14,6 @@ Renderer::Renderer(Camera *_cam, Film *_film, std::shared_ptr<Scene> _scene, int
   m_scene(_scene),
   m_aa(_aa)
 {
-  std::cout << "Renderer created" << std::endl;
 }
 
 
@@ -30,8 +29,6 @@ void Renderer::renderImage()
       if (y + 32 >= m_film->getFilmHeight()){
         yInc = m_film->getFilmHeight() - y - 1;
       }
-      //std::cout << "creating rendertask" << x << "," << y << "," << x + xInc << "," << y + yInc << "," << std::endl;
-      //std::cout << m_aa << std::endl;
       m_tasks.push_back(RenderTask(m_cam,
                                    m_film,
                                    m_scene,

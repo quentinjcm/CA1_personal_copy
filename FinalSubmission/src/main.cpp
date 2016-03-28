@@ -33,11 +33,11 @@ int main()
   Film film(1280, 720);
   SDLWindow renderWindow(&film);
 
-  ngl::Vec3 pos(10, 50, -30);
-  ngl::Vec3 lookAt(0, 0, 0);
+  ngl::Vec3 pos(1, 4, 9);
+  ngl::Vec3 lookAt(0, 1, 0);
   ngl::Vec3  up(0, 1, 0);
 
-  Camera cam(pos, lookAt, up, 100.0, &film);
+  Camera cam(pos, lookAt, up, 70.0, &film);
 
   //init scene
   std::shared_ptr<Scene> scene = std::make_shared<Scene>();

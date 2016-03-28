@@ -24,6 +24,7 @@ public:
   std::shared_ptr<TextureFile> m_diffuseTex;
   int m_smoothness;
   float m_f0;
+  float reflectivity;//0 to 1
 };
 
 #endif//__MATERIAL_HPP__

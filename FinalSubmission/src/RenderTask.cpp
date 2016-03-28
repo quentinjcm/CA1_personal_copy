@@ -14,8 +14,6 @@
 #include "Primative.hpp"
 #include "Material.hpp"
 
-
-
 RenderTask::RenderTask(Camera *_cam,
                        Film *_film,
                        std::shared_ptr<Scene> _scene,
@@ -48,8 +46,6 @@ void RenderTask::render()
     }
   }
 }
-
-
 
 void RenderTask::renderPixel(float _x, float _y)
 {
@@ -106,9 +102,9 @@ ngl::Colour RenderTask::normalPixel(ngl::Vec3 _normal)
 
 ngl::Colour RenderTask::depthPixel(float _depth)
 {
-  ngl::Colour depth(_depth/255.0,
-                    _depth/255.0,
-                    _depth/255.0,
+  ngl::Colour depth(1-(_depth/255.0),
+                    1-(_depth/255.0),
+                    1-(_depth/255.0),
                     1.0);
   depth.clamp(0, 1);
   return depth;
@@ -178,7 +174,33 @@ ngl::Colour RenderTask::reflectedLighting(IsectData *_intersection)
   return ngl::Colour(0, 0, 0, 1);
 }
 
+ngl::Colour RenderTask::renderPixel(std::vector<ngl::Vec2> _pixelSample)
+{
+  ngl::Colour outCol;
+  for (auto p: _pixelSample){
+    Ray newRay;
+    IsectData intersection;
+    intersection.m_depth = 1;
+    m_cam->generateRay(p[0], p[1], &newRay);
+    outCol = outCol + traceRay(newRay, &intersection);
+  }
+  outCol *= (1/_pixelSample.size());
+  return outCol;
+}
 
+ngl::Colour RenderTask::traceRay(const Ray &_ray, IsectData *intersection)
+{
+  ngl::Colour outCol;
+  if (m_scene->intersect(_ray, intersection)){
+    auto mat = intersection->m_material;
+    if (mat->reflectivity){
+    //reflectiv calculations
+    }
+    //refractive calculations
+
+  }
+  return outCol;
+}
 
 
 

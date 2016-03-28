@@ -4,8 +4,6 @@
 #include <memory>
 #include <random>
 
-#include <SDL2/SDL.h>
-
 #include <ngl/Colour.h>
 
 #include "Film.hpp"
@@ -14,6 +12,14 @@
 #include "Scene.hpp"
 #include "Ray.hpp"
 
+/// @file Camera.hpp
+/// @brief File contaiing the Camera class
+/// @author Quentin Corker-Marin
+/// @version 1.0
+/// @date 12/03/2016
+
+/// @class Camera
+/// @brief The Camera class is used to generate rays when passed a screen pixel value as x, y
 class RenderTask
 {
 public:
@@ -35,6 +41,9 @@ public:
   float clipColour(float n);
   bool isVisible(ngl::Vec3 _origin, ngl::Vec3 _lightPos);
   float fSchlick(float f0, ngl::Vec3 _l, ngl::Vec3 _n);
+  ngl::Colour renderPixel(std::vector<ngl::Vec2> pixelSample);
+  ngl::Colour traceRay(const Ray &_ray, IsectData *intersection);
+
 private:
   Camera *m_cam;
   Film *m_film;

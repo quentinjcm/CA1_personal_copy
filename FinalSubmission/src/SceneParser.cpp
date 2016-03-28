@@ -1,17 +1,20 @@
+//stdlib includes
 #include <string>
 #include <memory>
 #include <iostream>
 #include <fstream>
 
+//boost includes
 #include <boost/bind.hpp>
 #include <boost/spirit/include/classic.hpp>
-#include <boost/foreach.hpp>
 
+//ngl includes
 #include <ngl/Vec3.h>
 #include <ngl/Colour.h>
 #include <ngl/NGLStream.h>
 #include <ngl/Obj.h>
 
+//my includes
 #include "SceneParser.hpp"
 #include "Scene.hpp"
 #include "ProceduralMeshes.hpp"
@@ -19,7 +22,7 @@
 #include "Light.hpp"
 #include "Triangle.hpp"
 
-//borrowed from jon
+//taken from looking at ngl obj
 namespace spt = boost::spirit::classic;
 typedef spt::rule<spt::phrase_scanner_t> srule;
 
@@ -27,10 +30,11 @@ SceneParser::SceneParser(std::string _fileName, std::shared_ptr<Scene> _scene):
   m_scene(_scene),
   m_fileName(_fileName)
 {
-  m_currentMat = std::make_shared<Material>();
-  m_currentMat->m_diffuseColour = ngl::Colour(0.5, 0.5, 0.5);
-  m_currentMat->m_smoothness = 20;
-  m_currentMat->m_f0 = 0.3;
+  //building a default material
+  m_currentMat = std::make_shared<Material>(ngl::Colour(.3, .3, .3), 10, 0.3, "textures/grid1k.jpg");
+  //m_currentMat->m_diffuseColour = ngl::Colour(0.5, 0.5, 0.5);
+  //m_currentMat->m_smoothness = 20;
+  //m_currentMat->m_f0 = 0.3;
 }
 
 void SceneParser::parseSphere(const char *_begin)
@@ -104,7 +108,6 @@ void SceneParser::parseObj(const char *_begin)
                    uv0,
                    uv1,
                    uv2);
-        t.printData();
         meshOut->addTri(t);
       }
     }
@@ -156,41 +159,15 @@ void SceneParser::parseLight(const char *_begin)
 void SceneParser::parseScene()
 {
   srule comment = spt::comment_p("#");
-  srule sphere = ("SPHERE:" >>
-                  spt::real_p >>
-                  spt::real_p >>
-                  spt::real_p >>
-                  spt::int_p >>
-                  spt::real_p)
+  srule sphere = ("SPHERE:" >> *(spt::anychar_p))
                   [bind(&SceneParser::parseSphere, boost::ref(*this), _1)];
-  srule plane = ("PLANE:" >>
-                 spt::real_p >>
-                 spt::real_p >>
-                 spt::real_p >>
-                 spt::real_p >>
-                 spt::real_p)
+  srule plane = ("PLANE:" >> *(spt::anychar_p))
                  [bind(&SceneParser::parsePlane, boost::ref(*this), _1)];
-  srule obj = ("OBJ:" >>
-               *(+spt::alnum_p >> "/") >>
-               +spt::alnum_p >> ".obj")
+  srule obj = ("OBJ:" >> *(spt::anychar_p))
                [bind(&SceneParser::parseObj, boost::ref(*this), _1)];
-  srule mat = ("MAT:" >>
-               spt::real_p >>
-               spt::real_p >>
-               spt::real_p >>
-               spt::int_p >>
-               spt::real_p >>
-               *(+spt::alnum_p >> "/") >>
-               (+spt::alnum_p) >> "." >> (+spt::alnum_p))
+  srule mat = ("MAT:" >> *(spt::anychar_p))
                [bind(&SceneParser::parseMat, boost::ref(*this), _1)];
-  srule light = ("LIGHT:" >>
-                spt::real_p >>
-                spt::real_p >>
-                spt::real_p >>
-                spt::real_p >>
-                spt::real_p >>
-                spt::real_p >>
-                spt::real_p)
+  srule light = ("LIGHT:" >> *(spt::anychar_p))
                 [bind(&SceneParser::parseLight, boost::ref(*this), _1)];
 
   std::ifstream fileIn(m_fileName.c_str());

@@ -17,9 +17,9 @@
 /// @author Quentin Corker-Marin
 /// @version 1.0
 /// @date 12/03/2016
-/// @class Camera
-/// @brief The Camera class is used to generate rays when passed a pixel value as x, y
 
+/// @class Camera
+/// @brief The Camera class is used to generate rays when passed a screen pixel value as x, y
 class Camera
 {
 public:

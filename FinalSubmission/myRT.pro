@@ -10,7 +10,6 @@ OBJECTS_DIR=obj
 
 SOURCES+=$$PWD/src/main.cpp \
          $$PWD/src/Triangle.cpp \
-         $$PWD/src/TriangleData.cpp \
          $$PWD/src/TriangleMesh.cpp \
          $$PWD/src/Ray.cpp \
          $$PWD/src/BBox.cpp \

@@ -42,7 +42,6 @@ void TriangleMesh::addTri(const Triangle _tri)
   m_meshBound.addPoint(_tri.m_v1);
   m_meshBound.addPoint(_tri.m_v2);
   m_tris.push_back(_tri);
- // m_meshBound.printData();
 }
 
 void TriangleMesh::printData()
