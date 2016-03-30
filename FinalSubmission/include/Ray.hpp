@@ -15,8 +15,7 @@
 class Ray
 {
 public:
-  /// @brief default ctor so that rays can be created with no values and filled up later
-  Ray();
+  Ray() = default;
 
   /// @brief ctor that initialises origin and direction values and normalises the direction
   /// @param [in] _origin is a point that represents the origin of the ray
@@ -36,7 +35,7 @@ public:
   ngl::Vec3 m_invDirection;
 
   /// @brief recursive depth of the ray
-  int m_depth;
+  int m_depth = 0;
 
 };
 

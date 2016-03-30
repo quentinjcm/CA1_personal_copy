@@ -7,6 +7,7 @@
 
 //ngl includes
 #include <ngl/Obj.h>
+#include <ngl/Transformation.h>
 
 //my includes
 #include "Scene.hpp"
@@ -56,6 +57,12 @@ private:
   /// @brief a function difining the light gramar as it appears in the scene file and how it is to be handled
   /// @param[in] *_begin is a pointer to the first element of the line being parsed
   void parseLight(const char *_begin);
+
+  void parseTranslate(const char *_begin);
+  void parseRotate(const char *_begin);
+  void parseScale(const char *_begin);
+
+  ngl::Transformation m_currentTransform;
 
   /// @brief a pointer to the output scene
   std::shared_ptr<Scene> m_scene;

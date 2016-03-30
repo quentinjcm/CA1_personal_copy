@@ -16,3 +16,11 @@ bool GeometricPrim::intersect(const Ray &_ray, IsectData *_intersection)
   }
   return false;
 }
+
+bool GeometricPrim::sIntersect(const Ray &_ray)
+{
+  if (m_mesh->sIntersect(_ray)){
+    return true;
+  }
+  return false;
+}

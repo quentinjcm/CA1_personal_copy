@@ -34,6 +34,8 @@ public:
   /// @param [out] a boolean that returns true if the intersection is sucessfull;
   bool intersect(const Ray &_ray, IsectData *_intersection);
 
+  bool sIntersect(const Ray &_ray);
+
 private:
   /// @brief a shared pointer to the geometric mesh
   std::shared_ptr<TriangleMesh> m_mesh;

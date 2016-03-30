@@ -6,7 +6,6 @@
 #include <ngl/NGLStream.h>
 #include <ngl/Colour.h>
 
-#include <SDL2/SDL.h>
 
 #include "RenderTask.hpp"
 #include "Film.hpp"
@@ -33,89 +32,17 @@ RenderTask::RenderTask(Camera *_cam,
 
 void RenderTask::render()
 {
-  m_distribution = std::uniform_real_distribution<float>(-0.5, 0.5);
+  //m_distribution = std::uniform_real_distribution<float>(-0.5, 0.5);
   for (int x = m_xMin; x < m_xMax; x++){
     for (int y = m_yMin; y < m_yMax; y++){
-      //std::cout << m_aa << std::endl;
-      if (m_aa){
-        renderPixelAA((float)x, (float)y);
-      }
-      else{
-        renderPixel((float)x, (float)y);
-      }
+      std::vector<ngl::Vec2> samples;
+      samples.push_back(ngl::Vec2(x, y));
+      m_film->setDiffusePixel(x, y, renderPixel(samples));
     }
   }
 }
 
-void RenderTask::renderPixel(float _x, float _y)
-{
-  std::vector<ngl::Vec2> samples;
-  samples.push_back(ngl::Vec2(_x, _y));
-  m_film->setDiffusePixel(_x, _y, renderPixel(samples));
-  /*
-  Ray newRay;
-  IsectData intersection;
-  intersection.m_depth = 1;
-  m_cam->generateRay(_x, _y, &newRay);
-  if (m_scene->intersect(newRay, &intersection)){
-    m_film->setDepthPixel(_x, _y, depthPixel(intersection.m_t));
-    m_film->setNormalPixle(_x, _y, normalPixel(intersection.m_n));
-    m_film->setDiffusePixel(_x, _y, colourPixel(&intersection));
-  }
-  else{
-    m_film->setDepthPixel(_x, _y, ngl::Colour(0, 0, 0, 1.0));
-    m_film->setNormalPixle(_x, _y, ngl::Colour(0, 0, 0, 1.0));
-    m_film->setDiffusePixel(_x, _y, ngl::Colour(0, 0, 0, 1.0));
-  }
-  */
-}
-
-void RenderTask::renderPixelAA(float _x, float _y){
-  ngl::Colour depthPixelSum(0, 0, 0, 1);
-  ngl::Colour colourPixelSum(0, 0, 0, 1);
-  ngl::Colour normalPixelSum(0, 0, 0, 1);
-  for (int i = 0; i < m_aa; i++){
-    Ray newRay;
-    IsectData intersection;
-    intersection.m_depth = 1;
-    m_cam->generateRay(_x + m_distribution(m_generator),
-                       _y + m_distribution(m_generator),
-                       &newRay);
-    if (m_scene->intersect(newRay, &intersection)){
-      depthPixelSum += depthPixel(intersection.m_t);
-      normalPixelSum += normalPixel(intersection.m_n);
-      colourPixelSum += colourPixel(&intersection);
-    }
-  }
-  depthPixelSum *= 1.0/(float)m_aa;
-  colourPixelSum *= 1.0/(float)m_aa;
-  normalPixelSum *= 1.0/(float)m_aa;
-  m_film->setDepthPixel(_x, _y, depthPixelSum);
-  m_film->setNormalPixle(_x, _y, normalPixelSum);
-  m_film->setDiffusePixel(_x, _y, colourPixelSum);
-}
-
-ngl::Colour RenderTask::normalPixel(ngl::Vec3 _normal)
-{
-  ngl::Colour normal(_normal[0],
-                     _normal[1],
-                     _normal[2],
-                     1.0);
-  normal.clamp(0, 1);
-  return normal;
-}
-
-ngl::Colour RenderTask::depthPixel(float _depth)
-{
-  ngl::Colour depth(1-(_depth/255.0),
-                    1-(_depth/255.0),
-                    1-(_depth/255.0),
-                    1.0);
-  depth.clamp(0, 1);
-  return depth;
-}
-
-ngl::Colour RenderTask::colourPixel(IsectData *_intersection)
+ngl::Colour RenderTask::blinPixel(IsectData *_intersection)
 {
   ngl::Colour outColour(0, 0, 0, 1);
   ngl::Colour matColour = _intersection->m_material->getDiffuseColour(_intersection->m_uv[0],
@@ -151,26 +78,14 @@ ngl::Colour RenderTask::colourPixel(IsectData *_intersection)
 
 bool RenderTask::isVisible(ngl::Vec3 _point, ngl::Vec3 _lightPos)
 {
-  ngl::Vec3 direction = _lightPos - _point;
+  ngl::Vec3 direction(_lightPos - _point);
   _point += direction*0.001;
   Ray shadowRay(_point, direction);
   IsectData dummy;
-  if (m_scene->intersect(shadowRay, &dummy)){
+  if (m_scene->sIntersect(shadowRay)){
     return false;
   }
   return true;
-
-
-}
-
-float RenderTask::fSchlick(float f0, ngl::Vec3 _l, ngl::Vec3 _n)
-{
-  return f0 + (1 - f0) * pow(1 - (_l.dot(_n)), 5);
-}
-
-ngl::Colour RenderTask::reflectedLighting(IsectData *_intersection)
-{
-  return ngl::Colour(0, 0, 0, 1);
 }
 
 ngl::Colour RenderTask::renderPixel(std::vector<ngl::Vec2> _pixelSample)
@@ -231,11 +146,11 @@ ngl::Colour RenderTask::traceRay(const Ray &_ray)
         //std::cout << refractedCol.m_r << std::endl;
       }
       else{
-        refractedCol = colourPixel(&isect);
+        refractedCol = blinPixel(&isect);
       }
     }
     else{
-      refractedCol = colourPixel(&isect);
+      refractedCol = blinPixel(&isect);
     }
 
     //refractive calculations

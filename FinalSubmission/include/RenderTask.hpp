@@ -31,16 +31,8 @@ public:
              int _aa);
   void render();
   void renderPixel(float _x, float _y);
-  void renderPixelAA(float _x, float _y);
-  ngl::Colour normalPixel(ngl::Vec3 _normal);
-  ngl::Colour depthPixel(float _depth);
-  ngl::Colour colourPixel(IsectData *_intersection);
-  ngl::Colour diffuseLighting(IsectData *_intersection);
-  ngl::Colour specularLighting(IsectData *_intersection);
-  ngl::Colour reflectedLighting(IsectData *_intersection);
-  float clipColour(float n);
+  ngl::Colour blinPixel(IsectData *_intersection);
   bool isVisible(ngl::Vec3 _origin, ngl::Vec3 _lightPos);
-  float fSchlick(float f0, ngl::Vec3 _l, ngl::Vec3 _n);
   ngl::Colour renderPixel(std::vector<ngl::Vec2> pixelSample);
   ngl::Colour traceRay(const Ray &_ray);
   ngl::Vec3 reflect(const ngl::Vec3 _n, const ngl::Vec3 _i);

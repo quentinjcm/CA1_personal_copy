@@ -7,11 +7,9 @@
 class Primative
 {
 public:
-  Primative();
   virtual bool intersect(const Ray &_ray, IsectData *_intersection);
-  static uint32_t m_nextPrimId;
+  virtual bool sIntersect(const Ray &_ray);
 private:
-  const uint32_t m_primId;
 };
 
 

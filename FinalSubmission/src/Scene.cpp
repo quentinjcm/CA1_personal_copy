@@ -11,3 +11,13 @@ bool Scene::intersect(const Ray &_ray, IsectData *_intersection)
   return hasIntersected;
 }
 
+bool Scene::sIntersect(const Ray &_ray)
+{
+  for (std::shared_ptr<Primative> &prim: m_sceneGeo){
+    if (prim->sIntersect(_ray)){
+      return true;
+    }
+  }
+  return false;
+}
+

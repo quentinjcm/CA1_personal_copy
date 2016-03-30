@@ -39,10 +39,10 @@ void Renderer::renderImage()
   }
   std::vector<std::thread> threads;
   bool multiThread = true;
+  std::cout << "starting render" << std::endl;
   if (multiThread){
     for (RenderTask &task: m_tasks){
       threads.push_back(std::thread(&RenderTask::render, &task));
-      //task.render();
     }
     for (std::thread &task: threads){
       task.join();

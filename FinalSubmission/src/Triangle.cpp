@@ -46,6 +46,7 @@ bool Triangle::intersect(const Ray &_ray, IsectData *_intersection)
     //t strores the parameter for the distance along the ray of the intersection: r(t) = O + Dt
     float t = -numerator/denominator;
     //if intersection point is behind the rays origin, the ray is rejected
+
     if (t <= 0){
       //std::cout << "T less than 0" << std::endl;
       return false;
@@ -86,7 +87,6 @@ bool Triangle::intersect(const Ray &_ray, IsectData *_intersection)
         alpha = (u0 - beta*u2) / u1;
       }
     }
-
     if (alpha >= 0 & beta >= 0 & (alpha + beta) <=1){
       //filling the intersction data structure with data about the intersection point
       ngl::Vec3 interpolatedNormal = m_data->m_n0 * (1 - (alpha + beta)) + m_data->m_n1 * alpha + m_data->m_n2 * beta;
@@ -101,7 +101,7 @@ bool Triangle::intersect(const Ray &_ray, IsectData *_intersection)
       return true;
     }
     else{
-      //intersection outside triangle
+      //intersection outside triangl
       return false;
     }
   }

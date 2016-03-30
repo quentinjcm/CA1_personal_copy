@@ -3,6 +3,10 @@
 #include <math.h>
 
 #include <ngl/Vec3.h>
+#include <ngl/Mat4.h>
+#include <ngl/Mat3.h>
+#include <ngl/Transformation.h>
+#include <ngl/NGLStream.h>
 
 #include "ProceduralMeshes.hpp"
 
@@ -31,10 +35,16 @@ ngl::Vec3 ProceduralMeshes::circularToCartesian(float _theta, float _phi)
   return ngl::Vec3(x, y, z);
 }
 
-std::shared_ptr<TriangleMesh> ProceduralMeshes::pPlane(float _width, float _height)
+std::shared_ptr<TriangleMesh> ProceduralMeshes::pPlane(float _width, float _height, ngl::Transformation &_t)
 {
   auto meshOut = std::make_shared<TriangleMesh>();
 
+
+  ngl::Mat4 t(_t.getMatrix());
+  ngl::Mat3 nt(t);
+  //nt.transpose();
+  nt.inverse();
+  //std::cout << t << std::endl;
   //setting a minimum size for the plane
   if (_width == 0) _width = 1;
   if (_height == 0) _height = 1;
@@ -60,6 +70,15 @@ std::shared_ptr<TriangleMesh> ProceduralMeshes::pPlane(float _width, float _heig
   ngl::Vec2 uv1(1, 0);
   ngl::Vec2 uv2(0, 1);
   ngl::Vec2 uv3(1, 1);
+
+  //transofrming points
+  v0 = ngl::Vec4(v0) * t;
+  v1 = ngl::Vec4(v1) * t;
+  v2 = ngl::Vec4(v2) * t;
+  v3 = ngl::Vec4(v3) * t;
+  n = n * nt;
+  //std::cout << v0 << std::endl;
+
   Triangle t1(v0, v1, v3, n, n, n, uv0, uv1, uv3);
   Triangle t2(v0, v3, v2, n, n, n, uv0, uv3, uv2);
 
@@ -69,9 +88,15 @@ std::shared_ptr<TriangleMesh> ProceduralMeshes::pPlane(float _width, float _heig
   return meshOut;
 }
 
-std::shared_ptr<TriangleMesh> ProceduralMeshes::pSphere(ngl::Vec3 _pos, float _r, int _sd)
+std::shared_ptr<TriangleMesh> ProceduralMeshes::pSphere(float _r, int _sd, ngl::Transformation &_t)
 {
+
   auto meshOut = std::make_shared<TriangleMesh>();
+
+  ngl::Mat4 transform(_t.getMatrix());
+  ngl::Mat3 nTransform(transform);
+  //nt.transpose();
+  nTransform.inverse();
 
   //limiting the minimum number of subdivisions to 4 and radius to 1 of it is set to 0
   if (_sd < 4) _sd = 4;
@@ -99,10 +124,10 @@ std::shared_ptr<TriangleMesh> ProceduralMeshes::pSphere(ngl::Vec3 _pos, float _r
       ngl::Vec3 n1 = circularToCartesian(theta1, phi2);
       ngl::Vec3 n2 = circularToCartesian(theta2, phi2);
       ngl::Vec3 n3 = circularToCartesian(theta2, phi1);
-      ngl::Vec3 v0 = n0 * _r + _pos;
-      ngl::Vec3 v1 = n1 * _r + _pos;
-      ngl::Vec3 v2 = n2 * _r + _pos;
-      ngl::Vec3 v3 = n3 * _r + _pos;
+      ngl::Vec3 v0 = n0 * _r;
+      ngl::Vec3 v1 = n1 * _r;
+      ngl::Vec3 v2 = n2 * _r;
+      ngl::Vec3 v3 = n3 * _r;
 
       //uv cordinates use the stack and slice values. This is an easy way
       // to uv a sphere but it does create pinching around the poles
@@ -111,6 +136,16 @@ std::shared_ptr<TriangleMesh> ProceduralMeshes::pSphere(ngl::Vec3 _pos, float _r
       ngl::Vec2 uv2 = ngl::Vec2((t+1)*2/_sd, (p+1)/_sd);
       ngl::Vec2 uv3 = ngl::Vec2((t+1)*2/_sd, p/_sd);
 
+      //transforming points and normals
+      v0 = ngl::Vec4(v0) * transform;
+      v1 = ngl::Vec4(v1) * transform;
+      v2 = ngl::Vec4(v2) * transform;
+      v3 = ngl::Vec4(v3) * transform;
+
+      n0 = n0 * nTransform;
+      n1 = n1 * nTransform;
+      n2 = n2 * nTransform;
+      n3 = n3 * nTransform;
       //triangle is at the base and only one triangle should be created
       if (t == 0){
         Triangle t(v0, v2, v3, n0, n2, n3, uv0, uv2, uv3);

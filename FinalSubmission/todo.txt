@@ -1,6 +1,3 @@
-ESENTIAL:
-  implement phong shading // still need to do reflections
-
 EXTRA:
   ui
   viewport
@@ -8,18 +5,10 @@ EXTRA:
 
   create a geometry sub class so that the geo prim can contain a pointer to any type of geometry
 
-  get rid of my bbox and have one which inherits from his instead and adds the intersection routine
-  or
-  have give each mesh an array of bboxes, which are checked for intersections, if one is found, then the contained triangle is also checked
-
 BUGS:
-  swap dummp for nullptr not working in shadow ray
-
+    crashes when width = 10?
 
 TODAY:
-    finish shading
-        can the different render layers be split up fully?
-        ambient/diffuse/specular/reflection
     add transformations to primatives
     remove prim ids
     UI

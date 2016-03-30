@@ -1,25 +1,26 @@
 
+#transforms
 
+ROTATE: 0 0 0
+TRANSLATE: 0 0 0
+#SCALE: 1 1 1
 
-#plane px py pz width height
-PLANE: 0 0 0 40 40
+#plane width height
+PLANE: 10 11
 
 #mat cr cg cb smoothness ior isTransparent isReflective (textureFile)
-MAT: 0.3 0 0.3 5 1.5 1 1
+MAT: 0.6 0.6 1 5 1.5 0 1
 
-SPHERE: 0 2 0 40 2
+TRANSLATE: 0 0 0
+ROTATE: 0 0 45
+
 
 MAT: 0 1 0 5 5 0 1
-
-#SPHERE: 0 2 -5 40 2
+//SPHERE: 20 2
 
 LIGHT: 5 5 5 1 1 1 20
 
 LIGHT: 0 5 -5 1 0 0 20
 
 
-
-#LIGHT: 0.1  0.1 0.5 0.75 1 10
-
-#OBJ: python/bot.obj
-
+OBJ: scenes/t1.obj

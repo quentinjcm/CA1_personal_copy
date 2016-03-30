@@ -23,29 +23,19 @@
 class Triangle
 {
 public:
-  Triangle(ngl::Vec3 _v0, ngl::Vec3 _v1, ngl::Vec3 _v2,
-           ngl::Vec3 _n0, ngl::Vec3 _n1, ngl::Vec3 _n2,
-           ngl::Vec2 _uv0,ngl::Vec2 _uv1,ngl::Vec2 _uv2);
-
-  /// @brief ctor for triangle class that takes in positions and normals
+  /// @brief ctor for triangle class that takes in positions, normals and uv coords
   /// @param [in] _v0 first point in the triangle
   /// @param [in] _v1 second point in the triangle
   /// @param [in] _v2 third point in the triangle
   /// @param [in] _n0 normal corresponding to the first point in the triangle
   /// @param [in] _n1 normal corresponding to the second point in the triangle
   /// @param [in] _n2 normal corresponding to the third point in the triangle
+  /// @param [in] _uv0 tex coord corresponding to the first point in the triangle
+  /// @param [in] _uv1 tex coord corresponding to the second point in the triangle
+  /// @param [in] _uv2 tex coord corresponding to the third point in the triangle
   Triangle(ngl::Vec3 _v0, ngl::Vec3 _v1, ngl::Vec3 _v2,
-           ngl::Vec3 _n0, ngl::Vec3 _n1, ngl::Vec3 _n2);
-
-  /// @brief ctor for triangle class that only needs vertex positions
-  /// @param [in] _v0 first point in the triangle
-  /// @param [in] _v1 second point in the triangle
-  /// @param [in] _v2 third point in the triangle
-  Triangle(ngl::Vec3 _v2, ngl::Vec3 _v1, ngl::Vec3 _v0);
-
-  /// @brief ctor for triangle class that takes in an ngl vertData struct
-  /// @param [in] _data ngl structure that contains position, normal and uv data
-  Triangle(ngl::vertData _data);
+           ngl::Vec3 _n0, ngl::Vec3 _n1, ngl::Vec3 _n2,
+           ngl::Vec2 _uv0,ngl::Vec2 _uv1,ngl::Vec2 _uv2);
 
   /// @brief the intersect method for the triangle class
   /// @param [in] &_ray the ray that is being tested for intersections with the triangle

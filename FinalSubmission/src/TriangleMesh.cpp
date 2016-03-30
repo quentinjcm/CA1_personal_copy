@@ -2,7 +2,6 @@
 #include <vector>
 
 #include <ngl/Vec3.h>
-#include <ngl/NGLStream.h>
 
 #include "TriangleMesh.hpp"
 #include "Triangle.hpp"
@@ -16,6 +15,14 @@ bool TriangleMesh::intersect(const Ray &_ray, IsectData *_intersection)
 {
   if (intersectBBox(_ray)){
     return intersectMesh(_ray, _intersection);
+  }
+  else return false;
+}
+
+bool TriangleMesh::sIntersect(const Ray &_ray)
+{
+  if (intersectBBox(_ray)){
+    return sIntersectMesh(_ray);
   }
   else return false;
 }
@@ -36,6 +43,17 @@ bool TriangleMesh::intersectMesh(const Ray &_ray, IsectData *_intersection)
   return hasIntersected;
 }
 
+bool TriangleMesh::sIntersectMesh(const Ray &_ray)
+{
+  IsectData dummy;
+  for (Triangle i: m_tris){
+    if (i.intersect(_ray, &dummy)){
+      return true;
+    }
+  }
+  return false;
+}
+
 void TriangleMesh::addTri(const Triangle _tri)
 {
   m_meshBound.addPoint(_tri.m_v0);
@@ -44,7 +62,3 @@ void TriangleMesh::addTri(const Triangle _tri)
   m_tris.push_back(_tri);
 }
 
-void TriangleMesh::printData()
-{
-  for(Triangle i: m_tris) i.printData();
-}

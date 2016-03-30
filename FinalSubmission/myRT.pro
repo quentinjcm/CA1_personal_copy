@@ -2,7 +2,9 @@ TARGET=myRT
 
 QT+=gui
 
+
 CONFIG+=c++11
+CONFIG+= -v
 CONFIG+=-pthread
 CONFIG-=app_bundle
 
@@ -26,7 +28,8 @@ SOURCES+=$$PWD/src/main.cpp \
          $$PWD/src/Scene.cpp \
          $$PWD/src/Light.cpp \
          $$PWD/src/TextureFile.cpp \
-         $$PWD/src/RenderTask.cpp
+         $$PWD/src/RenderTask.cpp \
+         $$PWD/src/RenderSettings.cpp
 
 HEADERS+=$$PWD/include/Triangle.hpp \
          $$PWD/include/TriangleData.hpp \
@@ -46,7 +49,8 @@ HEADERS+=$$PWD/include/Triangle.hpp \
          $$PWD/include/Scene.hpp \
          $$PWD/include/Light.hpp \
          $$PWD/include/TextureFile.hpp \
-         $$PWD/include/RenderTask.hpp
+         $$PWD/include/RenderTask.hpp \
+         $$PWD/include/RenderSettings.hpp
 
 include($(HOME)/NGL/UseNGL.pri)
 
@@ -62,4 +66,6 @@ LIBS+= -lboost_system
 
 
 OTHER_FILES+=todo.txt \
-             lighting.txt
+             lighting.txt\
+             scenes/* \
+             textures/*

@@ -22,13 +22,13 @@ public:
   /// @param [in] _width is the length of the plane in the x direction
   /// @param [in] _height is the length of the plane in the z direction
   /// @param [out] a shared pointer to the triangle mesh that has been created
-  static std::shared_ptr<TriangleMesh> pPlane(float _width, float _height);
+  static std::shared_ptr<TriangleMesh> pPlane(float _width, float _height, ngl::Transformation &_t);
 
   /// @brief constructs a sphere centerd at the origin with normals and uvs
   /// @param [in] _r is the radius of the sphere
   /// @param [in] _sd is the number of subdivision of the sphere
   /// @param [out] a shared pointer to the triangle mesh that has been created
-  static std::shared_ptr<TriangleMesh> pSphere(ngl::Vec3 _pos, float _r, int _sd);
+  static std::shared_ptr<TriangleMesh> pSphere(float _r, int _sd, ngl::Transformation &_t);
 
 private:
   /// @brief converts a psoition in spherical coordinates to cartesian
