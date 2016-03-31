@@ -1,14 +1,31 @@
 EXTRA:
   ui
   viewport
-  secondary triangle intersection that stops as soon as it hits a barrier
-
-  create a geometry sub class so that the geo prim can contain a pointer to any type of geometry
 
 BUGS:
     crashes when width = 10?
+    some rotation values are causing problems with objs
 
-TODAY:
-    add transformations to primatives
-    remove prim ids
-    UI
+GET ON WITH IT:
+    viewport with ui
+    cleanup
+    aa filters
+
+flow:
+    start program
+        opens ui
+        specify scene
+        load scene
+            creates the scene object
+            convert scene object into a gl compatable structure
+            show scene in viewport
+        render
+            init a renderer with rendersettings
+            render scene
+            show rendered image in render view
+            save image
+
+steps:
+    create render settings as a QObject
+    get buttons to link between ui and render settings
+    get

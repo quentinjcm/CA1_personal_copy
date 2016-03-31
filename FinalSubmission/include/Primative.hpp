@@ -1,5 +1,5 @@
-#ifndef __PRIMATIVE_HPP__
-#define __PRIMATIVE_HPP__
+#ifndef PRIMATIVE_HPP
+#define PRIMATIVE_HPP
 
 #include "Ray.hpp"
 #include "IsectData.hpp"

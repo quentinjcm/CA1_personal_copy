@@ -1,5 +1,5 @@
-#ifndef __SDLWINDOW_HPP__
-#define __SDLWINDOW_HPP__
+#ifndef SDLWINDOW_HPP
+#define SDLWINDOW_HPP
 
 #include <vector>
 

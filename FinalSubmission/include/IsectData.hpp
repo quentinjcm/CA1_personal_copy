@@ -1,5 +1,5 @@
-#ifndef __ISECTDATA_HPP__
-#define __ISECTDATA_HPP__
+#ifndef ISECTDATA_HPP
+#define ISECTDATA_HPP
 
 #include <memory>
 
@@ -26,7 +26,7 @@ public:
   IsectData();
 
   /// @brief m_t holds ta value that represents the distance along the ray that the intersection occoured
-  float m_t;
+  double m_t;
 
   /// @brief m_depth holds the bounce depth pf the ray
   int m_depth;

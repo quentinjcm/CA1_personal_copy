@@ -16,11 +16,11 @@
 Camera::Camera(ngl::Vec3 _pos,
                ngl::Vec3 _lookAt,
                ngl::Vec3 _up,
-               float _fov,
+               double _fov,
                Film *_film):
   m_screenWidth(_film->getFilmWidth()),
   m_screenHeight(_film->getFilmHeight()),
-  m_aspectRatio((float)m_screenWidth / (float)m_screenHeight),
+  m_aspectRatio((double)m_screenWidth / (double)m_screenHeight),
   m_fovMult(tan(_fov * M_PI/360))
 {
   //generating a transformation matrix to transform from
@@ -52,18 +52,18 @@ Camera::Camera(ngl::Vec3 _pos,
   m_camToWorld = translate * rotate ;
 }
 
-void Camera::generateRay(float _x, float _y, Ray *_ray)
+void Camera::generateRay(double _x, double _y, Ray *_ray)
 {
   //init originposition
   ngl::Vec4 origin(0, 0, 0, 1);
 
   //convert pixel values to normalised device coordinates
-  float xNDC = (_x + 0.5) / m_screenWidth;
-  float yNDC = (_y + 0.5) / m_screenHeight;
+  double xNDC = (_x + 0.5) / m_screenWidth;
+  double yNDC = (_y + 0.5) / m_screenHeight;
 
   //convert from NDC to screen space
-  float xScreen = -((xNDC * 2) - 1) * m_aspectRatio * m_fovMult;
-  float yScreen = (1 - (yNDC * 2)) * m_fovMult;
+  double xScreen = -((xNDC * 2) - 1) * m_aspectRatio * m_fovMult;
+  double yScreen = (1 - (yNDC * 2)) * m_fovMult;
 
   //set the direction for the ray
   ngl::Vec4 direction(xScreen,

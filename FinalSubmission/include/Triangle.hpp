@@ -1,5 +1,5 @@
-#ifndef __TRIANGLE_HPP__
-#define __TRIANGLE_HPP__
+#ifndef TRIANGLE_HPP
+#define TRIANGLE_HPP
 
 #include <ngl/Vec3.h>
 #include <ngl/Vec2.h>
@@ -69,7 +69,7 @@ public:
   /// A plane can be represented using the normal and this constand in the equation
   /// N.P + d = 0 where N is the normal, P is any point on the plane and d is a constant
   /// for the plane.
-  float m_d;
+  double m_d;
 
   /// @brief One of the minor axes of the normal stored as either 0, 1 or 2. It is
   /// calulated at construction and used to project the triangle onto a plane to make

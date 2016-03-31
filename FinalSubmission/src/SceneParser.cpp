@@ -33,12 +33,12 @@ SceneParser::SceneParser(std::string _fileName, std::shared_ptr<Scene> _scene):
   m_fileName(_fileName)
 {
   //building a default material
-  m_currentMat = std::make_shared<Material>(ngl::Colour(.3, .3, .3), 10, 3, 0, 1, "textures/uvGrid.png");
+  m_currentMat = std::make_shared<Material>(ngl::Colour(.3, .3, .3), 10, 1.5, 0, 1, "textures/uvGrid.png");
 }
 
 void SceneParser::parseSphere(const char *_begin)
 {
-  float radius = 0;
+  double radius = 0;
   int divisions = 4;
 
   srule sphere = "SPHERE:" >>
@@ -53,8 +53,8 @@ void SceneParser::parseSphere(const char *_begin)
 
 void SceneParser::parsePlane(const char *_begin)
 {
-  float width = 1;
-  float height = 1;
+  double width = 1;
+  double height = 1;
 
   srule plane = "PLANE:" >>
                 spt::real_p[spt::assign_a(width)] >>
@@ -122,8 +122,8 @@ void SceneParser::parseMat(const char *_begin)
 {
   ngl::Colour colour(0, 0, 0, 1);
   int smoothness = 0;
-  //float reflectivity = 0;
-  float IOR = 1;
+  //double reflectivity = 0;
+  double IOR = 1;
   bool isTransparent = false;
   bool isReflective = false;
   std::string texFile = "";
@@ -148,7 +148,7 @@ void SceneParser::parseLight(const char *_begin)
 {
   ngl::Colour colour(0, 0, 0);
   ngl::Vec3 pos(0, 0, 0);
-  float intensity;
+  double intensity;
 
   srule light = "LIGHT:" >>
                 spt::real_p[spt::assign_a(pos[0])] >>

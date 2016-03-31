@@ -1,5 +1,5 @@
-#ifndef __TRIANGLE_MESH_HPP__
-#define __TRIANGLE_MESH_HPP__
+#ifndef TRIANGLE_MESH_HPP
+#define TRIANGLE_MESH_HPP
 
 #include <iostream>
 #include <vector>

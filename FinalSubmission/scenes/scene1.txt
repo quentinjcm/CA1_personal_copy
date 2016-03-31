@@ -1,26 +1,47 @@
+# <- deontes a comment
 
-#transforms
+#transformation types set and reset transformation from world coordinates
+#TRANSLATE: <x> <y> <z>
+#SCALE: <x> <y> <z>
+#ROTATE: <x> <y> <z>
 
-ROTATE: 0 0 0
-TRANSLATE: 0 0 0
-#SCALE: 1 1 1
+#creating geometry
+#sphere and plane use procedurally generated triangle meshes with uvs and texture coordinates
+#PLANE: <w> <h>
+#SPHERE: <sd> <r>
 
-#plane width height
-PLANE: 10 11
+#obj meshes can also be imported, make sure that meshes are triangulated before importing
+#OBJ <path/to/file.obj>
 
-#mat cr cg cb smoothness ior isTransparent isReflective (textureFile)
-MAT: 0.6 0.6 1 5 1.5 0 1
+#setting materials
+#any geometry specified will have the last specified material attached to it, with a default material being used if nothing
+#MATERIAL: <r> <g> <b> <smoothness> <ior> <isTransparent> <isReflective> (<textureFile>)
 
-TRANSLATE: 0 0 0
-ROTATE: 0 0 45
-
-
-MAT: 0 1 0 5 5 0 1
-//SPHERE: 20 2
-
-LIGHT: 5 5 5 1 1 1 20
-
-LIGHT: 0 5 -5 1 0 0 20
+#adding lights
+#only supports point lights so far
+#positions are specified in world space
+#LIGHT: <x> <y> <z> <r> <g> <b> <intensity>
 
 
-OBJ: scenes/t1.obj
+PLANE: 12 12
+
+ROTATE: 0 0 90
+TRANSLATE: 6 6 0
+PLANE: 12 12
+
+ROTATE: 90 0 0
+TRANSLATE: 0 6 -6
+PLANE: 12 12
+
+
+MAT: 0.6 0.6 1 40 1.5 0 1
+
+TRANSLATE: 0 2 0
+SPHERE: 20 2
+
+
+
+LIGHT: 5 5 5 1 1 1 1
+
+LIGHT: 0 5 -5 1 0 0 1
+

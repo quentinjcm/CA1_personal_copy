@@ -7,6 +7,14 @@
 #include <qimage.h>
 #include <QImageReader>
 
+
+
+#include <QApplication>
+#include <Viewport.hpp>
+
+
+
+
 #include <ngl/Vec3.h>
 #include <ngl/Vec4.h>
 #include <ngl/NGLStream.h>
@@ -26,14 +34,19 @@
 #include "Light.hpp"
 #include "SceneParser.hpp"
 
-int main()
+int main(int argc, char *argv[])
 {
-
+/*
+  QApplication app(argc, argv);
+  Viewport v;
+  v.show();
+  return app.exec();
+*/
 
   Film film(1280, 720);
   SDLWindow renderWindow(&film);
 
-  ngl::Vec3 pos(1, 4, 9);
+  ngl::Vec3 pos(5, 5, 10);
   ngl::Vec3 lookAt(0, 1, 0);
   ngl::Vec3  up(0, 1, 0);
 
@@ -55,11 +68,6 @@ int main()
 
   renderWindow.run();
 
-  /*
-  QList<QByteArray> formats = QImageReader::supportedImageFormats();
-    for ( QList<QByteArray>::Iterator f = formats.begin(); f != formats.end(); ++ f )
-      printf("%s , ", f->constData() );
-  */
 
   return EXIT_SUCCESS;
 }

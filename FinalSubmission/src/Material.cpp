@@ -13,7 +13,7 @@ Material::Material():
 {
 }
 
-Material::Material(ngl::Colour _colour, int _smoothness, float _IOR, bool _isTransparent, bool _isReflective, std::string _texFileName):
+Material::Material(ngl::Colour _colour, int _smoothness, double _IOR, bool _isTransparent, bool _isReflective, std::string _texFileName):
   m_diffuseColour(_colour),
   m_hasTexture(false),
   m_smoothness(_smoothness),
@@ -38,7 +38,7 @@ Material::Material(std::string _texFileName):
   }
 }
 
-ngl::Colour Material::getDiffuseColour(float _u, float _v)
+ngl::Colour Material::getDiffuseColour(double _u, double _v)
 {
   if(m_hasTexture){
     return m_diffuseTex->getPixel(_u, _v);

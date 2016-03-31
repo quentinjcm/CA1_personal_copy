@@ -1,5 +1,5 @@
-#ifndef __BBOX_HPP__
-#define __BBOX_HPP__
+#ifndef BBOX_HPP
+#define BBOX_HPP
 
 #include <iostream>
 

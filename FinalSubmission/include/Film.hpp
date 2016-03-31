@@ -1,5 +1,5 @@
-#ifndef __FILM_HPP__
-#define __FILM_HPP__
+#ifndef FILM_HPP
+#define FILM_HPP
 
 // stdlib includes
 #include <vector>

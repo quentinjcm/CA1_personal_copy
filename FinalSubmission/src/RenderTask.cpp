@@ -32,7 +32,7 @@ RenderTask::RenderTask(Camera *_cam,
 
 void RenderTask::render()
 {
-  //m_distribution = std::uniform_real_distribution<float>(-0.5, 0.5);
+  //m_distribution = std::uniform_real_distribution<double>(-0.5, 0.5);
   for (int x = m_xMin; x < m_xMax; x++){
     for (int y = m_yMin; y < m_yMax; y++){
       std::vector<ngl::Vec2> samples;
@@ -56,6 +56,8 @@ ngl::Colour RenderTask::blinPixel(IsectData *_intersection)
     if(isVisible(_intersection->m_pos, l.m_pos)){
       ngl::Vec3 normal(_intersection->m_n);
       ngl::Vec3 lightDir(l.m_pos - _intersection->m_pos);
+      double lightDist = lightDir.length();
+      double attenuation = 1.0 / (1.0 + 0.1 * lightDist + 0.01 * lightDist * lightDist);
       ngl::Vec3 eyeDir(_intersection->m_eyeDir);
       ngl::Vec3 reflectDir(normal * 2 * (normal.dot(eyeDir)) - eyeDir);
       ngl::Vec3 halfVec(lightDir + eyeDir);
@@ -65,11 +67,11 @@ ngl::Colour RenderTask::blinPixel(IsectData *_intersection)
       reflectDir.normalize();
       halfVec.normalize();
 
-      float NdotH = std::max(0.0f, (float)normal.dot(halfVec));
-      float NdotL = std::max(0.0f, (float)normal.dot(lightDir));
+      double NdotH = std::max(0.0, (double)normal.dot(halfVec));
+      double NdotL = std::max(0.0, (double)normal.dot(lightDir));
 
-      outColour += l.m_colour * std::pow(NdotH, _intersection->m_material->m_smoothness); //specular
-      outColour += l.m_colour * NdotL * matColour; //diffuse
+      outColour += (l.m_colour * std::pow(NdotH, _intersection->m_material->m_smoothness) * attenuation * l.m_intensity); //specular
+      outColour += l.m_colour * NdotL * NdotL * matColour * attenuation * l.m_intensity; //diffuse
     }
   }
   outColour.clamp(0, 1);
@@ -81,6 +83,7 @@ bool RenderTask::isVisible(ngl::Vec3 _point, ngl::Vec3 _lightPos)
   ngl::Vec3 direction(_lightPos - _point);
   _point += direction*0.001;
   Ray shadowRay(_point, direction);
+  shadowRay.m_maxT = 1;
   IsectData dummy;
   if (m_scene->sIntersect(shadowRay)){
     return false;
@@ -110,8 +113,8 @@ ngl::Colour RenderTask::traceRay(const Ray &_ray)
     ngl::Colour refractedCol(0, 0, 0, 1);
 
 
-    float n1 = 1;
-    float n2 = 1;
+    double n1 = 1;
+    double n2 = 1;
 
     //air -> geometry boundary
     if (isect.m_eyeDir.dot(isect.m_n) < 0){
@@ -125,7 +128,7 @@ ngl::Colour RenderTask::traceRay(const Ray &_ray)
       isect.m_n = -isect.m_n;
     }
 
-    float reflectedAmount = rShclick(isect.m_n, isect.m_eyeDir, n1, n2);
+    double reflectedAmount = rShclick(isect.m_n, isect.m_eyeDir, n1, n2);
 
     if (_ray.m_depth < 4){
       if (isect.m_material->m_isReflective){
@@ -164,30 +167,30 @@ ngl::Colour RenderTask::traceRay(const Ray &_ray)
 ngl::Vec3 RenderTask::reflect(const ngl::Vec3 _n, const ngl::Vec3 _i)
 {
   //http://graphics.stanford.edu/courses/cs148-10-summer/docs/2006--degreve--reflection_refraction.pdf
-  float cosI = -_n.dot(_i);
+  double cosI = -_n.dot(_i);
   return _i + _n * 2 * cosI;
 }
 
-ngl::Vec3 RenderTask::refract(const ngl::Vec3 _n, const ngl::Vec3 _i, float _n1, float _n2)
+ngl::Vec3 RenderTask::refract(const ngl::Vec3 _n, const ngl::Vec3 _i, double _n1, double _n2)
 {
   //http://graphics.stanford.edu/courses/cs148-10-summer/docs/2006--degreve--reflection_refraction.pdf
-  float n = _n1/_n2;
-  float cosI = -_n.dot(_i);
-  float sinT2 = n * n * (1.0 - cosI * cosI);
+  double n = _n1/_n2;
+  double cosI = -_n.dot(_i);
+  double sinT2 = n * n * (1.0 - cosI * cosI);
   if (sinT2 > 1.0){
     return ngl::Vec3(0, 0, 0); // total internal reflection
   }
-  float cosT = sqrt(1.0 - sinT2);
+  double cosT = sqrt(1.0 - sinT2);
   return n * _i + (n * cosI - cosT) * _n;
   //std::cout << out << std::endl;
   //return out;
 }
 
-float RenderTask::rShclick(const ngl::Vec3 _n, const ngl::Vec3 _i, float _n1, float _n2)
+double RenderTask::rShclick(const ngl::Vec3 _n, const ngl::Vec3 _i, double _n1, double _n2)
 {
-  float r0 = (_n1 - _n2) / (_n1 + _n2);
+  double r0 = (_n1 - _n2) / (_n1 + _n2);
   r0 *= r0;
-  float cosI = -_n.dot(_i);
+  double cosI = -_n.dot(_i);
   if (_n1 > _n2){
     double n = _n1 / _n2;
     double sinT2 = n * n * (1.0 - cosI * cosI);
@@ -196,8 +199,8 @@ float RenderTask::rShclick(const ngl::Vec3 _n, const ngl::Vec3 _i, float _n1, fl
     }
     cosI = sqrt(1.0 - sinT2);
   }
-  float x = 1.0 - cosI;
-  float schlick =  r0 + (1.0 - r0) * x * x * x * x * x;
+  double x = 1.0 - cosI;
+  double schlick =  r0 + (1.0 - r0) * x * x * x * x * x;
   if (schlick > .999) return 1;
   return schlick;
 }

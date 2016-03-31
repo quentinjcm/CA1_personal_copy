@@ -1,5 +1,5 @@
-#ifndef __SCENEPARSER_HPP__
-#define __SCENEPARSER_HPP__
+#ifndef SCENEPARSER_HPP
+#define SCENEPARSER_HPP
 
 //stdlib includes
 #include <string>

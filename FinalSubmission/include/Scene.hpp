@@ -1,5 +1,5 @@
-#ifndef __SCENE_HPP__
-#define __SCENE_HPP__
+#ifndef SCENE_HPP
+#define SCENE_HPP
 
 #include "memory"
 #include "vector"

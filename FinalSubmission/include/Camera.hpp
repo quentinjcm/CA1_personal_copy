@@ -1,5 +1,5 @@
-#ifndef __CAMERA_HPP__
-#define __CAMERA_HPP__
+#ifndef CAMERA_HPP
+#define CAMERA_HPP
 
 #include <ngl/Vec3.h>
 #include <ngl/Vec4.h>
@@ -33,14 +33,14 @@ public:
   Camera(ngl::Vec3 _pos,
          ngl::Vec3 _lookAt,
          ngl::Vec3 _up,
-         float _fov,
+         double _fov,
          Film *_film);
 
   /// @brief fills the ray with an origin and direction corresponding to the x, y pixel on the final image
   /// @param [in] _x is the x pixel of the final image
   /// @param [in] _y is the y pixel of the final image
   /// @param [in] *_ray is the ray to be filled up with data
-  void generateRay(float _x, float _y, Ray *_ray);
+  void generateRay(double _x, double _y, Ray *_ray);
 
 private:
   /// @brief width of the output image
@@ -50,7 +50,7 @@ private:
   int m_screenHeight;
 
   /// @brief aspect ratio of the screen
-  float m_aspectRatio;
+  double m_aspectRatio;
 
   /// @brief a rotation matrix that moves a vector in camera space to world space
   ngl::Mat4 m_rotate;
@@ -59,7 +59,7 @@ private:
   ngl::Mat4 m_camToWorld;
 
   /// @brief field of view for the camera
-  float m_fovMult;
+  double m_fovMult;
 };
 
 #endif//__CAMERA_HPP__

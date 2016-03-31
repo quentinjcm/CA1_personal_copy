@@ -20,11 +20,11 @@
 #endif
 
 
-ngl::Vec3 ProceduralMeshes::circularToCartesian(float _theta, float _phi)
+ngl::Vec3 ProceduralMeshes::circularToCartesian(double _theta, double _phi)
 {
-  float x = sin(_theta) * cos(_phi);
-  float y = sin(_theta) * sin(_phi);
-  float z = cos(_theta);
+  double x = sin(_theta) * cos(_phi);
+  double y = sin(_theta) * sin(_phi);
+  double z = cos(_theta);
 
   //limiting the size of x y and z because I was getting problems with values
   //that were very close to 0 and numerical accuracy wasnt a huge consern.
@@ -35,7 +35,7 @@ ngl::Vec3 ProceduralMeshes::circularToCartesian(float _theta, float _phi)
   return ngl::Vec3(x, y, z);
 }
 
-std::shared_ptr<TriangleMesh> ProceduralMeshes::pPlane(float _width, float _height, ngl::Transformation &_t)
+std::shared_ptr<TriangleMesh> ProceduralMeshes::pPlane(double _width, double _height, ngl::Transformation &_t)
 {
   auto meshOut = std::make_shared<TriangleMesh>();
 
@@ -88,7 +88,7 @@ std::shared_ptr<TriangleMesh> ProceduralMeshes::pPlane(float _width, float _heig
   return meshOut;
 }
 
-std::shared_ptr<TriangleMesh> ProceduralMeshes::pSphere(float _r, int _sd, ngl::Transformation &_t)
+std::shared_ptr<TriangleMesh> ProceduralMeshes::pSphere(double _r, int _sd, ngl::Transformation &_t)
 {
 
   auto meshOut = std::make_shared<TriangleMesh>();
@@ -104,17 +104,17 @@ std::shared_ptr<TriangleMesh> ProceduralMeshes::pSphere(float _r, int _sd, ngl::
 
   //I chose to have only a single parameter to specify subdivisions
   //there are an equal number of divisions in the xz plane and xy plane
-  float stacks = (float)_sd/2;
-  float slices = (float)_sd;
+  double stacks = (double)_sd/2;
+  double slices = (double)_sd;
 
-  for (float t = 0; t < stacks; t++){
+  for (double t = 0; t < stacks; t++){
     //converting current and next stack value to sperical coordinates
-    float theta1 = (float)t / stacks * M_PI;
-    float theta2 = (float)(t + 1) / stacks * M_PI;
-    for (float p = 0; p < slices; p++){
+    double theta1 = (double)t / stacks * M_PI;
+    double theta2 = (double)(t + 1) / stacks * M_PI;
+    for (double p = 0; p < slices; p++){
       //converting current and next slice value to sperical coordinates
-      float phi1 = (float)p / slices * M_2PI;
-      float phi2 = (float)(p + 1) / slices * M_2PI;
+      double phi1 = (double)p / slices * M_2PI;
+      double phi2 = (double)(p + 1) / slices * M_2PI;
 
       //at radius 1 the algorithm generates a unit sphere where each vertex
       //is its own normal, I can therfor generate the normals and multiply

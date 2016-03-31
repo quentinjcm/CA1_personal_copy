@@ -1,5 +1,5 @@
-#ifndef __TRIANGLEDATA_HPP__
-#define __TRIANGLEDATA_HPP__
+#ifndef TRIANGLEDATA_HPP
+#define TRIANGLEDATA_HPP
 
 #include <ngl/Vec3.h>
 #include <ngl/Vec2.h>

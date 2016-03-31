@@ -1,5 +1,5 @@
-#ifndef __RAY_HPP__
-#define __RAY_HPP__
+#ifndef RAY_HPP
+#define RAY_HPP
 
 #include <ngl/Vec3.h>
 
@@ -36,6 +36,8 @@ public:
 
   /// @brief recursive depth of the ray
   int m_depth = 0;
+
+  float m_maxT = std::numeric_limits<int>::max();
 
 };
 

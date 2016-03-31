@@ -39,12 +39,12 @@ bool Triangle::intersect(const Ray &_ray, IsectData *_intersection)
    * inside the triangle.
    */
   //first the ray is checked to se if it is parrallel to the plane
-  float denominator = m_n.dot(_ray.m_direction);
+  double denominator = m_n.dot(_ray.m_direction);
   //if not parrallel, then check for intersection with plane
   if (denominator){
-    float numerator = m_d + m_n.dot(_ray.m_origin);
+    double numerator = m_d + m_n.dot(_ray.m_origin);
     //t strores the parameter for the distance along the ray of the intersection: r(t) = O + Dt
-    float t = -numerator/denominator;
+    double t = -numerator/denominator;
     //if intersection point is behind the rays origin, the ray is rejected
 
     if (t <= 0){
@@ -52,7 +52,7 @@ bool Triangle::intersect(const Ray &_ray, IsectData *_intersection)
       return false;
     }
     //if a cloaser intersection has already been found, the ray is rejected
-    if (t > _intersection->m_t){
+    if (t > _intersection->m_t | t > _ray.m_maxT){
       //std::cout << "intersection further away than closest intersection" << std::endl;
       return false;
     }
@@ -61,18 +61,18 @@ bool Triangle::intersect(const Ray &_ray, IsectData *_intersection)
     //checking to see if the point is inside the triangle by
     //projecting the triangle along the major axis of the normal
     //[u0, v0] = vector from m_v0 to intersection point
-    float u0 = p[m_i1] - m_v0[m_i1];
-    float v0 = p[m_i2] - m_v0[m_i2];
+    double u0 = p[m_i1] - m_v0[m_i1];
+    double v0 = p[m_i2] - m_v0[m_i2];
     //[u1, v1] = vector from m_v0 to m_v1
-    float u1 = m_v1[m_i1] - m_v0[m_i1];
-    float v1 = m_v1[m_i2] - m_v0[m_i2];
+    double u1 = m_v1[m_i1] - m_v0[m_i1];
+    double v1 = m_v1[m_i2] - m_v0[m_i2];
     //[u2, v2] = vector from m_v0 to m_v2
-    float u2 = m_v2[m_i1] - m_v0[m_i1];
-    float v2 = m_v2[m_i2] - m_v0[m_i2];
+    double u2 = m_v2[m_i1] - m_v0[m_i1];
+    double v2 = m_v2[m_i2] - m_v0[m_i2];
 
     //setting alpha and beta to be balues that indicate no intersection
-    float alpha = -1;
-    float beta = -1;
+    double alpha = -1;
+    double beta = -1;
 
     //setting the values of alpha and beta
     if (u1 == 0){
@@ -138,9 +138,9 @@ void Triangle::calcD()
 
 void Triangle::calcDominantAxis()
 {
-  float x = fabs(m_n.m_x);
-  float y = fabs(m_n.m_y);
-  float z = fabs(m_n.m_z);
+  double x = fabs(m_n.m_x);
+  double y = fabs(m_n.m_y);
+  double z = fabs(m_n.m_z);
   if (x > y & x > z){
     //x is the dominant axis
     m_i1 = 1;

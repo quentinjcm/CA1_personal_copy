@@ -1,20 +1,17 @@
-#ifndef __TEXTUREFILE_HPP__
-#define __TEXTUREFILE_HPP__
+#ifndef TEXTUREFILE_HPP
+#define TEXTUREFILE_HPP
 
 #include <string>
 #include <vector>
 
-#include <SDL2/SDL.h>
-
 #include <ngl/Colour.h>
-
 
 class TextureFile
 {
 public:
   TextureFile(std::string _fileName);
   void loadImage();
-  ngl::Colour getPixel(float _u, float _v);
+  ngl::Colour getPixel(double _u, double _v);
   std::string m_fileName;
   std::vector<ngl::Colour> m_pixels;
   bool m_isLoaded;

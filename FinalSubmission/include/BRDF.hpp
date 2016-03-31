@@ -8,11 +8,11 @@ class BRDF
 public:
 
 private:
-  float fresnel(ngl::Vec3 _l, ngl::Vec3 _n);
+  double fresnel(ngl::Vec3 _l, ngl::Vec3 _n);
 
 
-  float m_IOR;
-  float m_f0;
+  double m_IOR;
+  double m_f0;
 };
 
 #endif//__BRDF_HPP__

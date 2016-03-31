@@ -1,14 +1,22 @@
 TARGET=myRT
 
-QT+=gui
-
+QT+=gui core declarative opengl
 
 CONFIG+=c++11
 CONFIG+= -v
 CONFIG+=-pthread
+CONFIG+=console
 CONFIG-=app_bundle
 
-OBJECTS_DIR=obj
+OBJECTS_DIR=obj/
+
+UI_HEADERS_DIR+= ui
+
+
+isEqual(QT_MAJOR_VERSION, 5) {
+        cache()
+        DEFINES +=QT5BUILD
+}
 
 SOURCES+=$$PWD/src/main.cpp \
          $$PWD/src/Triangle.cpp \
@@ -29,7 +37,9 @@ SOURCES+=$$PWD/src/main.cpp \
          $$PWD/src/Light.cpp \
          $$PWD/src/TextureFile.cpp \
          $$PWD/src/RenderTask.cpp \
-         $$PWD/src/RenderSettings.cpp
+         #$$PWD/src/RenderSettings.cpp \
+         $$PWD/src/Viewport.cpp \
+         $$PWD/src/NGLWindow.cpp
 
 HEADERS+=$$PWD/include/Triangle.hpp \
          $$PWD/include/TriangleData.hpp \
@@ -50,7 +60,10 @@ HEADERS+=$$PWD/include/Triangle.hpp \
          $$PWD/include/Light.hpp \
          $$PWD/include/TextureFile.hpp \
          $$PWD/include/RenderTask.hpp \
-         $$PWD/include/RenderSettings.hpp
+         #$$PWD/include/RenderSettings.hpp \
+         $$PWD/include/Viewport.hpp \
+         $$PWD/include/NGLWindow.hpp
+
 
 include($(HOME)/NGL/UseNGL.pri)
 
@@ -58,14 +71,13 @@ INCLUDEPATH+=./include
 
 QMAKE_CXXFLAGS+=$$system(sdl2-config --cflags)
 
-
 LIBS+=$$system(sdl2-config --libs)
 LIBS+= -lboost_system
-
-
-
 
 OTHER_FILES+=todo.txt \
              lighting.txt\
              scenes/* \
              textures/*
+
+FORMS += ui/viewport.ui
+MOC_DIR += moc/

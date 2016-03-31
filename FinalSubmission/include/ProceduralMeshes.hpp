@@ -1,5 +1,5 @@
-#ifndef __PROCEDURALMESHES_HPP__
-#define __PROCEDURALMESHES_HPP__
+#ifndef PROCEDURALMESHES_HPP
+#define PROCEDURALMESHES_HPP
 
 #include <memory>
 
@@ -22,20 +22,20 @@ public:
   /// @param [in] _width is the length of the plane in the x direction
   /// @param [in] _height is the length of the plane in the z direction
   /// @param [out] a shared pointer to the triangle mesh that has been created
-  static std::shared_ptr<TriangleMesh> pPlane(float _width, float _height, ngl::Transformation &_t);
+  static std::shared_ptr<TriangleMesh> pPlane(double _width, double _height, ngl::Transformation &_t);
 
   /// @brief constructs a sphere centerd at the origin with normals and uvs
   /// @param [in] _r is the radius of the sphere
   /// @param [in] _sd is the number of subdivision of the sphere
   /// @param [out] a shared pointer to the triangle mesh that has been created
-  static std::shared_ptr<TriangleMesh> pSphere(float _r, int _sd, ngl::Transformation &_t);
+  static std::shared_ptr<TriangleMesh> pSphere(double _r, int _sd, ngl::Transformation &_t);
 
 private:
   /// @brief converts a psoition in spherical coordinates to cartesian
   /// @param [in] _theta is one component of the spehrical coordinates
   /// @param [in] _phi is the second component of the circular coordinates
   /// @param [out] a ngl::Vec3 with the x, y and x coordinated of the point in cartesian space
-  static ngl::Vec3 circularToCartesian(float _theta, float _phi);
+  static ngl::Vec3 circularToCartesian(double _theta, double _phi);
 };
 
 #endif//__PROCEDURALMESHES_HPP__

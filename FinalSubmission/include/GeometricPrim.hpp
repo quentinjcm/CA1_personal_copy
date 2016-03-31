@@ -1,5 +1,5 @@
-#ifndef __GEOMETRICPRIM_HPP__
-#define __GEOMETRICPRIM_HPP__
+#ifndef GEOMETRICPRIM_HPP
+#define GEOMETRICPRIM_HPP
 
 #include <memory>
 
