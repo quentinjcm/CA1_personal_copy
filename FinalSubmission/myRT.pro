@@ -37,9 +37,9 @@ SOURCES+=$$PWD/src/main.cpp \
          $$PWD/src/Light.cpp \
          $$PWD/src/TextureFile.cpp \
          $$PWD/src/RenderTask.cpp \
-         #$$PWD/src/RenderSettings.cpp \
+         $$PWD/src/RenderSettings.cpp \
          $$PWD/src/Viewport.cpp \
-         $$PWD/src/NGLWindow.cpp
+         #$$PWD/src/NGLWindow.cpp
 
 HEADERS+=$$PWD/include/Triangle.hpp \
          $$PWD/include/TriangleData.hpp \
@@ -60,9 +60,9 @@ HEADERS+=$$PWD/include/Triangle.hpp \
          $$PWD/include/Light.hpp \
          $$PWD/include/TextureFile.hpp \
          $$PWD/include/RenderTask.hpp \
-         #$$PWD/include/RenderSettings.hpp \
+         $$PWD/include/RenderSettings.hpp \
          $$PWD/include/Viewport.hpp \
-         $$PWD/include/NGLWindow.hpp
+         #®$$PWD/include/NGLWindow.hpp
 
 
 include($(HOME)/NGL/UseNGL.pri)

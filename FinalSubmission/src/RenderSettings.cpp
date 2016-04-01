@@ -27,4 +27,5 @@ void RenderSettings::printSettings()
   std::cout << "m_multithread = " << m_multithread << std::endl;
   std::cout << "m_threadWidth = " << m_threadWidth << std::endl;
   std::cout << "m_threadHeight = " << m_threadHeight << std::endl;
+  std::cout << "file path = " << m_filePath.toStdString() << std::endl;
 }

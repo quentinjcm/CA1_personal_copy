@@ -36,13 +36,21 @@
 
 int main(int argc, char *argv[])
 {
-/*
+
   QApplication app(argc, argv);
+  //QSurfaceFormat format;
+  //format.setSamples(4);
+  //format.setMajorVersion(4);
+  //format.setMinorVersion(3);
+  //format.setProfile(QSurfaceFormat::CoreProfile);
+  //format.setDepthBufferSize(24);
+
+
   Viewport v;
   v.show();
   return app.exec();
-*/
 
+/*
   Film film(1280, 720);
   SDLWindow renderWindow(&film);
 
@@ -70,4 +78,5 @@ int main(int argc, char *argv[])
 
 
   return EXIT_SUCCESS;
+  */
 }
