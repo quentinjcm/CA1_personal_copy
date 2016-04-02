@@ -25,7 +25,13 @@ flow:
             show rendered image in render view
             save image
 
-steps:
-    create render settings as a QObject
-    get buttons to link between ui and render settings
-    get
+
+flow2:
+  start
+  init rendersettings
+  init ui with given rendersettings (shared_ptr)
+  when render button pushed
+    construct scene with rendersettings
+    construct renderer with rendersettings
+    render scene
+    openwindow
