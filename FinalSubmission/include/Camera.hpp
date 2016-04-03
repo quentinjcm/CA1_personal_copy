@@ -23,6 +23,8 @@
 class Camera
 {
 public:
+  Camera() = default;
+
   /// @brief ctor that builds the transformtion matricies to move from camera to world space
   /// @param [in] _pos is the position of the camera in world space
   /// @param [in] _lookAt is a point in world space that the camera will look at
@@ -35,6 +37,13 @@ public:
          ngl::Vec3 _up,
          double _fov,
          Film *_film);
+
+  Camera(ngl::Vec3 _pos,
+         ngl::Vec3 _lookAt,
+         ngl::Vec3 _up,
+         double _fov,
+         int _filmWidth,
+         int _filmHeight);
 
   /// @brief fills the ray with an origin and direction corresponding to the x, y pixel on the final image
   /// @param [in] _x is the x pixel of the final image

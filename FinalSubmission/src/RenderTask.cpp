@@ -18,7 +18,7 @@ RenderTask::RenderTask(Camera *_cam,
                        std::shared_ptr<Scene> _scene,
                        int _xMin, int _yMin,
                        int _xMax, int _yMax,
-                       int _aa):
+                       std::shared_ptr<RenderSettings> _settings):
   m_cam(_cam),
   m_film(_film),
   m_scene(_scene),
@@ -26,16 +26,16 @@ RenderTask::RenderTask(Camera *_cam,
   m_yMin(_yMin),
   m_xMax(_xMax),
   m_yMax(_yMax),
-  m_aa(_aa)
+  m_settings(_settings)
 {
 }
 
 void RenderTask::render()
 {
-  //m_distribution = std::uniform_real_distribution<double>(-0.5, 0.5);
   for (int x = m_xMin; x < m_xMax; x++){
     for (int y = m_yMin; y < m_yMax; y++){
       std::vector<ngl::Vec2> samples;
+      //use aa value to generate samples
       samples.push_back(ngl::Vec2(x, y));
       m_film->setDiffusePixel(x, y, renderPixel(samples));
     }
@@ -49,8 +49,7 @@ ngl::Colour RenderTask::blinPixel(IsectData *_intersection)
                                                                       _intersection->m_uv[1]);
 
   //ambient lighting
-  ngl::Colour ambientLighting(0.2, 0.2, 0.2, 1);
-  outColour += ambientLighting * matColour; //ambient
+  outColour += m_settings->m_ambientCol * matColour; //ambient
 
   for (Light &l: m_scene->m_sceneLights){
     if(isVisible(_intersection->m_pos, l.m_pos)){
@@ -105,7 +104,7 @@ ngl::Colour RenderTask::renderPixel(std::vector<ngl::Vec2> _pixelSample)
 
 ngl::Colour RenderTask::traceRay(const Ray &_ray)
 {
-  ngl::Colour outCol(0, 0, 0, 1);
+  ngl::Colour outCol = m_settings->m_bgCol;
   IsectData isect;
   if (m_scene->intersect(_ray, &isect)){
 
@@ -130,7 +129,7 @@ ngl::Colour RenderTask::traceRay(const Ray &_ray)
 
     double reflectedAmount = rShclick(isect.m_n, isect.m_eyeDir, n1, n2);
 
-    if (_ray.m_depth < 4){
+    if (_ray.m_depth < m_settings->m_maxRayBounces){
       if (isect.m_material->m_isReflective){
         ngl::Vec3 reflectedDir(reflect(isect.m_n, isect.m_eyeDir));
         Ray reflectedRay(isect.m_pos + 0.0001 * reflectedDir, reflectedDir, _ray.m_depth + 1);

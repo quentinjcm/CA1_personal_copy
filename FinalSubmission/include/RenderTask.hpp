@@ -8,6 +8,7 @@
 
 #include "Film.hpp"
 #include "Camera.hpp"
+#include "RenderSettings.hpp"
 #include "Primative.hpp"
 #include "Scene.hpp"
 #include "Ray.hpp"
@@ -30,7 +31,7 @@ public:
              std::shared_ptr<Scene> _scene,
              int _xMin, int _yMin,
              int _xMax, int _yMax,
-             int _aa);
+             std::shared_ptr<RenderSettings> _settings);
   void render();
   void renderPixel(double _x, double _y);
   ngl::Colour blinPixel(IsectData *_intersection);
@@ -45,6 +46,7 @@ private:
   Camera *m_cam;
   Film *m_film;
   std::shared_ptr<Scene> m_scene;
+  std::shared_ptr<RenderSettings> m_settings;
   std::default_random_engine m_generator;
   std::uniform_real_distribution<double> m_distribution;
   int m_xMin;

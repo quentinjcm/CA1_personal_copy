@@ -34,11 +34,12 @@ TRANSLATE: 0 6 -6
 PLANE: 12 12
 
 
-MAT: 0.6 0.6 1 140 1.5 1  1
+MAT: 0.6 0.6 1 140 3 0  1
 
 TRANSLATE: 0 2 0
+ROTATE: 0 0 0
 SPHERE: 20 2
-
+#OBJ: scenes/bot.obj
 
 
 LIGHT: 5 5 5 1 1 1 1

@@ -62,3 +62,10 @@ void TriangleMesh::addTri(const Triangle _tri)
   m_tris.push_back(_tri);
 }
 
+void TriangleMesh::getGLData(std::vector<ngl::Vec3> _points, std::vector<ngl::Vec3> _normals)
+{
+  for (Triangle t: m_tris){
+    t.getGLData(_points, _normals);
+  }
+}
+

@@ -15,3 +15,8 @@ bool Primative::sIntersect(const Ray &_ray)
   std::cerr << "shadow intersection method for derrived class not defined" << std::endl;
   return false;
 }
+
+void Primative::getGLData(std::vector<ngl::Vec3> _points, std::vector<ngl::Vec3> _normals)
+{
+  std::cerr << "getGLData method for derrived class not defined" << std::endl;
+}

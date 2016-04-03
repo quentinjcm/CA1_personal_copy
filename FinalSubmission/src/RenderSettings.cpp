@@ -14,7 +14,6 @@ void RenderSettings::printSettings()
 {
   std::cout << "m_bgCol red = " << m_bgCol.m_r << std::endl;
   std::cout << "m_ambientCol red = " << m_ambientCol.m_r << std::endl;
-  std::cout << "m_ambientIntensity = " << m_ambientIntensity << std::endl;
   std::cout << "m_aaType = " << m_aaType << std::endl;
   std::cout << "m_aaAmount = " << m_aaAmount << std::endl;
   std::cout << "m_camPos = " << m_camPos << std::endl;

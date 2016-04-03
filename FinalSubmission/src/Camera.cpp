@@ -52,6 +52,46 @@ Camera::Camera(ngl::Vec3 _pos,
   m_camToWorld = translate * rotate ;
 }
 
+Camera::Camera(ngl::Vec3 _pos,
+       ngl::Vec3 _lookAt,
+       ngl::Vec3 _up,
+       double _fov,
+       int _filmWidth,
+       int _filmHeight):
+  m_screenWidth(_filmWidth),
+  m_screenHeight(_filmHeight),
+  m_aspectRatio((double)m_screenWidth / (double)m_screenHeight),
+  m_fovMult(tan(_fov * M_PI/360))
+{
+  //generating a transformation matrix to transform from
+  //camera space to world space
+  //generate an orthonormal frame for the camera:
+  ngl::Vec3 d = _lookAt - _pos;
+  ngl::Vec3 r = _up.cross(d);
+  ngl::Vec3 u = d.cross(r);
+  d.normalize();
+  r.normalize();
+  u.normalize();
+  //generate a matrix that can transform from points in
+  //camera space to points in world space
+
+  //matrix to allign roataions
+  ngl::Mat4 rotate(r[0], u[0], d[0], 0,
+                   r[1], u[1], d[1], 0,
+                   r[2], u[2], d[2], 0,
+                   0,    0,    0,    1);
+
+  //matrix for position transformations
+  ngl::Mat4 translate(1, 0, 0, _pos[0],
+                      0, 1, 0, _pos[1],
+                      0, 0, 1, _pos[2],
+                      0, 0, 0,  1);
+  //I store the roataion seperately because that is needed on its own
+  //to roatate the direction vector of rays without translating them
+  m_rotate = rotate;
+  m_camToWorld = translate * rotate ;
+}
+
 void Camera::generateRay(double _x, double _y, Ray *_ray)
 {
   //init originposition

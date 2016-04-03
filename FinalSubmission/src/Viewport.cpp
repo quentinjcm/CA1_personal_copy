@@ -1,6 +1,14 @@
+#include <QTime>
+
 #include "Viewport.hpp"
 #include "ui_viewport.h"
 #include "RenderSettings.hpp"
+#include "Scene.hpp"
+#include "SceneParser.hpp"
+#include "Camera.hpp"
+#include "Film.hpp"
+#include "SDLWindow.hpp"
+#include "Renderer.hpp"
 
 Viewport::Viewport(QWidget *parent) :
   QMainWindow(parent),
@@ -16,7 +24,6 @@ Viewport::Viewport(QWidget *parent) :
   connect(m_ui->m_ambientR, SIGNAL(valueChanged(double)), m_settings.get(), SLOT(setAmbientColourR(double)));
   connect(m_ui->m_ambientG, SIGNAL(valueChanged(double)), m_settings.get(), SLOT(setAmbientColourG(double)));
   connect(m_ui->m_ambientB, SIGNAL(valueChanged(double)), m_settings.get(), SLOT(setAmbientColourB(double)));
-  connect(m_ui->m_ambientIntensity, SIGNAL(valueChanged(double)), m_settings.get(), SLOT(setAmbientIntensity(double)));
 
   connect(m_ui->m_camPosX, SIGNAL(valueChanged(double)), m_settings.get(), SLOT(setCamPosX(double)));
   connect(m_ui->m_camPosY, SIGNAL(valueChanged(double)), m_settings.get(), SLOT(setCamPosY(double)));
@@ -43,11 +50,49 @@ Viewport::Viewport(QWidget *parent) :
 
   connect(m_ui->m_scenePath, SIGNAL(textEdited(QString)), m_settings.get(), SLOT(setScenePath(QString)));
 
-  connect(m_ui->m_render, SIGNAL(clicked(bool)), m_settings.get(), SLOT(printSettings()));
+  connect(m_ui->m_render, SIGNAL(clicked(bool)), this, SLOT(renderCurrent()));
+  connect(m_ui->m_loadScene, SIGNAL(clicked(bool)), this, SLOT(loadScene()));
 
 }
 
 Viewport::~Viewport()
 {
   delete m_ui;
+}
+
+void Viewport::renderCurrent()
+{
+  if (m_hasScene){
+    std::cout << "rendering scene"  << std::endl;
+    Film film(m_settings->m_filmWidth,
+                  m_settings->m_filmHeight);
+    SDLWindow renderWindow(&film);
+
+    //set up renderer
+    Camera renderCam(m_settings->m_camPos,
+                                     m_settings->m_camAim,
+                                     m_settings->m_camUp,
+                                     m_settings->m_fov,
+                                     &film);
+
+    Renderer new_renderer(m_scene, m_settings, &film);
+
+    QTime startTime;
+    startTime.start();
+
+    //render
+    new_renderer.renderImage();
+    std::cout << std::endl << "rendered in: " << startTime.elapsed()/1000.0 << " seconds" << std::endl;
+    renderWindow.run();
+  }
+
+}
+
+void Viewport::loadScene()
+{
+  std::cout << "loading scene " << m_settings->m_filePath.toStdString() << std::endl;
+  m_scene = std::make_shared<Scene>();
+  SceneParser p(m_settings->m_filePath.toStdString(), m_scene);
+  p.parseScene();
+  m_hasScene = true;
 }

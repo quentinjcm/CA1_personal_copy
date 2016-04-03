@@ -3,13 +3,15 @@ EXTRA:
   viewport
 
 BUGS:
-    crashes when width = 10?
     some rotation values are causing problems with objs
+    odd lighting? see robot fingers
+    threads
 
 GET ON WITH IT:
     viewport with ui
     cleanup
     aa filters
+    trim film class
 
 flow:
     start program

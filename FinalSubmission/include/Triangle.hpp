@@ -89,6 +89,8 @@ public:
   /// the maximum of the absolute x y and x values. This function stores the two remaining
   /// axes in m_i1 and m_i2.
   void calcDominantAxis();
+
+  void getGLData(std::vector<ngl::Vec3> _points, std::vector<ngl::Vec3> _normals);
 };
 
 #endif //__TRIANGLE_HPP__

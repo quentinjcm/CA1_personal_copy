@@ -17,8 +17,7 @@ public:
   ~RenderSettings() = default;
 
   ngl::Colour m_bgCol = ngl::Colour(0, 0, 0);
-  ngl::Colour m_ambientCol = ngl::Colour(0, 0, 0);
-  float m_ambientIntensity = 10;
+  ngl::Colour m_ambientCol = ngl::Colour(0.2, 0.2, 0.2);
   float m_aaType = 0;
   float m_aaAmount = 0;
   ngl::Vec3 m_camPos = ngl::Vec3(0, 0, 0);
@@ -41,7 +40,6 @@ public slots:
   void setAmbientColourR(double _r){m_ambientCol.m_r = _r;}
   void setAmbientColourG(double _g){m_ambientCol.m_g = _g;}
   void setAmbientColourB(double _b){m_ambientCol.m_b = _b;}
-  void setAmbientIntensity(double _i){m_ambientIntensity = _i;}
   //rendering
   void setAAType(int _aaType){m_aaType = _aaType;}
   void setAAAmount(int _aaAmount){m_aaType = _aaAmount;}

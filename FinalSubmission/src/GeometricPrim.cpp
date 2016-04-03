@@ -24,3 +24,8 @@ bool GeometricPrim::sIntersect(const Ray &_ray)
   }
   return false;
 }
+
+void GeometricPrim::getGLData(std::vector<ngl::Vec3> _points, std::vector<ngl::Vec3> _normals)
+{
+  m_mesh->getGLData(_points, _normals);
+}

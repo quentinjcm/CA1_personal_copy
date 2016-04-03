@@ -157,3 +157,8 @@ void Triangle::calcDominantAxis()
     m_i2 = 1;
   }
 }
+
+void Triangle::getGLData(std::vector<ngl::Vec3> _points, std::vector<ngl::Vec3> _normals)
+{
+  //add point and normal to respective vectors
+}

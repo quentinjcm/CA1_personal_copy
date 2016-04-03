@@ -7,6 +7,7 @@
 #include "RenderTask.hpp"
 #include "Camera.hpp"
 #include "Scene.hpp"
+#include "RenderSettings.hpp"
 
 /// @file Renderer.hpp
 /// @brief File contaiing the Renderer class
@@ -29,6 +30,8 @@ public:
   /// @param [in] _aa the amount of antialiasing that the renderer will do
   Renderer(Camera *_cam, Film *_film, std::shared_ptr<Scene> _scene, int _aa);
 
+  Renderer(std::shared_ptr<Scene> _scene, std::shared_ptr<RenderSettings> _settings, Film *_film);
+
   /// @brief method to set up and render the vecotr of render tasks
   void renderImage();
 
@@ -37,7 +40,7 @@ private:
   Film *m_film;
 
   /// @brief camera to render from
-  Camera *m_cam;
+  Camera m_cam;
 
   /// @brief scene to render
   std::shared_ptr<Scene> m_scene;
@@ -47,6 +50,8 @@ private:
 
   /// @brief amount of anti aliasing for the renderer to do
   int m_aa;
+
+  std::shared_ptr<RenderSettings> m_settings;
 };
 
 #endif//__RENDERER_HPP__
