@@ -39,7 +39,7 @@ SOURCES+=$$PWD/src/main.cpp \
          $$PWD/src/RenderTask.cpp \
          $$PWD/src/RenderSettings.cpp \
          $$PWD/src/Viewport.cpp \
-         #$$PWD/src/NGLWindow.cpp
+         $$PWD/src/NGLScene.cpp
 
 HEADERS+=$$PWD/include/Triangle.hpp \
          $$PWD/include/TriangleData.hpp \
@@ -62,7 +62,7 @@ HEADERS+=$$PWD/include/Triangle.hpp \
          $$PWD/include/RenderTask.hpp \
          $$PWD/include/RenderSettings.hpp \
          $$PWD/include/Viewport.hpp \
-         #®$$PWD/include/NGLWindow.hpp
+         $$PWD/include/NGLScene.hpp
 
 
 include($(HOME)/NGL/UseNGL.pri)

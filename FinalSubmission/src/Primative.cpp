@@ -16,7 +16,7 @@ bool Primative::sIntersect(const Ray &_ray)
   return false;
 }
 
-void Primative::getGLData(std::vector<ngl::Vec3> _points, std::vector<ngl::Vec3> _normals)
+void Primative::getGLData(std::vector<ngl::Vec3> *_points, std::vector<ngl::Vec3> *_normals)
 {
   std::cerr << "getGLData method for derrived class not defined" << std::endl;
 }

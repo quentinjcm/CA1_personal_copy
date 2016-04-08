@@ -10,6 +10,8 @@
 #include "SDLWindow.hpp"
 #include "Renderer.hpp"
 
+#include <ngl/NGLStream.h>
+
 Viewport::Viewport(QWidget *parent) :
   QMainWindow(parent),
   m_ui(new Ui::Viewport)
@@ -95,4 +97,15 @@ void Viewport::loadScene()
   SceneParser p(m_settings->m_filePath.toStdString(), m_scene);
   p.parseScene();
   m_hasScene = true;
+  std::vector<ngl::Vec3> points;
+  std::vector<ngl::Vec3> normals;
+
+  m_scene->getGLData(&points, &normals);
+
+  for (ngl::Vec3 p: points){
+    std::cout << p << std::endl;
+  }
+  for (ngl::Vec3 n: normals){
+    std::cout << n << std::endl;
+  }
 }

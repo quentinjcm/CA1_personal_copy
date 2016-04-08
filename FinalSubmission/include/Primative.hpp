@@ -9,7 +9,7 @@ class Primative
 public:
   virtual bool intersect(const Ray &_ray, IsectData *_intersection);
   virtual bool sIntersect(const Ray &_ray);
-  virtual void getGLData(std::vector<ngl::Vec3> _points, std::vector<ngl::Vec3> _normals);
+  virtual void getGLData(std::vector<ngl::Vec3> *_points, std::vector<ngl::Vec3> *_normals);
 private:
 };
 

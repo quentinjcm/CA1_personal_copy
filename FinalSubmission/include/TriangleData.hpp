@@ -3,7 +3,7 @@
 
 #include <ngl/Vec3.h>
 #include <ngl/Vec2.h>
-
+#include <ngl/NGLStream.h>
 /// @file TriangleData.hpp
 /// @brief File contaiing the TriangleData class
 /// @author Quentin Corker-Marin

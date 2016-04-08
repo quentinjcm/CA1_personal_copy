@@ -29,7 +29,7 @@ bool Triangle::intersect(const Ray &_ray, IsectData *_intersection)
    * The intersection algorithm used here can be found at
    * http://graphics.stanford.edu/courses/cs348b-98/gg/intersect.html
    * accessed on 08/03/2016
-   * Fistsly the intersection of the plane made form the 3 verticies
+   * Firstly the intersection of the plane made form the 3 verticies
    * and the ray is found. Then this point is checked to see if is is
    * inside the triangle. This is done by projecting the triangle along
    * the major axis of the normal, reducing the problem to 2 dimensions.
@@ -158,7 +158,13 @@ void Triangle::calcDominantAxis()
   }
 }
 
-void Triangle::getGLData(std::vector<ngl::Vec3> _points, std::vector<ngl::Vec3> _normals)
+void Triangle::getGLData(std::vector<ngl::Vec3> *_points, std::vector<ngl::Vec3> *_normals)
 {
-  //add point and normal to respective vectors
+  std::cout << "getting triangle data" << std::endl;
+  _points->push_back(m_v0);
+  _points->push_back(m_v1);
+  _points->push_back(m_v2);
+  _normals->push_back(m_data->m_n0);
+  _normals->push_back(m_data->m_n1);
+  _normals->push_back(m_data->m_n2);
 }

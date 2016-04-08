@@ -60,6 +60,8 @@ public:
 
   std::shared_ptr<TriangleData> m_data;
 
+  void getGLData(std::vector<ngl::Vec3> *_points, std::vector<ngl::Vec3> *_normals);
+
   private:
 
   /// @brief Normal to the plane formed from the 3 verticies, calculated at construction
@@ -90,7 +92,7 @@ public:
   /// axes in m_i1 and m_i2.
   void calcDominantAxis();
 
-  void getGLData(std::vector<ngl::Vec3> _points, std::vector<ngl::Vec3> _normals);
+
 };
 
 #endif //__TRIANGLE_HPP__

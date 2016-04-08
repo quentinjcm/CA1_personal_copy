@@ -55,7 +55,7 @@ public:
   /// will be made private once the addTri() is written and Meshes are updated
   BBox m_meshBound;
 
-  void getGLData(std::vector<ngl::Vec3> _points, std::vector<ngl::Vec3> _normals);
+  void getGLData(std::vector<ngl::Vec3> *_points, std::vector<ngl::Vec3> *_normals);
 
 private:
   /// @brief a method that checks to see if the ray intersects the bbox. currently always returns true

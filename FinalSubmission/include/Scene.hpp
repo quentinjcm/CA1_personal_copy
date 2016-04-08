@@ -16,7 +16,7 @@ public:
   void addPrim(std::shared_ptr<Primative> _prim){ m_sceneGeo.push_back(_prim); }
   void addLight(Light _light){ m_sceneLights.push_back(_light); }
   std::vector<Light> m_sceneLights;
-  void getGLData(std::vector<ngl::Vec3> _points, std::vector<ngl::Vec3> _normals);
+  void getGLData(std::vector<ngl::Vec3> *_points, std::vector<ngl::Vec3> *_normals);
 
 private:
   std::vector<std::shared_ptr<Primative>> m_sceneGeo;

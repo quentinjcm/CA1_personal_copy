@@ -36,7 +36,7 @@ public:
 
   bool sIntersect(const Ray &_ray);
 
-  void getGLData(std::vector<ngl::Vec3> _points, std::vector<ngl::Vec3> _normals);
+  void getGLData(std::vector<ngl::Vec3> *_points, std::vector<ngl::Vec3> *_normals);
 
 private:
   /// @brief a shared pointer to the geometric mesh

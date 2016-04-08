@@ -76,6 +76,7 @@ std::shared_ptr<TriangleMesh> ProceduralMeshes::pPlane(double _width, double _he
   v1 = ngl::Vec4(v1) * t;
   v2 = ngl::Vec4(v2) * t;
   v3 = ngl::Vec4(v3) * t;
+
   n = n * nt;
   //std::cout << v0 << std::endl;
 
