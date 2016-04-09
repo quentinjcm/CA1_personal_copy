@@ -38,7 +38,7 @@ MAT: 0.6 0.6 1 140 3 0  1
 
 TRANSLATE: 0 2 0
 ROTATE: 0 0 0
-#SPHERE: 20 2
+SPHERE: 20 2
 #OBJ: scenes/bot.obj
 
 

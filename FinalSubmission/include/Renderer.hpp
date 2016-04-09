@@ -24,12 +24,9 @@ class Renderer
 {
 public:
   /// @brief ctor that initialises variables in the renderer
-  /// @param [in] *_cam a pointer to the camera that the scene will be rendered from
-  /// @param [in] *_film the film that the renderer will use to store the outputed pixels
   /// @param [in] _scene a shared pointer to the scene that the renderer will render
-  /// @param [in] _aa the amount of antialiasing that the renderer will do
-  Renderer(Camera *_cam, Film *_film, std::shared_ptr<Scene> _scene, int _aa);
-
+  /// @param [in] _settings is a renders ettings object with all of the settings set by the usere in the ui
+  /// @param [in] *_film the film that the renderer will use to store the outputed pixels
   Renderer(std::shared_ptr<Scene> _scene, std::shared_ptr<RenderSettings> _settings, Film *_film);
 
   /// @brief method to set up and render the vecotr of render tasks
@@ -48,9 +45,7 @@ private:
   /// @brief tasks to build up and render
   std::vector<RenderTask> m_tasks;
 
-  /// @brief amount of anti aliasing for the renderer to do
-  int m_aa;
-
+  /// @brief shared pointer to the render settings set by the gui
   std::shared_ptr<RenderSettings> m_settings;
 };
 

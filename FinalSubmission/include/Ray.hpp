@@ -16,6 +16,7 @@
 class Ray
 {
 public:
+  /// @brief default ctor
   Ray() = default;
 
   /// @brief ctor that initialises origin and direction values and normalises the direction
@@ -38,6 +39,7 @@ public:
   /// @brief recursive depth of the ray
   int m_depth = 0;
 
+  /// @brief maximum paramteric value (t) for the ray
   float m_maxT = std::numeric_limits<int>::max();
 
 };

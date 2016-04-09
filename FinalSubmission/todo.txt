@@ -5,7 +5,7 @@ EXTRA:
 BUGS:
     some rotation values are causing problems with objs
     odd lighting? see robot fingers
-    threads
+    threads, an upper limit
 
 GET ON WITH IT:
     viewport with ui
@@ -13,27 +13,3 @@ GET ON WITH IT:
     aa filters
     trim film class
 
-flow:
-    start program
-        opens ui
-        specify scene
-        load scene
-            creates the scene object
-            convert scene object into a gl compatable structure
-            show scene in viewport
-        render
-            init a renderer with rendersettings
-            render scene
-            show rendered image in render view
-            save image
-
-
-flow2:
-  start
-  init rendersettings
-  init ui with given rendersettings (shared_ptr)
-  when render button pushed
-    construct scene with rendersettings
-    construct renderer with rendersettings
-    render scene
-    openwindow

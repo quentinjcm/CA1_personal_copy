@@ -12,13 +12,13 @@
 /// @brief File contaiing the TriangleMesh class
 /// @author Quentin Corker-Marin
 /// @version 1.0
-/// @date 12/03/2016
+/// @date 08/03/2016
+///
 /// @class TriangleMesh
 /// @brief The TriangleMesh class holds all of the triangles that make up
 /// a mesh. It also contains a bounding box that is checked for intersection
 /// before the triangles are, if the bounding box is not intersected, then
 /// the triangles are not checked
-
 class TriangleMesh
 {
 public:
@@ -47,14 +47,6 @@ public:
   /// @param [in] _tri is the triangle being added to the mesh
   void addTri(const Triangle _tri);
 
-  /// @brief a vector to hold the triangles that make up the mesh
-  /// will be made private once the addTri() is written and Meshes are updated
-  std::vector<Triangle> m_tris;
-
-  /// @brief a bounding box that contains the mesh
-  /// will be made private once the addTri() is written and Meshes are updated
-  BBox m_meshBound;
-
   void getGLData(std::vector<ngl::Vec3> *_points, std::vector<ngl::Vec3> *_normals);
 
 private:
@@ -73,6 +65,14 @@ private:
   /// @param [in] &_ray is the ray to be checked for intersection with the triangles
   /// @param [out] a boolean to indicate wether or not the ray reaches the light
   bool sIntersectMesh(const Ray &_ray);
+
+  /// @brief a vector to hold the triangles that make up the mesh
+  /// will be made private once the addTri() is written and Meshes are updated
+  std::vector<Triangle> m_tris;//private?
+
+  /// @brief a bounding box that contains the mesh
+  /// will be made private once the addTri() is written and Meshes are updated
+  BBox m_meshBound;//private?
 };
 
 #endif //__TRIANGLE_MESH_HPP__

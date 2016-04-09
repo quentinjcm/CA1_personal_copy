@@ -28,23 +28,11 @@ public:
   /// @param [in] _h is the height of the film
   Film(int _w, int _h);
 
-  /// @brief sets a pixel in the normal vector
-  /// @param [in] _x is the x coordinate of the pixel in screen space
-  /// @param [in] _y is the y coordinate of the pixel in screen space
-  /// @param [in] _c is the colour to set the target pixel
-  void setNormalPixle(int _x, int _y, ngl::Colour _c);
-
-  /// @brief sets a pixel in the depth vector
-  /// @param [in] _x is the x coordinate of the pixel in screen space
-  /// @param [in] _y is the y coordinate of the pixel in screen space
-  /// @param [in] _c is the colour to set the target pixel
-  void setDepthPixel(int _x, int _y, ngl::Colour _c);
-
   /// @brief sets a pixel in the colour vector
   /// @param [in] _x is the x coordinate of the pixel in screen space
   /// @param [in] _y is the y coordinate of the pixel in screen space
   /// @param [in] _c is the colour to set the target pixel
-  void setDiffusePixel(int _x, int _y, ngl::Colour _c);
+  void setPixel(int _x, int _y, ngl::Colour _c);
 
   /// @brief returns the width of the film
   /// @param [out] returns the integer width of the film in pixels
@@ -56,15 +44,7 @@ public:
 
   /// @breif getter for the colour pixel vector
   /// @param [out] returns a pointer to the vector that holds the colour pixel values that are set by the renderer
-  std::vector<ngl::Colour>* getDiffuseArr(){ return &m_diffuse; }
-
-  /// @breif getter for the normal pixel vector
-  /// @param [out] returns a pointer to the vector that holds the normal pixel values that are set by the renderer
-  std::vector<ngl::Colour>* getNormalArr(){ return &m_normals; }
-
-  /// @breif getter for the depth pixel vector
-  /// @param [out] returns a pointer to the vector that holds the depth pixel values that are set by the renderer
-  std::vector<ngl::Colour>* getDepthArr(){ return &m_depth; }
+  std::vector<ngl::Colour>* getPixelArr(){ return &m_pixels; }
 
 private:
   /// @brief width of the film in pixels
@@ -73,14 +53,8 @@ private:
   /// @brief height of the film in pixels
   int m_filmHeight;
 
-  /// @brief vector of normal pixels
-  std::vector<ngl::Colour> m_normals;
-
-  /// @brief vector of depth pixels
-  std::vector<ngl::Colour> m_depth;
-
-  /// @brief vector of colour pixels
-  std::vector<ngl::Colour> m_diffuse;
+  /// @brief vector of pixels
+  std::vector<ngl::Colour> m_pixels;
 };
 
 

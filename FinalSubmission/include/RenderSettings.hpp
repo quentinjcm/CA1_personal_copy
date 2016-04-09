@@ -7,6 +7,14 @@
 #include <ngl/Colour.h>
 #include <ngl/Vec3.h>
 
+/// @file RenderSettings.hpp
+/// @brief File contaiing the RenderSettings class
+/// @author Quentin Corker-Marin
+/// @version 1.0
+/// @date 09/04/2016
+
+/// @class Renderer
+/// @brief
 class RenderSettings: public QObject
 {
   Q_OBJECT

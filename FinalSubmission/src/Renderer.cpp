@@ -8,18 +8,10 @@
 #include "IsectData.hpp"
 #include "Primative.hpp"
 
-Renderer::Renderer(Camera *_cam, Film *_film, std::shared_ptr<Scene> _scene, int _aa):
-  m_film(_film),
-  //m_cam(_cam),
-  m_scene(_scene),
-  m_aa(_aa)
-{
-}
-
  Renderer::Renderer(std::shared_ptr<Scene> _scene, std::shared_ptr<RenderSettings> _settings, Film *_film):
    m_scene(_scene),
-   m_settings(_settings),
-   m_film(_film)
+   m_film(_film),
+   m_settings(_settings)
  {
    //construct camera
    m_cam = Camera(m_settings->m_camPos,
@@ -28,7 +20,6 @@ Renderer::Renderer(Camera *_cam, Film *_film, std::shared_ptr<Scene> _scene, int
                                   m_settings->m_fov,
                                   m_settings->m_filmWidth,
                                   m_settings->m_filmHeight);
-   m_aa = 0; //m_settings->m_aaAmount;
  }
 
 
@@ -51,9 +42,8 @@ void Renderer::renderImage()
                                    m_film,
                                    m_scene,
                                    x, y,
-                                   x+xIncTemp-1, y+yIncTemp-1,
+                                   x+xIncTemp, y+yIncTemp,
                                    m_settings));
-      //std::cout << "task: " << x << ", " << y << " to " << x+xIncTemp << ", " << y+yIncTemp << std::endl;
     }
   }
   std::vector<std::thread> threads;

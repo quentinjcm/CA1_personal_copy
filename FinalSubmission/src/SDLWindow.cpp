@@ -8,7 +8,7 @@ SDLWindow::SDLWindow(Film *_film):
   m_windowWidth(_film->getFilmWidth()),
   m_windowHeight(_film->getFilmHeight()),
   m_film(_film),
-  m_pixelsToDraw(m_film->getDiffuseArr())
+  m_pixelsToDraw(m_film->getPixelArr())
 {
   init();
 }
@@ -48,7 +48,7 @@ void SDLWindow::run()
 
 void SDLWindow::keyPress(SDL_Event *_event)
 {
-
+/*
   SDL_Keycode keyPressed = _event->key.keysym.sym;
   switch (keyPressed) {
     case SDLK_1: m_pixelsToDraw = m_film->getDiffuseArr(); break;
@@ -56,6 +56,7 @@ void SDLWindow::keyPress(SDL_Event *_event)
     case SDLK_3: m_pixelsToDraw = m_film->getDepthArr(); break;
   }
   updateSurface();
+  */
 }
 
 void SDLWindow::updateSurface()

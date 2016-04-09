@@ -5,7 +5,6 @@
 
 #include <QMainWindow>
 #include "RenderSettings.hpp"
-#include "NGLWindow.hpp"
 #include "Scene.hpp"
 
 namespace Ui {

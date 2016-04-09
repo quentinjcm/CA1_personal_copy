@@ -31,7 +31,7 @@ public:
   static std::shared_ptr<TriangleMesh> pSphere(double _r, int _sd, ngl::Transformation &_t);
 
 private:
-  /// @brief converts a psoition in spherical coordinates to cartesian
+  /// @brief converts a position in spherical coordinates to cartesian
   /// @param [in] _theta is one component of the spehrical coordinates
   /// @param [in] _phi is the second component of the circular coordinates
   /// @param [out] a ngl::Vec3 with the x, y and x coordinated of the point in cartesian space

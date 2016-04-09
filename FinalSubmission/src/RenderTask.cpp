@@ -37,7 +37,7 @@ void RenderTask::render()
       std::vector<ngl::Vec2> samples;
       //use aa value to generate samples
       samples.push_back(ngl::Vec2(x, y));
-      m_film->setDiffusePixel(x, y, renderPixel(samples));
+      m_film->setPixel(x, y, renderPixel(samples));
     }
   }
 }
@@ -118,12 +118,12 @@ ngl::Colour RenderTask::traceRay(const Ray &_ray)
     //air -> geometry boundary
     if (isect.m_eyeDir.dot(isect.m_n) < 0){
       //std::cout << "b" << std::endl;
-      n2 = isect.m_material->m_f0;
+      n2 = isect.m_material->m_ior;
     }
     //geometry -> air boundary
     else{
       //std::cout << "a" << std::endl;
-      n1 = isect.m_material->m_f0;
+      n1 = isect.m_material->m_ior;
       isect.m_n = -isect.m_n;
     }
 
