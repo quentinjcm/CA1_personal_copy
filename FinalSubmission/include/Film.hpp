@@ -1,15 +1,12 @@
 #ifndef FILM_HPP
 #define FILM_HPP
 
-// stdlib includes
 #include <vector>
 #include <memory>
 
-//ngl includes
 #include <ngl/Vec3.h>
 #include <ngl/Colour.h>
 
-//my includes
 #include "IsectData.hpp"
 
 /// @file Film.hpp

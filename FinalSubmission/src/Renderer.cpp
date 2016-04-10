@@ -8,6 +8,9 @@
 #include "IsectData.hpp"
 #include "Primative.hpp"
 
+/// @file Renderer.cpp
+/// @brief implementation file for the Renderer class
+
  Renderer::Renderer(std::shared_ptr<Scene> _scene, std::shared_ptr<RenderSettings> _settings, Film *_film):
    m_scene(_scene),
    m_film(_film),
@@ -15,7 +18,7 @@
  {
    //construct camera
    m_cam = Camera(m_settings->m_camPos,
-                                  m_settings->m_camAim,
+                                  m_settings->m_camTarget,
                                   m_settings->m_camUp,
                                   m_settings->m_fov,
                                   m_settings->m_filmWidth,
@@ -51,11 +54,8 @@ void Renderer::renderImage()
   std::cout << "starting render" << std::endl;
   if (multiThread){
     for (RenderTask &task: m_tasks){
-      //std::cout << "num threads: " << threads.size() << std::endl;
-
       threads.push_back(std::thread(&RenderTask::render, &task));
     }
-   // std::cout << "final threads:: " << threads.size() << std::endl;
     for (std::thread &task: threads){
       task.join();
     }

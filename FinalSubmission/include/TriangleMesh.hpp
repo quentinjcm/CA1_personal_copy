@@ -22,9 +22,6 @@
 class TriangleMesh
 {
 public:
-  /// @brief cto for the TriangleMesh class using the default ctor
-  TriangleMesh() = default;
-
   /// @brief checks to see if the given ray intersects the mesh, if it
   /// intersects the bounding box, then the function checks for intersection
   /// with each triangle in the mesh.
@@ -47,32 +44,19 @@ public:
   /// @param [in] _tri is the triangle being added to the mesh
   void addTri(const Triangle _tri);
 
+  /// @brief fills the given vectors up with data on the normals and point positions to be passed to opengl
+  /// @param [in] *_points is a pointer to a vector that will contain the vertex positions
+  /// @param [in] *_normals is a pointer to a vector that will contain the vertex normals
   void getGLData(std::vector<ngl::Vec3> *_points, std::vector<ngl::Vec3> *_normals);
 
 private:
-  /// @brief a method that checks to see if the ray intersects the bbox. currently always returns true
-  /// @param [in] &_ray is the ray to be checked for intersection with the bbox
-  /// @param [out] a bool to indicate if the bbox is intersected by the ray or not
-  bool intersectBBox(const Ray&_ray);
-
-  /// @brief a method that checks to see if the ray intersects the triangles in the mesh
-  /// @param [in] &_ray is the ray to be checked for intersection with the triangles
-  /// @param [in] *_intersection is a container to be filled up with information about the point of intersection
-  /// @param [out] a bool to indicate if the triangles are intersected by the ray
-  bool intersectMesh(const Ray &_ray, IsectData *_intersection);
-
-  /// @brief a method that checks to see if the ray reaches a light unobscured
-  /// @param [in] &_ray is the ray to be checked for intersection with the triangles
-  /// @param [out] a boolean to indicate wether or not the ray reaches the light
-  bool sIntersectMesh(const Ray &_ray);
-
   /// @brief a vector to hold the triangles that make up the mesh
   /// will be made private once the addTri() is written and Meshes are updated
-  std::vector<Triangle> m_tris;//private?
+  std::vector<Triangle> m_tris;
 
   /// @brief a bounding box that contains the mesh
   /// will be made private once the addTri() is written and Meshes are updated
-  BBox m_meshBound;//private?
+  BBox m_meshBound;
 };
 
-#endif //__TRIANGLE_MESH_HPP__
+#endif//TRIANGLE_MESH_HPP

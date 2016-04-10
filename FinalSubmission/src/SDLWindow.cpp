@@ -7,8 +7,7 @@
 SDLWindow::SDLWindow(Film *_film):
   m_windowWidth(_film->getFilmWidth()),
   m_windowHeight(_film->getFilmHeight()),
-  m_film(_film),
-  m_pixelsToDraw(m_film->getPixelArr())
+  m_pixelsToDraw(_film->getPixelArr())
 {
   init();
 }
@@ -41,7 +40,6 @@ void SDLWindow::run()
     SDL_UpdateWindowSurface( m_window );
   }
   SDL_FreeSurface(m_surface);
-  SDL_DestroyRenderer(m_renderer);
   SDL_DestroyWindow(m_window);
   SDL_Quit();
 }
@@ -61,6 +59,7 @@ void SDLWindow::keyPress(SDL_Event *_event)
 
 void SDLWindow::updateSurface()
 {
+  Uint32 *pixels = (Uint32 *)m_surface->pixels;
   for (int x = 0; x < m_windowWidth; x++){
     for (int y = 0; y < m_windowHeight; y++){
       ngl::Colour c = (*m_pixelsToDraw)[x + m_windowWidth * y];
@@ -69,7 +68,6 @@ void SDLWindow::updateSurface()
                                (Uint8)(c.m_g*255),
                                (Uint8)(c.m_b*255),
                                (Uint8)(c.m_a*255));
-      Uint32 *pixels = (Uint32 *)m_surface->pixels;
       pixels[x + m_windowWidth * y] = out;
     }
   }

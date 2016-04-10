@@ -6,6 +6,8 @@
 #include "Material.hpp"
 #include "TextureFile.hpp"
 
+/// @file Material.cpp
+/// @brief implementation file for the Material class
 
 Material::Material(ngl::Colour _colour, int _smoothness, double _IOR, bool _isTransparent, bool _isReflective, std::string _texFileName):
   m_diffuseColour(_colour),
@@ -16,8 +18,7 @@ Material::Material(ngl::Colour _colour, int _smoothness, double _IOR, bool _isTr
   m_isReflective(_isReflective)
 {
   m_diffuseTex = std::make_shared<TextureFile>(_texFileName);
-  m_diffuseTex->loadImage();
-  if (m_diffuseTex->m_isLoaded){
+  if (m_diffuseTex->loadImage()){
     m_hasTexture = true;
   }
 }

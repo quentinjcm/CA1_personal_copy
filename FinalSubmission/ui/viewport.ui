@@ -101,7 +101,7 @@
               </widget>
              </item>
              <item row="2" column="4">
-              <widget class="QDoubleSpinBox" name="m_camAimZ">
+              <widget class="QDoubleSpinBox" name="m_camTargetZ">
                <property name="minimum">
                 <double>-1000.000000000000000</double>
                </property>
@@ -147,7 +147,7 @@
               </widget>
              </item>
              <item row="2" column="3">
-              <widget class="QDoubleSpinBox" name="m_camAimY">
+              <widget class="QDoubleSpinBox" name="m_camTargetY">
                <property name="minimum">
                 <double>-1000.000000000000000</double>
                </property>
@@ -180,7 +180,7 @@
               </widget>
              </item>
              <item row="2" column="2">
-              <widget class="QDoubleSpinBox" name="m_camAimX">
+              <widget class="QDoubleSpinBox" name="m_camTargetX">
                <property name="minimum">
                 <double>-1000.000000000000000</double>
                </property>
@@ -260,7 +260,7 @@
              <item row="2" column="0">
               <widget class="QLabel" name="label_2">
                <property name="text">
-                <string>Camera Aim</string>
+                <string>Camera Target</string>
                </property>
               </widget>
              </item>
@@ -276,6 +276,9 @@
              </item>
              <item row="8" column="2">
               <widget class="QSpinBox" name="m_aa">
+               <property name="minimum">
+                <number>1</number>
+               </property>
                <property name="maximum">
                 <number>50</number>
                </property>
@@ -354,20 +357,6 @@
                </property>
               </widget>
              </item>
-             <item row="8" column="3">
-              <widget class="QComboBox" name="m_aaType">
-               <item>
-                <property name="text">
-                 <string>Linear</string>
-                </property>
-               </item>
-               <item>
-                <property name="text">
-                 <string>Random</string>
-                </property>
-               </item>
-              </widget>
-             </item>
              <item row="14" column="3">
               <widget class="QDoubleSpinBox" name="m_bgG">
                <property name="maximum">
@@ -378,7 +367,7 @@
              <item row="8" column="0">
               <widget class="QLabel" name="label_4">
                <property name="text">
-                <string>Anti Aliasing</string>
+                <string>AA Samples</string>
                </property>
               </widget>
              </item>
@@ -462,7 +451,7 @@
      <x>0</x>
      <y>0</y>
      <width>1007</width>
-     <height>26</height>
+     <height>22</height>
     </rect>
    </property>
   </widget>

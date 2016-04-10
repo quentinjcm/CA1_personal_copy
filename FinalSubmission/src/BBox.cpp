@@ -8,6 +8,9 @@
 #include "BBox.hpp"
 #include "Ray.hpp"
 
+/// @file BBox.cpp
+/// @brief implementation file for the BBox class
+
 BBox::BBox():
   m_pMin(0, 0, 0),
   m_pMax(0, 0, 0)

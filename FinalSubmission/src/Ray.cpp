@@ -15,7 +15,6 @@ Ray::Ray(ngl::Vec3 _origin, ngl::Vec3 _direction, int _depth):
                  1.0/m_direction[2]),
   m_depth(_depth)
 {
-  //m_direction.normalize();
 }
 
 void Ray::setInvDirection()

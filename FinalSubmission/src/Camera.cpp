@@ -14,45 +14,6 @@
 /// @brief implementation file for the Camera class
 
 Camera::Camera(ngl::Vec3 _pos,
-               ngl::Vec3 _lookAt,
-               ngl::Vec3 _up,
-               double _fov,
-               Film *_film):
-  m_screenWidth(_film->getFilmWidth()),
-  m_screenHeight(_film->getFilmHeight()),
-  m_aspectRatio((double)m_screenWidth / (double)m_screenHeight),
-  m_fovMult(tan(_fov * M_PI/360))
-{
-  //generating a transformation matrix to transform from
-  //camera space to world space
-  //generate an orthonormal frame for the camera:
-  ngl::Vec3 d = _lookAt - _pos;
-  ngl::Vec3 r = _up.cross(d);
-  ngl::Vec3 u = d.cross(r);
-  d.normalize();
-  r.normalize();
-  u.normalize();
-  //generate a matrix that can transform from points in
-  //camera space to points in world space
-
-  //matrix to allign roataions
-  ngl::Mat4 rotate(r[0], u[0], d[0], 0,
-                   r[1], u[1], d[1], 0,
-                   r[2], u[2], d[2], 0,
-                   0,    0,    0,    1);
-
-  //matrix for position transformations
-  ngl::Mat4 translate(1, 0, 0, _pos[0],
-                      0, 1, 0, _pos[1],
-                      0, 0, 1, _pos[2],
-                      0, 0, 0,  1);
-  //I store the roataion seperately because that is needed on its own
-  //to roatate the direction vector of rays without translating them
-  m_rotate = rotate;
-  m_camToWorld = translate * rotate ;
-}
-
-Camera::Camera(ngl::Vec3 _pos,
        ngl::Vec3 _lookAt,
        ngl::Vec3 _up,
        double _fov,
@@ -110,18 +71,18 @@ void Camera::generateRay(double _x, double _y, Ray *_ray)
                       yScreen,
                       1,
                       1);
-  //std::cout << std::endl << direction << std::endl;
   //transform origin and direction into world space
   origin = m_camToWorld * origin;
   direction = m_rotate * direction;
+
   //direction.normalize();
   //convert from ngl::Vec4 to ngl::Vec3
   ngl::Vec3 originOut;
   ngl::Vec3 directionOut;
   originOut.set(origin);
   directionOut.set(direction);
-  //pass origin and direction to the ray
 
+  //pass origin and direction to the ray
   _ray->m_direction = directionOut;
   _ray->m_origin = originOut;
   _ray->setInvDirection();

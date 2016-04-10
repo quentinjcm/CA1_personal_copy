@@ -19,7 +19,7 @@
 /// @date 12/03/2016
 
 /// @class Camera
-/// @brief The Camera class is used to generate rays when passed a screen pixel value as x, y
+/// @brief The Camera class is used to generate rays when passed the coordinate of a point in the output image
 class Camera
 {
 public:
@@ -30,14 +30,8 @@ public:
   /// @param [in] _lookAt is a point in world space that the camera will look at
   /// @param [in] _up is a vector that indicated the world space direction of up for the camera
   /// @param [in] _fov is an angle in degrees that sets the field of view for the camera, not currently implemented
-  /// @param [in] *_film is where the final image output will be stored, it contains data on the width and height of the image
-  /// will probably extract width and height and store them inside the class
-  Camera(ngl::Vec3 _pos,
-         ngl::Vec3 _lookAt,
-         ngl::Vec3 _up,
-         double _fov,
-         Film *_film);
-
+  /// @param [in] _filmWidth is the width of the output image in pixels
+  /// @param [in] _filmHeight is the height of the output image in pixels
   Camera(ngl::Vec3 _pos,
          ngl::Vec3 _lookAt,
          ngl::Vec3 _up,

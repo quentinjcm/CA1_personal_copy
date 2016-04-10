@@ -9,6 +9,9 @@
 #include "Film.hpp"
 #include "IsectData.hpp"
 
+/// @file Film.cpp
+/// @brief implementation file for the Film class
+
 Film::Film(int _w, int _h):
   m_filmWidth(_w),
   m_filmHeight(_h),

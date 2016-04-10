@@ -1,5 +1,6 @@
 #include <string>
 #include <iostream>
+#include <cmath>
 
 #include <QImage>
 #include <QImageReader>
@@ -11,17 +12,16 @@
 #include "TextureFile.hpp"
 
 TextureFile::TextureFile(std::string _fileName):
-  m_fileName(_fileName),
-  m_isLoaded(false)
+  m_fileName(_fileName)
 {
 }
 
 
-void TextureFile::loadImage()
+bool TextureFile::loadImage()
 {
   QImage image;
-  m_isLoaded = image.load(m_fileName.c_str());
-  if (m_isLoaded){
+  bool isLoaded = image.load(m_fileName.c_str());
+  if (isLoaded){
     m_imgWidth = image.width();
     m_imgHeight = image.height();
     m_pixels.resize(m_imgHeight * m_imgWidth);
@@ -39,12 +39,18 @@ void TextureFile::loadImage()
   }
   else{
     std::cout << "image failed to load" << std::endl;
-    m_isLoaded = false;
+    isLoaded = false;
   }
+  return isLoaded;
 }
 
 ngl::Colour TextureFile::getPixel(double _u, double _v)
 {
+  double dummy;
+  // getting rid of any integer part of the uv coordinates
+  //ensures uv values between 0 and 1;
+  _u = modf(_u, &dummy);
+  _v = modf(_v, &dummy);
   int x = _u * m_imgWidth;
   int y = (1-_v) * m_imgHeight;
   return m_pixels[x + m_imgWidth * y];

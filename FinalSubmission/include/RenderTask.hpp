@@ -46,6 +46,7 @@ public:
   /// @brief main function that is called to render the range of pixels for this render task
   void render();
 
+  private:
   /// @brief renders a single pixel in the final image
   /// @param [in] pixelSample is a vector of points that will be rendered and averaged to
   /// produce a final colour. the amout of samples taken is defined by the aa box in the ui
@@ -81,19 +82,44 @@ public:
   ngl::Vec3 refract(const ngl::Vec3 _n, const ngl::Vec3 _i, double _n1, double _n2);
 
   /// @brief calulates an approximation to the fresnel factor using shclicks approximation
-  /// @param [in]
+  /// @param [in] _n is the normal for the given point
+  /// @param [in] _i is the incident vector
+  /// @param [in] _n1 is the refractive index of the medium the ray is coming from
+  /// @param [in] _n2 is the refractive index of the medium the ray is colliding with
   double rShclick(const ngl::Vec3 _n, const ngl::Vec3 _i, double _n1, double _n2);
 
-private:
+  /// @brief fills the given vector with randomly generated smaples to be passed to the renderer
+  /// @param [in] *_samples is a pointer to a vector that is to be filled up with sample
+  void generateAASamples(const int _x, const int _y, std::vector<ngl::Vec2> *_samples);
+
+  /// @brief pointer to the camera that will generate the initial rays
   Camera *m_cam;
+
+  /// @brief pointer to the film where the final image will be stored
   Film *m_film;
+
+  /// @brief shared pointer to the scene that is to be rendered
   std::shared_ptr<Scene> m_scene;
+
+  /// @brief shared pointer to the render settings structure
   std::shared_ptr<RenderSettings> m_settings;
-  std::default_random_engine m_generator;
+
+  /// @brief the render taks random number generator for random sampling
+  std::mt19937 m_generator;
+
+  /// @brief the random number generators distribution
   std::uniform_real_distribution<double> m_distribution;
+
+  /// @brief smallest x coordinate of a pixel in the render task
   int m_xMin;
+
+  /// @brief smallest y coordinate of a pixel in the render task
   int m_yMin;
+
+  /// @brief largest x coordinate of a pixel in the render task
   int m_xMax;
+
+  /// @brief largest y coordinate of a pixel in the render task
   int m_yMax;
 };
 

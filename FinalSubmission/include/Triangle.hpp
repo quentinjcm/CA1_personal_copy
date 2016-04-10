@@ -16,10 +16,10 @@
 /// @author Quentin Corker-Marin
 /// @version 1.0
 /// @date 11/03/2016
+
 /// @class Triangle
 /// @brief The Triangle class is used to represent triangles and implment
 /// ray/triangle intersections.
-
 class Triangle
 {
 public:
@@ -42,8 +42,13 @@ public:
   /// @param [in] *_intersection a data structure th store information about the point of intersection if there is one
   /// @param [out] a boolean that indicates wehter the intersection was successfull
   bool intersect(const Ray &_ray, IsectData *_intersection);
+  /// @brief the intersect method for the triangle class
+  /// @param [in] &_ray the ray that is being tested for intersections with the triangle
+  /// @param [in] *_intersection a data structure th store information about the point of intersection if there is one
+  /// @param [out] a boolean that indicates wehter the intersection was successfull
 
-  bool intersectBBox(const Ray &_ray);
+
+
 
   /// @brief a method for printing the information contained within the triangle
   /// can probably be taken out as it was only needed for debuging early on
@@ -91,6 +96,9 @@ public:
   /// the maximum of the absolute x y and x values. This function stores the two remaining
   /// axes in m_i1 and m_i2.
   void calcDominantAxis();
+
+  /// @brief
+  bool intersectBBox(const Ray &_ray);
 
 
 };

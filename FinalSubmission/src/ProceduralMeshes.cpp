@@ -19,6 +19,8 @@
 #define M_2PI 6.28318530718
 #endif
 
+/// @file ProceduralMeshes.cpp
+/// @brief implementation file for the ProceduralMeshes class
 
 ngl::Vec3 ProceduralMeshes::circularToCartesian(double _theta, double _phi)
 {

@@ -4,6 +4,9 @@
 #include "Ray.hpp"
 #include "IsectData.hpp"
 
+/// @file Primative.cpp
+/// @brief implementation file for the Primative abstract base class
+
 bool Primative::intersect(const Ray &_ray, IsectData *_intersection)
 {
   std::cerr << "intersection method for derrived class not defined" << std::endl;

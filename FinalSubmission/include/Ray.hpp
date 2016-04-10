@@ -1,8 +1,9 @@
 #ifndef RAY_HPP
 #define RAY_HPP
 
-#include <ngl/Vec3.h>
 #include <limits>
+
+#include <ngl/Vec3.h>
 
 /// @file Ray.hpp
 /// @brief File contaiing the Ray class

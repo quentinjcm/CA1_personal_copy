@@ -13,3 +13,9 @@ GET ON WITH IT:
     aa filters
     trim film class
 
+
+start window in a new thread with a auto update function?
+
+
+
+ENCAPSULATION

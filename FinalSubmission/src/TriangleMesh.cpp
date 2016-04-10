@@ -13,42 +13,25 @@
 
 bool TriangleMesh::intersect(const Ray &_ray, IsectData *_intersection)
 {
-  if (intersectBBox(_ray)){
-    return intersectMesh(_ray, _intersection);
-  }
-  else return false;
-}
-
-bool TriangleMesh::sIntersect(const Ray &_ray)
-{
-  if (intersectBBox(_ray)){
-    return sIntersectMesh(_ray);
-  }
-  else return false;
-}
-
-bool TriangleMesh::intersectBBox(const Ray &_ray)
-{
-  return m_meshBound.intersect(_ray);
-}
-
-bool TriangleMesh::intersectMesh(const Ray &_ray, IsectData *_intersection)
-{
   bool hasIntersected = false;
-  for (Triangle i: m_tris){
-    if (i.intersect(_ray, _intersection)){
-      hasIntersected = true;
+  if (m_meshBound.intersect(_ray)){
+    for (Triangle i: m_tris){
+      if (i.intersect(_ray, _intersection)){
+        hasIntersected = true;
+      }
     }
   }
   return hasIntersected;
 }
 
-bool TriangleMesh::sIntersectMesh(const Ray &_ray)
+bool TriangleMesh::sIntersect(const Ray &_ray)
 {
-  IsectData dummy;
-  for (Triangle i: m_tris){
-    if (i.intersect(_ray, &dummy)){
-      return true;
+  if (m_meshBound.intersect(_ray)){
+    IsectData dummy;
+    for (Triangle i: m_tris){
+      if (i.intersect(_ray, &dummy)){
+        return true;
+      }
     }
   }
   return false;

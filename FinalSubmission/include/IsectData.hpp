@@ -2,6 +2,7 @@
 #define ISECTDATA_HPP
 
 #include <memory>
+#include <limits>
 
 #include <ngl/Vec3.h>
 #include <ngl/Vec2.h>
@@ -9,24 +10,17 @@
 #include "Material.hpp"
 
 /// @file IsectData.hpp
-/// @brief File contaiing the IsectData class which are bounding boxes for the triangle meshes
+/// @brief File contaiing the IsectData structure, which is a container for data on points of intersection
 /// @author Quentin Corker-Marin
 /// @version 1.0
 /// @date 12/03/2016
 
-/// @class IsectData
-/// @brief a class that holds information about intersection points. All of the attributes
-/// are publuc to make accessing them easier. I felt that writing a getter and setter
-/// wouldn't add very much and just mean an extra few function calls for every intersection
-/// which would potentailly slow the program down.
-class IsectData
+/// @struct IsectData
+/// @brief a structure that holds information about intersection points.
+struct IsectData
 {
-public:
-  /// @brief ctor for isect data that sets some default values such as m_t, position and material
-  IsectData();
-
   /// @brief m_t holds ta value that represents the distance along the ray that the intersection occoured
-  double m_t;
+  double m_t = std::numeric_limits<double>::infinity();
 
   /// @brief m_depth holds the bounce depth pf the ray
   int m_depth;
@@ -44,7 +38,7 @@ public:
   ngl::Vec3 m_eyeDir;
 
   /// @brief m_material is a pointer to the material of the intersected geometry
-  std::shared_ptr<Material> m_material;
+  std::shared_ptr<Material> m_material = nullptr;
 };
 
-#endif//__ISECTDATA_HPP__
+#endif//ISECTDATA_HPP

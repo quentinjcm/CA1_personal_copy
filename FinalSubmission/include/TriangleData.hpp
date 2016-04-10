@@ -4,11 +4,13 @@
 #include <ngl/Vec3.h>
 #include <ngl/Vec2.h>
 #include <ngl/NGLStream.h>
+
 /// @file TriangleData.hpp
 /// @brief File contaiing the TriangleData class
 /// @author Quentin Corker-Marin
 /// @version 1.0
 /// @date 12/03/2016
+
 /// @class TriangleMesh
 /// @brief The TriangleData class is used as a container for data for each
 /// triange. The idea was to seperate the data that isn't required for intersection
@@ -53,4 +55,4 @@ public:
   const ngl::Vec2 m_uv2;
 };
 
-#endif//__TRIANGLEDATA_HPP__
+#endif//TRIANGLEDATA_HPP

@@ -38,30 +38,39 @@ public:
   void parseScene();
 
 private:
-  /// @brief a function difining the sphere gramar as it appears in the scene file and how it is to be handled
+  /// @brief a function defining the sphere gramar as it appears in the scene file and how it is to be handled
   /// @param[in] *_begin is a pointer to the first element of the line being parsed
   void parseSphere(const char *_begin);
 
-  /// @brief a function difining the plane gramar as it appears in the scene file and how it is to be handled
+  /// @brief a function defining the plane gramar as it appears in the scene file and how it is to be handled
   /// @param[in] *_begin is a pointer to the first element of the line being parsed
   void parsePlane(const char *_begin);
 
-  /// @brief a function difining the obj gramar as it appears in the scene file and how it is to be handled
+  /// @brief a function defining the obj gramar as it appears in the scene file and how it is to be handled
   /// @param[in] *_begin is a pointer to the first element of the line being parsed
   void parseObj(const char *_begin);
 
-  /// @brief a function difining the material gramar as it appears in the scene file and how it is to be handled
+  /// @brief a function defining the material gramar as it appears in the scene file and how it is to be handled
   /// @param[in] *_begin is a pointer to the first element of the line being parsed
   void parseMat(const char *_begin);
 
-  /// @brief a function difining the light gramar as it appears in the scene file and how it is to be handled
+  /// @brief a function defining the light gramar as it appears in the scene file and how it is to be handled
   /// @param[in] *_begin is a pointer to the first element of the line being parsed
   void parseLight(const char *_begin);
 
+  /// @brief a function defining the translation gramar as it appears in the scene file and how it is to be handled
+  /// @param[in] *_begin is a pointer to the first element of the line being parsed
   void parseTranslate(const char *_begin);
+
+  /// @brief a function defining the rotation gramar as it appears in the scene file and how it is to be handled
+  /// @param[in] *_begin is a pointer to the first element of the line being parsed
   void parseRotate(const char *_begin);
+
+  /// @brief a function defining the scale gramar as it appears in the scene file and how it is to be handled
+  /// @param[in] *_begin is a pointer to the first element of the line being parsed
   void parseScale(const char *_begin);
 
+  /// @brief the current transformation that is applied to new objects as they are created
   ngl::Transformation m_currentTransform;
 
   /// @brief a pointer to the output scene
@@ -74,4 +83,4 @@ private:
   std::string m_fileName;
 };
 
-#endif//__SCENEPARSER_HPP__
+#endif//SCENEPARSER_HPP

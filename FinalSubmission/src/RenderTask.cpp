@@ -2,6 +2,8 @@
 #include <iostream>
 #include <algorithm>
 #include <cmath>
+#include <ctime>
+#include<chrono>
 
 #include <ngl/NGLStream.h>
 #include <ngl/Colour.h>
@@ -13,6 +15,9 @@
 #include "Primative.hpp"
 #include "Material.hpp"
 
+/// @file RenderTask.cpp
+/// @brief implementation file for the RenderTask class
+
 RenderTask::RenderTask(Camera *_cam,
                        Film *_film,
                        std::shared_ptr<Scene> _scene,
@@ -22,21 +27,31 @@ RenderTask::RenderTask(Camera *_cam,
   m_cam(_cam),
   m_film(_film),
   m_scene(_scene),
+  m_settings(_settings),
   m_xMin(_xMin),
   m_yMin(_yMin),
   m_xMax(_xMax),
-  m_yMax(_yMax),
-  m_settings(_settings)
+  m_yMax(_yMax)
 {
+  //setting up the random number generator for random sampling
+  m_generator = std::mt19937(std::random_device{}());
+  m_distribution =  std::uniform_real_distribution<double>(-0.5, 0.5);
 }
 
 void RenderTask::render()
 {
+  //runs through each pixel in the task
   for (int x = m_xMin; x < m_xMax; x++){
     for (int y = m_yMin; y < m_yMax; y++){
+      //generating aa samples for the pixel
       std::vector<ngl::Vec2> samples;
-      //use aa value to generate samples
-      samples.push_back(ngl::Vec2(x, y));
+      if (m_settings->m_aaAmount > 1){
+        generateAASamples(x, y, &samples);
+      }
+      else{
+        samples.push_back(ngl::Vec2(x, y));
+      }
+      //rendering the pixel, with the given samples
       m_film->setPixel(x, y, renderPixel(samples));
     }
   }
@@ -49,9 +64,9 @@ ngl::Colour RenderTask::blinPixel(IsectData *_intersection)
                                                                       _intersection->m_uv[1]);
 
   //ambient lighting
-  outColour += m_settings->m_ambientCol * matColour; //ambient
+  outColour += m_settings->m_ambientCol * matColour;
 
-  for (Light &l: m_scene->m_sceneLights){
+  for (Light &l: *m_scene->getLights()){
     if(isVisible(_intersection->m_pos, l.m_pos)){
       ngl::Vec3 normal(_intersection->m_n);
       ngl::Vec3 lightDir(l.m_pos - _intersection->m_pos);
@@ -98,7 +113,7 @@ ngl::Colour RenderTask::renderPixel(std::vector<ngl::Vec2> _pixelSample)
     m_cam->generateRay(p[0], p[1], &newRay);
     outCol = outCol + traceRay(newRay);
   }
-  outCol *= (1/_pixelSample.size());
+  outCol *= (1.0/_pixelSample.size());
   return outCol;
 }
 
@@ -202,6 +217,16 @@ double RenderTask::rShclick(const ngl::Vec3 _n, const ngl::Vec3 _i, double _n1, 
   double schlick =  r0 + (1.0 - r0) * x * x * x * x * x;
   if (schlick > .999) return 1;
   return schlick;
+}
+
+void RenderTask::generateAASamples(const int _x, const int _y, std::vector<ngl::Vec2> *_samples)
+{
+  for (int i = 0; i < m_settings->m_aaAmount; i++){
+    double x = m_distribution(m_generator) + (double)_x;
+    double y = m_distribution(m_generator) + (double)_y;
+    //std::cout << "adding sample " << x << ", " << y << std::endl;
+    _samples->push_back(ngl::Vec2(x, y));
+  }
 }
 
 

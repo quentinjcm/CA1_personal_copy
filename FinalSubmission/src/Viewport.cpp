@@ -5,15 +5,14 @@
 #include "RenderSettings.hpp"
 #include "Scene.hpp"
 #include "SceneParser.hpp"
-#include "Camera.hpp"
 #include "Film.hpp"
 #include "SDLWindow.hpp"
 #include "Renderer.hpp"
 
 #include <ngl/NGLStream.h>
 
-Viewport::Viewport(QWidget *parent) :
-  QMainWindow(parent),
+Viewport::Viewport(QWidget *_parent) :
+  QMainWindow(_parent),
   m_ui(new Ui::Viewport)
 {
   m_ui->setupUi(this);
@@ -31,9 +30,9 @@ Viewport::Viewport(QWidget *parent) :
   connect(m_ui->m_camPosY, SIGNAL(valueChanged(double)), m_settings.get(), SLOT(setCamPosY(double)));
   connect(m_ui->m_camPosZ, SIGNAL(valueChanged(double)), m_settings.get(), SLOT(setCamPosZ(double)));
 
-  connect(m_ui->m_camAimX, SIGNAL(valueChanged(double)), m_settings.get(), SLOT(setCamAimX(double)));
-  connect(m_ui->m_camAimY, SIGNAL(valueChanged(double)), m_settings.get(), SLOT(setCamAimY(double)));
-  connect(m_ui->m_camAimZ, SIGNAL(valueChanged(double)), m_settings.get(), SLOT(setCamAimZ(double)));
+  connect(m_ui->m_camTargetX, SIGNAL(valueChanged(double)), m_settings.get(), SLOT(setCamTargetX(double)));
+  connect(m_ui->m_camTargetY, SIGNAL(valueChanged(double)), m_settings.get(), SLOT(setCamTargetY(double)));
+  connect(m_ui->m_camTargetZ, SIGNAL(valueChanged(double)), m_settings.get(), SLOT(setCamTargetZ(double)));
 
   connect(m_ui->m_camUpX, SIGNAL(valueChanged(double)), m_settings.get(), SLOT(setCamUpX(double)));
   connect(m_ui->m_camUpY, SIGNAL(valueChanged(double)), m_settings.get(), SLOT(setCamUpY(double)));
@@ -54,7 +53,6 @@ Viewport::Viewport(QWidget *parent) :
 
   connect(m_ui->m_render, SIGNAL(clicked(bool)), this, SLOT(renderCurrent()));
   connect(m_ui->m_loadScene, SIGNAL(clicked(bool)), this, SLOT(loadScene()));
-
 }
 
 Viewport::~Viewport()
@@ -70,13 +68,6 @@ void Viewport::renderCurrent()
                   m_settings->m_filmHeight);
     SDLWindow renderWindow(&film);
 
-    //set up renderer
-    Camera renderCam(m_settings->m_camPos,
-                                     m_settings->m_camAim,
-                                     m_settings->m_camUp,
-                                     m_settings->m_fov,
-                                     &film);
-
     Renderer new_renderer(m_scene, m_settings, &film);
 
     QTime startTime;
@@ -87,25 +78,17 @@ void Viewport::renderCurrent()
     std::cout << std::endl << "rendered in: " << startTime.elapsed()/1000.0 << " seconds" << std::endl;
     renderWindow.run();
   }
-
 }
 
 void Viewport::loadScene()
 {
-  std::cout << "loading scene " << m_settings->m_filePath.toStdString() << std::endl;
+  std::cout << "loading scene " << m_settings->m_sceneFilePath.toStdString() << std::endl;
   m_scene = std::make_shared<Scene>();
-  SceneParser p(m_settings->m_filePath.toStdString(), m_scene);
+  SceneParser p(m_settings->m_sceneFilePath.toStdString(), m_scene);
   p.parseScene();
   m_hasScene = true;
   std::vector<ngl::Vec3> points;
   std::vector<ngl::Vec3> normals;
 
   m_scene->getGLData(&points, &normals);
-
-  for (ngl::Vec3 p: points){
-    std::cout << p << std::endl;
-  }
-  for (ngl::Vec3 n: normals){
-    std::cout << n << std::endl;
-  }
 }

@@ -10,17 +10,19 @@
 /// @version 1.0
 /// @date 08/04/2016
 
-/// @class Light
+/// @struct Light
 /// @brief The light class holds data that defines lights in the scene,
 /// A light is a combination of a position, colour and intensity
-class Light
+struct Light
 {
-public:
   /// @brief ctor that takes in all of the data that defines a light
   /// @param [in] _pos is the position of the light in world space
   /// @param [in] _colour is the rgb colour of the light
   /// @param [in] _intensity is the intensity of the light
-  Light(ngl::Vec3 _pos, ngl::Colour _colour, double _intensity);
+  Light(ngl::Vec3 _pos, ngl::Colour _colour, double _intensity):
+    m_pos(_pos),
+    m_colour(_colour),
+    m_intensity(_intensity){}
 
   /// @brief a vec3 that holds the position of the light
   ngl::Vec3 m_pos;

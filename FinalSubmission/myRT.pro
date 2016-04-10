@@ -24,7 +24,6 @@ SOURCES+=$$PWD/src/main.cpp \
          $$PWD/src/Ray.cpp \
          $$PWD/src/BBox.cpp \
          $$PWD/src/SceneParser.cpp \
-         $$PWD/src/IsectData.cpp \
          $$PWD/src/Film.cpp \
          $$PWD/src/Camera.cpp \
          $$PWD/src/Primative.cpp \
@@ -34,10 +33,8 @@ SOURCES+=$$PWD/src/main.cpp \
          $$PWD/src/Material.cpp \
          $$PWD/src/SDLWindow.cpp \
          $$PWD/src/Scene.cpp \
-         $$PWD/src/Light.cpp \
          $$PWD/src/TextureFile.cpp \
          $$PWD/src/RenderTask.cpp \
-         $$PWD/src/RenderSettings.cpp \
          $$PWD/src/Viewport.cpp \
          #$$PWD/src/NGLScene.cpp
 
@@ -57,7 +54,6 @@ HEADERS+=$$PWD/include/Triangle.hpp \
          $$PWD/include/Material.hpp \
          $$PWD/include/SDLWindow.hpp \
          $$PWD/include/Scene.hpp \
-         $$PWD/include/Light.hpp \
          $$PWD/include/TextureFile.hpp \
          $$PWD/include/RenderTask.hpp \
          $$PWD/include/RenderSettings.hpp \

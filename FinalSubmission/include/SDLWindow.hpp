@@ -9,25 +9,49 @@
 
 #include "Film.hpp"
 
+/// @file SDLWindow.hpp
+/// @brief File containing the SDLWindow class
+/// @author Quentin Corker-Marin
+/// @version 1.0
+/// @date 27/03/2016
+
+/// @class SDLWindow
+/// @brief used to display the final rendered image to the screen
 class SDLWindow
 {
 public:
+  /// @brief ctor that takes the film that will hold the data to be drawn to the scren
+  /// @param [in] *_film is the film that will hold the data to be drawn
   SDLWindow(Film *_film);
+
+  /// @brief initiliser that sets up sdl
   void init();
+
+  /// @brief sets up the window and runs the main rendering loop
   void run();
+
+  /// @brief function called when there is a keypress
+  /// @param [in] *_event an sdl event containing the data on the keypress
   void keyPress(SDL_Event *_event);
-  void drawPixels();
+
+  /// @brief updates the surface
   void updateSurface();
 
 private:
+  /// @brief the width of the sdl window
   int m_windowWidth;
-  int m_windowHeight;
-  Film *m_film;
-  SDL_Renderer *m_renderer;
-  SDL_Window *m_window;
-  std::vector<ngl::Colour> *m_pixelsToDraw;
-  SDL_Surface *m_surface;
 
+  /// @brief the height of the sdl window
+  int m_windowHeight;
+
+  /// @brief the window that will be drawn into
+  SDL_Window *m_window;
+
+  /// @brief an array of pixels to draw to the screen
+  std::vector<ngl::Colour> *m_pixelsToDraw;
+
+  /// @brief the surface that the pixels are copied too for drawing to the window
+  SDL_Surface *m_surface;
 };
 
-#endif//__SDLWINDOW_HPP__
+#endif//SDLWINDOW_HPP
