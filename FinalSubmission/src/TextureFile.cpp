@@ -19,6 +19,7 @@ TextureFile::TextureFile(std::string _fileName):
 
 bool TextureFile::loadImage()
 {
+  // loads an image file using qimage
   QImage image;
   bool isLoaded = image.load(m_fileName.c_str());
   if (isLoaded){
@@ -26,8 +27,10 @@ bool TextureFile::loadImage()
     m_imgHeight = image.height();
     m_pixels.resize(m_imgHeight * m_imgWidth);
     QRgb colour;
+    // runing through the pixels in the qimage
     for (int x = 0; x < m_imgWidth; x++){
       for (int y = 0; y < m_imgHeight; y++){
+        // each pixel is converted to an ngl colour value and stored in m_pixels
         colour = image.pixel(x, y);
         ngl::Colour c((double)qRed(colour)/255.0,
                       (double)qGreen(colour)/255.0,
@@ -52,6 +55,8 @@ ngl::Colour TextureFile::getPixel(double _u, double _v)
   _u = modf(_u, &dummy);
   _v = modf(_v, &dummy);
   int x = _u * m_imgWidth;
+
+  //using 1-v because uvs go from bottom to top but the image was read top to bottom
   int y = (1-_v) * m_imgHeight;
   return m_pixels[x + m_imgWidth * y];
 }

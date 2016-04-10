@@ -1,6 +1,9 @@
 TARGET=myRT
 
-QT+=gui core declarative opengl
+
+QT+=gui \
+    core \
+    declarative
 
 CONFIG+=c++11
 CONFIG+= -v
@@ -35,8 +38,7 @@ SOURCES+=$$PWD/src/main.cpp \
          $$PWD/src/Scene.cpp \
          $$PWD/src/TextureFile.cpp \
          $$PWD/src/RenderTask.cpp \
-         $$PWD/src/Viewport.cpp \
-         #$$PWD/src/NGLScene.cpp
+         $$PWD/src/Viewport.cpp
 
 HEADERS+=$$PWD/include/Triangle.hpp \
          $$PWD/include/TriangleData.hpp \
@@ -57,8 +59,7 @@ HEADERS+=$$PWD/include/Triangle.hpp \
          $$PWD/include/TextureFile.hpp \
          $$PWD/include/RenderTask.hpp \
          $$PWD/include/RenderSettings.hpp \
-         $$PWD/include/Viewport.hpp \
-         #$$PWD/include/NGLScene.hpp
+         $$PWD/include/Viewport.hpp
 
 
 include($(HOME)/NGL/UseNGL.pri)

@@ -52,6 +52,10 @@ private:
 
   /// @brief the surface that the pixels are copied too for drawing to the window
   SDL_Surface *m_surface;
+
+  /// @brief a bool that incicated if sdl was sucessfully initialised
+  /// the window wont run if initilaisation failed
+  bool m_isInitialised = false;
 };
 
 #endif//SDLWINDOW_HPP

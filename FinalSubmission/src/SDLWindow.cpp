@@ -9,6 +9,7 @@ SDLWindow::SDLWindow(Film *_film):
   m_windowHeight(_film->getFilmHeight()),
   m_pixelsToDraw(_film->getPixelArr())
 {
+  // initialising sdl
   init();
 }
 
@@ -16,32 +17,38 @@ void SDLWindow::init()
 {
   if (SDL_Init(SDL_INIT_EVERYTHING) != 0){
     std::cerr << "Could not init sdl" << SDL_GetError() << std::endl;
+    m_isInitialised = false;
+  }
+  else{
+    m_isInitialised = true;
   }
 }
 
 void SDLWindow::run()
 {
-  m_window = SDL_CreateWindow("Film",
-                              SDL_WINDOWPOS_CENTERED,
-                              SDL_WINDOWPOS_CENTERED,
-                              m_windowWidth,
-                              m_windowHeight,
-                              SDL_WINDOW_SHOWN);
-  m_surface = SDL_GetWindowSurface(m_window);
-  bool go = true;
-  updateSurface();
-  while(go){
-    SDL_Event event;
-    SDL_WaitEvent(&event);
-    switch(event.type){
-      case SDL_QUIT: go = false; break;
-      case SDL_KEYDOWN: keyPress(&event); break;
+  if(true){
+    m_window = SDL_CreateWindow("Film",
+                                SDL_WINDOWPOS_CENTERED,
+                                SDL_WINDOWPOS_CENTERED,
+                                m_windowWidth,
+                                m_windowHeight,
+                                SDL_WINDOW_SHOWN);
+    m_surface = SDL_GetWindowSurface(m_window);
+    bool go = true;
+    updateSurface();
+    while(go){
+      SDL_Event event;
+      SDL_WaitEvent(&event);
+      switch(event.type){
+        case SDL_QUIT: go = false; break;
+        case SDL_KEYDOWN: keyPress(&event); break;
+      }
+      SDL_UpdateWindowSurface( m_window );
     }
-    SDL_UpdateWindowSurface( m_window );
+    SDL_FreeSurface(m_surface);
+    SDL_DestroyWindow(m_window);
+    SDL_Quit();
   }
-  SDL_FreeSurface(m_surface);
-  SDL_DestroyWindow(m_window);
-  SDL_Quit();
 }
 
 void SDLWindow::keyPress(SDL_Event *_event)

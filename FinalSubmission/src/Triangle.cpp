@@ -127,17 +127,23 @@ void Triangle::printData()
 
 void Triangle::calcN()
 {
+  // calulates the normal vector from the 3 verts
   m_n = ngl::calcNormal(m_v0, m_v1, m_v2);
   m_n.normalize();
 }
 
 void Triangle::calcD()
 {
+  // the 3 points of the triangle from a plane in the form
+  // ax + by + cz + d = 0
+  // here d is being calulated to be used for intersection tests
   m_d = (m_n.dot(m_v0)) * -1;
 }
 
 void Triangle::calcDominantAxis()
 {
+  // the doninant axis is the largest value of x, y or z in the normal vector
+  // need to project along the donimant axis to speed up intersections
   double x = fabs(m_n.m_x);
   double y = fabs(m_n.m_y);
   double z = fabs(m_n.m_z);
@@ -160,7 +166,6 @@ void Triangle::calcDominantAxis()
 
 void Triangle::getGLData(std::vector<ngl::Vec3> *_points, std::vector<ngl::Vec3> *_normals)
 {
-  std::cout << "getting triangle data" << std::endl;
   _points->push_back(m_v0);
   _points->push_back(m_v1);
   _points->push_back(m_v2);

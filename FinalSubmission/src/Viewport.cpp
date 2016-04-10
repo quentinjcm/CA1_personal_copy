@@ -15,9 +15,13 @@ Viewport::Viewport(QWidget *_parent) :
   QMainWindow(_parent),
   m_ui(new Ui::Viewport)
 {
+  // qt setting up the ui
   m_ui->setupUi(this);
+
+  // initialising the render settings structure that the ui will connect with
   m_settings = std::make_shared<RenderSettings>(this);
 
+  // connecting signals and slots
   connect(m_ui->m_bgR, SIGNAL(valueChanged(double)), m_settings.get(), SLOT(setBGColourR(double)));
   connect(m_ui->m_bgG, SIGNAL(valueChanged(double)), m_settings.get(), SLOT(setBGColourG(double)));
   connect(m_ui->m_bgB, SIGNAL(valueChanged(double)), m_settings.get(), SLOT(setBGColourB(double)));
@@ -84,11 +88,15 @@ void Viewport::loadScene()
 {
   std::cout << "loading scene " << m_settings->m_sceneFilePath.toStdString() << std::endl;
   m_scene = std::make_shared<Scene>();
+
+  //parsing the scene specified in the UI's file path
   SceneParser p(m_settings->m_sceneFilePath.toStdString(), m_scene);
   p.parseScene();
   m_hasScene = true;
-  std::vector<ngl::Vec3> points;
-  std::vector<ngl::Vec3> normals;
 
-  m_scene->getGLData(&points, &normals);
+
+  //std::vector<ngl::Vec3> points;
+  //std::vector<ngl::Vec3> normals;
+
+  //m_scene->getGLData(&points, &normals);
 }

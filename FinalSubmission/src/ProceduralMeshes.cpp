@@ -44,7 +44,7 @@ std::shared_ptr<TriangleMesh> ProceduralMeshes::pPlane(double _width, double _he
 
   ngl::Mat4 t(_t.getMatrix());
   ngl::Mat3 nt(t);
-  //nt.transpose();
+  nt.transpose();
   nt.inverse();
   //std::cout << t << std::endl;
   //setting a minimum size for the plane
@@ -98,7 +98,6 @@ std::shared_ptr<TriangleMesh> ProceduralMeshes::pSphere(double _r, int _sd, ngl:
 
   ngl::Mat4 transform(_t.getMatrix());
   ngl::Mat3 nTransform(transform);
-  //nt.transpose();
   nTransform.inverse();
 
   //limiting the minimum number of subdivisions to 4 and radius to 1 of it is set to 0

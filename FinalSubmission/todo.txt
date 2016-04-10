@@ -1,5 +1,4 @@
 EXTRA:
-  ui
   viewport
 
 BUGS:
@@ -7,15 +6,11 @@ BUGS:
     odd lighting? see robot fingers
     threads, an upper limit
 
+    buggy rotations, take them out?
+
 GET ON WITH IT:
     viewport with ui
     cleanup
-    aa filters
     trim film class
 
 
-start window in a new thread with a auto update function?
-
-
-
-ENCAPSULATION

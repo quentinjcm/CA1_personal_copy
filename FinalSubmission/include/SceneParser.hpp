@@ -26,6 +26,7 @@
 /// the same scene object. For a guide on formatting scene files please see the readme. The
 /// parser uses the boost spirit library to define the scene file syntax in EBFN. The parser
 /// holds a pointer toa current material, which is passed to  each mesh as it is constructed.
+/// see: https://en.wikipedia.org/wiki/Extended_Backus%E2%80%93Naur_Form
 class SceneParser
 {
 public:

@@ -47,6 +47,7 @@ private:
   /// @brief a flag to tell the ui that no scene has been loaded into the ui
   bool m_hasScene;
 
+
 private slots:
   /// @brief slot that runs the renderer for the currently set scene when the render button is pressed
    void renderCurrent();

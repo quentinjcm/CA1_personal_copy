@@ -36,32 +36,84 @@ SceneParser::SceneParser(std::string _fileName, std::shared_ptr<Scene> _scene):
   m_currentMat = std::make_shared<Material>(ngl::Colour(.3, .3, .3), 10, 1.5, 0, 1, "textures/uvGrid.png");
 }
 
+void SceneParser::parseScene()
+{
+  /* the initial syntax checked for are operation names followed by a string of characters
+   * the parser then goes through the input file line by line, and if any of these meet
+   * the requirements of any of the defined rules, then that line is passed to the corresponding
+   * function that will read the line and perform the required operations
+   */
+  //initial rules that define what function each line is passed to
+  srule comment = spt::comment_p("#");
+  srule sphere = ("SPHERE:" >> *(spt::anychar_p))
+                  [bind(&SceneParser::parseSphere, boost::ref(*this), _1)];
+  srule plane = ("PLANE:" >> *(spt::anychar_p))
+                 [bind(&SceneParser::parsePlane, boost::ref(*this), _1)];
+  srule obj = ("OBJ:" >> *(spt::anychar_p))
+               [bind(&SceneParser::parseObj, boost::ref(*this), _1)];
+  srule mat = ("MAT:" >> *(spt::anychar_p))
+               [bind(&SceneParser::parseMat, boost::ref(*this), _1)];
+  srule light = ("LIGHT:" >> *(spt::anychar_p))
+                [bind(&SceneParser::parseLight, boost::ref(*this), _1)];
+  srule translate = ("TRANSLATE:" >> *(spt::anychar_p))
+                [bind(&SceneParser::parseTranslate, boost::ref(*this), _1)];
+  srule scale = ("SCALE:" >> *(spt::anychar_p))
+                [bind(&SceneParser::parseScale, boost::ref(*this), _1)];
+  srule rotate = ("ROTATE:" >> *(spt::anychar_p))
+                [bind(&SceneParser::parseRotate, boost::ref(*this), _1)];
+
+  // opens the specified file
+  std::ifstream fileIn(m_fileName.c_str());
+
+  // if it opened sucessfully it is paresd line by line
+  if (fileIn.is_open()){
+    std::string line;
+    while (std::getline(fileIn, line)){
+      // parsing the line according to the inital rules set above
+      spt::parse(line.c_str(), comment | sphere | plane | obj | mat | light | scale | rotate | translate, spt::space_p);
+    }
+  }
+}
+
 void SceneParser::parseSphere(const char *_begin)
 {
-  double radius = 0;
+  // default values incase nothing is specified for the sphere
+  double radius = 1;
   int divisions = 4;
 
+  // assign the first number to the divions, and the second to the radius
   srule sphere = "SPHERE:" >>
                  spt::int_p[spt::assign_a(divisions)] >>
                  spt::real_p[spt::assign_a(radius)];
 
+  // parse the line according to the rule just specified
   spt::parse(_begin, sphere, spt::space_p);
-  std::cout << "creating prim " << radius << ", " << divisions << std::endl;
+
+  // constructing the sphere
   auto prim = std::make_shared<GeometricPrim>(ProceduralMeshes::pSphere(radius, divisions, m_currentTransform), m_currentMat);
+
+  // adding the sphere to the scene
   m_scene->addPrim(prim);
 }
 
 void SceneParser::parsePlane(const char *_begin)
 {
+  // default values for the plane
   double width = 1;
   double height = 1;
 
+  // first number is the width, second is the height
   srule plane = "PLANE:" >>
                 spt::real_p[spt::assign_a(width)] >>
                 spt::real_p[spt::assign_a(height)];
 
+  // parse the line according to the rule specified
   spt::parse(_begin, plane, spt::space_p);
+
+  // constructing the plane
   auto prim = std::make_shared<GeometricPrim>(ProceduralMeshes::pPlane(width, height, m_currentTransform), m_currentMat);
+
+  // adding the plane to the scene
   m_scene->addPrim(prim);
 }
 
@@ -69,19 +121,27 @@ void SceneParser::parseObj(const char *_begin)
 {
   std::string fileName;
 
+  // the input file is a path, which is strings of alphanumeric characters seperated by /
+  // the path is passed to the fileName
   srule obj = "OBJ:" >>
                (*(+spt::alnum_p >> "/") >>
                +spt::alnum_p >> ".obj")[spt::assign_a(fileName)];
 
+  // line is paresd according to the rule above
   spt::parse(_begin, obj, spt::space_p);
-  std::cout << "opening obj " << fileName.c_str() << std::endl;
+
+  // using ngl::obj to read in and parse the obj
   ngl::Obj objMesh;
+
+  // loading the obj
   objMesh.load(fileName, false);
-  std::cout << "opened obj" << std::endl;
+
+  // if the mesh is triangular, then the data inside is translated into the format i wrote for the ray tracer
   if (objMesh.isTriangular()){
+
+    //constructing the transform matricies for verts and normals
     ngl::Mat4 transform(m_currentTransform.getMatrix());
-    ngl::Mat3 nTransform(transform);
-    //nt.transpose();
+    ngl::Mat4 nTransform(transform);
     nTransform.inverse();
 
     auto meshOut = std::make_shared<TriangleMesh>();
@@ -90,27 +150,29 @@ void SceneParser::parseObj(const char *_begin)
     std::vector<ngl::Vec3> uvs = objMesh.getTextureCordList();
     std::vector<ngl::Face> faces = objMesh.getFaceList();
     for (ngl::Face f: faces){
-      if (true){
-        //converting uv cords from vec3 to vec2
-        ngl::Vec2 uv0(uvs[f.m_tex[0]][0], uvs[f.m_tex[0]][1]);
-        ngl::Vec2 uv1(uvs[f.m_tex[1]][0], uvs[f.m_tex[1]][1]);
-        ngl::Vec2 uv2(uvs[f.m_tex[2]][0], uvs[f.m_tex[2]][1]);
-        ngl::Vec3 v0 = verts[f.m_vert[0]];
-        ngl::Vec3 v1 = verts[f.m_vert[1]];
-        ngl::Vec3 v2 = verts[f.m_vert[2]];
+      //converting uv cords from vec3 to vec2
+      ngl::Vec2 uv0(uvs[f.m_tex[0]][0], uvs[f.m_tex[0]][1]);
+      ngl::Vec2 uv1(uvs[f.m_tex[1]][0], uvs[f.m_tex[1]][1]);
+      ngl::Vec2 uv2(uvs[f.m_tex[2]][0], uvs[f.m_tex[2]][1]);
+      // extracting face data
+      ngl::Vec3 v0(verts[f.m_vert[0]]);
+      ngl::Vec3 v1(verts[f.m_vert[1]]);
+      ngl::Vec3 v2(verts[f.m_vert[2]]);
 
-        v0 = (ngl::Vec4(v0) * transform);
-        v1 = (ngl::Vec4(v1) * transform);
-        v2 = (ngl::Vec4(v2) * transform);
-        Triangle t(v0, v1, v2,
-                   normals[f.m_norm[0]] * nTransform,
-                   normals[f.m_norm[1]] * nTransform,
-                   normals[f.m_norm[2]] * nTransform,
-                   uv0,
-                   uv1,
-                   uv2);
-        meshOut->addTri(t);
-      }
+      // transforming face data
+      v0 = (ngl::Vec4(v0) * transform);
+      v1 = (ngl::Vec4(v1) * transform);
+      v2 = (ngl::Vec4(v2) * transform);
+
+      // extracting normal data
+      ngl::Vec3 n0(normals[f.m_norm[0]] * nTransform);
+      ngl::Vec3 n1(normals[f.m_norm[1]] * nTransform);
+      ngl::Vec3 n2(normals[f.m_norm[2]] * nTransform);
+
+      Triangle t(v0,  v1,  v2,
+                 n0,  n1,  n2,
+                 uv0, uv1, uv2);
+      meshOut->addTri(t);
     }
     auto prim = std::make_shared<GeometricPrim>(meshOut, m_currentMat);
     m_scene->addPrim(prim);
@@ -202,31 +264,3 @@ void SceneParser::parseScale(const char *_begin)
   m_currentTransform.setScale(s);
 }
 
-void SceneParser::parseScene()
-{
-  srule comment = spt::comment_p("#");
-  srule sphere = ("SPHERE:" >> *(spt::anychar_p))
-                  [bind(&SceneParser::parseSphere, boost::ref(*this), _1)];
-  srule plane = ("PLANE:" >> *(spt::anychar_p))
-                 [bind(&SceneParser::parsePlane, boost::ref(*this), _1)];
-  srule obj = ("OBJ:" >> *(spt::anychar_p))
-               [bind(&SceneParser::parseObj, boost::ref(*this), _1)];
-  srule mat = ("MAT:" >> *(spt::anychar_p))
-               [bind(&SceneParser::parseMat, boost::ref(*this), _1)];
-  srule light = ("LIGHT:" >> *(spt::anychar_p))
-                [bind(&SceneParser::parseLight, boost::ref(*this), _1)];
-  srule translate = ("TRANSLATE:" >> *(spt::anychar_p))
-                [bind(&SceneParser::parseTranslate, boost::ref(*this), _1)];
-  srule scale = ("SCALE:" >> *(spt::anychar_p))
-                [bind(&SceneParser::parseScale, boost::ref(*this), _1)];
-  srule rotate = ("ROTATE:" >> *(spt::anychar_p))
-                [bind(&SceneParser::parseRotate, boost::ref(*this), _1)];
-
-  std::ifstream fileIn(m_fileName.c_str());
-  if (fileIn.is_open()){
-    std::string line;
-    while (std::getline(fileIn, line)){
-      spt::parse(line.c_str(), comment | sphere | plane | obj | mat | light | scale | rotate | translate, spt::space_p);
-    }
-  }
-}

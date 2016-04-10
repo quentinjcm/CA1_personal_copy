@@ -13,6 +13,8 @@
 
 bool TriangleMesh::intersect(const Ray &_ray, IsectData *_intersection)
 {
+  // calls the intersect method for all of the triangles in the mesh
+  // _intersection will be filled up with data for the closest one
   bool hasIntersected = false;
   if (m_meshBound.intersect(_ray)){
     for (Triangle i: m_tris){
@@ -26,6 +28,8 @@ bool TriangleMesh::intersect(const Ray &_ray, IsectData *_intersection)
 
 bool TriangleMesh::sIntersect(const Ray &_ray)
 {
+  // calls the intersect method for triangles untill it finds an intersection
+  // so it stops as soon as it knows its in shaddow
   if (m_meshBound.intersect(_ray)){
     IsectData dummy;
     for (Triangle i: m_tris){
@@ -39,9 +43,12 @@ bool TriangleMesh::sIntersect(const Ray &_ray)
 
 void TriangleMesh::addTri(const Triangle _tri)
 {
+  // adds each vertex to the bbox
   m_meshBound.addPoint(_tri.m_v0);
   m_meshBound.addPoint(_tri.m_v1);
   m_meshBound.addPoint(_tri.m_v2);
+
+  // then pushes the tri onto the vector
   m_tris.push_back(_tri);
 }
 
