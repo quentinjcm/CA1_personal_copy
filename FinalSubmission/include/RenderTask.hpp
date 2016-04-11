@@ -4,6 +4,8 @@
 #include <memory>
 #include <random>
 
+#include <QObject>
+
 #include <ngl/Colour.h>
 
 #include "Film.hpp"
@@ -24,8 +26,10 @@
 /// It uses a mixture of the blin/phong shading model and ray traced reflections and
 /// refractio. It is contructed with a range of x and y pixels that it is resposible
 /// for rendering
-class RenderTask
+class RenderTask: public QObject
 {
+  Q_OBJECT
+
 public:
   /// @brief ctor that takes in everything needed by the rendertask
   /// @param [in] *_cam a pointer to the camera used to construct rays
@@ -121,6 +125,9 @@ public:
 
   /// @brief largest y coordinate of a pixel in the render task
   int m_yMax;
+
+signal:
+  updateProgress();
 };
 
 #endif//__RENDERTASK_HPP__

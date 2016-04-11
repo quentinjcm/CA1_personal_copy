@@ -49,4 +49,4 @@ private:
   std::shared_ptr<RenderSettings> m_settings;
 };
 
-#endif//__RENDERER_HPP__
+#endif//RENDERER_HPP
