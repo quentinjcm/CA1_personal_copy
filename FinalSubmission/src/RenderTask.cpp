@@ -53,6 +53,7 @@ void RenderTask::render()
       }
       //rendering the pixel, with the given samples
       m_film->setPixel(x, y, renderPixel(samples));
+      m_settings->addCompletedPixel();
     }
   }
 }

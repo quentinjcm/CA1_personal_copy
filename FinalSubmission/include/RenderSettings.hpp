@@ -24,6 +24,8 @@ public:
   /// @param [in] *_parent is the parent qobject, a system that qt uses for garbage collection of ui elements
   RenderSettings(QObject *_parent = 0){}
 
+  void addCompletedPixel(){m_completedPixels++; emit pixelRendered();}
+
   /// @brief renderers background colour
   ngl::Colour m_bgCol = ngl::Colour(0, 0, 0);
 
@@ -65,6 +67,9 @@ public:
 
   /// @brief the scene text file path
   QString m_sceneFilePath;
+
+  int m_completedPixels;
+
 
 public slots:
   //colour and lighting
@@ -166,6 +171,11 @@ public slots:
   /// @brief slot that sets the path to the scene file
   /// @param [in] _path is the string to be passed in
   void setScenePath(QString _path){m_sceneFilePath = _path;}
+
+signals:
+  void pixelRendered();
+
+
 };
 
 #endif//RENDERSETTINGS_HPP
