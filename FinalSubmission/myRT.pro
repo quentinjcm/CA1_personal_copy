@@ -1,6 +1,5 @@
 TARGET=myRT
 
-
 QT+=gui \
     core \
     declarative

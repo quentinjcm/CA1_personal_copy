@@ -59,6 +59,8 @@ private:
   /// @brief a bool that incicated if sdl was sucessfully initialised
   /// the window wont run if initilaisation failed
   bool m_isInitialised = false;
+
+  bool m_hasSaved;
 };
 
 #endif//SDLWINDOW_HPP

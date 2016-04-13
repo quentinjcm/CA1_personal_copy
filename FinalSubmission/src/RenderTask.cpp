@@ -61,7 +61,7 @@ void RenderTask::render()
   }
 }
 
-ngl::Colour RenderTask::blinPixel(IsectData *_intersection)
+ngl::Colour RenderTask::blinnPixel(IsectData *_intersection)
 {
   ngl::Colour outColour(0, 0, 0, 1);
   ngl::Colour matColour = _intersection->m_material->getDiffuseColour(_intersection->m_uv[0],
@@ -97,7 +97,7 @@ ngl::Colour RenderTask::blinPixel(IsectData *_intersection)
       // specular lighting
       outColour += (l.m_colour * std::pow(NdotH, _intersection->m_material->m_smoothness) * attenuation * l.m_intensity);
       // diffuse lighting
-      outColour += l.m_colour * NdotL * NdotL * matColour * attenuation * l.m_intensity;
+      outColour += l.m_colour * NdotL * matColour * attenuation * l.m_intensity;
     }
   }
   // clamping the colour that goes to the display
@@ -151,6 +151,7 @@ ngl::Colour RenderTask::traceRay(const Ray &_ray)
     ngl::Colour refractedCol(m_settings->m_bgCol);
 
 
+    // refractive indicies of materials, n1 is current material, n2 is new material
     double n1 = 1;
     double n2 = 1;
 
@@ -187,24 +188,23 @@ ngl::Colour RenderTask::traceRay(const Ray &_ray)
       {
         ngl::Vec3 refractedDir(refract(isect.m_n, isect.m_eyeDir, n1, n2));
         //check for tir
-        //refractedDir.normalize();
         if (refractedDir != ngl::Vec3(0, 0, 0))
         {
           Ray refractedRay(isect.m_pos + 0.0001 * refractedDir, refractedDir, _ray.m_depth + 1);
           refractedCol = traceRay(refractedRay);
         }
-        //std::cout << refractedCol.m_r << std::endl;
       }
       // default refracted amout to blinn shading if material is not transparent
       else
       {
-        refractedCol = blinPixel(&isect);
+        refractedCol = blinnPixel(&isect);
       }
     }
     // default to blinn shading if max ray bounces have been reached
     else
     {
-      refractedCol = blinPixel(&isect);
+      refractedCol = blinnPixel(&isect);
+      reflectedAmount = 0;
     }
     //refractive calculations
     outCol = refractedCol * (1 - reflectedAmount) + reflectedCol * reflectedAmount;

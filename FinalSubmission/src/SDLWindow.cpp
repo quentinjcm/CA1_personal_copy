@@ -45,7 +45,7 @@ void SDLWindow::run()
     switch(event.type)
     {
       case SDL_QUIT: go = false; break;
-      case SDL_KEYDOWN: keyPress(&event); break;
+      case SDL_KEYUP: keyPress(&event); break;
     }
     SDL_UpdateWindowSurface( m_window );
   }
@@ -89,12 +89,16 @@ void SDLWindow::updateSurface()
 
 void SDLWindow::saveSurfaceToBMP()
 {
-  // setting up the file name
-  std::string fName("saves/render_");
-  time_t current_time = time(NULL);
-  fName += ctime(&current_time);
-  fName += ".bmp";
-  // saving the renderes surface using the filename
-  SDL_SaveBMP(m_surface, fName.c_str());
-  std::cout << "Image saved: " << fName << std::endl;
+  if(!m_hasSaved)
+  {
+    // setting up the file name
+    std::string fName("saves/render_");
+    time_t current_time = time(NULL);
+    fName += ctime(&current_time);
+    fName += ".bmp";
+    // saving the renderes surface using the filename
+    SDL_SaveBMP(m_surface, fName.c_str());
+    std::cout << "Image saved: " << fName << std::endl;
+    m_hasSaved = true;
+  }
 }

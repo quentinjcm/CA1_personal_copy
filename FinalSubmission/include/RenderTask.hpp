@@ -58,7 +58,7 @@ public:
   /// @brief calulates the colour value for blin shading at the point defined in the intersection data
   /// @param [in] *_intersection is a data structure that holds all of the informatin required to shade a point of intersection
   /// @param [out] the colour value that has been calulated
-  ngl::Colour blinPixel(IsectData *_intersection);
+  ngl::Colour blinnPixel(IsectData *_intersection);
 
   /// @brief a function that checks for a direct line of sight between a point and a light, used to calulate shaddows
   /// @param [in] _origin is the pont being checked for shaddows
