@@ -67,10 +67,6 @@ private:
   /// @param[in] *_begin is a pointer to the first element of the line being parsed
   void parseRotate(const char *_begin);
 
-  /// @brief a function defining the scale gramar as it appears in the scene file and how it is to be handled
-  /// @param[in] *_begin is a pointer to the first element of the line being parsed
-  void parseScale(const char *_begin);
-
   /// @brief the current transformation that is applied to new objects as they are created
   ngl::Transformation m_currentTransform;
 

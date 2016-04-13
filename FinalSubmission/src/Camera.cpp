@@ -1,11 +1,9 @@
 #include <iostream>
 #include <cmath>
-
-#include <ngl/Mat4.h>
-#include <ngl/Vec3.h>
-#include <ngl/Util.h>
-#include <ngl/NGLStream.h>
-
+#include "ngl/Mat4.h"
+#include "ngl/Vec3.h"
+#include "ngl/Util.h"
+#include "ngl/NGLStream.h"
 #include "Camera.hpp"
 #include "Film.hpp"
 #include "Ray.hpp"

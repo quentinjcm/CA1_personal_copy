@@ -21,30 +21,35 @@ bool TextureFile::loadImage()
 {
   // loads an image file using qimage
   QImage image;
-  bool isLoaded = image.load(m_fileName.c_str());
-  if (isLoaded){
-    m_imgWidth = image.width();
-    m_imgHeight = image.height();
-    m_pixels.resize(m_imgHeight * m_imgWidth);
-    QRgb colour;
-    // runing through the pixels in the qimage
-    for (int x = 0; x < m_imgWidth; x++){
-      for (int y = 0; y < m_imgHeight; y++){
-        // each pixel is converted to an ngl colour value and stored in m_pixels
-        colour = image.pixel(x, y);
-        ngl::Colour c((double)qRed(colour)/255.0,
-                      (double)qGreen(colour)/255.0,
-                      (double)qBlue(colour)/255.0,
-                      (double)qAlpha(colour)/255.0);
-        m_pixels[x + m_imgWidth * y] = c;
+  if (m_fileName != "")
+  {
+    if (image.load(m_fileName.c_str()))
+    {
+      m_imgWidth = image.width();
+      m_imgHeight = image.height();
+      m_pixels.resize(m_imgHeight * m_imgWidth);
+      QRgb colour;
+      // runing through the pixels in the qimage
+      for (int x = 0; x < m_imgWidth; x++)
+      {
+        for (int y = 0; y < m_imgHeight; y++)
+        {
+          // each pixel is converted to an ngl colour value and stored in m_pixels
+          colour = image.pixel(x, y);
+          ngl::Colour c((double)qRed(colour)/255.0,
+                        (double)qGreen(colour)/255.0,
+                        (double)qBlue(colour)/255.0,
+                        (double)qAlpha(colour)/255.0);
+          m_pixels[x + m_imgWidth * y] = c;
+        }
       }
+      return true;
+    }
+    else{
+      std::cout << "image failed to load: " << m_fileName << std::endl;
     }
   }
-  else{
-    std::cout << "image failed to load" << std::endl;
-    isLoaded = false;
-  }
-  return isLoaded;
+  return false;
 }
 
 ngl::Colour TextureFile::getPixel(double _u, double _v)

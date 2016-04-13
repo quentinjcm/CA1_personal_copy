@@ -109,11 +109,13 @@ std::shared_ptr<TriangleMesh> ProceduralMeshes::pSphere(double _r, int _sd, ngl:
   double stacks = (double)_sd/2;
   double slices = (double)_sd;
 
-  for (double t = 0; t < stacks; t++){
+  for (double t = 0; t < stacks; t++)
+  {
     //converting current and next stack value to sperical coordinates
     double theta1 = (double)t / stacks * M_PI;
     double theta2 = (double)(t + 1) / stacks * M_PI;
-    for (double p = 0; p < slices; p++){
+    for (double p = 0; p < slices; p++)
+    {
       //converting current and next slice value to sperical coordinates
       double phi1 = (double)p / slices * M_2PI;
       double phi2 = (double)(p + 1) / slices * M_2PI;
@@ -149,17 +151,20 @@ std::shared_ptr<TriangleMesh> ProceduralMeshes::pSphere(double _r, int _sd, ngl:
       n2 = n2 * nTransform;
       n3 = n3 * nTransform;
       //triangle is at the base and only one triangle should be created
-      if (t == 0){
+      if (t == 0)
+      {
         Triangle t(v0, v2, v3, n0, n2, n3, uv0, uv2, uv3);
         meshOut->addTri(t);
       }
       //triangle is at the tip and only one should be created
-      else if(t == stacks - 1){
+      else if(t == stacks - 1)
+      {
         Triangle t(v2, v0, v1, n2, n0, n1, uv2, uv0, uv1);
         meshOut->addTri(t);
       }
       //triangle is neither at the tip or base and we therfor need 2 to fill the quad
-      else{
+      else
+      {
         Triangle t1(v0, v1, v3, n0, n1, n3, uv0, uv1, uv3);
         Triangle t2(v1, v2, v3, n1, n2, n3, uv1, uv2, uv3);
         meshOut->addTri(t1);

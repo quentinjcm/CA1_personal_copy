@@ -75,20 +75,20 @@ public:
   /// @param [in] _n is the normal of the geometry at the point of intersection
   /// @param [in] _i is the incoming direction of the ray
   /// @param [out] returns a vec3 that is the outgoing direction of the reflected ray
-  ngl::Vec3 reflect(const ngl::Vec3 _n, const ngl::Vec3 _i);
+  ngl::Vec3 reflect(const ngl::Vec3 _normal, const ngl::Vec3 _incident);
 
   /// @brief calulates a direction vector for a refracted ray with given incident normal and incoming direction
   /// @param [in] _n is the normal of the geometry at the point of intersection
   /// @param [in] _i is the incoming direction of the ray
   /// @param [out] returns a vec3 that is the outgoing direction of the refracted ray
-  ngl::Vec3 refract(const ngl::Vec3 _n, const ngl::Vec3 _i, double _n1, double _n2);
+  ngl::Vec3 refract(const ngl::Vec3 _normal, const ngl::Vec3 _incident, double _n1, double _n2);
 
   /// @brief calulates an approximation to the fresnel factor using shclicks approximation
   /// @param [in] _n is the normal for the given point
   /// @param [in] _i is the incident vector
   /// @param [in] _n1 is the refractive index of the medium the ray is coming from
   /// @param [in] _n2 is the refractive index of the medium the ray is colliding with
-  double rShclick(const ngl::Vec3 _n, const ngl::Vec3 _i, double _n1, double _n2);
+  double rShclick(const ngl::Vec3 _normal, const ngl::Vec3 _incident, double _n1, double _n2);
 
   /// @brief fills the given vector with randomly generated smaples to be passed to the renderer
   /// @param [in] *_samples is a pointer to a vector that is to be filled up with sample

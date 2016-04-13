@@ -339,7 +339,7 @@
     <item row="1" column="0">
      <widget class="QGroupBox" name="groupBox">
       <property name="title">
-       <string>GroupBox</string>
+       <string/>
       </property>
       <layout class="QFormLayout" name="formLayout">
        <item row="1" column="1">
@@ -349,13 +349,6 @@
         <widget class="QPushButton" name="m_render">
          <property name="text">
           <string>Render</string>
-         </property>
-        </widget>
-       </item>
-       <item row="3" column="1">
-        <widget class="QProgressBar" name="m_renderProgress">
-         <property name="value">
-          <number>0</number>
          </property>
         </widget>
        </item>
@@ -377,7 +370,7 @@
      <x>0</x>
      <y>0</y>
      <width>500</width>
-     <height>22</height>
+     <height>26</height>
     </rect>
    </property>
   </widget>

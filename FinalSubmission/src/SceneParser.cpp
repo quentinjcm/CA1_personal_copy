@@ -2,11 +2,9 @@
 #include <string>
 #include <memory>
 #include <fstream>
-
 //boost includes
 #include <boost/bind.hpp>
 #include <boost/spirit/include/classic.hpp>
-
 //ngl includes
 #include <ngl/Vec3.h>
 #include <ngl/Vec4.h>
@@ -15,7 +13,6 @@
 #include <ngl/Colour.h>
 #include <ngl/Obj.h>
 #include <ngl/NGLStream.h>
-
 //my includes
 #include "SceneParser.hpp"
 #include "Scene.hpp"
@@ -24,7 +21,7 @@
 #include "Light.hpp"
 #include "Triangle.hpp"
 
-//taken from looking at ngl obj
+//taken from looking at the ngl::obj implementation
 namespace spt = boost::spirit::classic;
 typedef spt::rule<spt::phrase_scanner_t> srule;
 
@@ -57,8 +54,6 @@ void SceneParser::parseScene()
                 [bind(&SceneParser::parseLight, boost::ref(*this), _1)];
   srule translate = ("TRANSLATE:" >> *(spt::anychar_p))
                 [bind(&SceneParser::parseTranslate, boost::ref(*this), _1)];
-  srule scale = ("SCALE:" >> *(spt::anychar_p))
-                [bind(&SceneParser::parseScale, boost::ref(*this), _1)];
   srule rotate = ("ROTATE:" >> *(spt::anychar_p))
                 [bind(&SceneParser::parseRotate, boost::ref(*this), _1)];
 
@@ -70,8 +65,13 @@ void SceneParser::parseScene()
     std::string line;
     while (std::getline(fileIn, line)){
       // parsing the line according to the inital rules set above
-      spt::parse(line.c_str(), comment | sphere | plane | obj | mat | light | scale | rotate | translate, spt::space_p);
+      spt::parse(line.c_str(), comment | sphere | plane | obj | mat | light | rotate | translate, spt::space_p);
     }
+    std::cout << "scene loaded" << std::endl;
+  }
+  else
+  {
+    std::cout << "scene  failed to load: \"" << m_fileName << "\"" << std::endl;
   }
 }
 
@@ -177,18 +177,20 @@ void SceneParser::parseObj(const char *_begin)
     auto prim = std::make_shared<GeometricPrim>(meshOut, m_currentMat);
     m_scene->addPrim(prim);
   }
-
 }
 
 void SceneParser::parseMat(const char *_begin)
 {
-  ngl::Colour colour(0, 0, 0, 1);
+  // setting default values
+  ngl::Colour colour(0.4, 0.4, 0.4, 1);
   int smoothness = 0;
-  //double reflectivity = 0;
   double IOR = 1;
   bool isTransparent = false;
   bool isReflective = false;
   std::string texFile = "";
+
+  // the first 3 real numbers are the base colour, then smoothness, ior, istransparent and is reflective
+  // the file name is an optional strring on the end
   srule mat = "MAT:" >>
               spt::real_p[spt::assign_a(colour.m_r)] >>
               spt::real_p[spt::assign_a(colour.m_g)] >>
@@ -200,18 +202,21 @@ void SceneParser::parseMat(const char *_begin)
               (*(+spt::alnum_p >> "/") >>
               +spt::alnum_p >> "." >> +spt::alnum_p)[spt::assign_a(texFile)];
 
-
+  // parse file according to rule defined above
   spt::parse(_begin, mat, spt::space_p);
-  std::cout << isTransparent << std::endl;
+
+  // create material from extracted data
   m_currentMat = std::make_shared<Material>(colour, smoothness, IOR, isTransparent, isReflective, texFile);
 }
 
 void SceneParser::parseLight(const char *_begin)
 {
-  ngl::Colour colour(0, 0, 0);
+  // default light values
+  ngl::Colour colour(1, 1, 1);
   ngl::Vec3 pos(0, 0, 0);
-  double intensity;
+  double intensity = 5;
 
+  // first three values are position, then colour then intensity
   srule light = "LIGHT:" >>
                 spt::real_p[spt::assign_a(pos[0])] >>
                 spt::real_p[spt::assign_a(pos[1])] >>
@@ -221,7 +226,10 @@ void SceneParser::parseLight(const char *_begin)
                 spt::real_p[spt::assign_a(colour.m_b)] >>
                 spt::real_p[spt::assign_a(intensity)];
 
+  // parse line in using rule defined above
   spt::parse(_begin, light, spt::space_p);
+
+  // adding a light to the scene using the extracted data
   m_scene->addLight(Light(pos, colour, intensity));
 }
 
@@ -229,12 +237,16 @@ void SceneParser::parseTranslate(const char *_begin)
 {
   ngl::Vec3 t(0, 0 , 0);
 
+  // a translate requires 3 reals, tx, ty and tz
   srule translate = "TRANSLATE:" >>
                     spt::real_p[spt::assign_a(t[0])] >>
                     spt::real_p[spt::assign_a(t[1])] >>
                     spt::real_p[spt::assign_a(t[2])];
 
+  // parse line with rule defined above
   spt::parse(_begin, translate, spt::space_p);
+
+  // sets current transform using extracted data
   m_currentTransform.setPosition(t);
 }
 
@@ -242,25 +254,16 @@ void SceneParser::parseRotate(const char *_begin)
 {
   ngl::Vec3 r(0, 0 , 0);
 
+  // rotate requires 3 reals, rx, ry and rz
   srule rotate = "ROTATE:" >>
                 spt::real_p[spt::assign_a(r[0])] >>
                 spt::real_p[spt::assign_a(r[1])] >>
                 spt::real_p[spt::assign_a(r[2])];
 
+  // pares the line using the rotate rule
   spt::parse(_begin, rotate, spt::space_p);
+
+  // set the current rotation
   m_currentTransform.setRotation(r);
-}
-
-void SceneParser::parseScale(const char *_begin)
-{
-  ngl::Vec3 s(0, 0 , 0);
-
-  srule scale = "SCALE:" >>
-                spt::real_p[spt::assign_a(s[0])] >>
-                spt::real_p[spt::assign_a(s[1])] >>
-                spt::real_p[spt::assign_a(s[2])];
-
-  spt::parse(_begin, scale, spt::space_p);
-  m_currentTransform.setScale(s);
 }
 

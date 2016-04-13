@@ -38,6 +38,9 @@ public:
   void updateSurface();
 
 private:
+  /// @brief saves the render as a bmp image
+  void saveSurfaceToBMP();
+
   /// @brief the width of the sdl window
   int m_windowWidth;
 

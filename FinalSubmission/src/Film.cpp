@@ -1,11 +1,7 @@
 #include <iostream>
 #include <algorithm>
-
-#include <SDL2/SDL.h>
-
-#include <ngl/Vec3.h>
-#include <ngl/Colour.h>
-
+#include "ngl/Vec3.h"
+#include "ngl/Colour.h"
 #include "Film.hpp"
 #include "IsectData.hpp"
 
@@ -15,6 +11,7 @@
 Film::Film(int _w, int _h):
   m_filmWidth(_w),
   m_filmHeight(_h),
+  // initializing the pixel vector with a length and default colour
   m_pixels(_w * _h, ngl::Colour(1.0f, 0.0f, 0.0f, 1.0f))
 {
 }

@@ -1,10 +1,9 @@
+#include <vector>
 #include <QApplication>
 #include <Viewport.hpp>
 
-#include <vector>
-
 /// @file main.cpp
-/// @brief contains the main function that the prigram runs from
+/// @brief contains the main function that the program runs from
 
 int main(int argc, char *argv[])
 {
@@ -13,5 +12,4 @@ int main(int argc, char *argv[])
   Viewport v;
   v.show();
   return app.exec();
-
 }

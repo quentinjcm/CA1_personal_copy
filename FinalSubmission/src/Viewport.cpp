@@ -93,10 +93,4 @@ void Viewport::loadScene()
   SceneParser p(m_settings->m_sceneFilePath.toStdString(), m_scene);
   p.parseScene();
   m_hasScene = true;
-
-
-  //std::vector<ngl::Vec3> points;
-  //std::vector<ngl::Vec3> normals;
-
-  //m_scene->getGLData(&points, &normals);
 }

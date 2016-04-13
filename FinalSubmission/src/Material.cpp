@@ -1,8 +1,6 @@
 #include <memory>
 #include <iostream>
-
-#include <ngl/Colour.h>
-
+#include "ngl/Colour.h"
 #include "Material.hpp"
 #include "TextureFile.hpp"
 
@@ -18,17 +16,20 @@ Material::Material(ngl::Colour _colour, int _smoothness, double _IOR, bool _isTr
   m_isReflective(_isReflective)
 {
   m_diffuseTex = std::make_shared<TextureFile>(_texFileName);
-  if (m_diffuseTex->loadImage()){
+  if (m_diffuseTex->loadImage())
+  {
     m_hasTexture = true;
   }
 }
 
 ngl::Colour Material::getDiffuseColour(double _u, double _v)
 {
-  if(m_hasTexture){
+  if(m_hasTexture)
+  {
     return m_diffuseTex->getPixel(_u, _v);
   }
-  else{
+  else
+  {
     return m_diffuseColour;
   }
 }

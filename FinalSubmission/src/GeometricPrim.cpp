@@ -13,7 +13,9 @@ GeometricPrim::GeometricPrim(std::shared_ptr<TriangleMesh> _mesh, std::shared_pt
 
 bool GeometricPrim::intersect(const Ray &_ray, IsectData *_intersection)
 {
-  if (m_mesh->intersect(_ray, _intersection)){
+  if (m_mesh->intersect(_ray, _intersection))
+  {
+    // passing the primatives material to the intersection data structure to go back to the renderer
     _intersection->m_material = m_material;
     return true;
   }
@@ -22,7 +24,8 @@ bool GeometricPrim::intersect(const Ray &_ray, IsectData *_intersection)
 
 bool GeometricPrim::sIntersect(const Ray &_ray)
 {
-  if (m_mesh->sIntersect(_ray)){
+  if (m_mesh->sIntersect(_ray))
+  {
     return true;
   }
   return false;
@@ -30,5 +33,6 @@ bool GeometricPrim::sIntersect(const Ray &_ray)
 
 void GeometricPrim::getGLData(std::vector<ngl::Vec3> *_points, std::vector<ngl::Vec3> *_normals)
 {
+  //unused function for getting gl data
   m_mesh->getGLData(_points, _normals);
 }
