@@ -73,7 +73,8 @@ LIBS+= -lboost_system
 OTHER_FILES+=todo.txt \
              lighting.txt\
              scenes/* \
-             textures/*
+             textures/* \
+             saves/*
 
 FORMS += ui/viewport.ui
 MOC_DIR += moc/
