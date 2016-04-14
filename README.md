@@ -2,14 +2,14 @@
 This is the ray tracer I wrote for the CA1 assignment
 
 ##Features:
--Parsing Scene files using the boost spirit library
--Blinn shading
--Ray traced reflections and refractions
--Multi threading
--Anti aliasing using random samples
--Supports rendering of meshes in a .obj format
--Procedural mesh generation for spheres and planes
--Reads texture files for diffuse colours
+- Parsing Scene files using the boost spirit library
+- Blinn shading
+- Ray traced reflections and refractions
+- Multi threading
+- Anti aliasing using random samples
+- Supports rendering of meshes in a .obj format
+- Procedural mesh generation for spheres and planes
+- Reads texture files for diffuse colours
 
 #Usage
 ##Running the program
