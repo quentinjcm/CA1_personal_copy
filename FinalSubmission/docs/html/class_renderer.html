@@ -85,6 +85,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="header">
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
+<a href="#pri-attribs">Private Attributes</a> &#124;
 <a href="class_renderer-members.html">List of all members</a>  </div>
   <div class="headertitle">
 <div class="title">Renderer Class Reference</div>  </div>
@@ -104,6 +105,24 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a515c101da1643879677e8b3e73ec4776"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_renderer.html#a515c101da1643879677e8b3e73ec4776">renderImage</a> ()</td></tr>
 <tr class="memdesc:a515c101da1643879677e8b3e73ec4776"><td class="mdescLeft">&#160;</td><td class="mdescRight">method to set up and render the vecotr of render tasks  <a href="#a515c101da1643879677e8b3e73ec4776">More...</a><br /></td></tr>
 <tr class="separator:a515c101da1643879677e8b3e73ec4776"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-attribs"></a>
+Private Attributes</h2></td></tr>
+<tr class="memitem:acf8f2fa85968ad3ff44a2da0d209c0c4"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_film.html">Film</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_renderer.html#acf8f2fa85968ad3ff44a2da0d209c0c4">m_film</a></td></tr>
+<tr class="memdesc:acf8f2fa85968ad3ff44a2da0d209c0c4"><td class="mdescLeft">&#160;</td><td class="mdescRight">film to render to  <a href="#acf8f2fa85968ad3ff44a2da0d209c0c4">More...</a><br /></td></tr>
+<tr class="separator:acf8f2fa85968ad3ff44a2da0d209c0c4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abc6b43dc55c58f022c23f80e86475fdd"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_camera.html">Camera</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_renderer.html#abc6b43dc55c58f022c23f80e86475fdd">m_cam</a></td></tr>
+<tr class="memdesc:abc6b43dc55c58f022c23f80e86475fdd"><td class="mdescLeft">&#160;</td><td class="mdescRight">camera to render from  <a href="#abc6b43dc55c58f022c23f80e86475fdd">More...</a><br /></td></tr>
+<tr class="separator:abc6b43dc55c58f022c23f80e86475fdd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9c0d593dca31145c283aec4e87651e50"><td class="memItemLeft" align="right" valign="top">std::shared_ptr&lt; <a class="el" href="class_scene.html">Scene</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_renderer.html#a9c0d593dca31145c283aec4e87651e50">m_scene</a></td></tr>
+<tr class="memdesc:a9c0d593dca31145c283aec4e87651e50"><td class="mdescLeft">&#160;</td><td class="mdescRight">scene to render  <a href="#a9c0d593dca31145c283aec4e87651e50">More...</a><br /></td></tr>
+<tr class="separator:a9c0d593dca31145c283aec4e87651e50"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a679586d034586bc6e03fc385c5677c9e"><td class="memItemLeft" align="right" valign="top">std::vector&lt; <a class="el" href="class_render_task.html">RenderTask</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_renderer.html#a679586d034586bc6e03fc385c5677c9e">m_tasks</a></td></tr>
+<tr class="memdesc:a679586d034586bc6e03fc385c5677c9e"><td class="mdescLeft">&#160;</td><td class="mdescRight">tasks to build up and render  <a href="#a679586d034586bc6e03fc385c5677c9e">More...</a><br /></td></tr>
+<tr class="separator:a679586d034586bc6e03fc385c5677c9e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2d05756d59e0ffcde02f0893e31c6de0"><td class="memItemLeft" align="right" valign="top">std::shared_ptr&lt; <a class="el" href="struct_render_settings.html">RenderSettings</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_renderer.html#a2d05756d59e0ffcde02f0893e31c6de0">m_settings</a></td></tr>
+<tr class="memdesc:a2d05756d59e0ffcde02f0893e31c6de0"><td class="mdescLeft">&#160;</td><td class="mdescRight">shared pointer to the render settings set by the gui  <a href="#a2d05756d59e0ffcde02f0893e31c6de0">More...</a><br /></td></tr>
+<tr class="separator:a2d05756d59e0ffcde02f0893e31c6de0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>The <a class="el" href="class_renderer.html" title="The Renderer class is responible for setting up the rednering of the final image it does this by sett...">Renderer</a> class is responible for setting up the rednering of the final image it does this by setting up render tasks for groups of pixels, then rendering each of the tasks. The reason for the task structure is that it makes it very easy to multithread the program, while also giving the option of not multithreading if required. </p>
@@ -174,6 +193,127 @@ Public Member Functions</h2></td></tr>
 
 </div>
 </div>
+<h2 class="groupheader">Member Data Documentation</h2>
+<a class="anchor" id="abc6b43dc55c58f022c23f80e86475fdd"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_camera.html">Camera</a> Renderer::m_cam</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>camera to render from </p>
+
+<p>Definition at line <a class="el" href="_renderer_8hpp_source.html#l00039">39</a> of file <a class="el" href="_renderer_8hpp_source.html">Renderer.hpp</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="acf8f2fa85968ad3ff44a2da0d209c0c4"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_film.html">Film</a>* Renderer::m_film</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>film to render to </p>
+
+<p>Definition at line <a class="el" href="_renderer_8hpp_source.html#l00036">36</a> of file <a class="el" href="_renderer_8hpp_source.html">Renderer.hpp</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a9c0d593dca31145c283aec4e87651e50"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::shared_ptr&lt;<a class="el" href="class_scene.html">Scene</a>&gt; Renderer::m_scene</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>scene to render </p>
+
+<p>Definition at line <a class="el" href="_renderer_8hpp_source.html#l00042">42</a> of file <a class="el" href="_renderer_8hpp_source.html">Renderer.hpp</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a2d05756d59e0ffcde02f0893e31c6de0"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::shared_ptr&lt;<a class="el" href="struct_render_settings.html">RenderSettings</a>&gt; Renderer::m_settings</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>shared pointer to the render settings set by the gui </p>
+
+<p>Definition at line <a class="el" href="_renderer_8hpp_source.html#l00048">48</a> of file <a class="el" href="_renderer_8hpp_source.html">Renderer.hpp</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a679586d034586bc6e03fc385c5677c9e"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::vector&lt;<a class="el" href="class_render_task.html">RenderTask</a>&gt; Renderer::m_tasks</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>tasks to build up and render </p>
+
+<p>Definition at line <a class="el" href="_renderer_8hpp_source.html#l00045">45</a> of file <a class="el" href="_renderer_8hpp_source.html">Renderer.hpp</a>.</p>
+
+</div>
+</div>
 <hr/>The documentation for this class was generated from the following files:<ul>
 <li>include/<a class="el" href="_renderer_8hpp_source.html">Renderer.hpp</a></li>
 <li>src/<a class="el" href="_renderer_8cpp_source.html">Renderer.cpp</a></li>
@@ -181,7 +321,7 @@ Public Member Functions</h2></td></tr>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Thu Apr 14 2016 10:28:35 for myRT by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Thu Apr 14 2016 17:26:08 for myRT by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.9.1
 </small></address>

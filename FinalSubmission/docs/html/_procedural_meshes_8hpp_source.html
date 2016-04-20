@@ -105,18 +105,19 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;  <span class="keyword">static</span> std::shared_ptr&lt;TriangleMesh&gt; <a class="code" href="class_procedural_meshes.html#a64f18ab983c89e24b1328b5049e35e88">pSphere</a>(<span class="keywordtype">double</span> _r, <span class="keywordtype">int</span> _sd, ngl::Transformation &amp;_t);</div>
 <div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;</div>
 <div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;<span class="keyword">private</span>:</div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;  <span class="keyword">static</span> ngl::Vec3 circularToCartesian(<span class="keywordtype">double</span> _theta, <span class="keywordtype">double</span> _phi);</div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;  <span class="keyword">static</span> ngl::Vec3 <a class="code" href="class_procedural_meshes.html#a5b85a676064775a89d649ecb03609cac">circularToCartesian</a>(<span class="keywordtype">double</span> _theta, <span class="keywordtype">double</span> _phi);</div>
 <div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;};</div>
 <div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;</div>
 <div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;<span class="preprocessor">#endif//__PROCEDURALMESHES_HPP__</span></div>
 <div class="ttc" id="class_procedural_meshes_html_ad7056ab63fa162e9747ffe46b7b93697"><div class="ttname"><a href="class_procedural_meshes.html#ad7056ab63fa162e9747ffe46b7b93697">ProceduralMeshes::pPlane</a></div><div class="ttdeci">static std::shared_ptr&lt; TriangleMesh &gt; pPlane(double _width, double _height, ngl::Transformation &amp;_t)</div><div class="ttdoc">constructs a plane in the x, z plane with uvs and normals </div><div class="ttdef"><b>Definition:</b> <a href="_procedural_meshes_8cpp_source.html#l00038">ProceduralMeshes.cpp:38</a></div></div>
+<div class="ttc" id="class_procedural_meshes_html_a5b85a676064775a89d649ecb03609cac"><div class="ttname"><a href="class_procedural_meshes.html#a5b85a676064775a89d649ecb03609cac">ProceduralMeshes::circularToCartesian</a></div><div class="ttdeci">static ngl::Vec3 circularToCartesian(double _theta, double _phi)</div><div class="ttdoc">converts a position in spherical coordinates to cartesian </div><div class="ttdef"><b>Definition:</b> <a href="_procedural_meshes_8cpp_source.html#l00023">ProceduralMeshes.cpp:23</a></div></div>
 <div class="ttc" id="class_procedural_meshes_html_a64f18ab983c89e24b1328b5049e35e88"><div class="ttname"><a href="class_procedural_meshes.html#a64f18ab983c89e24b1328b5049e35e88">ProceduralMeshes::pSphere</a></div><div class="ttdeci">static std::shared_ptr&lt; TriangleMesh &gt; pSphere(double _r, int _sd, ngl::Transformation &amp;_t)</div><div class="ttdoc">constructs a sphere centerd at the origin with normals and uvs </div><div class="ttdef"><b>Definition:</b> <a href="_procedural_meshes_8cpp_source.html#l00092">ProceduralMeshes.cpp:92</a></div></div>
 <div class="ttc" id="_triangle_mesh_8hpp_html"><div class="ttname"><a href="_triangle_mesh_8hpp.html">TriangleMesh.hpp</a></div><div class="ttdoc">File contaiing the TriangleMesh class. </div></div>
 <div class="ttc" id="class_procedural_meshes_html"><div class="ttname"><a href="class_procedural_meshes.html">ProceduralMeshes</a></div><div class="ttdoc">a class that contains functions for generating procedural meshes </div><div class="ttdef"><b>Definition:</b> <a href="_procedural_meshes_8hpp_source.html#l00016">ProceduralMeshes.hpp:16</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Thu Apr 14 2016 10:28:35 for myRT by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Thu Apr 14 2016 17:26:08 for myRT by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.9.1
 </small></address>

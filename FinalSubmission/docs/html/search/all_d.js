@@ -1,6 +1,7 @@
 var searchData=
 [
   ['s_5frednersettingsgb',['s_rednerSettingsGB',['../class_ui___viewport.html#a9ba0a7a3a6f7aec16d9c29e87fc12230',1,'Ui_Viewport']]],
+  ['savesurfacetobmp',['saveSurfaceToBMP',['../class_s_d_l_window.html#a9e0d737b0405c70c5d15822fa13ee993',1,'SDLWindow']]],
   ['scene',['Scene',['../class_scene.html',1,'']]],
   ['scene_2ecpp',['Scene.cpp',['../_scene_8cpp.html',1,'']]],
   ['scene_2ehpp',['Scene.hpp',['../_scene_8hpp.html',1,'']]],

@@ -94,7 +94,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00003"></a><span class="lineno"><a class="line" href="class_scene.html#a9cf4ee0b9fd7da13456bc7edb764198f">    3</a></span>&#160;<span class="keywordtype">bool</span> <a class="code" href="class_scene.html#a9cf4ee0b9fd7da13456bc7edb764198f">Scene::intersect</a>(<span class="keyword">const</span> <a class="code" href="class_ray.html">Ray</a> &amp;_ray, <a class="code" href="struct_isect_data.html">IsectData</a> *_intersection)</div>
 <div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;{</div>
 <div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;  <span class="keywordtype">bool</span> hasIntersected = <span class="keyword">false</span>;</div>
-<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;  <span class="keywordflow">for</span> (std::shared_ptr&lt;Primative&gt; &amp;prim: m_sceneGeo){</div>
+<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;  <span class="keywordflow">for</span> (std::shared_ptr&lt;Primative&gt; &amp;prim: <a class="code" href="class_scene.html#af7b7c40e3d2e848a8e969d5181a1050b">m_sceneGeo</a>){</div>
 <div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;    <span class="keywordflow">if</span> (prim-&gt;intersect(_ray, _intersection)){</div>
 <div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;      hasIntersected = <span class="keyword">true</span>;</div>
 <div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;    }</div>
@@ -104,7 +104,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;</div>
 <div class="line"><a name="l00014"></a><span class="lineno"><a class="line" href="class_scene.html#a30483853f41cac8593e482913db6b2ec">   14</a></span>&#160;<span class="keywordtype">bool</span> <a class="code" href="class_scene.html#a30483853f41cac8593e482913db6b2ec">Scene::sIntersect</a>(<span class="keyword">const</span> <a class="code" href="class_ray.html">Ray</a> &amp;_ray)</div>
 <div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;{</div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;  <span class="keywordflow">for</span> (std::shared_ptr&lt;Primative&gt; &amp;prim: m_sceneGeo){</div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;  <span class="keywordflow">for</span> (std::shared_ptr&lt;Primative&gt; &amp;prim: <a class="code" href="class_scene.html#af7b7c40e3d2e848a8e969d5181a1050b">m_sceneGeo</a>){</div>
 <div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;    <span class="keywordflow">if</span> (prim-&gt;sIntersect(_ray)){</div>
 <div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;      <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
 <div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;    }</div>
@@ -114,11 +114,12 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;</div>
 <div class="line"><a name="l00024"></a><span class="lineno"><a class="line" href="class_scene.html#ac09f80b3355d92875405561bd089a044">   24</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="class_scene.html#ac09f80b3355d92875405561bd089a044">Scene::getGLData</a>(std::vector&lt;ngl::Vec3&gt; *_points, std::vector&lt;ngl::Vec3&gt; *_normals)</div>
 <div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;{</div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;  <span class="keywordflow">for</span> (std::shared_ptr&lt;Primative&gt; prim: m_sceneGeo){</div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;  <span class="keywordflow">for</span> (std::shared_ptr&lt;Primative&gt; prim: <a class="code" href="class_scene.html#af7b7c40e3d2e848a8e969d5181a1050b">m_sceneGeo</a>){</div>
 <div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;    prim-&gt;getGLData(_points, _normals);</div>
 <div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;  }</div>
 <div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;}</div>
 <div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;</div>
+<div class="ttc" id="class_scene_html_af7b7c40e3d2e848a8e969d5181a1050b"><div class="ttname"><a href="class_scene.html#af7b7c40e3d2e848a8e969d5181a1050b">Scene::m_sceneGeo</a></div><div class="ttdeci">std::vector&lt; std::shared_ptr&lt; Primative &gt; &gt; m_sceneGeo</div><div class="ttdoc">the vector of shared pointers to the scene geometey </div><div class="ttdef"><b>Definition:</b> <a href="_scene_8hpp_source.html#l00055">Scene.hpp:55</a></div></div>
 <div class="ttc" id="class_scene_html_a9cf4ee0b9fd7da13456bc7edb764198f"><div class="ttname"><a href="class_scene.html#a9cf4ee0b9fd7da13456bc7edb764198f">Scene::intersect</a></div><div class="ttdeci">bool intersect(const Ray &amp;_ray, IsectData *_intersection)</div><div class="ttdoc">intersection method that fills the intersection structure with data on the intersection ...</div><div class="ttdef"><b>Definition:</b> <a href="_scene_8cpp_source.html#l00003">Scene.cpp:3</a></div></div>
 <div class="ttc" id="struct_isect_data_html"><div class="ttname"><a href="struct_isect_data.html">IsectData</a></div><div class="ttdoc">a structure that holds information about intersection points. </div><div class="ttdef"><b>Definition:</b> <a href="_isect_data_8hpp_source.html#l00018">IsectData.hpp:18</a></div></div>
 <div class="ttc" id="class_scene_html_a30483853f41cac8593e482913db6b2ec"><div class="ttname"><a href="class_scene.html#a30483853f41cac8593e482913db6b2ec">Scene::sIntersect</a></div><div class="ttdeci">bool sIntersect(const Ray &amp;_ray)</div><div class="ttdoc">An intersection method for shaddow rays, which dont need to return data about the intersection...</div><div class="ttdef"><b>Definition:</b> <a href="_scene_8cpp_source.html#l00014">Scene.cpp:14</a></div></div>
@@ -128,7 +129,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Thu Apr 14 2016 10:28:35 for myRT by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Thu Apr 14 2016 17:26:08 for myRT by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.9.1
 </small></address>

@@ -47,6 +47,7 @@ void SDLWindow::run()
       case SDL_QUIT: go = false; break;
       case SDL_KEYUP: keyPress(&event); break;
     }
+    updateSurface();
     SDL_UpdateWindowSurface( m_window );
   }
   SDL_FreeSurface(m_surface);
@@ -61,6 +62,7 @@ void SDLWindow::keyPress(SDL_Event *_event)
   switch (keyPressed)
   {
     case SDLK_s: saveSurfaceToBMP(); break;
+    case SDLK_u: updateSurface(); break;
   }
   updateSurface();
 }

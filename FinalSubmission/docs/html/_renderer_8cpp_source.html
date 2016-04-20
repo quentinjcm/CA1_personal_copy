@@ -105,12 +105,12 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;   m_settings(_settings)</div>
 <div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160; {</div>
 <div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;   <span class="comment">//construct camera</span></div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;   m_cam = <a class="code" href="class_camera.html">Camera</a>(m_settings-&gt;m_camPos,</div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;                                  m_settings-&gt;m_camTarget,</div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;                                  m_settings-&gt;m_camUp,</div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;                                  m_settings-&gt;m_fov,</div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;                                  m_settings-&gt;m_filmWidth,</div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;                                  m_settings-&gt;m_filmHeight);</div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;   <a class="code" href="class_renderer.html#abc6b43dc55c58f022c23f80e86475fdd">m_cam</a> = <a class="code" href="class_camera.html">Camera</a>(<a class="code" href="class_renderer.html#a2d05756d59e0ffcde02f0893e31c6de0">m_settings</a>-&gt;m_camPos,</div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;                                  <a class="code" href="class_renderer.html#a2d05756d59e0ffcde02f0893e31c6de0">m_settings</a>-&gt;m_camTarget,</div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;                                  <a class="code" href="class_renderer.html#a2d05756d59e0ffcde02f0893e31c6de0">m_settings</a>-&gt;m_camUp,</div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;                                  <a class="code" href="class_renderer.html#a2d05756d59e0ffcde02f0893e31c6de0">m_settings</a>-&gt;m_fov,</div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;                                  <a class="code" href="class_renderer.html#a2d05756d59e0ffcde02f0893e31c6de0">m_settings</a>-&gt;m_filmWidth,</div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;                                  <a class="code" href="class_renderer.html#a2d05756d59e0ffcde02f0893e31c6de0">m_settings</a>-&gt;m_filmHeight);</div>
 <div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160; }</div>
 <div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;</div>
 <div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;</div>
@@ -118,11 +118,11 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;{</div>
 <div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;  <span class="comment">//setting up the render tasks</span></div>
 <div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;  std::cout &lt;&lt; <span class="stringliteral">&quot;Creating render tasks&quot;</span> &lt;&lt; std::endl;</div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;  <span class="keywordtype">int</span> xInc = m_settings-&gt;m_threadWidth;</div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;  <span class="keywordtype">int</span> yInc = m_settings-&gt;m_threadHeight;</div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;  <span class="keywordflow">for</span> (<span class="keywordtype">int</span> x = 0; x &lt; m_settings-&gt;m_filmWidth; x += xInc)</div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;  <span class="keywordtype">int</span> xInc = <a class="code" href="class_renderer.html#a2d05756d59e0ffcde02f0893e31c6de0">m_settings</a>-&gt;m_threadWidth;</div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;  <span class="keywordtype">int</span> yInc = <a class="code" href="class_renderer.html#a2d05756d59e0ffcde02f0893e31c6de0">m_settings</a>-&gt;m_threadHeight;</div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;  <span class="keywordflow">for</span> (<span class="keywordtype">int</span> x = 0; x &lt; <a class="code" href="class_renderer.html#a2d05756d59e0ffcde02f0893e31c6de0">m_settings</a>-&gt;m_filmWidth; x += xInc)</div>
 <div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;  {</div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;    <span class="keywordflow">for</span> (<span class="keywordtype">int</span> y = 0; y &lt; m_settings-&gt;m_filmHeight; y += yInc)</div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;    <span class="keywordflow">for</span> (<span class="keywordtype">int</span> y = 0; y &lt; <a class="code" href="class_renderer.html#a2d05756d59e0ffcde02f0893e31c6de0">m_settings</a>-&gt;m_filmHeight; y += yInc)</div>
 <div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;    {</div>
 <div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;      <span class="comment">// checking to see if the task goes beyound the edge of the image</span></div>
 <div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;      <span class="comment">// temp values created so that they can be changed without affecting</span></div>
@@ -130,34 +130,34 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;      <span class="keywordtype">int</span> xIncTemp = xInc;</div>
 <div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;      <span class="keywordtype">int</span> yIncTemp = yInc;</div>
 <div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;      <span class="comment">//if x has gone over</span></div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;      <span class="keywordflow">if</span> (x + xIncTemp &gt; m_settings-&gt;m_filmWidth)</div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;      <span class="keywordflow">if</span> (x + xIncTemp &gt; <a class="code" href="class_renderer.html#a2d05756d59e0ffcde02f0893e31c6de0">m_settings</a>-&gt;m_filmWidth)</div>
 <div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;      {</div>
 <div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;        <span class="comment">// set the temp increment to the value that will take it to the edge of the image</span></div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;        xIncTemp = m_settings-&gt;m_filmWidth - x;</div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;        xIncTemp = <a class="code" href="class_renderer.html#a2d05756d59e0ffcde02f0893e31c6de0">m_settings</a>-&gt;m_filmWidth - x;</div>
 <div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;      }</div>
 <div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;      <span class="comment">// if y has gone over</span></div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;      <span class="keywordflow">if</span> (y + yIncTemp &gt; m_settings-&gt;m_filmHeight)</div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;      <span class="keywordflow">if</span> (y + yIncTemp &gt; <a class="code" href="class_renderer.html#a2d05756d59e0ffcde02f0893e31c6de0">m_settings</a>-&gt;m_filmHeight)</div>
 <div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;      {</div>
 <div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;        <span class="comment">// set the temp increment to the value that will take it to the edge of the image</span></div>
-<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;        yIncTemp = m_settings-&gt;m_filmHeight - y;</div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;        yIncTemp = <a class="code" href="class_renderer.html#a2d05756d59e0ffcde02f0893e31c6de0">m_settings</a>-&gt;m_filmHeight - y;</div>
 <div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;      }</div>
 <div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;      <span class="comment">// constructing the task</span></div>
-<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;      m_tasks.push_back(<a class="code" href="class_render_task.html">RenderTask</a>(&amp;m_cam,</div>
-<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;                                   m_film,</div>
-<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;                                   m_scene,</div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;      <a class="code" href="class_renderer.html#a679586d034586bc6e03fc385c5677c9e">m_tasks</a>.push_back(<a class="code" href="class_render_task.html">RenderTask</a>(&amp;<a class="code" href="class_renderer.html#abc6b43dc55c58f022c23f80e86475fdd">m_cam</a>,</div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;                                   <a class="code" href="class_renderer.html#acf8f2fa85968ad3ff44a2da0d209c0c4">m_film</a>,</div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;                                   <a class="code" href="class_renderer.html#a9c0d593dca31145c283aec4e87651e50">m_scene</a>,</div>
 <div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;                                   x, y,</div>
 <div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;                                   x+xIncTemp, y+yIncTemp,</div>
-<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;                                   m_settings));</div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;                                   <a class="code" href="class_renderer.html#a2d05756d59e0ffcde02f0893e31c6de0">m_settings</a>));</div>
 <div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;    }</div>
 <div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;  }</div>
-<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;  std::cout &lt;&lt; m_tasks.size() &lt;&lt;<span class="stringliteral">&quot; tasks created&quot;</span> &lt;&lt; std::endl;</div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;  std::cout &lt;&lt; <a class="code" href="class_renderer.html#a679586d034586bc6e03fc385c5677c9e">m_tasks</a>.size() &lt;&lt;<span class="stringliteral">&quot; tasks created&quot;</span> &lt;&lt; std::endl;</div>
 <div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;</div>
 <div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;  <span class="comment">// setting up multithreading with std::thread</span></div>
 <div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;  std::vector&lt;std::thread&gt; threads;</div>
 <div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;  std::cout &lt;&lt; <span class="stringliteral">&quot;starting render&quot;</span> &lt;&lt; std::endl;</div>
-<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;  <span class="keywordflow">if</span> (m_settings-&gt;m_multithread)</div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;  <span class="keywordflow">if</span> (<a class="code" href="class_renderer.html#a2d05756d59e0ffcde02f0893e31c6de0">m_settings</a>-&gt;m_multithread)</div>
 <div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;  {</div>
-<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;    <span class="keywordflow">for</span> (<a class="code" href="class_render_task.html">RenderTask</a> &amp;task: m_tasks)</div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;    <span class="keywordflow">for</span> (<a class="code" href="class_render_task.html">RenderTask</a> &amp;task: <a class="code" href="class_renderer.html#a679586d034586bc6e03fc385c5677c9e">m_tasks</a>)</div>
 <div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;    {</div>
 <div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;      <span class="comment">// because I need to join each of the tasks onece finished, i create them in a vector</span></div>
 <div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;      threads.push_back(std::thread(&amp;<a class="code" href="class_render_task.html#a723a8517f2d24fdab3e40f47f4404e3e">RenderTask::render</a>, &amp;task));</div>
@@ -171,18 +171,23 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;  }</div>
 <div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;  <span class="keywordflow">else</span>{</div>
 <div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;    <span class="comment">// if there is no multithreading set by the user, the tasks will rendere one by one</span></div>
-<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;    <span class="keywordflow">for</span> (<a class="code" href="class_render_task.html">RenderTask</a> &amp;task: m_tasks)</div>
+<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;    <span class="keywordflow">for</span> (<a class="code" href="class_render_task.html">RenderTask</a> &amp;task: <a class="code" href="class_renderer.html#a679586d034586bc6e03fc385c5677c9e">m_tasks</a>)</div>
 <div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;    {</div>
 <div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;      task.render();</div>
 <div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;    }</div>
 <div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;  }</div>
 <div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;}</div>
+<div class="ttc" id="class_renderer_html_abc6b43dc55c58f022c23f80e86475fdd"><div class="ttname"><a href="class_renderer.html#abc6b43dc55c58f022c23f80e86475fdd">Renderer::m_cam</a></div><div class="ttdeci">Camera m_cam</div><div class="ttdoc">camera to render from </div><div class="ttdef"><b>Definition:</b> <a href="_renderer_8hpp_source.html#l00039">Renderer.hpp:39</a></div></div>
 <div class="ttc" id="class_render_task_html"><div class="ttname"><a href="class_render_task.html">RenderTask</a></div><div class="ttdoc">The RenderTask is resposible for rendering a portion of the final image. It uses a mixture of the bli...</div><div class="ttdef"><b>Definition:</b> <a href="_render_task_8hpp_source.html#l00026">RenderTask.hpp:26</a></div></div>
 <div class="ttc" id="_film_8hpp_html"><div class="ttname"><a href="_film_8hpp.html">Film.hpp</a></div><div class="ttdoc">File contaiing the Film class. </div></div>
 <div class="ttc" id="class_camera_html"><div class="ttname"><a href="class_camera.html">Camera</a></div><div class="ttdoc">The Camera class is used to generate rays when passed the coordinate of a point in the output image...</div><div class="ttdef"><b>Definition:</b> <a href="_camera_8hpp_source.html#l00022">Camera.hpp:22</a></div></div>
 <div class="ttc" id="class_renderer_html_ab18b43d41e3808f2e3cd368ff532d138"><div class="ttname"><a href="class_renderer.html#ab18b43d41e3808f2e3cd368ff532d138">Renderer::Renderer</a></div><div class="ttdeci">Renderer(std::shared_ptr&lt; Scene &gt; _scene, std::shared_ptr&lt; RenderSettings &gt; _settings, Film *_film)</div><div class="ttdoc">ctor that initialises variables in the renderer </div><div class="ttdef"><b>Definition:</b> <a href="_renderer_8cpp_source.html#l00013">Renderer.cpp:13</a></div></div>
+<div class="ttc" id="class_renderer_html_acf8f2fa85968ad3ff44a2da0d209c0c4"><div class="ttname"><a href="class_renderer.html#acf8f2fa85968ad3ff44a2da0d209c0c4">Renderer::m_film</a></div><div class="ttdeci">Film * m_film</div><div class="ttdoc">film to render to </div><div class="ttdef"><b>Definition:</b> <a href="_renderer_8hpp_source.html#l00036">Renderer.hpp:36</a></div></div>
 <div class="ttc" id="_primative_8hpp_html"><div class="ttname"><a href="_primative_8hpp.html">Primative.hpp</a></div><div class="ttdoc">File contaiing the Primative class. </div></div>
 <div class="ttc" id="_renderer_8hpp_html"><div class="ttname"><a href="_renderer_8hpp.html">Renderer.hpp</a></div><div class="ttdoc">File contaiing the Renderer class. </div></div>
+<div class="ttc" id="class_renderer_html_a679586d034586bc6e03fc385c5677c9e"><div class="ttname"><a href="class_renderer.html#a679586d034586bc6e03fc385c5677c9e">Renderer::m_tasks</a></div><div class="ttdeci">std::vector&lt; RenderTask &gt; m_tasks</div><div class="ttdoc">tasks to build up and render </div><div class="ttdef"><b>Definition:</b> <a href="_renderer_8hpp_source.html#l00045">Renderer.hpp:45</a></div></div>
+<div class="ttc" id="class_renderer_html_a9c0d593dca31145c283aec4e87651e50"><div class="ttname"><a href="class_renderer.html#a9c0d593dca31145c283aec4e87651e50">Renderer::m_scene</a></div><div class="ttdeci">std::shared_ptr&lt; Scene &gt; m_scene</div><div class="ttdoc">scene to render </div><div class="ttdef"><b>Definition:</b> <a href="_renderer_8hpp_source.html#l00042">Renderer.hpp:42</a></div></div>
+<div class="ttc" id="class_renderer_html_a2d05756d59e0ffcde02f0893e31c6de0"><div class="ttname"><a href="class_renderer.html#a2d05756d59e0ffcde02f0893e31c6de0">Renderer::m_settings</a></div><div class="ttdeci">std::shared_ptr&lt; RenderSettings &gt; m_settings</div><div class="ttdoc">shared pointer to the render settings set by the gui </div><div class="ttdef"><b>Definition:</b> <a href="_renderer_8hpp_source.html#l00048">Renderer.hpp:48</a></div></div>
 <div class="ttc" id="_render_task_8hpp_html"><div class="ttname"><a href="_render_task_8hpp.html">RenderTask.hpp</a></div><div class="ttdoc">File contaiing the RenderTask class. </div></div>
 <div class="ttc" id="_isect_data_8hpp_html"><div class="ttname"><a href="_isect_data_8hpp.html">IsectData.hpp</a></div><div class="ttdoc">File contaiing the IsectData structure, which is a container for data on points of intersection...</div></div>
 <div class="ttc" id="class_render_task_html_a723a8517f2d24fdab3e40f47f4404e3e"><div class="ttname"><a href="class_render_task.html#a723a8517f2d24fdab3e40f47f4404e3e">RenderTask::render</a></div><div class="ttdeci">void render()</div><div class="ttdoc">main function that is called to render the range of pixels for this render task </div><div class="ttdef"><b>Definition:</b> <a href="_render_task_8cpp_source.html#l00038">RenderTask.cpp:38</a></div></div>
@@ -192,7 +197,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Thu Apr 14 2016 10:28:35 for myRT by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Thu Apr 14 2016 17:26:08 for myRT by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.9.1
 </small></address>

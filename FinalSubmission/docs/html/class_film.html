@@ -85,6 +85,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="header">
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
+<a href="#pri-attribs">Private Attributes</a> &#124;
 <a href="class_film-members.html">List of all members</a>  </div>
   <div class="headertitle">
 <div class="title">Film Class Reference</div>  </div>
@@ -112,6 +113,18 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:a812c10666c86cdb0631eab20964de4b9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a54969edae1e6b1416dd44b05a4d01856"><td class="memItemLeft" align="right" valign="top">std::vector&lt; ngl::Colour &gt; *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_film.html#a54969edae1e6b1416dd44b05a4d01856">getPixelArr</a> ()</td></tr>
 <tr class="separator:a54969edae1e6b1416dd44b05a4d01856"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-attribs"></a>
+Private Attributes</h2></td></tr>
+<tr class="memitem:ada432fbf76dad9c39318e66db26cf1fc"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_film.html#ada432fbf76dad9c39318e66db26cf1fc">m_filmWidth</a></td></tr>
+<tr class="memdesc:ada432fbf76dad9c39318e66db26cf1fc"><td class="mdescLeft">&#160;</td><td class="mdescRight">width of the film in pixels  <a href="#ada432fbf76dad9c39318e66db26cf1fc">More...</a><br /></td></tr>
+<tr class="separator:ada432fbf76dad9c39318e66db26cf1fc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a691c280ccf6eb246e5d1a608e85ac8e8"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_film.html#a691c280ccf6eb246e5d1a608e85ac8e8">m_filmHeight</a></td></tr>
+<tr class="memdesc:a691c280ccf6eb246e5d1a608e85ac8e8"><td class="mdescLeft">&#160;</td><td class="mdescRight">height of the film in pixels  <a href="#a691c280ccf6eb246e5d1a608e85ac8e8">More...</a><br /></td></tr>
+<tr class="separator:a691c280ccf6eb246e5d1a608e85ac8e8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a13522f36ad7fe56316b15f456cebca9c"><td class="memItemLeft" align="right" valign="top">std::vector&lt; ngl::Colour &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_film.html#a13522f36ad7fe56316b15f456cebca9c">m_pixels</a></td></tr>
+<tr class="memdesc:a13522f36ad7fe56316b15f456cebca9c"><td class="mdescLeft">&#160;</td><td class="mdescRight">vector of pixels  <a href="#a13522f36ad7fe56316b15f456cebca9c">More...</a><br /></td></tr>
+<tr class="separator:a13522f36ad7fe56316b15f456cebca9c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>The <a class="el" href="class_film.html" title="The Film class holds pixel arrayd for the different render layers. ">Film</a> class holds pixel arrayd for the different render layers. </p>
@@ -297,6 +310,79 @@ Public Member Functions</h2></td></tr>
 
 </div>
 </div>
+<h2 class="groupheader">Member Data Documentation</h2>
+<a class="anchor" id="a691c280ccf6eb246e5d1a608e85ac8e8"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">int Film::m_filmHeight</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>height of the film in pixels </p>
+
+<p>Definition at line <a class="el" href="_film_8hpp_source.html#l00049">49</a> of file <a class="el" href="_film_8hpp_source.html">Film.hpp</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="ada432fbf76dad9c39318e66db26cf1fc"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">int Film::m_filmWidth</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>width of the film in pixels </p>
+
+<p>Definition at line <a class="el" href="_film_8hpp_source.html#l00046">46</a> of file <a class="el" href="_film_8hpp_source.html">Film.hpp</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a13522f36ad7fe56316b15f456cebca9c"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::vector&lt;ngl::Colour&gt; Film::m_pixels</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>vector of pixels </p>
+
+<p>Definition at line <a class="el" href="_film_8hpp_source.html#l00052">52</a> of file <a class="el" href="_film_8hpp_source.html">Film.hpp</a>.</p>
+
+</div>
+</div>
 <hr/>The documentation for this class was generated from the following files:<ul>
 <li>include/<a class="el" href="_film_8hpp_source.html">Film.hpp</a></li>
 <li>src/<a class="el" href="_film_8cpp_source.html">Film.cpp</a></li>
@@ -304,7 +390,7 @@ Public Member Functions</h2></td></tr>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Thu Apr 14 2016 10:28:35 for myRT by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Thu Apr 14 2016 17:26:08 for myRT by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.9.1
 </small></address>

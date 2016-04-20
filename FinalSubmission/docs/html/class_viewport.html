@@ -85,6 +85,8 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="header">
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
+<a href="#pri-slots">Private Slots</a> &#124;
+<a href="#pri-attribs">Private Attributes</a> &#124;
 <a href="class_viewport-members.html">List of all members</a>  </div>
   <div class="headertitle">
 <div class="title">Viewport Class Reference</div>  </div>
@@ -109,6 +111,30 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a1e18a1ff4a52be33ef63d25034561850"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_viewport.html#a1e18a1ff4a52be33ef63d25034561850">~Viewport</a> ()</td></tr>
 <tr class="memdesc:a1e18a1ff4a52be33ef63d25034561850"><td class="mdescLeft">&#160;</td><td class="mdescRight">dtor that deletes the ui object  <a href="#a1e18a1ff4a52be33ef63d25034561850">More...</a><br /></td></tr>
 <tr class="separator:a1e18a1ff4a52be33ef63d25034561850"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-slots"></a>
+Private Slots</h2></td></tr>
+<tr class="memitem:a45d171d4791d8d7a9bccf49b4918d353"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_viewport.html#a45d171d4791d8d7a9bccf49b4918d353">renderCurrent</a> ()</td></tr>
+<tr class="memdesc:a45d171d4791d8d7a9bccf49b4918d353"><td class="mdescLeft">&#160;</td><td class="mdescRight">slot that runs the renderer for the currently set scene when the render button is pressed  <a href="#a45d171d4791d8d7a9bccf49b4918d353">More...</a><br /></td></tr>
+<tr class="separator:a45d171d4791d8d7a9bccf49b4918d353"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3f9428a0561193b362a5e5d722c13852"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_viewport.html#a3f9428a0561193b362a5e5d722c13852">loadScene</a> ()</td></tr>
+<tr class="memdesc:a3f9428a0561193b362a5e5d722c13852"><td class="mdescLeft">&#160;</td><td class="mdescRight">slot that loads the scene curently specified in the ui  <a href="#a3f9428a0561193b362a5e5d722c13852">More...</a><br /></td></tr>
+<tr class="separator:a3f9428a0561193b362a5e5d722c13852"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-attribs"></a>
+Private Attributes</h2></td></tr>
+<tr class="memitem:a86bded0c2cc4afe305a30befccf8393c"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_ui_1_1_viewport.html">Ui::Viewport</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_viewport.html#a86bded0c2cc4afe305a30befccf8393c">m_ui</a></td></tr>
+<tr class="memdesc:a86bded0c2cc4afe305a30befccf8393c"><td class="mdescLeft">&#160;</td><td class="mdescRight">ui associated with the viewport  <a href="#a86bded0c2cc4afe305a30befccf8393c">More...</a><br /></td></tr>
+<tr class="separator:a86bded0c2cc4afe305a30befccf8393c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abd28bbb502c373b5f972e18fc03233b4"><td class="memItemLeft" align="right" valign="top">std::shared_ptr&lt; <a class="el" href="struct_render_settings.html">RenderSettings</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_viewport.html#abd28bbb502c373b5f972e18fc03233b4">m_settings</a></td></tr>
+<tr class="memdesc:abd28bbb502c373b5f972e18fc03233b4"><td class="mdescLeft">&#160;</td><td class="mdescRight">shared pointer to the render settings that the ui will be changing  <a href="#abd28bbb502c373b5f972e18fc03233b4">More...</a><br /></td></tr>
+<tr class="separator:abd28bbb502c373b5f972e18fc03233b4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab0e66edc26667b870a9124257e58422d"><td class="memItemLeft" align="right" valign="top">std::shared_ptr&lt; <a class="el" href="class_scene.html">Scene</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_viewport.html#ab0e66edc26667b870a9124257e58422d">m_scene</a></td></tr>
+<tr class="memdesc:ab0e66edc26667b870a9124257e58422d"><td class="mdescLeft">&#160;</td><td class="mdescRight">shared pointer to the scene that will be build and rendered through the ui  <a href="#ab0e66edc26667b870a9124257e58422d">More...</a><br /></td></tr>
+<tr class="separator:ab0e66edc26667b870a9124257e58422d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a16ed274681e93632c8224595a5971b5d"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_viewport.html#a16ed274681e93632c8224595a5971b5d">m_hasScene</a></td></tr>
+<tr class="memdesc:a16ed274681e93632c8224595a5971b5d"><td class="mdescLeft">&#160;</td><td class="mdescRight">a flag to tell the ui that no scene has been loaded into the ui  <a href="#a16ed274681e93632c8224595a5971b5d">More...</a><br /></td></tr>
+<tr class="separator:a16ed274681e93632c8224595a5971b5d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock">
@@ -159,6 +185,158 @@ Public Member Functions</h2></td></tr>
 
 </div>
 </div>
+<h2 class="groupheader">Member Function Documentation</h2>
+<a class="anchor" id="a3f9428a0561193b362a5e5d722c13852"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Viewport::loadScene </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span><span class="mlabel">slot</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>slot that loads the scene curently specified in the ui </p>
+
+<p>Definition at line <a class="el" href="_viewport_8cpp_source.html#l00085">85</a> of file <a class="el" href="_viewport_8cpp_source.html">Viewport.cpp</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a45d171d4791d8d7a9bccf49b4918d353"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Viewport::renderCurrent </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span><span class="mlabel">slot</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>slot that runs the renderer for the currently set scene when the render button is pressed </p>
+
+<p>Definition at line <a class="el" href="_viewport_8cpp_source.html#l00065">65</a> of file <a class="el" href="_viewport_8cpp_source.html">Viewport.cpp</a>.</p>
+
+</div>
+</div>
+<h2 class="groupheader">Member Data Documentation</h2>
+<a class="anchor" id="a16ed274681e93632c8224595a5971b5d"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool Viewport::m_hasScene</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>a flag to tell the ui that no scene has been loaded into the ui </p>
+
+<p>Definition at line <a class="el" href="_viewport_8hpp_source.html#l00046">46</a> of file <a class="el" href="_viewport_8hpp_source.html">Viewport.hpp</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="ab0e66edc26667b870a9124257e58422d"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::shared_ptr&lt;<a class="el" href="class_scene.html">Scene</a>&gt; Viewport::m_scene</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>shared pointer to the scene that will be build and rendered through the ui </p>
+
+<p>Definition at line <a class="el" href="_viewport_8hpp_source.html#l00043">43</a> of file <a class="el" href="_viewport_8hpp_source.html">Viewport.hpp</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="abd28bbb502c373b5f972e18fc03233b4"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::shared_ptr&lt;<a class="el" href="struct_render_settings.html">RenderSettings</a>&gt; Viewport::m_settings</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>shared pointer to the render settings that the ui will be changing </p>
+
+<p>Definition at line <a class="el" href="_viewport_8hpp_source.html#l00040">40</a> of file <a class="el" href="_viewport_8hpp_source.html">Viewport.hpp</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a86bded0c2cc4afe305a30befccf8393c"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_ui_1_1_viewport.html">Ui::Viewport</a>* Viewport::m_ui</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>ui associated with the viewport </p>
+
+<p>Definition at line <a class="el" href="_viewport_8hpp_source.html#l00037">37</a> of file <a class="el" href="_viewport_8hpp_source.html">Viewport.hpp</a>.</p>
+
+</div>
+</div>
 <hr/>The documentation for this class was generated from the following files:<ul>
 <li>include/<a class="el" href="_viewport_8hpp_source.html">Viewport.hpp</a></li>
 <li>src/<a class="el" href="_viewport_8cpp_source.html">Viewport.cpp</a></li>
@@ -166,7 +344,7 @@ Public Member Functions</h2></td></tr>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Thu Apr 14 2016 10:28:35 for myRT by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Thu Apr 14 2016 17:26:08 for myRT by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.9.1
 </small></address>

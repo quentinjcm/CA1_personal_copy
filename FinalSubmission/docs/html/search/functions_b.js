@@ -1,5 +1,6 @@
 var searchData=
 [
+  ['savesurfacetobmp',['saveSurfaceToBMP',['../class_s_d_l_window.html#a9e0d737b0405c70c5d15822fa13ee993',1,'SDLWindow']]],
   ['sceneparser',['SceneParser',['../class_scene_parser.html#a84d41032e9047a481efdc4c0b9b0f0af',1,'SceneParser']]],
   ['sdlwindow',['SDLWindow',['../class_s_d_l_window.html#a74afcc1046fc3b3bdf00240fec093b28',1,'SDLWindow']]],
   ['setaaamount',['setAAAmount',['../struct_render_settings.html#ad0da7c1d998c007f65bd30694635791d',1,'RenderSettings']]],

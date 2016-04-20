@@ -109,7 +109,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;<span class="preprocessor">#endif</span></div>
 <div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;</div>
 <div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;</div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;ngl::Vec3 ProceduralMeshes::circularToCartesian(<span class="keywordtype">double</span> _theta, <span class="keywordtype">double</span> _phi)</div>
+<div class="line"><a name="l00023"></a><span class="lineno"><a class="line" href="class_procedural_meshes.html#a5b85a676064775a89d649ecb03609cac">   23</a></span>&#160;ngl::Vec3 <a class="code" href="class_procedural_meshes.html#a5b85a676064775a89d649ecb03609cac">ProceduralMeshes::circularToCartesian</a>(<span class="keywordtype">double</span> _theta, <span class="keywordtype">double</span> _phi)</div>
 <div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;{</div>
 <div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;  <span class="keywordtype">double</span> x = sin(_theta) * cos(_phi);</div>
 <div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;  <span class="keywordtype">double</span> y = sin(_theta) * sin(_phi);</div>
@@ -211,10 +211,10 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160;      <span class="comment">//is its own normal, I can therfor generate the normals and multiply</span></div>
 <div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160;      <span class="comment">//them by the radius to get the vertex positions</span></div>
 <div class="line"><a name="l00124"></a><span class="lineno">  124</span>&#160;      <span class="comment">//converting the 4 sperical coordinates to cartesian for the normals</span></div>
-<div class="line"><a name="l00125"></a><span class="lineno">  125</span>&#160;      ngl::Vec3 n0 = circularToCartesian(theta1, phi1);</div>
-<div class="line"><a name="l00126"></a><span class="lineno">  126</span>&#160;      ngl::Vec3 n1 = circularToCartesian(theta1, phi2);</div>
-<div class="line"><a name="l00127"></a><span class="lineno">  127</span>&#160;      ngl::Vec3 n2 = circularToCartesian(theta2, phi2);</div>
-<div class="line"><a name="l00128"></a><span class="lineno">  128</span>&#160;      ngl::Vec3 n3 = circularToCartesian(theta2, phi1);</div>
+<div class="line"><a name="l00125"></a><span class="lineno">  125</span>&#160;      ngl::Vec3 n0 = <a class="code" href="class_procedural_meshes.html#a5b85a676064775a89d649ecb03609cac">circularToCartesian</a>(theta1, phi1);</div>
+<div class="line"><a name="l00126"></a><span class="lineno">  126</span>&#160;      ngl::Vec3 n1 = <a class="code" href="class_procedural_meshes.html#a5b85a676064775a89d649ecb03609cac">circularToCartesian</a>(theta1, phi2);</div>
+<div class="line"><a name="l00127"></a><span class="lineno">  127</span>&#160;      ngl::Vec3 n2 = <a class="code" href="class_procedural_meshes.html#a5b85a676064775a89d649ecb03609cac">circularToCartesian</a>(theta2, phi2);</div>
+<div class="line"><a name="l00128"></a><span class="lineno">  128</span>&#160;      ngl::Vec3 n3 = <a class="code" href="class_procedural_meshes.html#a5b85a676064775a89d649ecb03609cac">circularToCartesian</a>(theta2, phi1);</div>
 <div class="line"><a name="l00129"></a><span class="lineno">  129</span>&#160;      ngl::Vec3 v0 = n0 * _r;</div>
 <div class="line"><a name="l00130"></a><span class="lineno">  130</span>&#160;      ngl::Vec3 v1 = n1 * _r;</div>
 <div class="line"><a name="l00131"></a><span class="lineno">  131</span>&#160;      ngl::Vec3 v2 = n2 * _r;</div>
@@ -266,12 +266,13 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="ttc" id="class_procedural_meshes_html_ad7056ab63fa162e9747ffe46b7b93697"><div class="ttname"><a href="class_procedural_meshes.html#ad7056ab63fa162e9747ffe46b7b93697">ProceduralMeshes::pPlane</a></div><div class="ttdeci">static std::shared_ptr&lt; TriangleMesh &gt; pPlane(double _width, double _height, ngl::Transformation &amp;_t)</div><div class="ttdoc">constructs a plane in the x, z plane with uvs and normals </div><div class="ttdef"><b>Definition:</b> <a href="_procedural_meshes_8cpp_source.html#l00038">ProceduralMeshes.cpp:38</a></div></div>
 <div class="ttc" id="_procedural_meshes_8cpp_html_ae71449b1cc6e6250b91f539153a7a0d3"><div class="ttname"><a href="_procedural_meshes_8cpp.html#ae71449b1cc6e6250b91f539153a7a0d3">M_PI</a></div><div class="ttdeci">#define M_PI</div><div class="ttdef"><b>Definition:</b> <a href="_procedural_meshes_8cpp_source.html#l00013">ProceduralMeshes.cpp:13</a></div></div>
 <div class="ttc" id="_procedural_meshes_8hpp_html"><div class="ttname"><a href="_procedural_meshes_8hpp.html">ProceduralMeshes.hpp</a></div><div class="ttdoc">File contaiing the ProceduralMeshes class. </div></div>
+<div class="ttc" id="class_procedural_meshes_html_a5b85a676064775a89d649ecb03609cac"><div class="ttname"><a href="class_procedural_meshes.html#a5b85a676064775a89d649ecb03609cac">ProceduralMeshes::circularToCartesian</a></div><div class="ttdeci">static ngl::Vec3 circularToCartesian(double _theta, double _phi)</div><div class="ttdoc">converts a position in spherical coordinates to cartesian </div><div class="ttdef"><b>Definition:</b> <a href="_procedural_meshes_8cpp_source.html#l00023">ProceduralMeshes.cpp:23</a></div></div>
 <div class="ttc" id="class_procedural_meshes_html_a64f18ab983c89e24b1328b5049e35e88"><div class="ttname"><a href="class_procedural_meshes.html#a64f18ab983c89e24b1328b5049e35e88">ProceduralMeshes::pSphere</a></div><div class="ttdeci">static std::shared_ptr&lt; TriangleMesh &gt; pSphere(double _r, int _sd, ngl::Transformation &amp;_t)</div><div class="ttdoc">constructs a sphere centerd at the origin with normals and uvs </div><div class="ttdef"><b>Definition:</b> <a href="_procedural_meshes_8cpp_source.html#l00092">ProceduralMeshes.cpp:92</a></div></div>
 <div class="ttc" id="_procedural_meshes_8cpp_html_a4aa2c43b09c1300c334821f5507d6f71"><div class="ttname"><a href="_procedural_meshes_8cpp.html#a4aa2c43b09c1300c334821f5507d6f71">M_2PI</a></div><div class="ttdeci">#define M_2PI</div><div class="ttdef"><b>Definition:</b> <a href="_procedural_meshes_8cpp_source.html#l00017">ProceduralMeshes.cpp:17</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Thu Apr 14 2016 10:28:35 for myRT by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Thu Apr 14 2016 17:26:08 for myRT by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.9.1
 </small></address>

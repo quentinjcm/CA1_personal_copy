@@ -118,30 +118,36 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;  <span class="keywordtype">void</span> <a class="code" href="class_camera.html#acbdb7ed64b9b49af38c685c745c319fe">generateRay</a>(<span class="keywordtype">double</span> _x, <span class="keywordtype">double</span> _y, <a class="code" href="class_ray.html">Ray</a> *_ray);</div>
 <div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;</div>
 <div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;<span class="keyword">private</span>:</div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;  <span class="keywordtype">int</span> m_screenWidth;</div>
+<div class="line"><a name="l00049"></a><span class="lineno"><a class="line" href="class_camera.html#afb84aaeceb395c3ce1faa7d0291ddae5">   49</a></span>&#160;  <span class="keywordtype">int</span> <a class="code" href="class_camera.html#afb84aaeceb395c3ce1faa7d0291ddae5">m_screenWidth</a>;</div>
 <div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;</div>
-<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;  <span class="keywordtype">int</span> m_screenHeight;</div>
+<div class="line"><a name="l00052"></a><span class="lineno"><a class="line" href="class_camera.html#a1a6e5dd2d72259ea053af2aa1708131f">   52</a></span>&#160;  <span class="keywordtype">int</span> <a class="code" href="class_camera.html#a1a6e5dd2d72259ea053af2aa1708131f">m_screenHeight</a>;</div>
 <div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;</div>
-<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;  <span class="keywordtype">double</span> m_aspectRatio;</div>
+<div class="line"><a name="l00055"></a><span class="lineno"><a class="line" href="class_camera.html#af50bc2bc45d859db32035eee7ca01b79">   55</a></span>&#160;  <span class="keywordtype">double</span> <a class="code" href="class_camera.html#af50bc2bc45d859db32035eee7ca01b79">m_aspectRatio</a>;</div>
 <div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;</div>
-<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;  ngl::Mat4 m_rotate;</div>
+<div class="line"><a name="l00058"></a><span class="lineno"><a class="line" href="class_camera.html#a2d1cf213e59411262cc705c291800e22">   58</a></span>&#160;  ngl::Mat4 <a class="code" href="class_camera.html#a2d1cf213e59411262cc705c291800e22">m_rotate</a>;</div>
 <div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;</div>
-<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;  ngl::Mat4 m_camToWorld;</div>
+<div class="line"><a name="l00061"></a><span class="lineno"><a class="line" href="class_camera.html#afc72f58cc3440225ecf1ec16b144ef72">   61</a></span>&#160;  ngl::Mat4 <a class="code" href="class_camera.html#afc72f58cc3440225ecf1ec16b144ef72">m_camToWorld</a>;</div>
 <div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;</div>
-<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;  <span class="keywordtype">double</span> m_fovMult;</div>
+<div class="line"><a name="l00064"></a><span class="lineno"><a class="line" href="class_camera.html#a1f0e54143ce8a895586afc2bc67c52e1">   64</a></span>&#160;  <span class="keywordtype">double</span> <a class="code" href="class_camera.html#a1f0e54143ce8a895586afc2bc67c52e1">m_fovMult</a>;</div>
 <div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;};</div>
 <div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;</div>
 <div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;<span class="preprocessor">#endif//__CAMERA_HPP__</span></div>
 <div class="ttc" id="_ray_8hpp_html"><div class="ttname"><a href="_ray_8hpp.html">Ray.hpp</a></div><div class="ttdoc">File contaiing the Ray class. </div></div>
+<div class="ttc" id="class_camera_html_afb84aaeceb395c3ce1faa7d0291ddae5"><div class="ttname"><a href="class_camera.html#afb84aaeceb395c3ce1faa7d0291ddae5">Camera::m_screenWidth</a></div><div class="ttdeci">int m_screenWidth</div><div class="ttdoc">width of the output image </div><div class="ttdef"><b>Definition:</b> <a href="_camera_8hpp_source.html#l00049">Camera.hpp:49</a></div></div>
 <div class="ttc" id="_film_8hpp_html"><div class="ttname"><a href="_film_8hpp.html">Film.hpp</a></div><div class="ttdoc">File contaiing the Film class. </div></div>
 <div class="ttc" id="class_camera_html_ae23af4d7cab430c77d537621cdd16b3f"><div class="ttname"><a href="class_camera.html#ae23af4d7cab430c77d537621cdd16b3f">Camera::Camera</a></div><div class="ttdeci">Camera()=default</div></div>
 <div class="ttc" id="class_camera_html"><div class="ttname"><a href="class_camera.html">Camera</a></div><div class="ttdoc">The Camera class is used to generate rays when passed the coordinate of a point in the output image...</div><div class="ttdef"><b>Definition:</b> <a href="_camera_8hpp_source.html#l00022">Camera.hpp:22</a></div></div>
+<div class="ttc" id="class_camera_html_afc72f58cc3440225ecf1ec16b144ef72"><div class="ttname"><a href="class_camera.html#afc72f58cc3440225ecf1ec16b144ef72">Camera::m_camToWorld</a></div><div class="ttdeci">ngl::Mat4 m_camToWorld</div><div class="ttdoc">a rotationMatrix that moves a pointdefined in camrea space to world space </div><div class="ttdef"><b>Definition:</b> <a href="_camera_8hpp_source.html#l00061">Camera.hpp:61</a></div></div>
+<div class="ttc" id="class_camera_html_a1a6e5dd2d72259ea053af2aa1708131f"><div class="ttname"><a href="class_camera.html#a1a6e5dd2d72259ea053af2aa1708131f">Camera::m_screenHeight</a></div><div class="ttdeci">int m_screenHeight</div><div class="ttdoc">height of the output image </div><div class="ttdef"><b>Definition:</b> <a href="_camera_8hpp_source.html#l00052">Camera.hpp:52</a></div></div>
+<div class="ttc" id="class_camera_html_a2d1cf213e59411262cc705c291800e22"><div class="ttname"><a href="class_camera.html#a2d1cf213e59411262cc705c291800e22">Camera::m_rotate</a></div><div class="ttdeci">ngl::Mat4 m_rotate</div><div class="ttdoc">a rotation matrix that moves a vector in camera space to world space </div><div class="ttdef"><b>Definition:</b> <a href="_camera_8hpp_source.html#l00058">Camera.hpp:58</a></div></div>
+<div class="ttc" id="class_camera_html_af50bc2bc45d859db32035eee7ca01b79"><div class="ttname"><a href="class_camera.html#af50bc2bc45d859db32035eee7ca01b79">Camera::m_aspectRatio</a></div><div class="ttdeci">double m_aspectRatio</div><div class="ttdoc">aspect ratio of the screen </div><div class="ttdef"><b>Definition:</b> <a href="_camera_8hpp_source.html#l00055">Camera.hpp:55</a></div></div>
 <div class="ttc" id="class_ray_html"><div class="ttname"><a href="class_ray.html">Ray</a></div><div class="ttdoc">The Ray class holds an origin and direction that define a ray Intersection routines are left up to to...</div><div class="ttdef"><b>Definition:</b> <a href="_ray_8hpp_source.html#l00017">Ray.hpp:17</a></div></div>
+<div class="ttc" id="class_camera_html_a1f0e54143ce8a895586afc2bc67c52e1"><div class="ttname"><a href="class_camera.html#a1f0e54143ce8a895586afc2bc67c52e1">Camera::m_fovMult</a></div><div class="ttdeci">double m_fovMult</div><div class="ttdoc">field of view for the camera </div><div class="ttdef"><b>Definition:</b> <a href="_camera_8hpp_source.html#l00064">Camera.hpp:64</a></div></div>
 <div class="ttc" id="class_camera_html_acbdb7ed64b9b49af38c685c745c319fe"><div class="ttname"><a href="class_camera.html#acbdb7ed64b9b49af38c685c745c319fe">Camera::generateRay</a></div><div class="ttdeci">void generateRay(double _x, double _y, Ray *_ray)</div><div class="ttdoc">fills the ray with an origin and direction corresponding to the x, y pixel on the final image ...</div><div class="ttdef"><b>Definition:</b> <a href="_camera_8cpp_source.html#l00054">Camera.cpp:54</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Thu Apr 14 2016 10:28:35 for myRT by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Thu Apr 14 2016 17:26:08 for myRT by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.9.1
 </small></address>

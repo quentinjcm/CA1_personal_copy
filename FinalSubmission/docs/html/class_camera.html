@@ -85,6 +85,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="header">
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
+<a href="#pri-attribs">Private Attributes</a> &#124;
 <a href="class_camera-members.html">List of all members</a>  </div>
   <div class="headertitle">
 <div class="title">Camera Class Reference</div>  </div>
@@ -106,6 +107,27 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:acbdb7ed64b9b49af38c685c745c319fe"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_camera.html#acbdb7ed64b9b49af38c685c745c319fe">generateRay</a> (double _x, double _y, <a class="el" href="class_ray.html">Ray</a> *_ray)</td></tr>
 <tr class="memdesc:acbdb7ed64b9b49af38c685c745c319fe"><td class="mdescLeft">&#160;</td><td class="mdescRight">fills the ray with an origin and direction corresponding to the x, y pixel on the final image  <a href="#acbdb7ed64b9b49af38c685c745c319fe">More...</a><br /></td></tr>
 <tr class="separator:acbdb7ed64b9b49af38c685c745c319fe"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-attribs"></a>
+Private Attributes</h2></td></tr>
+<tr class="memitem:afb84aaeceb395c3ce1faa7d0291ddae5"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_camera.html#afb84aaeceb395c3ce1faa7d0291ddae5">m_screenWidth</a></td></tr>
+<tr class="memdesc:afb84aaeceb395c3ce1faa7d0291ddae5"><td class="mdescLeft">&#160;</td><td class="mdescRight">width of the output image  <a href="#afb84aaeceb395c3ce1faa7d0291ddae5">More...</a><br /></td></tr>
+<tr class="separator:afb84aaeceb395c3ce1faa7d0291ddae5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1a6e5dd2d72259ea053af2aa1708131f"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_camera.html#a1a6e5dd2d72259ea053af2aa1708131f">m_screenHeight</a></td></tr>
+<tr class="memdesc:a1a6e5dd2d72259ea053af2aa1708131f"><td class="mdescLeft">&#160;</td><td class="mdescRight">height of the output image  <a href="#a1a6e5dd2d72259ea053af2aa1708131f">More...</a><br /></td></tr>
+<tr class="separator:a1a6e5dd2d72259ea053af2aa1708131f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af50bc2bc45d859db32035eee7ca01b79"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_camera.html#af50bc2bc45d859db32035eee7ca01b79">m_aspectRatio</a></td></tr>
+<tr class="memdesc:af50bc2bc45d859db32035eee7ca01b79"><td class="mdescLeft">&#160;</td><td class="mdescRight">aspect ratio of the screen  <a href="#af50bc2bc45d859db32035eee7ca01b79">More...</a><br /></td></tr>
+<tr class="separator:af50bc2bc45d859db32035eee7ca01b79"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2d1cf213e59411262cc705c291800e22"><td class="memItemLeft" align="right" valign="top">ngl::Mat4&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_camera.html#a2d1cf213e59411262cc705c291800e22">m_rotate</a></td></tr>
+<tr class="memdesc:a2d1cf213e59411262cc705c291800e22"><td class="mdescLeft">&#160;</td><td class="mdescRight">a rotation matrix that moves a vector in camera space to world space  <a href="#a2d1cf213e59411262cc705c291800e22">More...</a><br /></td></tr>
+<tr class="separator:a2d1cf213e59411262cc705c291800e22"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afc72f58cc3440225ecf1ec16b144ef72"><td class="memItemLeft" align="right" valign="top">ngl::Mat4&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_camera.html#afc72f58cc3440225ecf1ec16b144ef72">m_camToWorld</a></td></tr>
+<tr class="memdesc:afc72f58cc3440225ecf1ec16b144ef72"><td class="mdescLeft">&#160;</td><td class="mdescRight">a rotationMatrix that moves a pointdefined in camrea space to world space  <a href="#afc72f58cc3440225ecf1ec16b144ef72">More...</a><br /></td></tr>
+<tr class="separator:afc72f58cc3440225ecf1ec16b144ef72"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1f0e54143ce8a895586afc2bc67c52e1"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_camera.html#a1f0e54143ce8a895586afc2bc67c52e1">m_fovMult</a></td></tr>
+<tr class="memdesc:a1f0e54143ce8a895586afc2bc67c52e1"><td class="mdescLeft">&#160;</td><td class="mdescRight">field of view for the camera  <a href="#a1f0e54143ce8a895586afc2bc67c52e1">More...</a><br /></td></tr>
+<tr class="separator:a1f0e54143ce8a895586afc2bc67c52e1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>The <a class="el" href="class_camera.html" title="The Camera class is used to generate rays when passed the coordinate of a point in the output image...">Camera</a> class is used to generate rays when passed the coordinate of a point in the output image. </p>
@@ -245,6 +267,151 @@ Public Member Functions</h2></td></tr>
 
 </div>
 </div>
+<h2 class="groupheader">Member Data Documentation</h2>
+<a class="anchor" id="af50bc2bc45d859db32035eee7ca01b79"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">double Camera::m_aspectRatio</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>aspect ratio of the screen </p>
+
+<p>Definition at line <a class="el" href="_camera_8hpp_source.html#l00055">55</a> of file <a class="el" href="_camera_8hpp_source.html">Camera.hpp</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="afc72f58cc3440225ecf1ec16b144ef72"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">ngl::Mat4 Camera::m_camToWorld</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>a rotationMatrix that moves a pointdefined in camrea space to world space </p>
+
+<p>Definition at line <a class="el" href="_camera_8hpp_source.html#l00061">61</a> of file <a class="el" href="_camera_8hpp_source.html">Camera.hpp</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a1f0e54143ce8a895586afc2bc67c52e1"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">double Camera::m_fovMult</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>field of view for the camera </p>
+
+<p>Definition at line <a class="el" href="_camera_8hpp_source.html#l00064">64</a> of file <a class="el" href="_camera_8hpp_source.html">Camera.hpp</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a2d1cf213e59411262cc705c291800e22"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">ngl::Mat4 Camera::m_rotate</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>a rotation matrix that moves a vector in camera space to world space </p>
+
+<p>Definition at line <a class="el" href="_camera_8hpp_source.html#l00058">58</a> of file <a class="el" href="_camera_8hpp_source.html">Camera.hpp</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a1a6e5dd2d72259ea053af2aa1708131f"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">int Camera::m_screenHeight</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>height of the output image </p>
+
+<p>Definition at line <a class="el" href="_camera_8hpp_source.html#l00052">52</a> of file <a class="el" href="_camera_8hpp_source.html">Camera.hpp</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="afb84aaeceb395c3ce1faa7d0291ddae5"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">int Camera::m_screenWidth</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>width of the output image </p>
+
+<p>Definition at line <a class="el" href="_camera_8hpp_source.html#l00049">49</a> of file <a class="el" href="_camera_8hpp_source.html">Camera.hpp</a>.</p>
+
+</div>
+</div>
 <hr/>The documentation for this class was generated from the following files:<ul>
 <li>include/<a class="el" href="_camera_8hpp_source.html">Camera.hpp</a></li>
 <li>src/<a class="el" href="_camera_8cpp_source.html">Camera.cpp</a></li>
@@ -252,7 +419,7 @@ Public Member Functions</h2></td></tr>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Thu Apr 14 2016 10:28:35 for myRT by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Thu Apr 14 2016 17:26:08 for myRT by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.9.1
 </small></address>

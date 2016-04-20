@@ -85,6 +85,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="header">
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
+<a href="#pri-attribs">Private Attributes</a> &#124;
 <a href="class_triangle_mesh-members.html">List of all members</a>  </div>
   <div class="headertitle">
 <div class="title">TriangleMesh Class Reference</div>  </div>
@@ -110,6 +111,15 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a5527876e1c89e37d9b587dd4e973dfde"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_triangle_mesh.html#a5527876e1c89e37d9b587dd4e973dfde">getGLData</a> (std::vector&lt; ngl::Vec3 &gt; *_points, std::vector&lt; ngl::Vec3 &gt; *_normals)</td></tr>
 <tr class="memdesc:a5527876e1c89e37d9b587dd4e973dfde"><td class="mdescLeft">&#160;</td><td class="mdescRight">fills the given vectors up with data on the normals and point positions to be passed to opengl  <a href="#a5527876e1c89e37d9b587dd4e973dfde">More...</a><br /></td></tr>
 <tr class="separator:a5527876e1c89e37d9b587dd4e973dfde"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-attribs"></a>
+Private Attributes</h2></td></tr>
+<tr class="memitem:a19f33849a18d8f96b2649796901ac1a4"><td class="memItemLeft" align="right" valign="top">std::vector&lt; <a class="el" href="class_triangle.html">Triangle</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_triangle_mesh.html#a19f33849a18d8f96b2649796901ac1a4">m_tris</a></td></tr>
+<tr class="memdesc:a19f33849a18d8f96b2649796901ac1a4"><td class="mdescLeft">&#160;</td><td class="mdescRight">a vector to hold the triangles that make up the mesh will be made private once the <a class="el" href="class_triangle_mesh.html#a5b11bb39f99a78f342c565c71113f0da" title="adds a triangle to the mesh. It is used to build the mesh and maintain the bounding box as it is buil...">addTri()</a> is written and Meshes are updated  <a href="#a19f33849a18d8f96b2649796901ac1a4">More...</a><br /></td></tr>
+<tr class="separator:a19f33849a18d8f96b2649796901ac1a4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af740ded716549fd77a5367259f03b407"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_b_box.html">BBox</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_triangle_mesh.html#af740ded716549fd77a5367259f03b407">m_meshBound</a></td></tr>
+<tr class="memdesc:af740ded716549fd77a5367259f03b407"><td class="mdescLeft">&#160;</td><td class="mdescRight">a bounding box that contains the mesh will be made private once the <a class="el" href="class_triangle_mesh.html#a5b11bb39f99a78f342c565c71113f0da" title="adds a triangle to the mesh. It is used to build the mesh and maintain the bounding box as it is buil...">addTri()</a> is written and Meshes are updated  <a href="#af740ded716549fd77a5367259f03b407">More...</a><br /></td></tr>
+<tr class="separator:af740ded716549fd77a5367259f03b407"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>The <a class="el" href="class_triangle_data.html" title="A container class that holds normals and texture coordinates for each triangle. ">TriangleData</a> class is used as a container for data for each triange. The idea was to seperate the data that isn't required for intersection tests so that the prefetcher isnt getting unnecessary information and this data is only retrieved once an intersection has been found. This was an attempt to make the program more cache friendly however i dont think it was the right thing to do in this case. </p>
@@ -246,6 +256,55 @@ Public Member Functions</h2></td></tr>
 
 </div>
 </div>
+<h2 class="groupheader">Member Data Documentation</h2>
+<a class="anchor" id="af740ded716549fd77a5367259f03b407"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_b_box.html">BBox</a> TriangleMesh::m_meshBound</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>a bounding box that contains the mesh will be made private once the <a class="el" href="class_triangle_mesh.html#a5b11bb39f99a78f342c565c71113f0da" title="adds a triangle to the mesh. It is used to build the mesh and maintain the bounding box as it is buil...">addTri()</a> is written and Meshes are updated </p>
+
+<p>Definition at line <a class="el" href="_triangle_mesh_8hpp_source.html#l00058">58</a> of file <a class="el" href="_triangle_mesh_8hpp_source.html">TriangleMesh.hpp</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a19f33849a18d8f96b2649796901ac1a4"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::vector&lt;<a class="el" href="class_triangle.html">Triangle</a>&gt; TriangleMesh::m_tris</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>a vector to hold the triangles that make up the mesh will be made private once the <a class="el" href="class_triangle_mesh.html#a5b11bb39f99a78f342c565c71113f0da" title="adds a triangle to the mesh. It is used to build the mesh and maintain the bounding box as it is buil...">addTri()</a> is written and Meshes are updated </p>
+
+<p>Definition at line <a class="el" href="_triangle_mesh_8hpp_source.html#l00054">54</a> of file <a class="el" href="_triangle_mesh_8hpp_source.html">TriangleMesh.hpp</a>.</p>
+
+</div>
+</div>
 <hr/>The documentation for this class was generated from the following files:<ul>
 <li>include/<a class="el" href="_triangle_mesh_8hpp_source.html">TriangleMesh.hpp</a></li>
 <li>src/<a class="el" href="_triangle_mesh_8cpp_source.html">TriangleMesh.cpp</a></li>
@@ -253,7 +312,7 @@ Public Member Functions</h2></td></tr>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Thu Apr 14 2016 10:28:35 for myRT by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Thu Apr 14 2016 17:26:08 for myRT by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.9.1
 </small></address>

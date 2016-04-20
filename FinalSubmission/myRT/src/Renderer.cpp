@@ -1,5 +1,6 @@
 #include <iostream>
 #include <thread>
+#include "QTime"
 #include "Renderer.hpp"
 #include "RenderTask.hpp"
 #include "Camera.hpp"
@@ -27,6 +28,8 @@
 
 void Renderer::renderImage()
 {
+  QTime startTime;
+  startTime.start();
   //setting up the render tasks
   std::cout << "Creating render tasks" << std::endl;
   int xInc = m_settings->m_threadWidth;
@@ -62,6 +65,7 @@ void Renderer::renderImage()
     }
   }
   std::cout << m_tasks.size() <<" tasks created" << std::endl;
+  m_settings->setTotalTasks(m_tasks.size());
 
   // setting up multithreading with std::thread
   std::vector<std::thread> threads;
@@ -87,4 +91,9 @@ void Renderer::renderImage()
       task.render();
     }
   }
+  std::cout << m_settings->m_totalThreads << std::endl;
+  std::cout << m_settings->m_completedTasks << std::endl;
+
+
+  std::cout << std::endl << "rendered in: " << startTime.elapsed()/1000.0 << " seconds" << std::endl;
 }

@@ -1,5 +1,6 @@
 var searchData=
 [
+  ['generateaasamples',['generateAASamples',['../class_render_task.html#a27953405bdd04505a05b15432c3efb86',1,'RenderTask']]],
   ['generateray',['generateRay',['../class_camera.html#acbdb7ed64b9b49af38c685c745c319fe',1,'Camera']]],
   ['geometricprim',['GeometricPrim',['../class_geometric_prim.html',1,'GeometricPrim'],['../class_geometric_prim.html#a154d122352698d62ac9801881761648d',1,'GeometricPrim::GeometricPrim()']]],
   ['geometricprim_2ecpp',['GeometricPrim.cpp',['../_geometric_prim_8cpp.html',1,'']]],

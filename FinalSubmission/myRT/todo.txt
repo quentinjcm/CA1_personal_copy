@@ -1,0 +1,8 @@
+FINAL TODOS:
+
+start the render in a new thread
+hold the total threads in ender settings
+hold completed threads in render settinds (in a mutex?)
+this means loading bar will work?
+
+place rendered inage in qtui, not sdl window

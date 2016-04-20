@@ -86,6 +86,8 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
 <a href="#pub-attribs">Public Attributes</a> &#124;
+<a href="#pri-methods">Private Member Functions</a> &#124;
+<a href="#pri-attribs">Private Attributes</a> &#124;
 <a href="class_triangle-members.html">List of all members</a>  </div>
   <div class="headertitle">
 <div class="title">Triangle Class Reference</div>  </div>
@@ -124,6 +126,35 @@ Public Attributes</h2></td></tr>
 <tr class="separator:a15bd1efef91c69ab24f2a399bccf95a4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a93276ee97af9f3c2dcb75f34884646cb"><td class="memItemLeft" align="right" valign="top">std::shared_ptr&lt; <a class="el" href="class_triangle_data.html">TriangleData</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_triangle.html#a93276ee97af9f3c2dcb75f34884646cb">m_data</a></td></tr>
 <tr class="separator:a93276ee97af9f3c2dcb75f34884646cb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-methods"></a>
+Private Member Functions</h2></td></tr>
+<tr class="memitem:af4114297e2103203ded47313012db8d6"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_triangle.html#af4114297e2103203ded47313012db8d6">calcN</a> ()</td></tr>
+<tr class="memdesc:af4114297e2103203ded47313012db8d6"><td class="mdescLeft">&#160;</td><td class="mdescRight">A function that calulated the normal to the plane from the 3 verticies passed in.  <a href="#af4114297e2103203ded47313012db8d6">More...</a><br /></td></tr>
+<tr class="separator:af4114297e2103203ded47313012db8d6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3b5e84515fab58bd3603cd5a13eea81b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_triangle.html#a3b5e84515fab58bd3603cd5a13eea81b">calcD</a> ()</td></tr>
+<tr class="memdesc:a3b5e84515fab58bd3603cd5a13eea81b"><td class="mdescLeft">&#160;</td><td class="mdescRight">A function that calulated the constant d in N.P + d = 0 for the plane.  <a href="#a3b5e84515fab58bd3603cd5a13eea81b">More...</a><br /></td></tr>
+<tr class="separator:a3b5e84515fab58bd3603cd5a13eea81b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af4ef07c2693455cbec3429c55924f932"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_triangle.html#af4ef07c2693455cbec3429c55924f932">calcDominantAxis</a> ()</td></tr>
+<tr class="memdesc:af4ef07c2693455cbec3429c55924f932"><td class="mdescLeft">&#160;</td><td class="mdescRight">Calculates the dominant axis for the triangles normal. The dominant axis is the maximum of the absolute x y and x values. This function stores the two remaining axes in m_i1 and m_i2.  <a href="#af4ef07c2693455cbec3429c55924f932">More...</a><br /></td></tr>
+<tr class="separator:af4ef07c2693455cbec3429c55924f932"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6ca4e82f067ab1f15e42407d7100523e"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_triangle.html#a6ca4e82f067ab1f15e42407d7100523e">intersectBBox</a> (const <a class="el" href="class_ray.html">Ray</a> &amp;_ray)</td></tr>
+<tr class="separator:a6ca4e82f067ab1f15e42407d7100523e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-attribs"></a>
+Private Attributes</h2></td></tr>
+<tr class="memitem:a91059961c63c0a3419a8126968a586a5"><td class="memItemLeft" align="right" valign="top">ngl::Vec3&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_triangle.html#a91059961c63c0a3419a8126968a586a5">m_n</a></td></tr>
+<tr class="memdesc:a91059961c63c0a3419a8126968a586a5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Normal to the plane formed from the 3 verticies, calculated at construction.  <a href="#a91059961c63c0a3419a8126968a586a5">More...</a><br /></td></tr>
+<tr class="separator:a91059961c63c0a3419a8126968a586a5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a49691a0779db9de10a1f750034a97d85"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_triangle.html#a49691a0779db9de10a1f750034a97d85">m_d</a></td></tr>
+<tr class="memdesc:a49691a0779db9de10a1f750034a97d85"><td class="mdescLeft">&#160;</td><td class="mdescRight">A constant associated with the plane used in intersection calculations. A plane can be represented using the normal and this constand in the equation N.P + d = 0 where N is the normal, P is any point on the plane and d is a constant for the plane.  <a href="#a49691a0779db9de10a1f750034a97d85">More...</a><br /></td></tr>
+<tr class="separator:a49691a0779db9de10a1f750034a97d85"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae1bba506c015eb7f33975f49936fb966"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_triangle.html#ae1bba506c015eb7f33975f49936fb966">m_i1</a></td></tr>
+<tr class="memdesc:ae1bba506c015eb7f33975f49936fb966"><td class="mdescLeft">&#160;</td><td class="mdescRight">One of the minor axes of the normal stored as either 0, 1 or 2. It is calulated at construction and used to project the triangle onto a plane to make the intersection calulation faster.  <a href="#ae1bba506c015eb7f33975f49936fb966">More...</a><br /></td></tr>
+<tr class="separator:ae1bba506c015eb7f33975f49936fb966"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7c652dae9d28e4926450322bdc0c9bcc"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_triangle.html#a7c652dae9d28e4926450322bdc0c9bcc">m_i2</a></td></tr>
+<tr class="memdesc:a7c652dae9d28e4926450322bdc0c9bcc"><td class="mdescLeft">&#160;</td><td class="mdescRight">The second minor axis of the normal.  <a href="#a7c652dae9d28e4926450322bdc0c9bcc">More...</a><br /></td></tr>
+<tr class="separator:a7c652dae9d28e4926450322bdc0c9bcc"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>The <a class="el" href="class_triangle.html" title="The Triangle class is used to represent triangles and implment ray/triangle intersections. ">Triangle</a> class is used to represent triangles and implment ray/triangle intersections. </p>
@@ -217,6 +248,87 @@ Public Attributes</h2></td></tr>
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
+<a class="anchor" id="a3b5e84515fab58bd3603cd5a13eea81b"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Triangle::calcD </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>A function that calulated the constant d in N.P + d = 0 for the plane. </p>
+
+<p>Definition at line <a class="el" href="_triangle_8cpp_source.html#l00133">133</a> of file <a class="el" href="_triangle_8cpp_source.html">Triangle.cpp</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="af4ef07c2693455cbec3429c55924f932"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Triangle::calcDominantAxis </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Calculates the dominant axis for the triangles normal. The dominant axis is the maximum of the absolute x y and x values. This function stores the two remaining axes in m_i1 and m_i2. </p>
+
+<p>Definition at line <a class="el" href="_triangle_8cpp_source.html#l00141">141</a> of file <a class="el" href="_triangle_8cpp_source.html">Triangle.cpp</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="af4114297e2103203ded47313012db8d6"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Triangle::calcN </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>A function that calulated the normal to the plane from the 3 verticies passed in. </p>
+
+<p>Definition at line <a class="el" href="_triangle_8cpp_source.html#l00126">126</a> of file <a class="el" href="_triangle_8cpp_source.html">Triangle.cpp</a>.</p>
+
+</div>
+</div>
 <a class="anchor" id="a64b1eb4021d6e09d29af0842c9952892"></a>
 <div class="memitem">
 <div class="memproto">
@@ -284,6 +396,30 @@ Public Attributes</h2></td></tr>
 
 </div>
 </div>
+<a class="anchor" id="a6ca4e82f067ab1f15e42407d7100523e"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool Triangle::intersectBBox </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="class_ray.html">Ray</a> &amp;&#160;</td>
+          <td class="paramname"><em>_ray</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <a class="anchor" id="a329f15c725377d7eea038f18278aa9ef"></a>
 <div class="memitem">
 <div class="memproto">
@@ -312,6 +448,30 @@ Public Attributes</h2></td></tr>
 </div>
 </div>
 <h2 class="groupheader">Member Data Documentation</h2>
+<a class="anchor" id="a49691a0779db9de10a1f750034a97d85"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">double Triangle::m_d</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>A constant associated with the plane used in intersection calculations. A plane can be represented using the normal and this constand in the equation N.P + d = 0 where N is the normal, P is any point on the plane and d is a constant for the plane. </p>
+
+<p>Definition at line <a class="el" href="_triangle_8hpp_source.html#l00079">79</a> of file <a class="el" href="_triangle_8hpp_source.html">Triangle.hpp</a>.</p>
+
+</div>
+</div>
 <a class="anchor" id="a93276ee97af9f3c2dcb75f34884646cb"></a>
 <div class="memitem">
 <div class="memproto">
@@ -323,6 +483,78 @@ Public Attributes</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Definition at line <a class="el" href="_triangle_8hpp_source.html#l00066">66</a> of file <a class="el" href="_triangle_8hpp_source.html">Triangle.hpp</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="ae1bba506c015eb7f33975f49936fb966"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">int Triangle::m_i1</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>One of the minor axes of the normal stored as either 0, 1 or 2. It is calulated at construction and used to project the triangle onto a plane to make the intersection calulation faster. </p>
+
+<p>Definition at line <a class="el" href="_triangle_8hpp_source.html#l00084">84</a> of file <a class="el" href="_triangle_8hpp_source.html">Triangle.hpp</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a7c652dae9d28e4926450322bdc0c9bcc"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">int Triangle::m_i2</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>The second minor axis of the normal. </p>
+
+<p>Definition at line <a class="el" href="_triangle_8hpp_source.html#l00087">87</a> of file <a class="el" href="_triangle_8hpp_source.html">Triangle.hpp</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a91059961c63c0a3419a8126968a586a5"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">ngl::Vec3 Triangle::m_n</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Normal to the plane formed from the 3 verticies, calculated at construction. </p>
+
+<p>Definition at line <a class="el" href="_triangle_8hpp_source.html#l00073">73</a> of file <a class="el" href="_triangle_8hpp_source.html">Triangle.hpp</a>.</p>
 
 </div>
 </div>
@@ -381,7 +613,7 @@ Public Attributes</h2></td></tr>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Thu Apr 14 2016 10:28:35 for myRT by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Thu Apr 14 2016 17:26:08 for myRT by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.9.1
 </small></address>

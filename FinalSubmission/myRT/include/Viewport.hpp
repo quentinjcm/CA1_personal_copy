@@ -2,7 +2,9 @@
 #define VIEWPORT_H
 
 #include <memory>
-#include <QMainWindow>
+#include "QMainWindow"
+#include "QImage"
+#include "QGraphicsScene"
 #include "RenderSettings.hpp"
 #include "Scene.hpp"
 
@@ -34,7 +36,7 @@ public:
 
 private:
   /// @brief ui associated with the viewport
-  Ui::Viewport *m_ui;
+  std::unique_ptr<Ui::Viewport> m_ui;
 
   /// @brief shared pointer to the render settings that the ui will be changing
   std::shared_ptr<RenderSettings> m_settings;
@@ -44,6 +46,10 @@ private:
 
   /// @brief a flag to tell the ui that no scene has been loaded into the ui
   bool m_hasScene;
+
+  QImage m_renderImage;
+  std::unique_ptr<QGraphicsScene> m_renderScene;
+  std::shared_ptr<QGraphicsPixmapItem> m_pixmapItem;
 
 
 private slots:

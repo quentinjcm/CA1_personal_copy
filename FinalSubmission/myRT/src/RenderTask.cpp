@@ -56,6 +56,7 @@ void RenderTask::render()
       m_film->setPixel(x, y, renderPixel(samples));
     }
   }
+  //m_settings->addcompleteTask();
 }
 
 ngl::Colour RenderTask::blinnPixel(IsectData *_intersection)

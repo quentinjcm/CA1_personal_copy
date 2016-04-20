@@ -85,6 +85,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="header">
   <div class="summary">
 <a href="#pub-static-methods">Static Public Member Functions</a> &#124;
+<a href="#pri-static-methods">Static Private Member Functions</a> &#124;
 <a href="class_procedural_meshes-members.html">List of all members</a>  </div>
   <div class="headertitle">
 <div class="title">ProceduralMeshes Class Reference</div>  </div>
@@ -104,12 +105,64 @@ Static Public Member Functions</h2></td></tr>
 <tr class="memitem:a64f18ab983c89e24b1328b5049e35e88"><td class="memItemLeft" align="right" valign="top">static std::shared_ptr&lt; <a class="el" href="class_triangle_mesh.html">TriangleMesh</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_procedural_meshes.html#a64f18ab983c89e24b1328b5049e35e88">pSphere</a> (double _r, int _sd, ngl::Transformation &amp;_t)</td></tr>
 <tr class="memdesc:a64f18ab983c89e24b1328b5049e35e88"><td class="mdescLeft">&#160;</td><td class="mdescRight">constructs a sphere centerd at the origin with normals and uvs  <a href="#a64f18ab983c89e24b1328b5049e35e88">More...</a><br /></td></tr>
 <tr class="separator:a64f18ab983c89e24b1328b5049e35e88"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-static-methods"></a>
+Static Private Member Functions</h2></td></tr>
+<tr class="memitem:a5b85a676064775a89d649ecb03609cac"><td class="memItemLeft" align="right" valign="top">static ngl::Vec3&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_procedural_meshes.html#a5b85a676064775a89d649ecb03609cac">circularToCartesian</a> (double _theta, double _phi)</td></tr>
+<tr class="memdesc:a5b85a676064775a89d649ecb03609cac"><td class="mdescLeft">&#160;</td><td class="mdescRight">converts a position in spherical coordinates to cartesian  <a href="#a5b85a676064775a89d649ecb03609cac">More...</a><br /></td></tr>
+<tr class="separator:a5b85a676064775a89d649ecb03609cac"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>a class that contains functions for generating procedural meshes </p>
 
 <p>Definition at line <a class="el" href="_procedural_meshes_8hpp_source.html#l00016">16</a> of file <a class="el" href="_procedural_meshes_8hpp_source.html">ProceduralMeshes.hpp</a>.</p>
 </div><h2 class="groupheader">Member Function Documentation</h2>
+<a class="anchor" id="a5b85a676064775a89d649ecb03609cac"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">ngl::Vec3 ProceduralMeshes::circularToCartesian </td>
+          <td>(</td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>_theta</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>_phi</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>converts a position in spherical coordinates to cartesian </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">_theta</td><td>is one component of the spehrical coordinates </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">_phi</td><td>is the second component of the circular coordinates </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">a</td><td>ngl::Vec3 with the x, y and x coordinated of the point in cartesian space </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>Definition at line <a class="el" href="_procedural_meshes_8cpp_source.html#l00023">23</a> of file <a class="el" href="_procedural_meshes_8cpp_source.html">ProceduralMeshes.cpp</a>.</p>
+
+</div>
+</div>
 <a class="anchor" id="ad7056ab63fa162e9747ffe46b7b93697"></a>
 <div class="memitem">
 <div class="memproto">
@@ -221,7 +274,7 @@ Static Public Member Functions</h2></td></tr>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Thu Apr 14 2016 10:28:35 for myRT by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Thu Apr 14 2016 17:26:08 for myRT by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.9.1
 </small></address>

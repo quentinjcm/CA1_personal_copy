@@ -108,22 +108,27 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;  <span class="keywordtype">void</span> <a class="code" href="class_renderer.html#a515c101da1643879677e8b3e73ec4776">renderImage</a>();</div>
 <div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;</div>
 <div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;<span class="keyword">private</span>:</div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;  <a class="code" href="class_film.html">Film</a> *m_film;</div>
+<div class="line"><a name="l00036"></a><span class="lineno"><a class="line" href="class_renderer.html#acf8f2fa85968ad3ff44a2da0d209c0c4">   36</a></span>&#160;  <a class="code" href="class_film.html">Film</a> *<a class="code" href="class_renderer.html#acf8f2fa85968ad3ff44a2da0d209c0c4">m_film</a>;</div>
 <div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;</div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;  <a class="code" href="class_camera.html">Camera</a> m_cam;</div>
+<div class="line"><a name="l00039"></a><span class="lineno"><a class="line" href="class_renderer.html#abc6b43dc55c58f022c23f80e86475fdd">   39</a></span>&#160;  <a class="code" href="class_camera.html">Camera</a> <a class="code" href="class_renderer.html#abc6b43dc55c58f022c23f80e86475fdd">m_cam</a>;</div>
 <div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;</div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;  std::shared_ptr&lt;Scene&gt; m_scene;</div>
+<div class="line"><a name="l00042"></a><span class="lineno"><a class="line" href="class_renderer.html#a9c0d593dca31145c283aec4e87651e50">   42</a></span>&#160;  std::shared_ptr&lt;Scene&gt; <a class="code" href="class_renderer.html#a9c0d593dca31145c283aec4e87651e50">m_scene</a>;</div>
 <div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;</div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;  std::vector&lt;RenderTask&gt; m_tasks;</div>
+<div class="line"><a name="l00045"></a><span class="lineno"><a class="line" href="class_renderer.html#a679586d034586bc6e03fc385c5677c9e">   45</a></span>&#160;  std::vector&lt;RenderTask&gt; <a class="code" href="class_renderer.html#a679586d034586bc6e03fc385c5677c9e">m_tasks</a>;</div>
 <div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;</div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;  std::shared_ptr&lt;RenderSettings&gt; m_settings;</div>
+<div class="line"><a name="l00048"></a><span class="lineno"><a class="line" href="class_renderer.html#a2d05756d59e0ffcde02f0893e31c6de0">   48</a></span>&#160;  std::shared_ptr&lt;RenderSettings&gt; <a class="code" href="class_renderer.html#a2d05756d59e0ffcde02f0893e31c6de0">m_settings</a>;</div>
 <div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;};</div>
 <div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;</div>
 <div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;<span class="preprocessor">#endif//RENDERER_HPP</span></div>
+<div class="ttc" id="class_renderer_html_abc6b43dc55c58f022c23f80e86475fdd"><div class="ttname"><a href="class_renderer.html#abc6b43dc55c58f022c23f80e86475fdd">Renderer::m_cam</a></div><div class="ttdeci">Camera m_cam</div><div class="ttdoc">camera to render from </div><div class="ttdef"><b>Definition:</b> <a href="_renderer_8hpp_source.html#l00039">Renderer.hpp:39</a></div></div>
 <div class="ttc" id="_render_settings_8hpp_html"><div class="ttname"><a href="_render_settings_8hpp.html">RenderSettings.hpp</a></div><div class="ttdoc">File contaiing the RenderSettings structure. </div></div>
 <div class="ttc" id="class_renderer_html"><div class="ttname"><a href="class_renderer.html">Renderer</a></div><div class="ttdoc">The Renderer class is responible for setting up the rednering of the final image it does this by sett...</div><div class="ttdef"><b>Definition:</b> <a href="_renderer_8hpp_source.html#l00022">Renderer.hpp:22</a></div></div>
 <div class="ttc" id="class_camera_html"><div class="ttname"><a href="class_camera.html">Camera</a></div><div class="ttdoc">The Camera class is used to generate rays when passed the coordinate of a point in the output image...</div><div class="ttdef"><b>Definition:</b> <a href="_camera_8hpp_source.html#l00022">Camera.hpp:22</a></div></div>
 <div class="ttc" id="class_renderer_html_ab18b43d41e3808f2e3cd368ff532d138"><div class="ttname"><a href="class_renderer.html#ab18b43d41e3808f2e3cd368ff532d138">Renderer::Renderer</a></div><div class="ttdeci">Renderer(std::shared_ptr&lt; Scene &gt; _scene, std::shared_ptr&lt; RenderSettings &gt; _settings, Film *_film)</div><div class="ttdoc">ctor that initialises variables in the renderer </div><div class="ttdef"><b>Definition:</b> <a href="_renderer_8cpp_source.html#l00013">Renderer.cpp:13</a></div></div>
+<div class="ttc" id="class_renderer_html_acf8f2fa85968ad3ff44a2da0d209c0c4"><div class="ttname"><a href="class_renderer.html#acf8f2fa85968ad3ff44a2da0d209c0c4">Renderer::m_film</a></div><div class="ttdeci">Film * m_film</div><div class="ttdoc">film to render to </div><div class="ttdef"><b>Definition:</b> <a href="_renderer_8hpp_source.html#l00036">Renderer.hpp:36</a></div></div>
+<div class="ttc" id="class_renderer_html_a679586d034586bc6e03fc385c5677c9e"><div class="ttname"><a href="class_renderer.html#a679586d034586bc6e03fc385c5677c9e">Renderer::m_tasks</a></div><div class="ttdeci">std::vector&lt; RenderTask &gt; m_tasks</div><div class="ttdoc">tasks to build up and render </div><div class="ttdef"><b>Definition:</b> <a href="_renderer_8hpp_source.html#l00045">Renderer.hpp:45</a></div></div>
+<div class="ttc" id="class_renderer_html_a9c0d593dca31145c283aec4e87651e50"><div class="ttname"><a href="class_renderer.html#a9c0d593dca31145c283aec4e87651e50">Renderer::m_scene</a></div><div class="ttdeci">std::shared_ptr&lt; Scene &gt; m_scene</div><div class="ttdoc">scene to render </div><div class="ttdef"><b>Definition:</b> <a href="_renderer_8hpp_source.html#l00042">Renderer.hpp:42</a></div></div>
+<div class="ttc" id="class_renderer_html_a2d05756d59e0ffcde02f0893e31c6de0"><div class="ttname"><a href="class_renderer.html#a2d05756d59e0ffcde02f0893e31c6de0">Renderer::m_settings</a></div><div class="ttdeci">std::shared_ptr&lt; RenderSettings &gt; m_settings</div><div class="ttdoc">shared pointer to the render settings set by the gui </div><div class="ttdef"><b>Definition:</b> <a href="_renderer_8hpp_source.html#l00048">Renderer.hpp:48</a></div></div>
 <div class="ttc" id="_render_task_8hpp_html"><div class="ttname"><a href="_render_task_8hpp.html">RenderTask.hpp</a></div><div class="ttdoc">File contaiing the RenderTask class. </div></div>
 <div class="ttc" id="_scene_8hpp_html"><div class="ttname"><a href="_scene_8hpp.html">Scene.hpp</a></div><div class="ttdoc">File contaiing the Scene class. </div></div>
 <div class="ttc" id="class_film_html"><div class="ttname"><a href="class_film.html">Film</a></div><div class="ttdoc">The Film class holds pixel arrayd for the different render layers. </div><div class="ttdef"><b>Definition:</b> <a href="_film_8hpp_source.html#l00018">Film.hpp:18</a></div></div>
@@ -132,7 +137,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Thu Apr 14 2016 10:28:35 for myRT by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Thu Apr 14 2016 17:26:08 for myRT by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.9.1
 </small></address>

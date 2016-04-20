@@ -26,7 +26,7 @@ SceneParser::SceneParser(std::string _fileName, std::shared_ptr<Scene> _scene):
   m_fileName(_fileName)
 {
   //building a default material
-  m_currentMat = std::make_shared<Material>(ngl::Colour(.3, .3, .3), 10, 1.5, 0, 1, "textures/uvGrid.png");
+  m_currentMat = std::make_shared<Material>(ngl::Colour(.3, .3, .3), 10, 1.1, 0, 1, "textures/uvGrid.png");
 }
 
 void SceneParser::parseScene()
