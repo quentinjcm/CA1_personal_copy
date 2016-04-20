@@ -48,7 +48,6 @@ private:
   bool m_hasScene;
 
   QImage m_renderImage;
-  std::unique_ptr<QGraphicsScene> m_renderScene;
   std::shared_ptr<QGraphicsPixmapItem> m_pixmapItem;
 
 

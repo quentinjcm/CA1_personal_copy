@@ -1,5 +1,5 @@
 #include <thread>
-#include "QGraphicsPixmapItem"
+#include "QPixmap"
 #include "ngl/NGLStream.h"
 #include "Viewport.hpp"
 #include "ui_viewport.h"
@@ -16,19 +16,22 @@ Viewport::Viewport(QWidget *_parent) :
 {
   // qt setting up the ui
   m_ui->setupUi(this);
-  m_renderScene.reset(new QGraphicsScene());
-  //m_ui->m_renderView = new QGraphicsView(m_renderScene.get());
-  m_renderImage.load("saves/test2.png");
-  if (m_renderImage.isNull())
-      std::cout << "failed to load image" << std::endl;
-  m_pixmapItem.reset(new QGraphicsPixmapItem(QPixmap::fromImage(m_renderImage)));
-  m_renderScene->addItem(m_pixmapItem.get());
- // m_ui->m_renderView->show();
+
+
+  //image???
+  m_renderImage.load("saves/test.png");
+  //m_pixmapItem.reset(new QGraphicsPixmapItem(QPixmap::fromImage(m_renderImage)));
+  QPixmap pm("saves/test.png");
+  pm.scaled(m_ui->m_graphicsLable->width(), m_ui->m_graphicsLable->height(), Qt::KeepAspectRatio);
+  m_ui->m_graphicsLable->setPixmap(pm);
   m_ui->m_graphicsLable->setScaledContents( true );
+  m_ui->m_graphicsLable->setSizePolicy(QSizePolicy::Ignored, QSizePolicy::Ignored);
 
-  m_ui->m_graphicsLable->setSizePolicy( QSizePolicy::Ignored, QSizePolicy::Ignored );
 
-  m_ui->m_graphicsLable->setPixmap(QPixmap::fromImage(m_renderImage));
+
+
+
+
   // initialising the render settings structure that the ui will connect with
   m_settings = std::make_shared<RenderSettings>(this);
 
@@ -69,7 +72,7 @@ Viewport::Viewport(QWidget *_parent) :
   connect(m_ui->m_render, SIGNAL(clicked(bool)), this, SLOT(renderCurrent()));
   connect(m_ui->m_loadScene, SIGNAL(clicked(bool)), this, SLOT(loadScene()));
 
-  connect(m_settings.get(), SIGNAL(taskComplete(int)), m_ui->m_renderProgress, SLOT(setValue(int)));
+  connect(m_settings.get(), SIGNAL(taskCompleted(int)), m_ui->m_renderProgress, SLOT(setValue(int)));
   connect(m_settings.get(), SIGNAL(totalTasksChanged(int)), m_ui->m_renderProgress, SLOT(setMaximum(int)));
   //connect(m_settings.get(), SIGNAL(totalTasksChanged(int)), m_ui->m_renderProgress, SLOT(reset()));
 }

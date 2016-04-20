@@ -25,7 +25,7 @@ public:
   RenderSettings(QObject *_parent = 0){}
 
   void setTotalTasks(int _totalTasks){ emit totalTasksChanged(_totalTasks); }
-  void addcompleteTask(){ std::cout << m_completedTasks++ << std::endl; emit taskCompleted(m_completedTasks); }
+  void addcompleteTask(){ m_completedTasks++; emit taskCompleted(m_completedTasks); }
 
   /// @brief renderers background colour
   ngl::Colour m_bgCol = ngl::Colour(0, 0, 0);
@@ -69,7 +69,7 @@ public:
   /// @brief the scene text file path
   QString m_sceneFilePath;
 
-  int m_totalThreads;
+  int m_totalThreads = 920;
 
   int m_completedTasks = 0;
 

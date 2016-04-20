@@ -6,7 +6,7 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1000</width>
+    <width>1280</width>
     <height>700</height>
    </rect>
   </property>
@@ -17,9 +17,9 @@
    <widget class="QGroupBox" name="s_rednerSettingsGB">
     <property name="geometry">
      <rect>
-      <x>640</x>
-      <y>0</y>
-      <width>351</width>
+      <x>880</x>
+      <y>10</y>
+      <width>391</width>
       <height>379</height>
      </rect>
     </property>
@@ -347,9 +347,9 @@
     </property>
     <property name="geometry">
      <rect>
-      <x>640</x>
-      <y>390</y>
-      <width>351</width>
+      <x>880</x>
+      <y>380</y>
+      <width>391</width>
       <height>141</height>
      </rect>
     </property>
@@ -391,7 +391,7 @@
      <rect>
       <x>10</x>
       <y>0</y>
-      <width>621</width>
+      <width>851</width>
       <height>651</height>
      </rect>
     </property>
@@ -403,7 +403,7 @@
       <rect>
        <x>15</x>
        <y>33</y>
-       <width>591</width>
+       <width>821</width>
        <height>601</height>
       </rect>
      </property>
@@ -418,8 +418,8 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>1000</width>
-     <height>22</height>
+     <width>1280</width>
+     <height>26</height>
     </rect>
    </property>
   </widget>

@@ -67,6 +67,7 @@ void Renderer::renderImage()
   std::cout << m_tasks.size() <<" tasks created" << std::endl;
   m_settings->setTotalTasks(m_tasks.size());
 
+  //std::cout << m_settings-
   // setting up multithreading with std::thread
   std::vector<std::thread> threads;
   std::cout << "starting render" << std::endl;
