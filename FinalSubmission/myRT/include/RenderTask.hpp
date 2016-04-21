@@ -92,16 +92,16 @@ public:
   void generateAASamples(const int _x, const int _y, std::vector<ngl::Vec2> *_samples);
 
   /// @brief pointer to the camera that will generate the initial rays
-  Camera *m_cam;
+  const Camera *m_cam;
 
   /// @brief pointer to the film where the final image will be stored
   Film *m_film;
 
   /// @brief shared pointer to the scene that is to be rendered
-  std::shared_ptr<Scene> m_scene;
+  const std::shared_ptr<Scene> m_scene;
 
   /// @brief shared pointer to the render settings structure
-  std::shared_ptr<RenderSettings> m_settings;
+  const std::shared_ptr<RenderSettings> m_settings;
 
   /// @brief the render taks random number generator for random sampling
   std::mt19937 m_generator;
@@ -122,4 +122,4 @@ public:
   int m_yMax;
 };
 
-#endif//__RENDERTASK_HPP__
+#endif

@@ -41,6 +41,10 @@ public:
   /// @param [out] returns a pointer to the vector that holds the colour pixel values that are set by the renderer
   std::vector<ngl::Colour>* getPixelArr(){ return &m_pixels; }
 
+  bool getImageComplete(){ return m_imageComplete; }
+
+  void setImageComplete(bool _status){ m_imageComplete = _status; }
+
 private:
   /// @brief width of the film in pixels
   int m_filmWidth;
@@ -50,10 +54,12 @@ private:
 
   /// @brief vector of pixels
   std::vector<ngl::Colour> m_pixels;
+
+  bool m_imageComplete = false;
 };
 
 
 
 
 
-#endif//__FILM_HPP__
+#endif

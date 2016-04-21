@@ -57,7 +57,11 @@ private:
   /// the window wont run if initilaisation failed
   bool m_isInitialised = false;
 
+  /// @brief flag to indicate that the image has been saved
   bool m_hasSaved;
+
+  /// @brief pointer to the film that
+  Film *m_film;
 };
 
-#endif//SDLWINDOW_HPP
+#endif

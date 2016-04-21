@@ -4,7 +4,7 @@
 /// @file GeometricPrim.cpp
 /// @brief implementation file for the GeometricPrim class
 
-GeometricPrim::GeometricPrim(std::shared_ptr<TriangleMesh> _mesh, std::shared_ptr<Material> _material):
+GeometricPrim::GeometricPrim(std::shared_ptr<Primative> _mesh, std::shared_ptr<Material> _material):
   m_mesh(_mesh),
   m_material(_material)
 {

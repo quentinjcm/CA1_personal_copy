@@ -55,4 +55,4 @@ private:
   std::vector<std::shared_ptr<Primative>> m_sceneGeo;
 };
 
-#endif//SCENE_HPP
+#endif

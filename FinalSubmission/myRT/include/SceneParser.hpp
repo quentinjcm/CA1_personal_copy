@@ -31,7 +31,8 @@ public:
   SceneParser(std::string _fileName, std::shared_ptr<Scene> _scene);
 
   /// @brief main function that runs the parser
-  void parseScene();
+  /// @param [out] a bool to indicata a sucessfull read of the file
+  bool parseScene();
 
 private:
   /// @brief a function defining the sphere gramar as it appears in the scene file and how it is to be handled

@@ -36,4 +36,4 @@ private:
   static ngl::Vec3 circularToCartesian(double _theta, double _phi);
 };
 
-#endif//__PROCEDURALMESHES_HPP__
+#endif

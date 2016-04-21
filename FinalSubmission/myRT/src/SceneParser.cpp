@@ -29,7 +29,7 @@ SceneParser::SceneParser(std::string _fileName, std::shared_ptr<Scene> _scene):
   m_currentMat = std::make_shared<Material>(ngl::Colour(.3, .3, .3), 10, 1.1, 0, 1, "textures/uvGrid.png");
 }
 
-void SceneParser::parseScene()
+bool SceneParser::parseScene()
 {
   /* the initial syntax checked for are operation names followed by a string of characters
    * the parser then goes through the input file line by line, and if any of these meet
@@ -64,10 +64,12 @@ void SceneParser::parseScene()
       spt::parse(line.c_str(), comment | sphere | plane | obj | mat | light | rotate | translate, spt::space_p);
     }
     std::cout << "scene loaded" << std::endl;
+    return true;
   }
   else
   {
     std::cout << "scene  failed to load: \"" << m_fileName << "\"" << std::endl;
+    return false;
   }
 }
 

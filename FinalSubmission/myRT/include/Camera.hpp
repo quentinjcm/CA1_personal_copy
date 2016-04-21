@@ -42,7 +42,7 @@ public:
   /// @param [in] _x is the x pixel of the final image
   /// @param [in] _y is the y pixel of the final image
   /// @param [in] *_ray is the ray to be filled up with data
-  void generateRay(double _x, double _y, Ray *_ray);
+  void generateRay(double _x, double _y, Ray *_ray) const;
 
 private:
   /// @brief width of the output image
@@ -64,4 +64,4 @@ private:
   double m_fovMult;
 };
 
-#endif//__CAMERA_HPP__
+#endif

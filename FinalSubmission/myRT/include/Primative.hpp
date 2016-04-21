@@ -38,7 +38,6 @@ public:
   /// @param [in] a vector to be filled up with all of the point position data for ojects in the scene
   /// @param [in] a vector to be filled up with all of the point normals for objects in the scene
   virtual void getGLData(std::vector<ngl::Vec3> *_points, std::vector<ngl::Vec3> *_normals);
-private:
 };
 
-#endif//PRIMATIVE_HPP
+#endif

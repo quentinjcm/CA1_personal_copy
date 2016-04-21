@@ -2,8 +2,7 @@
 #define RAY_HPP
 
 #include <limits>
-
-#include <ngl/Vec3.h>
+#include "ngl/Vec3.h"
 
 /// @file Ray.hpp
 /// @brief File contaiing the Ray class
@@ -45,4 +44,4 @@ public:
 
 };
 
-#endif//__RAY_HPP__
+#endif

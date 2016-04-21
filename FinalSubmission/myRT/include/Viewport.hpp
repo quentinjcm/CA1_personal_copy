@@ -1,5 +1,5 @@
-#ifndef VIEWPORT_H
-#define VIEWPORT_H
+#ifndef VIEWPORT_HPP__
+#define VIEWPORT_HPP__
 
 #include <memory>
 #include "QMainWindow"
@@ -47,9 +47,6 @@ private:
   /// @brief a flag to tell the ui that no scene has been loaded into the ui
   bool m_hasScene;
 
-  QImage m_renderImage;
-  std::shared_ptr<QGraphicsPixmapItem> m_pixmapItem;
-
 
 private slots:
   /// @brief slot that runs the renderer for the currently set scene when the render button is pressed
@@ -58,4 +55,4 @@ private slots:
    /// @brief slot that loads the scene curently specified in the ui
    void loadScene();
 };
-#endif //VIEWPORT_H
+#endif // end of VIEWPORT_HPP__

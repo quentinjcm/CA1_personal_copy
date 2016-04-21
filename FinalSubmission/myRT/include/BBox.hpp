@@ -1,7 +1,6 @@
 #ifndef BBOX_HPP
 #define BBOX_HPP
 
-#include <iostream>
 #include "ngl/Vec3.h"
 #include "Ray.hpp"
 
@@ -40,9 +39,6 @@ public:
   /// @param [out] a boolean that is true if the ray intersected the BBox, and false if else
   bool intersect(const Ray &_ray);
 
-  /// @brief prints the bounds of a bbox, used for debuging and can probably be removed
-  void printData();
-
 private:
   /// @brief smallest corner of the BBox
   ngl::Vec3 m_pMin;
@@ -51,4 +47,4 @@ private:
   ngl::Vec3 m_pMax;
 };
 
-#endif //__BBOX_HPP__
+#endif

@@ -1,6 +1,5 @@
 #ifndef RENDERER_HPP
 #define RENDERER_HPP
-
 #include <memory>
 #include <vector>
 #include "RenderTask.hpp"
@@ -39,13 +38,13 @@ private:
   Camera m_cam;
 
   /// @brief scene to render
-  std::shared_ptr<Scene> m_scene;
+  const std::shared_ptr<Scene> m_scene;
 
   /// @brief tasks to build up and render
   std::vector<RenderTask> m_tasks;
 
   /// @brief shared pointer to the render settings set by the gui
-  std::shared_ptr<RenderSettings> m_settings;
+  const std::shared_ptr<RenderSettings> m_settings;
 };
 
-#endif//RENDERER_HPP
+#endif

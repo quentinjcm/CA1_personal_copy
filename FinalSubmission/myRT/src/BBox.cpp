@@ -45,12 +45,6 @@ void BBox::addPoint( const ngl::Vec3 &_p)
   }
 }
 
-void BBox::printData()
-{
-  std::cout << "Printing BBox\n";
-  std::cout << "min: "<< m_pMin << "\nmax: " << m_pMax << std::endl;
-}
-
 bool BBox::intersect(const Ray &_ray)
 {
   //using the slab method for bbox intersections,

@@ -1,5 +1,5 @@
-#ifndef TRIANGLEDATA_HPP
-#define TRIANGLEDATA_HPP
+#ifndef TRIANGLEDATA_HPP__
+#define TRIANGLEDATA_HPP__
 
 #include "ngl/Vec3.h"
 #include "ngl/Vec2.h"
@@ -19,9 +19,9 @@
 /// the program more cache friendly however i dont think it was the right thing to do
 /// in this case
 
-/// @class TriangleData
+/// @struct TriangleData
 /// @brief A container class that holds normals and texture coordinates for each triangle
-class TriangleData
+struct TriangleData
 {
 public:
   /// @brief ctor that takes in the normals and uv coords for each of the 3 verticies
@@ -55,4 +55,4 @@ public:
   const ngl::Vec2 m_uv2;
 };
 
-#endif//TRIANGLEDATA_HPP
+#endif // end of TRIANGLEDATA_HPP__

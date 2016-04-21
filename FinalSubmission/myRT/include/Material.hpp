@@ -56,4 +56,4 @@ public:
   bool m_isReflective;
 };
 
-#endif//MATERIAL_HPP
+#endif

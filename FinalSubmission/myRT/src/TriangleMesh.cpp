@@ -42,9 +42,9 @@ bool TriangleMesh::sIntersect(const Ray &_ray)
 void TriangleMesh::addTri(const Triangle _tri)
 {
   // adds each vertex to the bbox
-  m_meshBound.addPoint(_tri.m_v0);
-  m_meshBound.addPoint(_tri.m_v1);
-  m_meshBound.addPoint(_tri.m_v2);
+  m_meshBound.addPoint(_tri.getV0());
+  m_meshBound.addPoint(_tri.getV1());
+  m_meshBound.addPoint(_tri.getV2());
 
   // then pushes the tri onto the vector
   m_tris.push_back(_tri);

@@ -30,8 +30,8 @@ public:
   /// @param [in] _v is the v value of the texture coordinate
   /// @param [out] is the colour at the give texture coordinate
   ngl::Colour getPixel(double _u, double _v);
-private:
 
+private:
   /// @brief vector of colour pixels that make up the texture image
   std::vector<ngl::Colour> m_pixels;
 

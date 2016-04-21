@@ -1,11 +1,9 @@
-#ifndef TRIANGLE_HPP
-#define TRIANGLE_HPP
+#ifndef TRIANGLE_HPP__
+#define TRIANGLE_HPP__
 
 #include "ngl/Vec3.h"
 #include "ngl/Vec2.h"
 #include "ngl/Util.h"
-#include "ngl/VAOPrimitives.h"
-
 #include "TriangleData.hpp"
 #include "Ray.hpp"
 #include "IsectData.hpp"
@@ -42,18 +40,20 @@ public:
   /// @param [in] *_intersection a data structure th store information about the point of intersection if there is one
   /// @param [out] a boolean that indicates wehter the intersection was successfull
   bool intersect(const Ray &_ray, IsectData *_intersection);
-  /// @brief the intersect method for the triangle class
-  /// @param [in] &_ray the ray that is being tested for intersections with the triangle
-  /// @param [in] *_intersection a data structure th store information about the point of intersection if there is one
-  /// @param [out] a boolean that indicates wehter the intersection was successfull
-
-
-
 
   /// @brief a method for printing the information contained within the triangle
   /// can probably be taken out as it was only needed for debuging early on
   void printData();
 
+  void getGLData(std::vector<ngl::Vec3> *_points, std::vector<ngl::Vec3> *_normals);
+
+  ngl::Vec3 getV2() const;
+
+  ngl::Vec3 getV1() const;
+
+  ngl::Vec3 getV0() const;
+
+private:
   /// @brief Vertex 0 of the triangle
   const ngl::Vec3 m_v0;
 
@@ -64,10 +64,6 @@ public:
   const ngl::Vec3 m_v2;
 
   std::shared_ptr<TriangleData> m_data;
-
-  void getGLData(std::vector<ngl::Vec3> *_points, std::vector<ngl::Vec3> *_normals);
-
-  private:
 
   /// @brief Normal to the plane formed from the 3 verticies, calculated at construction
   ngl::Vec3 m_n;
@@ -103,4 +99,4 @@ public:
 
 };
 
-#endif //TRIANGLE_HPP
+#endif // end of TRIANGLE_HPP__

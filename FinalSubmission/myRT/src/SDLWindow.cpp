@@ -8,7 +8,8 @@
 SDLWindow::SDLWindow(Film *_film):
   m_windowWidth(_film->getFilmWidth()),
   m_windowHeight(_film->getFilmHeight()),
-  m_pixelsToDraw(_film->getPixelArr())
+  m_pixelsToDraw(_film->getPixelArr()),
+  m_film(_film)
 {
   // initialising sdl
   init();
@@ -47,7 +48,10 @@ void SDLWindow::run()
       case SDL_QUIT: go = false; break;
       case SDL_KEYUP: keyPress(&event); break;
     }
-    updateSurface();
+    if (!m_film->getImageComplete())
+    {
+      updateSurface();
+    }
     SDL_UpdateWindowSurface( m_window );
   }
   SDL_FreeSurface(m_surface);
@@ -64,7 +68,6 @@ void SDLWindow::keyPress(SDL_Event *_event)
     case SDLK_s: saveSurfaceToBMP(); break;
     case SDLK_u: updateSurface(); break;
   }
-  updateSurface();
 }
 
 void SDLWindow::updateSurface()

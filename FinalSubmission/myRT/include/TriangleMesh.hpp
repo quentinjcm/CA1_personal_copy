@@ -1,24 +1,24 @@
-#ifndef TRIANGLE_MESH_HPP
-#define TRIANGLE_MESH_HPP
+#ifndef TRIANGLEMESH_HPP__
+#define TRIANGLEMESH_HPP__
 
-#include <iostream>
 #include <vector>
 #include "Triangle.hpp"
 #include "Ray.hpp"
 #include "BBox.hpp"
+#include "Primative.hpp"
 
 /// @file TriangleMesh.hpp
 /// @brief File contaiing the TriangleMesh class
 /// @author Quentin Corker-Marin
 /// @version 1.0
 /// @date 08/03/2016
-///
+
 /// @class TriangleMesh
 /// @brief The TriangleMesh class holds all of the triangles that make up
 /// a mesh. It also contains a bounding box that is checked for intersection
 /// before the triangles are, if the bounding box is not intersected, then
 /// the triangles are not checked
-class TriangleMesh
+class TriangleMesh: public Primative
 {
 public:
   /// @brief checks to see if the given ray intersects the mesh, if it
@@ -58,4 +58,4 @@ private:
   BBox m_meshBound;
 };
 
-#endif//TRIANGLE_MESH_HPP
+#endif // end of TRIANGLEMESH_HPP__

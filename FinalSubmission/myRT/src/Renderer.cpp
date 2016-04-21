@@ -16,13 +16,13 @@
    m_scene(_scene),
    m_settings(_settings)
  {
-   //construct camera
+   //constructing camera
    m_cam = Camera(m_settings->m_camPos,
-                                  m_settings->m_camTarget,
-                                  m_settings->m_camUp,
-                                  m_settings->m_fov,
-                                  m_settings->m_filmWidth,
-                                  m_settings->m_filmHeight);
+                  m_settings->m_camTarget,
+                  m_settings->m_camUp,
+                  m_settings->m_fov,
+                  m_settings->m_filmWidth,
+                  m_settings->m_filmHeight);
  }
 
 
@@ -65,7 +65,7 @@ void Renderer::renderImage()
     }
   }
   std::cout << m_tasks.size() <<" tasks created" << std::endl;
-  m_settings->setTotalTasks(m_tasks.size());
+  //m_settings->setTotalTasks(m_tasks.size());
 
   //std::cout << m_settings-
   // setting up multithreading with std::thread
@@ -92,8 +92,7 @@ void Renderer::renderImage()
       task.render();
     }
   }
-  std::cout << m_settings->m_totalThreads << std::endl;
-  std::cout << m_settings->m_completedTasks << std::endl;
+  m_film->setImageComplete(true);
 
 
   std::cout << std::endl << "rendered in: " << startTime.elapsed()/1000.0 << " seconds" << std::endl;

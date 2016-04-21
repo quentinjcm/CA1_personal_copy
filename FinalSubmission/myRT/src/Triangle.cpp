@@ -171,3 +171,18 @@ void Triangle::getGLData(std::vector<ngl::Vec3> *_points, std::vector<ngl::Vec3>
   _normals->push_back(m_data->m_n1);
   _normals->push_back(m_data->m_n2);
 }
+ngl::Vec3 Triangle::getV2() const
+{
+  return m_v2;
+}
+ngl::Vec3 Triangle::getV1() const
+{
+  return m_v1;
+}
+ngl::Vec3 Triangle::getV0() const
+{
+  return m_v0;
+}
+
+
+

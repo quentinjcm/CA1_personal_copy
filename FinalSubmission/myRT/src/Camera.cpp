@@ -51,7 +51,7 @@ Camera::Camera(ngl::Vec3 _pos,
   m_camToWorld = translate * rotate ;
 }
 
-void Camera::generateRay(double _x, double _y, Ray *_ray)
+void Camera::generateRay(double _x, double _y, Ray *_ray) const
 {
   //init originposition
   ngl::Vec4 origin(0, 0, 0, 1);

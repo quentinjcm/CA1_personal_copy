@@ -24,9 +24,6 @@ public:
   /// @param [in] *_parent is the parent qobject, a system that qt uses for garbage collection of ui elements
   RenderSettings(QObject *_parent = 0){}
 
-  void setTotalTasks(int _totalTasks){ emit totalTasksChanged(_totalTasks); }
-  void addcompleteTask(){ m_completedTasks++; emit taskCompleted(m_completedTasks); }
-
   /// @brief renderers background colour
   ngl::Colour m_bgCol = ngl::Colour(0, 0, 0);
 
@@ -68,10 +65,6 @@ public:
 
   /// @brief the scene text file path
   QString m_sceneFilePath;
-
-  int m_totalThreads = 920;
-
-  int m_completedTasks = 0;
 
 public slots:
   //colour and lighting
@@ -173,10 +166,6 @@ public slots:
   /// @brief slot that sets the path to the scene file
   /// @param [in] _path is the string to be passed in
   void setScenePath(QString _path){m_sceneFilePath = _path;}
-
-signals:
-    void totalTasksChanged(int _totalTasks);
-    void taskCompleted(int _completedTasks);
 };
 
-#endif//RENDERSETTINGS_HPP
+#endif

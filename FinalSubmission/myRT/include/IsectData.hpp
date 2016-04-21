@@ -20,7 +20,7 @@ struct IsectData
   /// @brief m_t holds ta value that represents the distance along the ray that the intersection occoured
   double m_t = std::numeric_limits<double>::infinity();
 
-  /// @brief m_depth holds the bounce depth pf the ray
+  /// @brief m_depth holds the bounce depth of the ray
   int m_depth;
 
   /// @brief m_pos is the position in world space of the intersection
@@ -39,4 +39,4 @@ struct IsectData
   std::shared_ptr<Material> m_material = nullptr;
 };
 
-#endif//ISECTDATA_HPP
+#endif

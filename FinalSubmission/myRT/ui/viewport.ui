@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1280</width>
-    <height>700</height>
+    <width>520</width>
+    <height>785</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -17,9 +17,9 @@
    <widget class="QGroupBox" name="s_rednerSettingsGB">
     <property name="geometry">
      <rect>
-      <x>880</x>
+      <x>10</x>
       <y>10</y>
-      <width>391</width>
+      <width>491</width>
       <height>379</height>
      </rect>
     </property>
@@ -36,6 +36,9 @@
      </item>
      <item row="6" column="3">
       <widget class="QSpinBox" name="m_filmHeight">
+       <property name="toolTip">
+        <string>height of the film in pixels</string>
+       </property>
        <property name="maximum">
         <number>4096</number>
        </property>
@@ -46,6 +49,9 @@
      </item>
      <item row="11" column="3">
       <widget class="QDoubleSpinBox" name="m_ambientG">
+       <property name="toolTip">
+        <string>green value of the ambient light</string>
+       </property>
        <property name="maximum">
         <double>1.000000000000000</double>
        </property>
@@ -56,6 +62,9 @@
      </item>
      <item row="2" column="4">
       <widget class="QDoubleSpinBox" name="m_camTargetZ">
+       <property name="toolTip">
+        <string>z position of cameras look at point</string>
+       </property>
        <property name="minimum">
         <double>-1000.000000000000000</double>
        </property>
@@ -69,6 +78,9 @@
      </item>
      <item row="2" column="3">
       <widget class="QDoubleSpinBox" name="m_camTargetY">
+       <property name="toolTip">
+        <string>y position of cameras look at point</string>
+       </property>
        <property name="minimum">
         <double>-1000.000000000000000</double>
        </property>
@@ -89,6 +101,9 @@
      </item>
      <item row="4" column="2">
       <widget class="QDoubleSpinBox" name="m_camUpX">
+       <property name="toolTip">
+        <string>x component of cameras up vector</string>
+       </property>
        <property name="minimum">
         <double>-1000.000000000000000</double>
        </property>
@@ -106,6 +121,9 @@
      </item>
      <item row="0" column="3">
       <widget class="QDoubleSpinBox" name="m_camPosY">
+       <property name="toolTip">
+        <string>Cameras y position</string>
+       </property>
        <property name="minimum">
         <double>-1000.000000000000000</double>
        </property>
@@ -116,6 +134,9 @@
      </item>
      <item row="14" column="4">
       <widget class="QDoubleSpinBox" name="m_bgB">
+       <property name="toolTip">
+        <string>blue value of the background colour</string>
+       </property>
        <property name="maximum">
         <double>1.000000000000000</double>
        </property>
@@ -123,6 +144,9 @@
      </item>
      <item row="4" column="4">
       <widget class="QDoubleSpinBox" name="m_camUpZ">
+       <property name="toolTip">
+        <string>z component of cameras up vector</string>
+       </property>
        <property name="minimum">
         <double>-1000.000000000000000</double>
        </property>
@@ -140,6 +164,9 @@
      </item>
      <item row="11" column="2">
       <widget class="QDoubleSpinBox" name="m_ambientR">
+       <property name="toolTip">
+        <string>red value of the ambient light</string>
+       </property>
        <property name="maximum">
         <double>1.000000000000000</double>
        </property>
@@ -150,6 +177,9 @@
      </item>
      <item row="12" column="2">
       <widget class="QSpinBox" name="m_maxRayBounces">
+       <property name="toolTip">
+        <string>maximum number of recursive ray bounces</string>
+       </property>
        <property name="maximum">
         <number>20</number>
        </property>
@@ -167,6 +197,9 @@
      </item>
      <item row="5" column="2">
       <widget class="QDoubleSpinBox" name="m_fov">
+       <property name="toolTip">
+        <string>cameras field of view</string>
+       </property>
        <property name="maximum">
         <double>175.000000000000000</double>
        </property>
@@ -177,6 +210,9 @@
      </item>
      <item row="4" column="3">
       <widget class="QDoubleSpinBox" name="m_camUpY">
+       <property name="toolTip">
+        <string>y component of cameras up vector</string>
+       </property>
        <property name="minimum">
         <double>-1000.000000000000000</double>
        </property>
@@ -190,6 +226,9 @@
      </item>
      <item row="13" column="3">
       <widget class="QSpinBox" name="m_threadWidth">
+       <property name="toolTip">
+        <string>width in pixels of a render thread</string>
+       </property>
        <property name="minimum">
         <number>10</number>
        </property>
@@ -203,6 +242,9 @@
      </item>
      <item row="14" column="3">
       <widget class="QDoubleSpinBox" name="m_bgG">
+       <property name="toolTip">
+        <string>green value of the background colour</string>
+       </property>
        <property name="maximum">
         <double>1.000000000000000</double>
        </property>
@@ -210,6 +252,9 @@
      </item>
      <item row="2" column="2">
       <widget class="QDoubleSpinBox" name="m_camTargetX">
+       <property name="toolTip">
+        <string>x position of cameras look at point</string>
+       </property>
        <property name="minimum">
         <double>-1000.000000000000000</double>
        </property>
@@ -227,6 +272,9 @@
      </item>
      <item row="0" column="4">
       <widget class="QDoubleSpinBox" name="m_camPosZ">
+       <property name="toolTip">
+        <string>Cameras z position</string>
+       </property>
        <property name="minimum">
         <double>-1000.000000000000000</double>
        </property>
@@ -247,6 +295,9 @@
      </item>
      <item row="13" column="2">
       <widget class="QCheckBox" name="m_multiThread">
+       <property name="toolTip">
+        <string>toggle multithreading</string>
+       </property>
        <property name="text">
         <string/>
        </property>
@@ -257,6 +308,9 @@
      </item>
      <item row="8" column="2">
       <widget class="QSpinBox" name="m_aa">
+       <property name="toolTip">
+        <string>number of anti aliasing samples</string>
+       </property>
        <property name="minimum">
         <number>1</number>
        </property>
@@ -267,6 +321,9 @@
      </item>
      <item row="11" column="4">
       <widget class="QDoubleSpinBox" name="m_ambientB">
+       <property name="toolTip">
+        <string>blue value of the ambient light</string>
+       </property>
        <property name="maximum">
         <double>1.000000000000000</double>
        </property>
@@ -277,6 +334,9 @@
      </item>
      <item row="0" column="2">
       <widget class="QDoubleSpinBox" name="m_camPosX">
+       <property name="toolTip">
+        <string>Cameras x position</string>
+       </property>
        <property name="minimum">
         <double>-1000.000000000000000</double>
        </property>
@@ -290,6 +350,9 @@
      </item>
      <item row="14" column="2">
       <widget class="QDoubleSpinBox" name="m_bgR">
+       <property name="toolTip">
+        <string>red value of the background colour</string>
+       </property>
        <property name="maximum">
         <double>1.000000000000000</double>
        </property>
@@ -311,6 +374,9 @@
      </item>
      <item row="6" column="2">
       <widget class="QSpinBox" name="m_filmWidth">
+       <property name="toolTip">
+        <string>width of the film in pixels</string>
+       </property>
        <property name="maximum">
         <number>4096</number>
        </property>
@@ -328,6 +394,9 @@
      </item>
      <item row="13" column="4">
       <widget class="QSpinBox" name="m_threadHeight">
+       <property name="toolTip">
+        <string>height in pixels of a render thread</string>
+       </property>
        <property name="minimum">
         <number>10</number>
        </property>
@@ -347,10 +416,10 @@
     </property>
     <property name="geometry">
      <rect>
-      <x>880</x>
+      <x>10</x>
       <y>380</y>
-      <width>391</width>
-      <height>141</height>
+      <width>491</width>
+      <height>111</height>
      </rect>
     </property>
     <property name="title">
@@ -358,10 +427,17 @@
     </property>
     <layout class="QFormLayout" name="formLayout">
      <item row="1" column="1">
-      <widget class="QLineEdit" name="m_scenePath"/>
+      <widget class="QLineEdit" name="m_scenePath">
+       <property name="toolTip">
+        <string>scene path</string>
+       </property>
+      </widget>
      </item>
      <item row="3" column="0">
       <widget class="QPushButton" name="m_render">
+       <property name="enabled">
+        <bool>false</bool>
+       </property>
        <property name="text">
         <string>Render</string>
        </property>
@@ -374,43 +450,32 @@
        </property>
       </widget>
      </item>
-     <item row="3" column="1">
-      <widget class="QProgressBar" name="m_renderProgress">
-       <property name="maximum">
-        <number>200</number>
-       </property>
-       <property name="value">
-        <number>0</number>
-       </property>
-      </widget>
-     </item>
     </layout>
    </widget>
-   <widget class="QGroupBox" name="groupBox_2">
+   <widget class="QPlainTextEdit" name="plainTextEdit">
     <property name="geometry">
      <rect>
       <x>10</x>
-      <y>0</y>
-      <width>851</width>
-      <height>651</height>
+      <y>510</y>
+      <width>491</width>
+      <height>231</height>
      </rect>
     </property>
-    <property name="title">
-     <string>GroupBox</string>
+    <property name="readOnly">
+     <bool>true</bool>
     </property>
-    <widget class="QLabel" name="m_graphicsLable">
-     <property name="geometry">
-      <rect>
-       <x>15</x>
-       <y>33</y>
-       <width>821</width>
-       <height>601</height>
-      </rect>
-     </property>
-     <property name="text">
-      <string>TextLabel</string>
-     </property>
-    </widget>
+    <property name="plainText">
+     <string>INSTRUCTIONS:
+    1. set desired parameters
+    2. enter a scene path (relative to the executable)
+    3. load a scene
+    4. render scene
+
+WARNINGS:
+    -pressing buttons multiple times is buggy, need to fix
+    -if red lines remain on render image, press 'u' to update the viewer
+</string>
+    </property>
    </widget>
   </widget>
   <widget class="QMenuBar" name="menubar">
@@ -418,7 +483,7 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>1280</width>
+     <width>520</width>
      <height>26</height>
     </rect>
    </property>
