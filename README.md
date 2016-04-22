@@ -11,6 +11,10 @@ This is the ray tracer I wrote for the CA1 assignment
 - Procedural mesh generation for spheres and planes
 - Reads texture files for diffuse colours
 
+example renders can be found in myRT/saves/
+
+example scenes can be found in myRT/scenes/
+
 #Usage
 ##Running the program
 Clone the git repository:
@@ -28,7 +32,7 @@ $make
 ```
 To run the ray tracer, simply run the binary with:
 ```
-./myRT
+$./myRT
 ```
 This will open a UI where you can set general render settings to do with the camera, lighting and multi threading. Here you also specify a scene file to render. Some example scenes are included with the code in the scenes/ directory.
 
