@@ -1,0 +1,67 @@
+# <- deontes a comment
+
+#transformation types set and reset transformation from world coordinates
+#TRANSLATE: <x> <y> <z>
+#ROTATE: <x> <y> <z>
+
+#creating geometry
+#sphere and plane use procedurally generated triangle meshes with uvs and texture coordinates
+#PLANE: <w> <h>
+#SPHERE: <sd> <r>
+
+#obj meshes can also be imported, make sure that meshes are triangulated before importing
+#OBJ <path/to/file.obj>
+
+#setting materials
+#any geometry specified will have the last specified material attached to it, with a default material being used if nothing
+#MATERIAL: <r> <g> <b> <smoothness> <ior> <isTransparent> <isReflective> (<textureFile>)
+
+#adding lights
+#only supports point lights so far
+#positions are specified in world space
+#LIGHT: <x> <y> <z> <r> <g> <b> <intensity>
+
+
+
+
+#render this dcene from camera position -8 5 -3 with default render settings
+
+
+#ground plane
+PLANE: 20 20
+
+#walls
+ROTATE: 0 0 90
+TRANSLATE: 10 10 0
+PLANE: 20 20
+
+ROTATE: 90 0 0
+TRANSLATE: 0 10 -10
+PLANE: 20 20
+
+ROTATE: -90 0 0
+TRANSLATE: 0 10 10
+PLANE: 20 20
+
+ROTATE: 0 0 -90
+TRANSLATE: -10 10 0
+PLANE: 20 20
+
+#chrome
+MAT: 1 0 0 80 20 0 1
+TRANSLATE: 0 1 -3
+SPHERE: 40 1.5
+
+#shiny
+MAT: 1 0 0 80 3 0 1
+TRANSLATE: 0 1 0
+SPHERE: 40 1.5
+
+#not shiny
+MAT: 1 0 0 80 1.5 0 1
+TRANSLATE: 0 1 3
+SPHERE: 40 1.5
+
+LIGHT: 0 15 0 1 1 1 2
+
+

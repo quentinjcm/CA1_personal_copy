@@ -21,18 +21,25 @@
 #positions are specified in world space
 #LIGHT: <x> <y> <z> <r> <g> <b> <intensity>
 
+
+
+#this scene can be rendered from camera position 5, 5, 5 with default render settings
+
+
+
+#ground plane using default material
 PLANE: 12 12
 
 
-
+#sphere material
 MAT: 0.6 0.6 1 10 40 0 1
 
+#moving the sphere into position
 TRANSLATE: 0 2 0
 ROTATE: 0 0 90
 SPHERE: 30 2
-#OBJ: scenes/cyl.obj
 
+#lighting the scene
 LIGHT: 5 5 5 1 1 1 1
-
 LIGHT: 0 5 -5 1 0 0 1
 
