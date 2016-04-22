@@ -89,61 +89,63 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="title">Viewport.hpp</div>  </div>
 </div><!--header-->
 <div class="contents">
-<a href="_viewport_8hpp.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#ifndef VIEWPORT_H</span></div>
-<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="preprocessor">#define VIEWPORT_H</span></div>
+<a href="_viewport_8hpp.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#ifndef VIEWPORT_HPP__</span></div>
+<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="preprocessor">#define VIEWPORT_HPP__</span></div>
 <div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;</div>
 <div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="preprocessor">#include &lt;memory&gt;</span></div>
-<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="preprocessor">#include &lt;QMainWindow&gt;</span></div>
-<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="_render_settings_8hpp.html">RenderSettings.hpp</a>&quot;</span></div>
-<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="_scene_8hpp.html">Scene.hpp</a>&quot;</span></div>
-<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;</div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;</div>
-<div class="line"><a name="l00015"></a><span class="lineno"><a class="line" href="namespace_ui.html">   15</a></span>&#160;<span class="keyword">namespace </span><a class="code" href="namespace_ui.html">Ui</a> {</div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;<span class="keyword">class </span><a class="code" href="class_ui_1_1_viewport.html">Viewport</a>;</div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;}</div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;</div>
-<div class="line"><a name="l00022"></a><span class="lineno"><a class="line" href="class_viewport.html">   22</a></span>&#160;<span class="keyword">class </span><a class="code" href="class_viewport.html">Viewport</a> : <span class="keyword">public</span> QMainWindow</div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;{</div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;  Q_OBJECT</div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;</div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;<span class="keyword">public</span>:</div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;  <a class="code" href="class_viewport.html#a9590a1910776721dff1059e0454e8563">Viewport</a>(QWidget *_parent = 0);</div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;</div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;  <a class="code" href="class_viewport.html#a1e18a1ff4a52be33ef63d25034561850">~Viewport</a>();</div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;</div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;<span class="keyword">private</span>:</div>
-<div class="line"><a name="l00037"></a><span class="lineno"><a class="line" href="class_viewport.html#a86bded0c2cc4afe305a30befccf8393c">   37</a></span>&#160;  <a class="code" href="class_ui_1_1_viewport.html">Ui::Viewport</a> *<a class="code" href="class_viewport.html#a86bded0c2cc4afe305a30befccf8393c">m_ui</a>;</div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;</div>
-<div class="line"><a name="l00040"></a><span class="lineno"><a class="line" href="class_viewport.html#abd28bbb502c373b5f972e18fc03233b4">   40</a></span>&#160;  std::shared_ptr&lt;RenderSettings&gt; <a class="code" href="class_viewport.html#abd28bbb502c373b5f972e18fc03233b4">m_settings</a>;</div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;</div>
-<div class="line"><a name="l00043"></a><span class="lineno"><a class="line" href="class_viewport.html#ab0e66edc26667b870a9124257e58422d">   43</a></span>&#160;  std::shared_ptr&lt;Scene&gt; <a class="code" href="class_viewport.html#ab0e66edc26667b870a9124257e58422d">m_scene</a>;</div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;</div>
-<div class="line"><a name="l00046"></a><span class="lineno"><a class="line" href="class_viewport.html#a16ed274681e93632c8224595a5971b5d">   46</a></span>&#160;  <span class="keywordtype">bool</span> <a class="code" href="class_viewport.html#a16ed274681e93632c8224595a5971b5d">m_hasScene</a>;</div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;</div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;</div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;<span class="keyword">private</span> slots:</div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;   <span class="keywordtype">void</span> <a class="code" href="class_viewport.html#a45d171d4791d8d7a9bccf49b4918d353">renderCurrent</a>();</div>
-<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;</div>
-<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;   <span class="keywordtype">void</span> <a class="code" href="class_viewport.html#a3f9428a0561193b362a5e5d722c13852">loadScene</a>();</div>
-<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;};</div>
-<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;<span class="preprocessor">#endif //VIEWPORT_H</span></div>
-<div class="ttc" id="class_viewport_html_a16ed274681e93632c8224595a5971b5d"><div class="ttname"><a href="class_viewport.html#a16ed274681e93632c8224595a5971b5d">Viewport::m_hasScene</a></div><div class="ttdeci">bool m_hasScene</div><div class="ttdoc">a flag to tell the ui that no scene has been loaded into the ui </div><div class="ttdef"><b>Definition:</b> <a href="_viewport_8hpp_source.html#l00046">Viewport.hpp:46</a></div></div>
-<div class="ttc" id="class_viewport_html"><div class="ttname"><a href="class_viewport.html">Viewport</a></div><div class="ttdef"><b>Definition:</b> <a href="_viewport_8hpp_source.html#l00022">Viewport.hpp:22</a></div></div>
-<div class="ttc" id="class_ui_1_1_viewport_html"><div class="ttname"><a href="class_ui_1_1_viewport.html">Ui::Viewport</a></div><div class="ttdef"><b>Definition:</b> <a href="ui__viewport_8h_source.html#l00370">ui_viewport.h:370</a></div></div>
+<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="preprocessor">#include &quot;QMainWindow&quot;</span></div>
+<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="preprocessor">#include &quot;QImage&quot;</span></div>
+<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="preprocessor">#include &quot;QGraphicsScene&quot;</span></div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="_render_settings_8hpp.html">RenderSettings.hpp</a>&quot;</span></div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="_scene_8hpp.html">Scene.hpp</a>&quot;</span></div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;</div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;</div>
+<div class="line"><a name="l00017"></a><span class="lineno"><a class="line" href="namespace_ui.html">   17</a></span>&#160;<span class="keyword">namespace </span><a class="code" href="namespace_ui.html">Ui</a> {</div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;<span class="keyword">class </span><a class="code" href="class_ui_1_1_viewport.html">Viewport</a>;</div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;}</div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;</div>
+<div class="line"><a name="l00024"></a><span class="lineno"><a class="line" href="class_viewport.html">   24</a></span>&#160;<span class="keyword">class </span><a class="code" href="class_viewport.html">Viewport</a> : <span class="keyword">public</span> QMainWindow</div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;{</div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;  Q_OBJECT</div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;</div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;<span class="keyword">public</span>:</div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;  <a class="code" href="class_viewport.html#a9590a1910776721dff1059e0454e8563">Viewport</a>(QWidget *_parent = 0);</div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;</div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;  <a class="code" href="class_viewport.html#a1e18a1ff4a52be33ef63d25034561850">~Viewport</a>();</div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;</div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;<span class="keyword">private</span>:</div>
+<div class="line"><a name="l00039"></a><span class="lineno"><a class="line" href="class_viewport.html#a9fefbdf6565f3a5b387b1d7f8d6f6ec8">   39</a></span>&#160;  std::unique_ptr&lt;Ui::Viewport&gt; <a class="code" href="class_viewport.html#a9fefbdf6565f3a5b387b1d7f8d6f6ec8">m_ui</a>;</div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;</div>
+<div class="line"><a name="l00042"></a><span class="lineno"><a class="line" href="class_viewport.html#abd28bbb502c373b5f972e18fc03233b4">   42</a></span>&#160;  std::shared_ptr&lt;RenderSettings&gt; <a class="code" href="class_viewport.html#abd28bbb502c373b5f972e18fc03233b4">m_settings</a>;</div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;</div>
+<div class="line"><a name="l00045"></a><span class="lineno"><a class="line" href="class_viewport.html#ab0e66edc26667b870a9124257e58422d">   45</a></span>&#160;  std::shared_ptr&lt;Scene&gt; <a class="code" href="class_viewport.html#ab0e66edc26667b870a9124257e58422d">m_scene</a>;</div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;</div>
+<div class="line"><a name="l00048"></a><span class="lineno"><a class="line" href="class_viewport.html#a16ed274681e93632c8224595a5971b5d">   48</a></span>&#160;  <span class="keywordtype">bool</span> <a class="code" href="class_viewport.html#a16ed274681e93632c8224595a5971b5d">m_hasScene</a>;</div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;</div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;</div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;<span class="keyword">private</span> slots:</div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;   <span class="keywordtype">void</span> <a class="code" href="class_viewport.html#a45d171d4791d8d7a9bccf49b4918d353">renderCurrent</a>();</div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;</div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;   <span class="keywordtype">void</span> <a class="code" href="class_viewport.html#a3f9428a0561193b362a5e5d722c13852">loadScene</a>();</div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;};</div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;<span class="preprocessor">#endif // end of VIEWPORT_HPP__</span></div>
+<div class="ttc" id="class_viewport_html_a16ed274681e93632c8224595a5971b5d"><div class="ttname"><a href="class_viewport.html#a16ed274681e93632c8224595a5971b5d">Viewport::m_hasScene</a></div><div class="ttdeci">bool m_hasScene</div><div class="ttdoc">a flag to tell the ui that no scene has been loaded into the ui </div><div class="ttdef"><b>Definition:</b> <a href="_viewport_8hpp_source.html#l00048">Viewport.hpp:48</a></div></div>
+<div class="ttc" id="class_viewport_html"><div class="ttname"><a href="class_viewport.html">Viewport</a></div><div class="ttdef"><b>Definition:</b> <a href="_viewport_8hpp_source.html#l00024">Viewport.hpp:24</a></div></div>
+<div class="ttc" id="class_ui_1_1_viewport_html"><div class="ttname"><a href="class_ui_1_1_viewport.html">Ui::Viewport</a></div><div class="ttdef"><b>Definition:</b> <a href="ui__viewport_8h_source.html#l00383">ui_viewport.h:383</a></div></div>
 <div class="ttc" id="_render_settings_8hpp_html"><div class="ttname"><a href="_render_settings_8hpp.html">RenderSettings.hpp</a></div><div class="ttdoc">File contaiing the RenderSettings structure. </div></div>
-<div class="ttc" id="class_viewport_html_a86bded0c2cc4afe305a30befccf8393c"><div class="ttname"><a href="class_viewport.html#a86bded0c2cc4afe305a30befccf8393c">Viewport::m_ui</a></div><div class="ttdeci">Ui::Viewport * m_ui</div><div class="ttdoc">ui associated with the viewport </div><div class="ttdef"><b>Definition:</b> <a href="_viewport_8hpp_source.html#l00037">Viewport.hpp:37</a></div></div>
-<div class="ttc" id="namespace_ui_html"><div class="ttname"><a href="namespace_ui.html">Ui</a></div><div class="ttdef"><b>Definition:</b> <a href="_viewport_8hpp_source.html#l00015">Viewport.hpp:15</a></div></div>
+<div class="ttc" id="namespace_ui_html"><div class="ttname"><a href="namespace_ui.html">Ui</a></div><div class="ttdef"><b>Definition:</b> <a href="_viewport_8hpp_source.html#l00017">Viewport.hpp:17</a></div></div>
 <div class="ttc" id="class_viewport_html_a1e18a1ff4a52be33ef63d25034561850"><div class="ttname"><a href="class_viewport.html#a1e18a1ff4a52be33ef63d25034561850">Viewport::~Viewport</a></div><div class="ttdeci">~Viewport()</div><div class="ttdoc">dtor that deletes the ui object </div><div class="ttdef"><b>Definition:</b> <a href="_viewport_8cpp_source.html#l00060">Viewport.cpp:60</a></div></div>
-<div class="ttc" id="class_viewport_html_a45d171d4791d8d7a9bccf49b4918d353"><div class="ttname"><a href="class_viewport.html#a45d171d4791d8d7a9bccf49b4918d353">Viewport::renderCurrent</a></div><div class="ttdeci">void renderCurrent()</div><div class="ttdoc">slot that runs the renderer for the currently set scene when the render button is pressed ...</div><div class="ttdef"><b>Definition:</b> <a href="_viewport_8cpp_source.html#l00065">Viewport.cpp:65</a></div></div>
-<div class="ttc" id="class_viewport_html_a3f9428a0561193b362a5e5d722c13852"><div class="ttname"><a href="class_viewport.html#a3f9428a0561193b362a5e5d722c13852">Viewport::loadScene</a></div><div class="ttdeci">void loadScene()</div><div class="ttdoc">slot that loads the scene curently specified in the ui </div><div class="ttdef"><b>Definition:</b> <a href="_viewport_8cpp_source.html#l00085">Viewport.cpp:85</a></div></div>
+<div class="ttc" id="class_viewport_html_a45d171d4791d8d7a9bccf49b4918d353"><div class="ttname"><a href="class_viewport.html#a45d171d4791d8d7a9bccf49b4918d353">Viewport::renderCurrent</a></div><div class="ttdeci">void renderCurrent()</div><div class="ttdoc">slot that runs the renderer for the currently set scene when the render button is pressed ...</div><div class="ttdef"><b>Definition:</b> <a href="_viewport_8cpp_source.html#l00064">Viewport.cpp:64</a></div></div>
+<div class="ttc" id="class_viewport_html_a3f9428a0561193b362a5e5d722c13852"><div class="ttname"><a href="class_viewport.html#a3f9428a0561193b362a5e5d722c13852">Viewport::loadScene</a></div><div class="ttdeci">void loadScene()</div><div class="ttdoc">slot that loads the scene curently specified in the ui </div><div class="ttdef"><b>Definition:</b> <a href="_viewport_8cpp_source.html#l00081">Viewport.cpp:81</a></div></div>
 <div class="ttc" id="class_viewport_html_a9590a1910776721dff1059e0454e8563"><div class="ttname"><a href="class_viewport.html#a9590a1910776721dff1059e0454e8563">Viewport::Viewport</a></div><div class="ttdeci">Viewport(QWidget *_parent=0)</div><div class="ttdoc">ctor that sets the windows parent and initialises the ui, it then goes theough and links up all of th...</div><div class="ttdef"><b>Definition:</b> <a href="_viewport_8cpp_source.html#l00012">Viewport.cpp:12</a></div></div>
-<div class="ttc" id="class_viewport_html_abd28bbb502c373b5f972e18fc03233b4"><div class="ttname"><a href="class_viewport.html#abd28bbb502c373b5f972e18fc03233b4">Viewport::m_settings</a></div><div class="ttdeci">std::shared_ptr&lt; RenderSettings &gt; m_settings</div><div class="ttdoc">shared pointer to the render settings that the ui will be changing </div><div class="ttdef"><b>Definition:</b> <a href="_viewport_8hpp_source.html#l00040">Viewport.hpp:40</a></div></div>
+<div class="ttc" id="class_viewport_html_abd28bbb502c373b5f972e18fc03233b4"><div class="ttname"><a href="class_viewport.html#abd28bbb502c373b5f972e18fc03233b4">Viewport::m_settings</a></div><div class="ttdeci">std::shared_ptr&lt; RenderSettings &gt; m_settings</div><div class="ttdoc">shared pointer to the render settings that the ui will be changing </div><div class="ttdef"><b>Definition:</b> <a href="_viewport_8hpp_source.html#l00042">Viewport.hpp:42</a></div></div>
 <div class="ttc" id="_scene_8hpp_html"><div class="ttname"><a href="_scene_8hpp.html">Scene.hpp</a></div><div class="ttdoc">File contaiing the Scene class. </div></div>
-<div class="ttc" id="class_viewport_html_ab0e66edc26667b870a9124257e58422d"><div class="ttname"><a href="class_viewport.html#ab0e66edc26667b870a9124257e58422d">Viewport::m_scene</a></div><div class="ttdeci">std::shared_ptr&lt; Scene &gt; m_scene</div><div class="ttdoc">shared pointer to the scene that will be build and rendered through the ui </div><div class="ttdef"><b>Definition:</b> <a href="_viewport_8hpp_source.html#l00043">Viewport.hpp:43</a></div></div>
+<div class="ttc" id="class_viewport_html_a9fefbdf6565f3a5b387b1d7f8d6f6ec8"><div class="ttname"><a href="class_viewport.html#a9fefbdf6565f3a5b387b1d7f8d6f6ec8">Viewport::m_ui</a></div><div class="ttdeci">std::unique_ptr&lt; Ui::Viewport &gt; m_ui</div><div class="ttdoc">ui associated with the viewport </div><div class="ttdef"><b>Definition:</b> <a href="_viewport_8hpp_source.html#l00039">Viewport.hpp:39</a></div></div>
+<div class="ttc" id="class_viewport_html_ab0e66edc26667b870a9124257e58422d"><div class="ttname"><a href="class_viewport.html#ab0e66edc26667b870a9124257e58422d">Viewport::m_scene</a></div><div class="ttdeci">std::shared_ptr&lt; Scene &gt; m_scene</div><div class="ttdoc">shared pointer to the scene that will be build and rendered through the ui </div><div class="ttdef"><b>Definition:</b> <a href="_viewport_8hpp_source.html#l00045">Viewport.hpp:45</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Thu Apr 14 2016 17:26:08 for myRT by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Fri Apr 22 2016 13:00:40 for myRT by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.9.1
 </small></address>

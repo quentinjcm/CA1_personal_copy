@@ -89,8 +89,8 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="title">Film.hpp</div>  </div>
 </div><!--header-->
 <div class="contents">
-<a href="_film_8hpp.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#ifndef FILM_HPP</span></div>
-<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="preprocessor">#define FILM_HPP</span></div>
+<a href="_film_8hpp.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#ifndef FILM_HPP__</span></div>
+<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="preprocessor">#define FILM_HPP__</span></div>
 <div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;</div>
 <div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="preprocessor">#include &lt;vector&gt;</span></div>
 <div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="preprocessor">#include &lt;memory&gt;</span></div>
@@ -112,33 +112,42 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;</div>
 <div class="line"><a name="l00042"></a><span class="lineno"><a class="line" href="class_film.html#a54969edae1e6b1416dd44b05a4d01856">   42</a></span>&#160;  std::vector&lt;ngl::Colour&gt;* <a class="code" href="class_film.html#a54969edae1e6b1416dd44b05a4d01856">getPixelArr</a>(){ <span class="keywordflow">return</span> &amp;<a class="code" href="class_film.html#a13522f36ad7fe56316b15f456cebca9c">m_pixels</a>; }</div>
 <div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;</div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;<span class="keyword">private</span>:</div>
-<div class="line"><a name="l00046"></a><span class="lineno"><a class="line" href="class_film.html#ada432fbf76dad9c39318e66db26cf1fc">   46</a></span>&#160;  <span class="keywordtype">int</span> <a class="code" href="class_film.html#ada432fbf76dad9c39318e66db26cf1fc">m_filmWidth</a>;</div>
+<div class="line"><a name="l00044"></a><span class="lineno"><a class="line" href="class_film.html#a08dc9b9efe3216deb92b70ec087df52c">   44</a></span>&#160;  <span class="keywordtype">bool</span> <a class="code" href="class_film.html#a08dc9b9efe3216deb92b70ec087df52c">getImageComplete</a>(){ <span class="keywordflow">return</span> <a class="code" href="class_film.html#ae601feb4dd304b8f2f1c70611134ab19">m_imageComplete</a>; }</div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;</div>
+<div class="line"><a name="l00046"></a><span class="lineno"><a class="line" href="class_film.html#a9af8cf26fec913d8fcff21af18e264c0">   46</a></span>&#160;  <span class="keywordtype">void</span> <a class="code" href="class_film.html#a9af8cf26fec913d8fcff21af18e264c0">setImageComplete</a>(<span class="keywordtype">bool</span> _status){ <a class="code" href="class_film.html#ae601feb4dd304b8f2f1c70611134ab19">m_imageComplete</a> = _status; }</div>
 <div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;</div>
-<div class="line"><a name="l00049"></a><span class="lineno"><a class="line" href="class_film.html#a691c280ccf6eb246e5d1a608e85ac8e8">   49</a></span>&#160;  <span class="keywordtype">int</span> <a class="code" href="class_film.html#a691c280ccf6eb246e5d1a608e85ac8e8">m_filmHeight</a>;</div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;</div>
-<div class="line"><a name="l00052"></a><span class="lineno"><a class="line" href="class_film.html#a13522f36ad7fe56316b15f456cebca9c">   52</a></span>&#160;  std::vector&lt;ngl::Colour&gt; <a class="code" href="class_film.html#a13522f36ad7fe56316b15f456cebca9c">m_pixels</a>;</div>
-<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;};</div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;<span class="keyword">private</span>:</div>
+<div class="line"><a name="l00050"></a><span class="lineno"><a class="line" href="class_film.html#ada432fbf76dad9c39318e66db26cf1fc">   50</a></span>&#160;  <span class="keywordtype">int</span> <a class="code" href="class_film.html#ada432fbf76dad9c39318e66db26cf1fc">m_filmWidth</a>;</div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;</div>
+<div class="line"><a name="l00053"></a><span class="lineno"><a class="line" href="class_film.html#a691c280ccf6eb246e5d1a608e85ac8e8">   53</a></span>&#160;  <span class="keywordtype">int</span> <a class="code" href="class_film.html#a691c280ccf6eb246e5d1a608e85ac8e8">m_filmHeight</a>;</div>
 <div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;</div>
-<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;</div>
-<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;</div>
+<div class="line"><a name="l00056"></a><span class="lineno"><a class="line" href="class_film.html#a13522f36ad7fe56316b15f456cebca9c">   56</a></span>&#160;  std::vector&lt;ngl::Colour&gt; <a class="code" href="class_film.html#a13522f36ad7fe56316b15f456cebca9c">m_pixels</a>;</div>
 <div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;</div>
-<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;</div>
-<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;<span class="preprocessor">#endif//__FILM_HPP__</span></div>
+<div class="line"><a name="l00058"></a><span class="lineno"><a class="line" href="class_film.html#ae601feb4dd304b8f2f1c70611134ab19">   58</a></span>&#160;  <span class="keywordtype">bool</span> <a class="code" href="class_film.html#ae601feb4dd304b8f2f1c70611134ab19">m_imageComplete</a> = <span class="keyword">false</span>;</div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;};</div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;</div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;</div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;</div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;</div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;</div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;<span class="preprocessor">#endif  // end of FILM_HPP__</span></div>
 <div class="ttc" id="class_film_html_a54969edae1e6b1416dd44b05a4d01856"><div class="ttname"><a href="class_film.html#a54969edae1e6b1416dd44b05a4d01856">Film::getPixelArr</a></div><div class="ttdeci">std::vector&lt; ngl::Colour &gt; * getPixelArr()</div><div class="ttdef"><b>Definition:</b> <a href="_film_8hpp_source.html#l00042">Film.hpp:42</a></div></div>
+<div class="ttc" id="class_film_html_ae601feb4dd304b8f2f1c70611134ab19"><div class="ttname"><a href="class_film.html#ae601feb4dd304b8f2f1c70611134ab19">Film::m_imageComplete</a></div><div class="ttdeci">bool m_imageComplete</div><div class="ttdef"><b>Definition:</b> <a href="_film_8hpp_source.html#l00058">Film.hpp:58</a></div></div>
 <div class="ttc" id="class_film_html_a07b81a5dc8de03be4170735bf8b070b2"><div class="ttname"><a href="class_film.html#a07b81a5dc8de03be4170735bf8b070b2">Film::Film</a></div><div class="ttdeci">Film(int _w, int _h)</div><div class="ttdoc">ctor that sets the size of the pixel vectors </div><div class="ttdef"><b>Definition:</b> <a href="_film_8cpp_source.html#l00011">Film.cpp:11</a></div></div>
 <div class="ttc" id="class_film_html_a3843f0ab3f82ea8652a12f77f292b052"><div class="ttname"><a href="class_film.html#a3843f0ab3f82ea8652a12f77f292b052">Film::setPixel</a></div><div class="ttdeci">void setPixel(int _x, int _y, ngl::Colour _c)</div><div class="ttdoc">sets a pixel in the colour vector </div><div class="ttdef"><b>Definition:</b> <a href="_film_8cpp_source.html#l00019">Film.cpp:19</a></div></div>
-<div class="ttc" id="class_film_html_a691c280ccf6eb246e5d1a608e85ac8e8"><div class="ttname"><a href="class_film.html#a691c280ccf6eb246e5d1a608e85ac8e8">Film::m_filmHeight</a></div><div class="ttdeci">int m_filmHeight</div><div class="ttdoc">height of the film in pixels </div><div class="ttdef"><b>Definition:</b> <a href="_film_8hpp_source.html#l00049">Film.hpp:49</a></div></div>
-<div class="ttc" id="class_film_html_a13522f36ad7fe56316b15f456cebca9c"><div class="ttname"><a href="class_film.html#a13522f36ad7fe56316b15f456cebca9c">Film::m_pixels</a></div><div class="ttdeci">std::vector&lt; ngl::Colour &gt; m_pixels</div><div class="ttdoc">vector of pixels </div><div class="ttdef"><b>Definition:</b> <a href="_film_8hpp_source.html#l00052">Film.hpp:52</a></div></div>
+<div class="ttc" id="class_film_html_a691c280ccf6eb246e5d1a608e85ac8e8"><div class="ttname"><a href="class_film.html#a691c280ccf6eb246e5d1a608e85ac8e8">Film::m_filmHeight</a></div><div class="ttdeci">int m_filmHeight</div><div class="ttdoc">height of the film in pixels </div><div class="ttdef"><b>Definition:</b> <a href="_film_8hpp_source.html#l00053">Film.hpp:53</a></div></div>
+<div class="ttc" id="class_film_html_a08dc9b9efe3216deb92b70ec087df52c"><div class="ttname"><a href="class_film.html#a08dc9b9efe3216deb92b70ec087df52c">Film::getImageComplete</a></div><div class="ttdeci">bool getImageComplete()</div><div class="ttdef"><b>Definition:</b> <a href="_film_8hpp_source.html#l00044">Film.hpp:44</a></div></div>
+<div class="ttc" id="class_film_html_a13522f36ad7fe56316b15f456cebca9c"><div class="ttname"><a href="class_film.html#a13522f36ad7fe56316b15f456cebca9c">Film::m_pixels</a></div><div class="ttdeci">std::vector&lt; ngl::Colour &gt; m_pixels</div><div class="ttdoc">vector of pixels </div><div class="ttdef"><b>Definition:</b> <a href="_film_8hpp_source.html#l00056">Film.hpp:56</a></div></div>
 <div class="ttc" id="_isect_data_8hpp_html"><div class="ttname"><a href="_isect_data_8hpp.html">IsectData.hpp</a></div><div class="ttdoc">File contaiing the IsectData structure, which is a container for data on points of intersection...</div></div>
 <div class="ttc" id="class_film_html_a761ce0c3e94c8347d840713ea0ea1fc8"><div class="ttname"><a href="class_film.html#a761ce0c3e94c8347d840713ea0ea1fc8">Film::getFilmWidth</a></div><div class="ttdeci">int getFilmWidth()</div><div class="ttdoc">returns the width of the film </div><div class="ttdef"><b>Definition:</b> <a href="_film_8hpp_source.html#l00034">Film.hpp:34</a></div></div>
+<div class="ttc" id="class_film_html_a9af8cf26fec913d8fcff21af18e264c0"><div class="ttname"><a href="class_film.html#a9af8cf26fec913d8fcff21af18e264c0">Film::setImageComplete</a></div><div class="ttdeci">void setImageComplete(bool _status)</div><div class="ttdef"><b>Definition:</b> <a href="_film_8hpp_source.html#l00046">Film.hpp:46</a></div></div>
 <div class="ttc" id="class_film_html_a812c10666c86cdb0631eab20964de4b9"><div class="ttname"><a href="class_film.html#a812c10666c86cdb0631eab20964de4b9">Film::getFilmHeight</a></div><div class="ttdeci">int getFilmHeight()</div><div class="ttdoc">returns the height of the film </div><div class="ttdef"><b>Definition:</b> <a href="_film_8hpp_source.html#l00038">Film.hpp:38</a></div></div>
 <div class="ttc" id="class_film_html"><div class="ttname"><a href="class_film.html">Film</a></div><div class="ttdoc">The Film class holds pixel arrayd for the different render layers. </div><div class="ttdef"><b>Definition:</b> <a href="_film_8hpp_source.html#l00018">Film.hpp:18</a></div></div>
-<div class="ttc" id="class_film_html_ada432fbf76dad9c39318e66db26cf1fc"><div class="ttname"><a href="class_film.html#ada432fbf76dad9c39318e66db26cf1fc">Film::m_filmWidth</a></div><div class="ttdeci">int m_filmWidth</div><div class="ttdoc">width of the film in pixels </div><div class="ttdef"><b>Definition:</b> <a href="_film_8hpp_source.html#l00046">Film.hpp:46</a></div></div>
+<div class="ttc" id="class_film_html_ada432fbf76dad9c39318e66db26cf1fc"><div class="ttname"><a href="class_film.html#ada432fbf76dad9c39318e66db26cf1fc">Film::m_filmWidth</a></div><div class="ttdeci">int m_filmWidth</div><div class="ttdoc">width of the film in pixels </div><div class="ttdef"><b>Definition:</b> <a href="_film_8hpp_source.html#l00050">Film.hpp:50</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Thu Apr 14 2016 17:26:08 for myRT by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Fri Apr 22 2016 13:00:40 for myRT by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.9.1
 </small></address>

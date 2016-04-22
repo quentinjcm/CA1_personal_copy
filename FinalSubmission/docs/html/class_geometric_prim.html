@@ -108,24 +108,27 @@ Inheritance diagram for GeometricPrim:</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a154d122352698d62ac9801881761648d"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_geometric_prim.html#a154d122352698d62ac9801881761648d">GeometricPrim</a> (std::shared_ptr&lt; <a class="el" href="class_triangle_mesh.html">TriangleMesh</a> &gt; _mesh, std::shared_ptr&lt; <a class="el" href="class_material.html">Material</a> &gt; _material)</td></tr>
-<tr class="memdesc:a154d122352698d62ac9801881761648d"><td class="mdescLeft">&#160;</td><td class="mdescRight">ctor for the <a class="el" href="class_geometric_prim.html" title="the GrometricPrim class inherits from primative so that it has the same intersection interface as the...">GeometricPrim</a> that sets the pointers  <a href="#a154d122352698d62ac9801881761648d">More...</a><br /></td></tr>
-<tr class="separator:a154d122352698d62ac9801881761648d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4a15c666fb5d7884385c41e0f73062f1"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_geometric_prim.html#a4a15c666fb5d7884385c41e0f73062f1">GeometricPrim</a> (std::shared_ptr&lt; <a class="el" href="class_primative.html">Primative</a> &gt; _mesh, std::shared_ptr&lt; <a class="el" href="class_material.html">Material</a> &gt; _material)</td></tr>
+<tr class="memdesc:a4a15c666fb5d7884385c41e0f73062f1"><td class="mdescLeft">&#160;</td><td class="mdescRight">ctor for the <a class="el" href="class_geometric_prim.html" title="the GrometricPrim class inherits from primative so that it has the same intersection interface as the...">GeometricPrim</a> that sets the pointers  <a href="#a4a15c666fb5d7884385c41e0f73062f1">More...</a><br /></td></tr>
+<tr class="separator:a4a15c666fb5d7884385c41e0f73062f1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a98998106910b8c55e198e76cc6a7287c"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_geometric_prim.html#a98998106910b8c55e198e76cc6a7287c">intersect</a> (const <a class="el" href="class_ray.html">Ray</a> &amp;_ray, <a class="el" href="struct_isect_data.html">IsectData</a> *_intersection)</td></tr>
 <tr class="memdesc:a98998106910b8c55e198e76cc6a7287c"><td class="mdescLeft">&#160;</td><td class="mdescRight">overload of the primative intersection method  <a href="#a98998106910b8c55e198e76cc6a7287c">More...</a><br /></td></tr>
 <tr class="separator:a98998106910b8c55e198e76cc6a7287c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aea42c30e82bdea46b4911554911e804e"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_geometric_prim.html#aea42c30e82bdea46b4911554911e804e">sIntersect</a> (const <a class="el" href="class_ray.html">Ray</a> &amp;_ray)</td></tr>
-<tr class="memdesc:aea42c30e82bdea46b4911554911e804e"><td class="mdescLeft">&#160;</td><td class="mdescRight">an intersection method that returns as soon as it finds an interection in range for checking shaddow rays  <a href="#aea42c30e82bdea46b4911554911e804e">More...</a><br /></td></tr>
+<tr class="memdesc:aea42c30e82bdea46b4911554911e804e"><td class="mdescLeft">&#160;</td><td class="mdescRight">overload of the primative shadow intersection method  <a href="#aea42c30e82bdea46b4911554911e804e">More...</a><br /></td></tr>
 <tr class="separator:aea42c30e82bdea46b4911554911e804e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a4d776c665fee14ffbc3407b889ac1565"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_geometric_prim.html#a4d776c665fee14ffbc3407b889ac1565">getGLData</a> (std::vector&lt; ngl::Vec3 &gt; *_points, std::vector&lt; ngl::Vec3 &gt; *_normals)</td></tr>
-<tr class="memdesc:a4d776c665fee14ffbc3407b889ac1565"><td class="mdescLeft">&#160;</td><td class="mdescRight">fills up the given vectors with data to be passed to opengl ******why not have vectors of pointers? then there is no copying  <a href="#a4d776c665fee14ffbc3407b889ac1565">More...</a><br /></td></tr>
+<tr class="memdesc:a4d776c665fee14ffbc3407b889ac1565"><td class="mdescLeft">&#160;</td><td class="mdescRight">fills two vectors up with points and normals for all the geometry in the scene, this will be used in the opengl viewport  <a href="#a4d776c665fee14ffbc3407b889ac1565">More...</a><br /></td></tr>
 <tr class="separator:a4d776c665fee14ffbc3407b889ac1565"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="inherit_header pub_methods_class_primative"><td colspan="2" onclick="javascript:toggleInherit('pub_methods_class_primative')"><img src="closed.png" alt="-"/>&#160;Public Member Functions inherited from <a class="el" href="class_primative.html">Primative</a></td></tr>
+<tr class="memitem:a88ea53b72251c5b9bcf899ce2d5760a1 inherit pub_methods_class_primative"><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_primative.html#a88ea53b72251c5b9bcf899ce2d5760a1">~Primative</a> ()</td></tr>
+<tr class="separator:a88ea53b72251c5b9bcf899ce2d5760a1 inherit pub_methods_class_primative"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-attribs"></a>
 Private Attributes</h2></td></tr>
-<tr class="memitem:a59d1ad50e4ece57ea1ca455737988be5"><td class="memItemLeft" align="right" valign="top">std::shared_ptr&lt; <a class="el" href="class_triangle_mesh.html">TriangleMesh</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_geometric_prim.html#a59d1ad50e4ece57ea1ca455737988be5">m_mesh</a></td></tr>
-<tr class="memdesc:a59d1ad50e4ece57ea1ca455737988be5"><td class="mdescLeft">&#160;</td><td class="mdescRight">a shared pointer to the geometric mesh  <a href="#a59d1ad50e4ece57ea1ca455737988be5">More...</a><br /></td></tr>
-<tr class="separator:a59d1ad50e4ece57ea1ca455737988be5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa83400885bbe414ce75487c7d5f4325f"><td class="memItemLeft" align="right" valign="top">std::shared_ptr&lt; <a class="el" href="class_primative.html">Primative</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_geometric_prim.html#aa83400885bbe414ce75487c7d5f4325f">m_mesh</a></td></tr>
+<tr class="memdesc:aa83400885bbe414ce75487c7d5f4325f"><td class="mdescLeft">&#160;</td><td class="mdescRight">a shared pointer to the geometric mesh  <a href="#aa83400885bbe414ce75487c7d5f4325f">More...</a><br /></td></tr>
+<tr class="separator:aa83400885bbe414ce75487c7d5f4325f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a3b378d7db2fcebc15993f7c5ba20850a"><td class="memItemLeft" align="right" valign="top">std::shared_ptr&lt; <a class="el" href="class_material.html">Material</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_geometric_prim.html#a3b378d7db2fcebc15993f7c5ba20850a">m_material</a></td></tr>
 <tr class="memdesc:a3b378d7db2fcebc15993f7c5ba20850a"><td class="mdescLeft">&#160;</td><td class="mdescRight">a shared pointer to the material  <a href="#a3b378d7db2fcebc15993f7c5ba20850a">More...</a><br /></td></tr>
 <tr class="separator:a3b378d7db2fcebc15993f7c5ba20850a"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -135,14 +138,14 @@ Private Attributes</h2></td></tr>
 
 <p>Definition at line <a class="el" href="_geometric_prim_8hpp_source.html#l00022">22</a> of file <a class="el" href="_geometric_prim_8hpp_source.html">GeometricPrim.hpp</a>.</p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
-<a class="anchor" id="a154d122352698d62ac9801881761648d"></a>
+<a class="anchor" id="a4a15c666fb5d7884385c41e0f73062f1"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
           <td class="memname">GeometricPrim::GeometricPrim </td>
           <td>(</td>
-          <td class="paramtype">std::shared_ptr&lt; <a class="el" href="class_triangle_mesh.html">TriangleMesh</a> &gt;&#160;</td>
+          <td class="paramtype">std::shared_ptr&lt; <a class="el" href="class_primative.html">Primative</a> &gt;&#160;</td>
           <td class="paramname"><em>_mesh</em>, </td>
         </tr>
         <tr>
@@ -205,11 +208,11 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>fills up the given vectors with data to be passed to opengl ******why not have vectors of pointers? then there is no copying </p>
+<p>fills two vectors up with points and normals for all the geometry in the scene, this will be used in the opengl viewport </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">a</td><td>vector to be filled up with all of the point position data for ojects in the scene </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">a</td><td>vector to be filled up with all of the point normals for objects in the scene </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">*_points</td><td>is a vector to be filled up with point positions </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">*_normals</td><td>is a vector to be filled up with normal vectors </td></tr>
   </table>
   </dd>
 </dl>
@@ -290,11 +293,11 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>an intersection method that returns as soon as it finds an interection in range for checking shaddow rays </p>
+<p>overload of the primative shadow intersection method </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">&amp;_ray</td><td>is the ray that is being tested for intersection </td></tr>
-    <tr><td class="paramdir">[out]</td><td class="paramname">a</td><td>bool to indicate if there was an intersection within the limits defined in the ray </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">&amp;_ray</td><td>the ray being tested for intersection </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">a</td><td>boolean that returns true if the intersection is sucessfull; </td></tr>
   </table>
   </dd>
 </dl>
@@ -326,11 +329,11 @@ Private Attributes</h2></td></tr>
 
 <p>a shared pointer to the material </p>
 
-<p>Definition at line <a class="el" href="_geometric_prim_8hpp_source.html#l00045">45</a> of file <a class="el" href="_geometric_prim_8hpp_source.html">GeometricPrim.hpp</a>.</p>
+<p>Definition at line <a class="el" href="_geometric_prim_8hpp_source.html#l00052">52</a> of file <a class="el" href="_geometric_prim_8hpp_source.html">GeometricPrim.hpp</a>.</p>
 
 </div>
 </div>
-<a class="anchor" id="a59d1ad50e4ece57ea1ca455737988be5"></a>
+<a class="anchor" id="aa83400885bbe414ce75487c7d5f4325f"></a>
 <div class="memitem">
 <div class="memproto">
 <table class="mlabels">
@@ -338,7 +341,7 @@ Private Attributes</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">std::shared_ptr&lt;<a class="el" href="class_triangle_mesh.html">TriangleMesh</a>&gt; GeometricPrim::m_mesh</td>
+          <td class="memname">std::shared_ptr&lt;<a class="el" href="class_primative.html">Primative</a>&gt; GeometricPrim::m_mesh</td>
         </tr>
       </table>
   </td>
@@ -350,7 +353,7 @@ Private Attributes</h2></td></tr>
 
 <p>a shared pointer to the geometric mesh </p>
 
-<p>Definition at line <a class="el" href="_geometric_prim_8hpp_source.html#l00042">42</a> of file <a class="el" href="_geometric_prim_8hpp_source.html">GeometricPrim.hpp</a>.</p>
+<p>Definition at line <a class="el" href="_geometric_prim_8hpp_source.html#l00049">49</a> of file <a class="el" href="_geometric_prim_8hpp_source.html">GeometricPrim.hpp</a>.</p>
 
 </div>
 </div>
@@ -361,7 +364,7 @@ Private Attributes</h2></td></tr>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Thu Apr 14 2016 17:26:08 for myRT by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Fri Apr 22 2016 13:00:40 for myRT by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.9.1
 </small></address>

@@ -143,7 +143,11 @@ Private Attributes</h2></td></tr>
 <tr class="memdesc:af9f97079e9c6aaacd5d2749087d2c814"><td class="mdescLeft">&#160;</td><td class="mdescRight">a bool that incicated if sdl was sucessfully initialised the window wont run if initilaisation failed  <a href="#af9f97079e9c6aaacd5d2749087d2c814">More...</a><br /></td></tr>
 <tr class="separator:af9f97079e9c6aaacd5d2749087d2c814"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad147a82f971084ca65918644772e0b89"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_s_d_l_window.html#ad147a82f971084ca65918644772e0b89">m_hasSaved</a></td></tr>
+<tr class="memdesc:ad147a82f971084ca65918644772e0b89"><td class="mdescLeft">&#160;</td><td class="mdescRight">flag to indicate that the image has been saved  <a href="#ad147a82f971084ca65918644772e0b89">More...</a><br /></td></tr>
 <tr class="separator:ad147a82f971084ca65918644772e0b89"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a87c0d608ce7e4ac7beb005cbedd2f205"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_film.html">Film</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_s_d_l_window.html#a87c0d608ce7e4ac7beb005cbedd2f205">m_film</a></td></tr>
+<tr class="memdesc:a87c0d608ce7e4ac7beb005cbedd2f205"><td class="mdescLeft">&#160;</td><td class="mdescRight">pointer to the film that  <a href="#a87c0d608ce7e4ac7beb005cbedd2f205">More...</a><br /></td></tr>
+<tr class="separator:a87c0d608ce7e4ac7beb005cbedd2f205"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>used to display the final rendered image to the screen </p>
@@ -192,7 +196,7 @@ Private Attributes</h2></td></tr>
 
 <p>initiliser that sets up sdl </p>
 
-<p>Definition at line <a class="el" href="_s_d_l_window_8cpp_source.html#l00017">17</a> of file <a class="el" href="_s_d_l_window_8cpp_source.html">SDLWindow.cpp</a>.</p>
+<p>Definition at line <a class="el" href="_s_d_l_window_8cpp_source.html#l00018">18</a> of file <a class="el" href="_s_d_l_window_8cpp_source.html">SDLWindow.cpp</a>.</p>
 
 </div>
 </div>
@@ -218,7 +222,7 @@ Private Attributes</h2></td></tr>
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="_s_d_l_window_8cpp_source.html#l00057">57</a> of file <a class="el" href="_s_d_l_window_8cpp_source.html">SDLWindow.cpp</a>.</p>
+<p>Definition at line <a class="el" href="_s_d_l_window_8cpp_source.html#l00062">62</a> of file <a class="el" href="_s_d_l_window_8cpp_source.html">SDLWindow.cpp</a>.</p>
 
 </div>
 </div>
@@ -237,7 +241,7 @@ Private Attributes</h2></td></tr>
 
 <p>sets up the window and runs the main rendering loop </p>
 
-<p>Definition at line <a class="el" href="_s_d_l_window_8cpp_source.html#l00030">30</a> of file <a class="el" href="_s_d_l_window_8cpp_source.html">SDLWindow.cpp</a>.</p>
+<p>Definition at line <a class="el" href="_s_d_l_window_8cpp_source.html#l00031">31</a> of file <a class="el" href="_s_d_l_window_8cpp_source.html">SDLWindow.cpp</a>.</p>
 
 </div>
 </div>
@@ -264,7 +268,7 @@ Private Attributes</h2></td></tr>
 
 <p>saves the render as a bmp image </p>
 
-<p>Definition at line <a class="el" href="_s_d_l_window_8cpp_source.html#l00090">90</a> of file <a class="el" href="_s_d_l_window_8cpp_source.html">SDLWindow.cpp</a>.</p>
+<p>Definition at line <a class="el" href="_s_d_l_window_8cpp_source.html#l00095">95</a> of file <a class="el" href="_s_d_l_window_8cpp_source.html">SDLWindow.cpp</a>.</p>
 
 </div>
 </div>
@@ -283,11 +287,35 @@ Private Attributes</h2></td></tr>
 
 <p>updates the surface </p>
 
-<p>Definition at line <a class="el" href="_s_d_l_window_8cpp_source.html#l00068">68</a> of file <a class="el" href="_s_d_l_window_8cpp_source.html">SDLWindow.cpp</a>.</p>
+<p>Definition at line <a class="el" href="_s_d_l_window_8cpp_source.html#l00073">73</a> of file <a class="el" href="_s_d_l_window_8cpp_source.html">SDLWindow.cpp</a>.</p>
 
 </div>
 </div>
 <h2 class="groupheader">Member Data Documentation</h2>
+<a class="anchor" id="a87c0d608ce7e4ac7beb005cbedd2f205"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_film.html">Film</a>* SDLWindow::m_film</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>pointer to the film that </p>
+
+<p>Definition at line <a class="el" href="_s_d_l_window_8hpp_source.html#l00064">64</a> of file <a class="el" href="_s_d_l_window_8hpp_source.html">SDLWindow.hpp</a>.</p>
+
+</div>
+</div>
 <a class="anchor" id="ad147a82f971084ca65918644772e0b89"></a>
 <div class="memitem">
 <div class="memproto">
@@ -306,7 +334,9 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="_s_d_l_window_8hpp_source.html#l00060">60</a> of file <a class="el" href="_s_d_l_window_8hpp_source.html">SDLWindow.hpp</a>.</p>
+<p>flag to indicate that the image has been saved </p>
+
+<p>Definition at line <a class="el" href="_s_d_l_window_8hpp_source.html#l00061">61</a> of file <a class="el" href="_s_d_l_window_8hpp_source.html">SDLWindow.hpp</a>.</p>
 
 </div>
 </div>
@@ -461,7 +491,7 @@ Private Attributes</h2></td></tr>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Thu Apr 14 2016 17:26:08 for myRT by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Fri Apr 22 2016 13:00:40 for myRT by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.9.1
 </small></address>

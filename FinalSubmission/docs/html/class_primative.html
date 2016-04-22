@@ -103,11 +103,14 @@ Inheritance diagram for Primative:</div>
   <map id="Primative_map" name="Primative_map">
 <area href="class_geometric_prim.html" title="the GrometricPrim class inherits from primative so that it has the same intersection interface as the..." alt="GeometricPrim" shape="rect" coords="0,56,94,80"/>
 <area href="class_scene.html" title="the scene class holds all of the primatives and lights in the scene. " alt="Scene" shape="rect" coords="104,56,198,80"/>
+<area href="class_triangle_mesh.html" title="The TriangleData class is used as a container for data for each triange. The idea was to seperate the..." alt="TriangleMesh" shape="rect" coords="208,56,302,80"/>
 </map>
  </div></div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
+<tr class="memitem:a88ea53b72251c5b9bcf899ce2d5760a1"><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_primative.html#a88ea53b72251c5b9bcf899ce2d5760a1">~Primative</a> ()</td></tr>
+<tr class="separator:a88ea53b72251c5b9bcf899ce2d5760a1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a13eb972a91487d269418bcd92d48646a"><td class="memItemLeft" align="right" valign="top">virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_primative.html#a13eb972a91487d269418bcd92d48646a">intersect</a> (const <a class="el" href="class_ray.html">Ray</a> &amp;_ray, <a class="el" href="struct_isect_data.html">IsectData</a> *_intersection)</td></tr>
 <tr class="memdesc:a13eb972a91487d269418bcd92d48646a"><td class="mdescLeft">&#160;</td><td class="mdescRight">an intersection method that gets the geometric data of the closest intersection  <a href="#a13eb972a91487d269418bcd92d48646a">More...</a><br /></td></tr>
 <tr class="separator:a13eb972a91487d269418bcd92d48646a"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -122,7 +125,33 @@ Public Member Functions</h2></td></tr>
 <div class="textblock"><p>The primatve class in an abstract base class that all primatives in the scene should inherit from. This gives them their basic interface of intersection methods and a function to extract their opengl data. The idea was to ipmlement two primatives which inherit from this, the aggregate primative and the geometric primative. The aggragate primative was to hold other primatives in acceleration structures and the geometric primative holds triangle meshes.While i didnt have time to implement an aggregate primative the setup allows that to happen without too much dificulty and andl enables the easy expansion to othert types of primatives such as nurbs curves and volumes. </p>
 
 <p>Definition at line <a class="el" href="_primative_8hpp_source.html#l00023">23</a> of file <a class="el" href="_primative_8hpp_source.html">Primative.hpp</a>.</p>
-</div><h2 class="groupheader">Member Function Documentation</h2>
+</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a class="anchor" id="a88ea53b72251c5b9bcf899ce2d5760a1"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">Primative::~Primative </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="_primative_8cpp_source.html#l00009">9</a> of file <a class="el" href="_primative_8cpp_source.html">Primative.cpp</a>.</p>
+
+</div>
+</div>
+<h2 class="groupheader">Member Function Documentation</h2>
 <a class="anchor" id="aab22e3604bc5c2c4130f393863dbabd5"></a>
 <div class="memitem">
 <div class="memproto">
@@ -164,9 +193,9 @@ Public Member Functions</h2></td></tr>
   </dd>
 </dl>
 
-<p>Reimplemented in <a class="el" href="class_scene.html#ac09f80b3355d92875405561bd089a044">Scene</a>, and <a class="el" href="class_geometric_prim.html#a4d776c665fee14ffbc3407b889ac1565">GeometricPrim</a>.</p>
+<p>Reimplemented in <a class="el" href="class_triangle_mesh.html#a5527876e1c89e37d9b587dd4e973dfde">TriangleMesh</a>, <a class="el" href="class_scene.html#ac09f80b3355d92875405561bd089a044">Scene</a>, and <a class="el" href="class_geometric_prim.html#a4d776c665fee14ffbc3407b889ac1565">GeometricPrim</a>.</p>
 
-<p>Definition at line <a class="el" href="_primative_8cpp_source.html#l00021">21</a> of file <a class="el" href="_primative_8cpp_source.html">Primative.cpp</a>.</p>
+<p>Definition at line <a class="el" href="_primative_8cpp_source.html#l00026">26</a> of file <a class="el" href="_primative_8cpp_source.html">Primative.cpp</a>.</p>
 
 </div>
 </div>
@@ -212,9 +241,9 @@ Public Member Functions</h2></td></tr>
   </dd>
 </dl>
 
-<p>Reimplemented in <a class="el" href="class_geometric_prim.html#a98998106910b8c55e198e76cc6a7287c">GeometricPrim</a>, and <a class="el" href="class_scene.html#a9cf4ee0b9fd7da13456bc7edb764198f">Scene</a>.</p>
+<p>Reimplemented in <a class="el" href="class_geometric_prim.html#a98998106910b8c55e198e76cc6a7287c">GeometricPrim</a>, <a class="el" href="class_triangle_mesh.html#aa326e2a99c233e197818be7a9cb9b856">TriangleMesh</a>, and <a class="el" href="class_scene.html#a9cf4ee0b9fd7da13456bc7edb764198f">Scene</a>.</p>
 
-<p>Definition at line <a class="el" href="_primative_8cpp_source.html#l00009">9</a> of file <a class="el" href="_primative_8cpp_source.html">Primative.cpp</a>.</p>
+<p>Definition at line <a class="el" href="_primative_8cpp_source.html#l00014">14</a> of file <a class="el" href="_primative_8cpp_source.html">Primative.cpp</a>.</p>
 
 </div>
 </div>
@@ -249,9 +278,9 @@ Public Member Functions</h2></td></tr>
   </dd>
 </dl>
 
-<p>Reimplemented in <a class="el" href="class_geometric_prim.html#aea42c30e82bdea46b4911554911e804e">GeometricPrim</a>, and <a class="el" href="class_scene.html#a30483853f41cac8593e482913db6b2ec">Scene</a>.</p>
+<p>Reimplemented in <a class="el" href="class_geometric_prim.html#aea42c30e82bdea46b4911554911e804e">GeometricPrim</a>, <a class="el" href="class_triangle_mesh.html#aaca20b49ed5a1b0389834d92a58ad863">TriangleMesh</a>, and <a class="el" href="class_scene.html#a30483853f41cac8593e482913db6b2ec">Scene</a>.</p>
 
-<p>Definition at line <a class="el" href="_primative_8cpp_source.html#l00015">15</a> of file <a class="el" href="_primative_8cpp_source.html">Primative.cpp</a>.</p>
+<p>Definition at line <a class="el" href="_primative_8cpp_source.html#l00020">20</a> of file <a class="el" href="_primative_8cpp_source.html">Primative.cpp</a>.</p>
 
 </div>
 </div>
@@ -262,7 +291,7 @@ Public Member Functions</h2></td></tr>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Thu Apr 14 2016 17:26:08 for myRT by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Fri Apr 22 2016 13:00:40 for myRT by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.9.1
 </small></address>

@@ -89,48 +89,47 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="title">Ray.hpp</div>  </div>
 </div><!--header-->
 <div class="contents">
-<a href="_ray_8hpp.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#ifndef RAY_HPP</span></div>
-<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="preprocessor">#define RAY_HPP</span></div>
+<a href="_ray_8hpp.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#ifndef RAY_HPP__</span></div>
+<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="preprocessor">#define RAY_HPP__</span></div>
 <div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;</div>
 <div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="preprocessor">#include &lt;limits&gt;</span></div>
-<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;</div>
-<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="preprocessor">#include &lt;ngl/Vec3.h&gt;</span></div>
-<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;</div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;</div>
-<div class="line"><a name="l00017"></a><span class="lineno"><a class="line" href="class_ray.html">   17</a></span>&#160;<span class="keyword">class </span><a class="code" href="class_ray.html">Ray</a></div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;{</div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;<span class="keyword">public</span>:</div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;  <a class="code" href="class_ray.html#a4c8d138f48dbd8c05e2bb38989d0a5eb">Ray</a>() = <span class="keywordflow">default</span>;</div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;</div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;  <a class="code" href="class_ray.html#a4c8d138f48dbd8c05e2bb38989d0a5eb">Ray</a>(ngl::Vec3 _origin, ngl::Vec3 _direction, <span class="keywordtype">int</span> _depth = 0);</div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;</div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;  <span class="keywordtype">void</span> <a class="code" href="class_ray.html#a03413a6afcc04f8a1e4825ce3e1e855a">setInvDirection</a>();</div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;</div>
-<div class="line"><a name="l00032"></a><span class="lineno"><a class="line" href="class_ray.html#a7077e9a7f52c0b3471a590bd0cb74b85">   32</a></span>&#160;  ngl::Vec3 <a class="code" href="class_ray.html#a7077e9a7f52c0b3471a590bd0cb74b85">m_origin</a>;</div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;</div>
-<div class="line"><a name="l00035"></a><span class="lineno"><a class="line" href="class_ray.html#a67409333a542d988a7b6fd2ef9ef705b">   35</a></span>&#160;  ngl::Vec3 <a class="code" href="class_ray.html#a67409333a542d988a7b6fd2ef9ef705b">m_direction</a>;</div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;</div>
-<div class="line"><a name="l00038"></a><span class="lineno"><a class="line" href="class_ray.html#aa5939e5cb40a7f6ed5bff4a6bdddea5f">   38</a></span>&#160;  ngl::Vec3 <a class="code" href="class_ray.html#aa5939e5cb40a7f6ed5bff4a6bdddea5f">m_invDirection</a>;</div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;</div>
-<div class="line"><a name="l00041"></a><span class="lineno"><a class="line" href="class_ray.html#a03a8666bba98c8fd8de5d0158a95ae61">   41</a></span>&#160;  <span class="keywordtype">int</span> <a class="code" href="class_ray.html#a03a8666bba98c8fd8de5d0158a95ae61">m_depth</a> = 0;</div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;</div>
-<div class="line"><a name="l00044"></a><span class="lineno"><a class="line" href="class_ray.html#a8c00458c667d39081ba9340475d30f51">   44</a></span>&#160;  <span class="keywordtype">float</span> <a class="code" href="class_ray.html#a8c00458c667d39081ba9340475d30f51">m_maxT</a> = std::numeric_limits&lt;int&gt;::max();</div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;</div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;};</div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;</div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;<span class="preprocessor">#endif//__RAY_HPP__</span></div>
-<div class="ttc" id="class_ray_html_a67409333a542d988a7b6fd2ef9ef705b"><div class="ttname"><a href="class_ray.html#a67409333a542d988a7b6fd2ef9ef705b">Ray::m_direction</a></div><div class="ttdeci">ngl::Vec3 m_direction</div><div class="ttdoc">dirction of the ray </div><div class="ttdef"><b>Definition:</b> <a href="_ray_8hpp_source.html#l00035">Ray.hpp:35</a></div></div>
-<div class="ttc" id="class_ray_html_a8c00458c667d39081ba9340475d30f51"><div class="ttname"><a href="class_ray.html#a8c00458c667d39081ba9340475d30f51">Ray::m_maxT</a></div><div class="ttdeci">float m_maxT</div><div class="ttdoc">maximum paramteric value (t) for the ray </div><div class="ttdef"><b>Definition:</b> <a href="_ray_8hpp_source.html#l00044">Ray.hpp:44</a></div></div>
+<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="preprocessor">#include &quot;ngl/Vec3.h&quot;</span></div>
+<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;</div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;</div>
+<div class="line"><a name="l00016"></a><span class="lineno"><a class="line" href="class_ray.html">   16</a></span>&#160;<span class="keyword">class </span><a class="code" href="class_ray.html">Ray</a></div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;{</div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;<span class="keyword">public</span>:</div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;  <a class="code" href="class_ray.html#a4c8d138f48dbd8c05e2bb38989d0a5eb">Ray</a>() = <span class="keywordflow">default</span>;</div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;</div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;  <a class="code" href="class_ray.html#a4c8d138f48dbd8c05e2bb38989d0a5eb">Ray</a>(ngl::Vec3 _origin, ngl::Vec3 _direction, <span class="keywordtype">int</span> _depth = 0);</div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;</div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;  <span class="keywordtype">void</span> <a class="code" href="class_ray.html#a03413a6afcc04f8a1e4825ce3e1e855a">setInvDirection</a>();</div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;</div>
+<div class="line"><a name="l00031"></a><span class="lineno"><a class="line" href="class_ray.html#a7077e9a7f52c0b3471a590bd0cb74b85">   31</a></span>&#160;  ngl::Vec3 <a class="code" href="class_ray.html#a7077e9a7f52c0b3471a590bd0cb74b85">m_origin</a>;</div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;</div>
+<div class="line"><a name="l00034"></a><span class="lineno"><a class="line" href="class_ray.html#a67409333a542d988a7b6fd2ef9ef705b">   34</a></span>&#160;  ngl::Vec3 <a class="code" href="class_ray.html#a67409333a542d988a7b6fd2ef9ef705b">m_direction</a>;</div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;</div>
+<div class="line"><a name="l00037"></a><span class="lineno"><a class="line" href="class_ray.html#aa5939e5cb40a7f6ed5bff4a6bdddea5f">   37</a></span>&#160;  ngl::Vec3 <a class="code" href="class_ray.html#aa5939e5cb40a7f6ed5bff4a6bdddea5f">m_invDirection</a>;</div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;</div>
+<div class="line"><a name="l00040"></a><span class="lineno"><a class="line" href="class_ray.html#a03a8666bba98c8fd8de5d0158a95ae61">   40</a></span>&#160;  <span class="keywordtype">int</span> <a class="code" href="class_ray.html#a03a8666bba98c8fd8de5d0158a95ae61">m_depth</a> = 0;</div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;</div>
+<div class="line"><a name="l00043"></a><span class="lineno"><a class="line" href="class_ray.html#a8c00458c667d39081ba9340475d30f51">   43</a></span>&#160;  <span class="keywordtype">float</span> <a class="code" href="class_ray.html#a8c00458c667d39081ba9340475d30f51">m_maxT</a> = std::numeric_limits&lt;int&gt;::max();</div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;</div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;};</div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;</div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;<span class="preprocessor">#endif // end of RAY_HPP__</span></div>
+<div class="ttc" id="class_ray_html_a67409333a542d988a7b6fd2ef9ef705b"><div class="ttname"><a href="class_ray.html#a67409333a542d988a7b6fd2ef9ef705b">Ray::m_direction</a></div><div class="ttdeci">ngl::Vec3 m_direction</div><div class="ttdoc">dirction of the ray </div><div class="ttdef"><b>Definition:</b> <a href="_ray_8hpp_source.html#l00034">Ray.hpp:34</a></div></div>
+<div class="ttc" id="class_ray_html_a8c00458c667d39081ba9340475d30f51"><div class="ttname"><a href="class_ray.html#a8c00458c667d39081ba9340475d30f51">Ray::m_maxT</a></div><div class="ttdeci">float m_maxT</div><div class="ttdoc">maximum paramteric value (t) for the ray </div><div class="ttdef"><b>Definition:</b> <a href="_ray_8hpp_source.html#l00043">Ray.hpp:43</a></div></div>
 <div class="ttc" id="class_ray_html_a03413a6afcc04f8a1e4825ce3e1e855a"><div class="ttname"><a href="class_ray.html#a03413a6afcc04f8a1e4825ce3e1e855a">Ray::setInvDirection</a></div><div class="ttdeci">void setInvDirection()</div><div class="ttdoc">sets the inverse direction, 1/m_direction{x, y, z}, to be used in ray/bbox intersections ...</div><div class="ttdef"><b>Definition:</b> <a href="_ray_8cpp_source.html#l00015">Ray.cpp:15</a></div></div>
-<div class="ttc" id="class_ray_html_aa5939e5cb40a7f6ed5bff4a6bdddea5f"><div class="ttname"><a href="class_ray.html#aa5939e5cb40a7f6ed5bff4a6bdddea5f">Ray::m_invDirection</a></div><div class="ttdeci">ngl::Vec3 m_invDirection</div><div class="ttdoc">1/direction of the ray </div><div class="ttdef"><b>Definition:</b> <a href="_ray_8hpp_source.html#l00038">Ray.hpp:38</a></div></div>
+<div class="ttc" id="class_ray_html_aa5939e5cb40a7f6ed5bff4a6bdddea5f"><div class="ttname"><a href="class_ray.html#aa5939e5cb40a7f6ed5bff4a6bdddea5f">Ray::m_invDirection</a></div><div class="ttdeci">ngl::Vec3 m_invDirection</div><div class="ttdoc">1/direction of the ray </div><div class="ttdef"><b>Definition:</b> <a href="_ray_8hpp_source.html#l00037">Ray.hpp:37</a></div></div>
 <div class="ttc" id="class_ray_html_a4c8d138f48dbd8c05e2bb38989d0a5eb"><div class="ttname"><a href="class_ray.html#a4c8d138f48dbd8c05e2bb38989d0a5eb">Ray::Ray</a></div><div class="ttdeci">Ray()=default</div><div class="ttdoc">default ctor </div></div>
-<div class="ttc" id="class_ray_html_a7077e9a7f52c0b3471a590bd0cb74b85"><div class="ttname"><a href="class_ray.html#a7077e9a7f52c0b3471a590bd0cb74b85">Ray::m_origin</a></div><div class="ttdeci">ngl::Vec3 m_origin</div><div class="ttdoc">origin of the ray </div><div class="ttdef"><b>Definition:</b> <a href="_ray_8hpp_source.html#l00032">Ray.hpp:32</a></div></div>
-<div class="ttc" id="class_ray_html_a03a8666bba98c8fd8de5d0158a95ae61"><div class="ttname"><a href="class_ray.html#a03a8666bba98c8fd8de5d0158a95ae61">Ray::m_depth</a></div><div class="ttdeci">int m_depth</div><div class="ttdoc">recursive depth of the ray </div><div class="ttdef"><b>Definition:</b> <a href="_ray_8hpp_source.html#l00041">Ray.hpp:41</a></div></div>
-<div class="ttc" id="class_ray_html"><div class="ttname"><a href="class_ray.html">Ray</a></div><div class="ttdoc">The Ray class holds an origin and direction that define a ray Intersection routines are left up to to...</div><div class="ttdef"><b>Definition:</b> <a href="_ray_8hpp_source.html#l00017">Ray.hpp:17</a></div></div>
+<div class="ttc" id="class_ray_html_a7077e9a7f52c0b3471a590bd0cb74b85"><div class="ttname"><a href="class_ray.html#a7077e9a7f52c0b3471a590bd0cb74b85">Ray::m_origin</a></div><div class="ttdeci">ngl::Vec3 m_origin</div><div class="ttdoc">origin of the ray </div><div class="ttdef"><b>Definition:</b> <a href="_ray_8hpp_source.html#l00031">Ray.hpp:31</a></div></div>
+<div class="ttc" id="class_ray_html_a03a8666bba98c8fd8de5d0158a95ae61"><div class="ttname"><a href="class_ray.html#a03a8666bba98c8fd8de5d0158a95ae61">Ray::m_depth</a></div><div class="ttdeci">int m_depth</div><div class="ttdoc">recursive depth of the ray </div><div class="ttdef"><b>Definition:</b> <a href="_ray_8hpp_source.html#l00040">Ray.hpp:40</a></div></div>
+<div class="ttc" id="class_ray_html"><div class="ttname"><a href="class_ray.html">Ray</a></div><div class="ttdoc">The Ray class holds an origin and direction that define a ray Intersection routines are left up to to...</div><div class="ttdef"><b>Definition:</b> <a href="_ray_8hpp_source.html#l00016">Ray.hpp:16</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Thu Apr 14 2016 17:26:08 for myRT by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Fri Apr 22 2016 13:00:40 for myRT by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.9.1
 </small></address>

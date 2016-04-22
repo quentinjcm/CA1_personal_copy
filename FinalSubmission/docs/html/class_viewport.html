@@ -123,9 +123,9 @@ Private Slots</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-attribs"></a>
 Private Attributes</h2></td></tr>
-<tr class="memitem:a86bded0c2cc4afe305a30befccf8393c"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_ui_1_1_viewport.html">Ui::Viewport</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_viewport.html#a86bded0c2cc4afe305a30befccf8393c">m_ui</a></td></tr>
-<tr class="memdesc:a86bded0c2cc4afe305a30befccf8393c"><td class="mdescLeft">&#160;</td><td class="mdescRight">ui associated with the viewport  <a href="#a86bded0c2cc4afe305a30befccf8393c">More...</a><br /></td></tr>
-<tr class="separator:a86bded0c2cc4afe305a30befccf8393c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9fefbdf6565f3a5b387b1d7f8d6f6ec8"><td class="memItemLeft" align="right" valign="top">std::unique_ptr&lt; <a class="el" href="class_ui_1_1_viewport.html">Ui::Viewport</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_viewport.html#a9fefbdf6565f3a5b387b1d7f8d6f6ec8">m_ui</a></td></tr>
+<tr class="memdesc:a9fefbdf6565f3a5b387b1d7f8d6f6ec8"><td class="mdescLeft">&#160;</td><td class="mdescRight">ui associated with the viewport  <a href="#a9fefbdf6565f3a5b387b1d7f8d6f6ec8">More...</a><br /></td></tr>
+<tr class="separator:a9fefbdf6565f3a5b387b1d7f8d6f6ec8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:abd28bbb502c373b5f972e18fc03233b4"><td class="memItemLeft" align="right" valign="top">std::shared_ptr&lt; <a class="el" href="struct_render_settings.html">RenderSettings</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_viewport.html#abd28bbb502c373b5f972e18fc03233b4">m_settings</a></td></tr>
 <tr class="memdesc:abd28bbb502c373b5f972e18fc03233b4"><td class="mdescLeft">&#160;</td><td class="mdescRight">shared pointer to the render settings that the ui will be changing  <a href="#abd28bbb502c373b5f972e18fc03233b4">More...</a><br /></td></tr>
 <tr class="separator:abd28bbb502c373b5f972e18fc03233b4"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -138,7 +138,7 @@ Private Attributes</h2></td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock">
-<p>Definition at line <a class="el" href="_viewport_8hpp_source.html#l00022">22</a> of file <a class="el" href="_viewport_8hpp_source.html">Viewport.hpp</a>.</p>
+<p>Definition at line <a class="el" href="_viewport_8hpp_source.html#l00024">24</a> of file <a class="el" href="_viewport_8hpp_source.html">Viewport.hpp</a>.</p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a class="anchor" id="a9590a1910776721dff1059e0454e8563"></a>
 <div class="memitem">
@@ -209,7 +209,7 @@ Private Attributes</h2></td></tr>
 
 <p>slot that loads the scene curently specified in the ui </p>
 
-<p>Definition at line <a class="el" href="_viewport_8cpp_source.html#l00085">85</a> of file <a class="el" href="_viewport_8cpp_source.html">Viewport.cpp</a>.</p>
+<p>Definition at line <a class="el" href="_viewport_8cpp_source.html#l00081">81</a> of file <a class="el" href="_viewport_8cpp_source.html">Viewport.cpp</a>.</p>
 
 </div>
 </div>
@@ -236,7 +236,7 @@ Private Attributes</h2></td></tr>
 
 <p>slot that runs the renderer for the currently set scene when the render button is pressed </p>
 
-<p>Definition at line <a class="el" href="_viewport_8cpp_source.html#l00065">65</a> of file <a class="el" href="_viewport_8cpp_source.html">Viewport.cpp</a>.</p>
+<p>Definition at line <a class="el" href="_viewport_8cpp_source.html#l00064">64</a> of file <a class="el" href="_viewport_8cpp_source.html">Viewport.cpp</a>.</p>
 
 </div>
 </div>
@@ -261,7 +261,7 @@ Private Attributes</h2></td></tr>
 
 <p>a flag to tell the ui that no scene has been loaded into the ui </p>
 
-<p>Definition at line <a class="el" href="_viewport_8hpp_source.html#l00046">46</a> of file <a class="el" href="_viewport_8hpp_source.html">Viewport.hpp</a>.</p>
+<p>Definition at line <a class="el" href="_viewport_8hpp_source.html#l00048">48</a> of file <a class="el" href="_viewport_8hpp_source.html">Viewport.hpp</a>.</p>
 
 </div>
 </div>
@@ -285,7 +285,7 @@ Private Attributes</h2></td></tr>
 
 <p>shared pointer to the scene that will be build and rendered through the ui </p>
 
-<p>Definition at line <a class="el" href="_viewport_8hpp_source.html#l00043">43</a> of file <a class="el" href="_viewport_8hpp_source.html">Viewport.hpp</a>.</p>
+<p>Definition at line <a class="el" href="_viewport_8hpp_source.html#l00045">45</a> of file <a class="el" href="_viewport_8hpp_source.html">Viewport.hpp</a>.</p>
 
 </div>
 </div>
@@ -309,11 +309,11 @@ Private Attributes</h2></td></tr>
 
 <p>shared pointer to the render settings that the ui will be changing </p>
 
-<p>Definition at line <a class="el" href="_viewport_8hpp_source.html#l00040">40</a> of file <a class="el" href="_viewport_8hpp_source.html">Viewport.hpp</a>.</p>
+<p>Definition at line <a class="el" href="_viewport_8hpp_source.html#l00042">42</a> of file <a class="el" href="_viewport_8hpp_source.html">Viewport.hpp</a>.</p>
 
 </div>
 </div>
-<a class="anchor" id="a86bded0c2cc4afe305a30befccf8393c"></a>
+<a class="anchor" id="a9fefbdf6565f3a5b387b1d7f8d6f6ec8"></a>
 <div class="memitem">
 <div class="memproto">
 <table class="mlabels">
@@ -321,7 +321,7 @@ Private Attributes</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="class_ui_1_1_viewport.html">Ui::Viewport</a>* Viewport::m_ui</td>
+          <td class="memname">std::unique_ptr&lt;<a class="el" href="class_ui_1_1_viewport.html">Ui::Viewport</a>&gt; Viewport::m_ui</td>
         </tr>
       </table>
   </td>
@@ -333,7 +333,7 @@ Private Attributes</h2></td></tr>
 
 <p>ui associated with the viewport </p>
 
-<p>Definition at line <a class="el" href="_viewport_8hpp_source.html#l00037">37</a> of file <a class="el" href="_viewport_8hpp_source.html">Viewport.hpp</a>.</p>
+<p>Definition at line <a class="el" href="_viewport_8hpp_source.html#l00039">39</a> of file <a class="el" href="_viewport_8hpp_source.html">Viewport.hpp</a>.</p>
 
 </div>
 </div>
@@ -344,7 +344,7 @@ Private Attributes</h2></td></tr>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Thu Apr 14 2016 17:26:08 for myRT by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Fri Apr 22 2016 13:00:40 for myRT by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.9.1
 </small></address>

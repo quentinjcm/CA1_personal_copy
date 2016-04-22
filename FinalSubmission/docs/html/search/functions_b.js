@@ -22,6 +22,7 @@ var searchData=
   ['setfilmheight',['setFilmHeight',['../struct_render_settings.html#a9a8e3128251b0f65a45bb9c14133c7d0',1,'RenderSettings']]],
   ['setfilmwidth',['setFilmWidth',['../struct_render_settings.html#a6b57e17397ffc209b8e620160f17d440',1,'RenderSettings']]],
   ['setfov',['setFOV',['../struct_render_settings.html#ab3bb17b4f4b239ea36b0d880df558479',1,'RenderSettings']]],
+  ['setimagecomplete',['setImageComplete',['../class_film.html#a9af8cf26fec913d8fcff21af18e264c0',1,'Film']]],
   ['setinvdirection',['setInvDirection',['../class_ray.html#a03413a6afcc04f8a1e4825ce3e1e855a',1,'Ray']]],
   ['setmaxraybounces',['setMaxRayBounces',['../struct_render_settings.html#a3576a1091b218ed8f4569394a2867bc3',1,'RenderSettings']]],
   ['setmultithread',['setMultithread',['../struct_render_settings.html#a414205f82dfd3477bdd277df1bbca763',1,'RenderSettings']]],

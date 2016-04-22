@@ -30,6 +30,7 @@ var searchData=
   ['setfilmheight',['setFilmHeight',['../struct_render_settings.html#a9a8e3128251b0f65a45bb9c14133c7d0',1,'RenderSettings']]],
   ['setfilmwidth',['setFilmWidth',['../struct_render_settings.html#a6b57e17397ffc209b8e620160f17d440',1,'RenderSettings']]],
   ['setfov',['setFOV',['../struct_render_settings.html#ab3bb17b4f4b239ea36b0d880df558479',1,'RenderSettings']]],
+  ['setimagecomplete',['setImageComplete',['../class_film.html#a9af8cf26fec913d8fcff21af18e264c0',1,'Film']]],
   ['setinvdirection',['setInvDirection',['../class_ray.html#a03413a6afcc04f8a1e4825ce3e1e855a',1,'Ray']]],
   ['setmaxraybounces',['setMaxRayBounces',['../struct_render_settings.html#a3576a1091b218ed8f4569394a2867bc3',1,'RenderSettings']]],
   ['setmultithread',['setMultithread',['../struct_render_settings.html#a414205f82dfd3477bdd277df1bbca763',1,'RenderSettings']]],
@@ -41,5 +42,5 @@ var searchData=
   ['sintersect',['sIntersect',['../class_geometric_prim.html#aea42c30e82bdea46b4911554911e804e',1,'GeometricPrim::sIntersect()'],['../class_primative.html#a1e489c9aafc4207f6063ae2c447a244f',1,'Primative::sIntersect()'],['../class_scene.html#a30483853f41cac8593e482913db6b2ec',1,'Scene::sIntersect()'],['../class_triangle_mesh.html#aaca20b49ed5a1b0389834d92a58ad863',1,'TriangleMesh::sIntersect()']]],
   ['srule',['srule',['../_scene_parser_8cpp.html#ac4b2babc98ebd4787daf9e4ea20caa4a',1,'SceneParser.cpp']]],
   ['statusbar',['statusbar',['../class_ui___viewport.html#a17b3fa653174059c437318967d0cf1a4',1,'Ui_Viewport']]],
-  ['stringdata0',['stringdata0',['../structqt__meta__stringdata___render_settings__t.html#aaf3e8de3975abe9412e8df4d1d2dfd3f',1,'qt_meta_stringdata_RenderSettings_t::stringdata0()'],['../structqt__meta__stringdata___viewport__t.html#a6a6615653e0d1e55eaafa86b7b0e18b6',1,'qt_meta_stringdata_Viewport_t::stringdata0()']]]
+  ['stringdata0',['stringdata0',['../structqt__meta__stringdata___render_settings__t.html#aa7bf1300166a168aedae50d3bb928ee6',1,'qt_meta_stringdata_RenderSettings_t::stringdata0()'],['../structqt__meta__stringdata___viewport__t.html#a6a6615653e0d1e55eaafa86b7b0e18b6',1,'qt_meta_stringdata_Viewport_t::stringdata0()']]]
 ];
