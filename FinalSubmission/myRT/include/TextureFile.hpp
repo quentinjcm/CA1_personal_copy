@@ -1,5 +1,5 @@
-#ifndef TEXTUREFILE_HPP
-#define TEXTUREFILE_HPP
+#ifndef TEXTUREFILE_HPP__
+#define TEXTUREFILE_HPP__
 
 #include <string>
 #include <vector>
@@ -45,4 +45,4 @@ private:
   int m_imgHeight;
 };
 
-#endif//TEXTUREFILE_HPP
+#endif // end of TEXTUREFILE_HPP__

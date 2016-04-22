@@ -1,5 +1,5 @@
-#ifndef SCENEPARSER_HPP
-#define SCENEPARSER_HPP
+#ifndef SCENEPARSER_HPP__
+#define SCENEPARSER_HPP__
 
 #include <string>
 #include <memory>
@@ -76,4 +76,4 @@ private:
   std::string m_fileName;
 };
 
-#endif//SCENEPARSER_HPP
+#endif // end of SCENEPARSER_HPP__

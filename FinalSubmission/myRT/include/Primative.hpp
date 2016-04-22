@@ -1,5 +1,5 @@
-#ifndef PRIMATIVE_HPP
-#define PRIMATIVE_HPP
+#ifndef PRIMATIVE_HPP__
+#define PRIMATIVE_HPP__
 
 #include "Ray.hpp"
 #include "IsectData.hpp"
@@ -23,6 +23,8 @@
 class Primative
 {
 public:
+  virtual ~Primative();
+
   /// @brief an intersection method that gets the geometric data of the closest intersection
   /// @param [in] &_ray is the ray that is being tested for intersection
   /// @param [in] *_intersection is a data structure that gets filled up with data about the point of intersection
@@ -40,4 +42,4 @@ public:
   virtual void getGLData(std::vector<ngl::Vec3> *_points, std::vector<ngl::Vec3> *_normals);
 };
 
-#endif
+#endif  // end of PRIMATIVE_HPP__

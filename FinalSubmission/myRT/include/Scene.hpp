@@ -1,5 +1,5 @@
-#ifndef SCENE_HPP
-#define SCENE_HPP
+#ifndef SCENE_HPP__
+#define SCENE_HPP__
 
 #include <memory>
 #include <vector>
@@ -17,6 +17,8 @@
 class Scene: public Primative
 {
 public:
+  ~Scene();
+
   /// @brief intersection method that fills the intersection structure with data on the intersection
   /// @param [in] &_ray is the ray being tested for intersection
   /// @param [in] *_intersection is a data strucutre to be filled with data on the intersection
@@ -55,4 +57,4 @@ private:
   std::vector<std::shared_ptr<Primative>> m_sceneGeo;
 };
 
-#endif
+#endif  // end of SCENE_HPP__

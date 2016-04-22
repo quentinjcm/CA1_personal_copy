@@ -1,5 +1,5 @@
-#ifndef SDLWINDOW_HPP
-#define SDLWINDOW_HPP
+#ifndef SDLWINDOW_HPP__
+#define SDLWINDOW_HPP__
 
 #include <vector>
 #include <SDL2/SDL.h>
@@ -64,4 +64,4 @@ private:
   Film *m_film;
 };
 
-#endif
+#endif // end of SDLWINDOW_HPP__

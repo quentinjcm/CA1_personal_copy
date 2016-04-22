@@ -1,5 +1,5 @@
-#ifndef CAMERA_HPP
-#define CAMERA_HPP
+#ifndef CAMERA_HPP__
+#define CAMERA_HPP__
 
 #include "ngl/Vec3.h"
 #include "ngl/Vec4.h"
@@ -64,4 +64,4 @@ private:
   double m_fovMult;
 };
 
-#endif
+#endif  // end of CAMERA_HPP__

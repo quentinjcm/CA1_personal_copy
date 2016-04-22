@@ -1,4 +1,10 @@
-#include  "Scene.hpp"
+#include <iostream>
+#include "Scene.hpp"
+
+Scene::~Scene()
+{
+  std::cout << "Cleaning scene" << std::endl;
+}
 
 bool Scene::intersect(const Ray &_ray, IsectData *_intersection)
 {

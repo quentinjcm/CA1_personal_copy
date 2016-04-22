@@ -1,5 +1,5 @@
-#ifndef GEOMETRICPRIM_HPP
-#define GEOMETRICPRIM_HPP
+#ifndef GEOMETRICPRIM_HPP__
+#define GEOMETRICPRIM_HPP__
 
 #include <memory>
 #include "Primative.hpp"
@@ -52,4 +52,4 @@ private:
   std::shared_ptr<Material> m_material;
 };
 
-#endif
+#endif  // end of GEOMETRICPRIM_HPP__

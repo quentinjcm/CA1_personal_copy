@@ -1,5 +1,5 @@
-#ifndef RENDERTASK_HPP
-#define RENDERTASK_HPP
+#ifndef RENDERTASK_HPP__
+#define RENDERTASK_HPP__
 
 #include <memory>
 #include <random>
@@ -122,4 +122,4 @@ public:
   int m_yMax;
 };
 
-#endif
+#endif // end of RENDERTASK_HPP__

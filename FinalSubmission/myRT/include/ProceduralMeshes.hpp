@@ -1,5 +1,5 @@
-#ifndef PROCEDURALMESHES_HPP
-#define PROCEDURALMESHES_HPP
+#ifndef PROCEDURALMESHES_HPP__
+#define PROCEDURALMESHES_HPP__
 
 #include <memory>
 #include "ngl/Vec3.h"
@@ -36,4 +36,4 @@ private:
   static ngl::Vec3 circularToCartesian(double _theta, double _phi);
 };
 
-#endif
+#endif  // end of PROCEDURALMESHES_HPP__

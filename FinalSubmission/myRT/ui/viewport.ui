@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>520</width>
-    <height>785</height>
+    <height>875</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -417,7 +417,7 @@
     <property name="geometry">
      <rect>
       <x>10</x>
-      <y>380</y>
+      <y>370</y>
       <width>491</width>
       <height>111</height>
      </rect>
@@ -456,9 +456,9 @@
     <property name="geometry">
      <rect>
       <x>10</x>
-      <y>510</y>
+      <y>490</y>
       <width>491</width>
-      <height>231</height>
+      <height>341</height>
      </rect>
     </property>
     <property name="readOnly">
@@ -468,11 +468,16 @@
      <string>INSTRUCTIONS:
     1. set desired parameters
     2. enter a scene path (relative to the executable)
+        2.1 several sample scenes can be cound in the scenes/
+               directrory
+        2.2 you can write custom scenes by followingthe format  
+               specified in the README.md file
     3. load a scene
     4. render scene
 
 WARNINGS:
-    -pressing buttons multiple times is buggy, need to fix
+    -pressing the load and render buttons quickly can result in 
+     multiple loads and renders which can be anoying
     -if red lines remain on render image, press 'u' to update the viewer
 </string>
     </property>

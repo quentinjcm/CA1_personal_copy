@@ -1,5 +1,5 @@
-#ifndef RAY_HPP
-#define RAY_HPP
+#ifndef RAY_HPP__
+#define RAY_HPP__
 
 #include <limits>
 #include "ngl/Vec3.h"
@@ -44,4 +44,4 @@ public:
 
 };
 
-#endif
+#endif // end of RAY_HPP__

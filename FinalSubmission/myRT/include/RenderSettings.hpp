@@ -1,5 +1,5 @@
-#ifndef RENDERSETTINGS_HPP
-#define RENDERSETTINGS_HPP
+#ifndef RENDERSETTINGS_HPP__
+#define RENDERSETTINGS_HPP__
 
 #include <iostream>
 #include "QObject"
@@ -168,4 +168,4 @@ public slots:
   void setScenePath(QString _path){m_sceneFilePath = _path;}
 };
 
-#endif
+#endif // end of RENDERSETTINGS_HPP__

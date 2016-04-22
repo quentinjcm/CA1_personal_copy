@@ -1,5 +1,5 @@
-#ifndef ISECTDATA_HPP
-#define ISECTDATA_HPP
+#ifndef ISECTDATA_HPP__
+#define ISECTDATA_HPP__
 
 #include <memory>
 #include <limits>
@@ -39,4 +39,4 @@ struct IsectData
   std::shared_ptr<Material> m_material = nullptr;
 };
 
-#endif
+#endif  // end of ISECTDATA_HPP__

@@ -1,5 +1,5 @@
-#ifndef FILM_HPP
-#define FILM_HPP
+#ifndef FILM_HPP__
+#define FILM_HPP__
 
 #include <vector>
 #include <memory>
@@ -62,4 +62,4 @@ private:
 
 
 
-#endif
+#endif  // end of FILM_HPP__

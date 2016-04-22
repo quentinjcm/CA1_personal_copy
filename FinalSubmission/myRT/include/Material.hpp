@@ -1,5 +1,5 @@
-#ifndef MATERIAL_HPP
-#define MATERIAL_HPP
+#ifndef MATERIAL_HPP__
+#define MATERIAL_HPP__
 
 #include <string>
 #include <memory>
@@ -56,4 +56,4 @@ public:
   bool m_isReflective;
 };
 
-#endif
+#endif  // end of MATERIAL_HPP__

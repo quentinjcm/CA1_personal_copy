@@ -1,5 +1,5 @@
-#ifndef BBOX_HPP
-#define BBOX_HPP
+#ifndef BBOX_HPP__
+#define BBOX_HPP__
 
 #include "ngl/Vec3.h"
 #include "Ray.hpp"
@@ -47,4 +47,4 @@ private:
   ngl::Vec3 m_pMax;
 };
 
-#endif
+#endif // end of BBOX_HPP__

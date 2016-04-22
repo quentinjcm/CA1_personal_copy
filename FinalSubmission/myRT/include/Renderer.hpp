@@ -1,5 +1,6 @@
-#ifndef RENDERER_HPP
-#define RENDERER_HPP
+#ifndef RENDERER_HPP__
+#define RENDERER_HPP__
+
 #include <memory>
 #include <vector>
 #include "RenderTask.hpp"
@@ -47,4 +48,4 @@ private:
   const std::shared_ptr<RenderSettings> m_settings;
 };
 
-#endif
+#endif // end of RENDERER_HPP__

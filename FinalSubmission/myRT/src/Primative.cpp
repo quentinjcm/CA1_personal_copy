@@ -6,6 +6,11 @@
 /// @file Primative.cpp
 /// @brief implementation file for the Primative abstract base class
 
+Primative::~Primative()
+{
+  std::cout << "deleting primative" << std::endl;
+}
+
 bool Primative::intersect(const Ray &_ray, IsectData *_intersection)
 {
   std::cerr << "intersection method for derrived class not defined" << std::endl;
