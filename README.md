@@ -21,7 +21,7 @@ Clone the git repository:
 ```
 $git clone git@github.com:NCCA/quentinjcm-CA1.git
 ```
-Move move to the downloaded file:
+Move to the downloaded file:
 ```
 $cd quentinjcm-CA1/FinalSubmission/myRT
 ```
