@@ -2,7 +2,7 @@ TARGET=myRT
 
 QT+=gui \
     core \
-    declarative
+    widgets
 
 CONFIG+=c++11
 CONFIG+= -v
@@ -75,6 +75,7 @@ OTHER_FILES+=todo.txt \
              scenes/* \
              textures/* \
              saves/*
+
 
 FORMS += ui/viewport.ui
 MOC_DIR += moc/

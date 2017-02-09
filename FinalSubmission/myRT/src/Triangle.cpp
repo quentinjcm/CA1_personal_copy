@@ -59,14 +59,14 @@ bool Triangle::intersect(const Ray &_ray, IsectData *_intersection)
     //checking to see if the point is inside the triangle by
     //projecting the triangle along the major axis of the normal
     //[u0, v0] = vector from m_v0 to intersection point
-    double u0 = p[m_i1] - m_v0[m_i1];
-    double v0 = p[m_i2] - m_v0[m_i2];
+    double u0 = p.m_openGL[m_i1] - m_v0.m_openGL[m_i1];
+    double v0 = p.m_openGL[m_i2] - m_v0.m_openGL[m_i2];
     //[u1, v1] = vector from m_v0 to m_v1
-    double u1 = m_v1[m_i1] - m_v0[m_i1];
-    double v1 = m_v1[m_i2] - m_v0[m_i2];
+    double u1 = m_v1.m_openGL[m_i1] - m_v0.m_openGL[m_i1];
+    double v1 = m_v1.m_openGL[m_i2] - m_v0.m_openGL[m_i2];
     //[u2, v2] = vector from m_v0 to m_v2
-    double u2 = m_v2[m_i1] - m_v0[m_i1];
-    double v2 = m_v2[m_i2] - m_v0[m_i2];
+    double u2 = m_v2.m_openGL[m_i1] - m_v0.m_openGL[m_i1];
+    double v2 = m_v2.m_openGL[m_i2] - m_v0.m_openGL[m_i2];
 
     //setting alpha and beta to be balues that indicate no intersection
     double alpha = -1;

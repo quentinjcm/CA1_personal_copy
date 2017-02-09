@@ -35,15 +35,15 @@ Camera::Camera(ngl::Vec3 _pos,
   //camera space to points in world space
 
   //matrix to allign roataions
-  ngl::Mat4 rotate(r[0], u[0], d[0], 0,
-                   r[1], u[1], d[1], 0,
-                   r[2], u[2], d[2], 0,
+  ngl::Mat4 rotate(r.m_openGL[0], u.m_openGL[0], d.m_openGL[0], 0,
+                   r.m_openGL[1], u.m_openGL[1], d.m_openGL[1], 0,
+                   r.m_openGL[2], u.m_openGL[2], d.m_openGL[2], 0,
                    0,    0,    0,    1);
 
   //matrix for position transformations
-  ngl::Mat4 translate(1, 0, 0, _pos[0],
-                      0, 1, 0, _pos[1],
-                      0, 0, 1, _pos[2],
+  ngl::Mat4 translate(1, 0, 0, _pos.m_openGL[0],
+                      0, 1, 0, _pos.m_openGL[1],
+                      0, 0, 1, _pos.m_openGL[2],
                       0, 0, 0,  1);
   //I store the roataion seperately because that is needed on its own
   //to roatate the direction vector of rays without translating them

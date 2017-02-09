@@ -149,9 +149,9 @@ void SceneParser::parseObj(const char *_begin)
     std::vector<ngl::Face> faces = objMesh.getFaceList();
     for (ngl::Face f: faces){
       //converting uv cords from vec3 to vec2
-      ngl::Vec2 uv0(uvs[f.m_tex[0]][0], uvs[f.m_tex[0]][1]);
-      ngl::Vec2 uv1(uvs[f.m_tex[1]][0], uvs[f.m_tex[1]][1]);
-      ngl::Vec2 uv2(uvs[f.m_tex[2]][0], uvs[f.m_tex[2]][1]);
+      ngl::Vec2 uv0(uvs[f.m_tex[0]].m_openGL[0], uvs[f.m_tex[0]].m_openGL[1]);
+      ngl::Vec2 uv1(uvs[f.m_tex[1]].m_openGL[0], uvs[f.m_tex[1]].m_openGL[1]);
+      ngl::Vec2 uv2(uvs[f.m_tex[2]].m_openGL[0], uvs[f.m_tex[2]].m_openGL[1]);
       // extracting face data
       ngl::Vec3 v0(verts[f.m_vert[0]]);
       ngl::Vec3 v1(verts[f.m_vert[1]]);
@@ -216,9 +216,9 @@ void SceneParser::parseLight(const char *_begin)
 
   // first three values are position, then colour then intensity
   srule light = "LIGHT:" >>
-                spt::real_p[spt::assign_a(pos[0])] >>
-                spt::real_p[spt::assign_a(pos[1])] >>
-                spt::real_p[spt::assign_a(pos[2])] >>
+                spt::real_p[spt::assign_a(pos.m_openGL[0])] >>
+                spt::real_p[spt::assign_a(pos.m_openGL[1])] >>
+                spt::real_p[spt::assign_a(pos.m_openGL[2])] >>
                 spt::real_p[spt::assign_a(colour.m_r)] >>
                 spt::real_p[spt::assign_a(colour.m_g)] >>
                 spt::real_p[spt::assign_a(colour.m_b)] >>
@@ -237,9 +237,9 @@ void SceneParser::parseTranslate(const char *_begin)
 
   // a translate requires 3 reals, tx, ty and tz
   srule translate = "TRANSLATE:" >>
-                    spt::real_p[spt::assign_a(t[0])] >>
-                    spt::real_p[spt::assign_a(t[1])] >>
-                    spt::real_p[spt::assign_a(t[2])];
+                    spt::real_p[spt::assign_a(t.m_openGL[0])] >>
+                    spt::real_p[spt::assign_a(t.m_openGL[1])] >>
+                    spt::real_p[spt::assign_a(t.m_openGL[2])];
 
   // parse line with rule defined above
   spt::parse(_begin, translate, spt::space_p);
@@ -254,9 +254,9 @@ void SceneParser::parseRotate(const char *_begin)
 
   // rotate requires 3 reals, rx, ry and rz
   srule rotate = "ROTATE:" >>
-                spt::real_p[spt::assign_a(r[0])] >>
-                spt::real_p[spt::assign_a(r[1])] >>
-                spt::real_p[spt::assign_a(r[2])];
+                spt::real_p[spt::assign_a(r.m_openGL[0])] >>
+                spt::real_p[spt::assign_a(r.m_openGL[1])] >>
+                spt::real_p[spt::assign_a(r.m_openGL[2])];
 
   // pares the line using the rotate rule
   spt::parse(_begin, rotate, spt::space_p);

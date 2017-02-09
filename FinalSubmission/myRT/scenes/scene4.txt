@@ -1,0 +1,30 @@
+#ground plane
+PLANE: 20 20
+
+#walls
+ROTATE: 0 0 90
+TRANSLATE: 10 10 0
+PLANE: 20 20
+
+ROTATE: 90 0 0
+TRANSLATE: 0 10 -10
+PLANE: 20 20
+
+ROTATE: -90 0 0
+TRANSLATE: 0 10 10
+PLANE: 20 20
+
+ROTATE: 0 0 -90
+TRANSLATE: -10 10 0
+PLANE: 20 20
+
+MAT: 0 0 0 50 1.6 0 1 textures/texture.png
+ROTATE: 0 0 0
+TRANSLATE: 0 0 0
+OBJ: scenes/bot.obj
+
+
+
+
+
+LIGHT: 0 15 0 1 1 1 2
